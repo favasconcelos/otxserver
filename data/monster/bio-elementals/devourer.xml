@@ -9,7 +9,6 @@
 		<flag attackable="1" />
 		<flag hostile="1" />
 		<flag illusionable="0" />
-				<flag isblockable="0" />
 		<flag convinceable="0" />
 		<flag pushable="0" />
 		<flag canpushcreatures="1" />
@@ -19,6 +18,7 @@
 		<flag lightcolor="0" />
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
+		<flag isblockable="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="62" attack="50" poison="360" />
@@ -39,7 +39,7 @@
 			<attribute key="areaEffect" value="greenbubble" />
 		</attack>
 	</attacks>
-	<defenses armor="15" defense="25">
+	<defenses armor="53" defense="53">
 		<defense name="healing" interval="2000" chance="6" min="100" max="150">
 			<attribute key="areaEffect" value="greenshimmer" />
 		</defense>
@@ -62,24 +62,24 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="165" chance="100000" /><!-- gold coin -->
-		<item id="2152" countmax="2" chance="9100" /><!-- platinum coin -->
-		<item id="23553" chance="1670" /><!-- glob of glooth -->
-		<item id="2151" chance="940" /><!-- talon -->
-		<item id="2146" countmax="3" chance="1170" /><!-- small sapphire -->
-		<item id="2150" countmax="3" chance="1030" /><!-- small amethyst -->
-		<item id="9970" countmax="3" chance="1030" /><!-- small topaz -->
-		<item id="2149" countmax="3" chance="1170" /><!-- small emeralds -->
-		<item id="2147" countmax="3" chance="1190" /><!-- small rubies -->
-		<item id="2145" countmax="3" chance="1050" /><!-- small diamond -->
-		<item id="2154" chance="1090" /><!-- yellow gem -->
-		<item id="2155" chance="100" /><!-- green gem -->
-		<item id="23535" chance="210" /><!-- glooth cape -->
-		<item id="23554" chance="130" /><!-- glooth amulet -->
-		<item id="23550" chance="350" /><!-- glooth blade -->
-		<item id="23549" chance="510" /><!-- glooth club -->
-		<item id="23551" chance="390" /><!-- glooth axe -->
-		<item id="23529" chance="370" /><!-- glooth spear -->
-		<item id="8912" chance="250" /><!-- springsprout rod -->
-		<item id="2181" chance="260" /><!-- terra rod -->
+		<item id="2152" countmax="2" chance="60060" /><!-- platinum coin -->
+		<item id="23553" chance="14840" /><!-- glob of glooth -->
+		<item id="2147" countmax="3" chance="6210" /><!-- small rubies -->
+		<item id="2146" countmax="3" chance="6190" /><!-- small sapphire -->
+		<item id="2149" countmax="3" chance="6010" /><!-- small emeralds -->
+		<item id="9970" countmax="3" chance="6000" /><!-- small topaz -->
+		<item id="2145" countmax="3" chance="5990" /><!-- small diamond -->
+		<item id="2150" countmax="3" chance="5960" /><!-- small amethyst -->
+		<item id="23551" chance="3010" /><!-- glooth axe -->
+		<item id="23550" chance="3000" /><!-- glooth blade -->
+		<item id="23549" chance="2940" /><!-- glooth club -->
+		<item id="2151" chance="2470" /><!-- talon -->
+		<item id="23529" chance="1960" /><!-- glooth spear -->
+		<item id="2154" chance="1790" /><!-- yellow gem -->
+		<item id="8912" chance="1180" /><!-- springsprout rod -->
+		<item id="23554" chance="1060" /><!-- glooth amulet -->
+		<item id="2181" chance="690" /><!-- terra rod -->
+		<item id="23535" chance="240" /><!-- glooth cape -->
+		<item id="2155" chance="90" /><!-- green gem -->
 	</loot>
 </monster>

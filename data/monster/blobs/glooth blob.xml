@@ -11,12 +11,12 @@
 		<flag illusionable="0" />
 		<flag convinceable="0" />
 		<flag pushable="0" />
-				<flag isblockable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag isblockable="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="45" attack="40" poison="280" />
@@ -27,12 +27,12 @@
 			<attribute key="areaEffect" value="greenbubble" />
 			<attribute key="shootEffect" value="envenomedarrow" />
 		</attack>
-		<attack name="poison" interval="2000" chance="10" range="7" target="1" min="-60" max="-105">
+		<attack name="poison" interval="2000" chance="10" range="7" target="1" min="-60" max="-150">
 			<attribute key="areaEffect" value="poison" />
 			<attribute key="shootEffect" value="poison" />
 		</attack>
 	</attacks>
-	<defenses armor="10" defense="10" />
+	<defenses armor="30" defense="30" />
 	<elements>
 		<element firePercent="-10" />
 		<element icePercent="20" />
@@ -49,11 +49,11 @@
 	<loot>
 		<item id="2148" countmax="70" chance="100000" /><!-- gold coin -->
 		<item id="23553" chance="15410" /><!-- glob of glooth -->
-		<item id="2146" countmax="2" chance="3310" /><!-- small sapphire -->
-		<item id="9970" countmax="2" chance="3420" /><!-- small topaz -->
-		<item id="23554" chance="400" /><!-- glooth amulet -->
-		<item id="23550" chance="510" /><!-- glooth blade -->
-		<item id="23549" chance="580" /><!-- glooth club -->
-		<item id="23551" chance="560" /><!-- glooth axe -->
+		<item id="2146" countmax="2" chance="3060" /><!-- small sapphire -->
+		<item id="9970" countmax="2" chance="2990" /><!-- small topaz -->
+		<item id="23549" chance="550" /><!-- glooth club -->
+		<item id="23551" chance="520" /><!-- glooth axe -->
+		<item id="23550" chance="500" /><!-- glooth blade -->
+		<item id="23554" chance="460" /><!-- glooth amulet -->
 	</loot>
 </monster>

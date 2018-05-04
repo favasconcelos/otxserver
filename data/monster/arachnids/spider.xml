@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Spider" nameDescription="a spider" race="venom" experience="12" speed="165" manacost="210">
+<monster name="Spider" nameDescription="a spider" race="venom" experience="12" speed="152" manacost="210">
 	<health now="20" max="20" />
 	<look type="30" corpse="5961" />
 	<targetchange interval="4000" chance="0" />
@@ -10,22 +10,22 @@
 		<flag illusionable="1" />
 		<flag convinceable="1" />
 		<flag pushable="1" />
-				<flag isblockable="0" />
 		<flag canpushitems="0" />
 		<flag canpushcreatures="0" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="6" />
+		<flag isblockable="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="10" attack="25" />
 	</attacks>
 	<defenses armor="5" defense="5" />
 	<elements>
-		<element firePercent="-1" />
+		<element firePercent="-20" />
 	</elements>
 	<loot>
-		<item id="2148" countmax="5" chance="63333" /><!-- gold coin -->
-		<item id="8859" chance="810" /><!-- spider fangs -->
+		<item id="2148" countmax="5" chance="66350" /><!-- gold coin -->
+		<item id="8859" chance="1060" /><!-- spider fangs -->
 	</loot>
 </monster>

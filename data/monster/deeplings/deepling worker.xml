@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Deepling Worker" nameDescription="a deepling worker" race="blood" experience="130" speed="210" manacost="0">
+<monster name="Deepling Worker" nameDescription="a deepling worker" race="blood" experience="130" speed="130" manacost="0">
 	<health now="190" max="190" />
 	<look type="470" corpse="15497" />
 	<targetchange interval="4000" chance="10" />
@@ -14,14 +14,15 @@
 		<flag canpushcreatures="1" />
 		<flag targetdistance="0" />
 		<flag runonhealth="20" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="30" attack="40" />
 	</attacks>
-	<defenses armor="10" defense="10" />
+	<defenses armor="7" defense="7" />
 	<elements>
-		<element energyPercent="-20" />
-		<element earthPercent="-20" />
+		<element energyPercent="-10" />
+		<element earthPercent="-10" />
 	</elements>
 	<immunities>
 		<immunity invisible="1" />
@@ -34,12 +35,12 @@
 		<voice sentence="Qjell afar gou jey!" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="25" chance="70000" /> <!-- gold coin -->
-		<item id="15430" chance="6950" /> <!-- deepling scales -->
-		<item id="13838" chance="210" /> <!-- heavy trident -->
-		<item id="5895" chance="350" /><!-- fish fin -->
-		<item id="13870" chance="283" /><!-- eye of a deepling -->
-		<item id="2667" countmax="3" chance="12020" /> <!-- fish -->
-		<item id="2149" countmax="3" chance="110" /> <!-- small emerald -->
+		<item id="2148" countmax="25" chance="75600" /> <!-- gold coin -->
+		<item id="2667" countmax="3" chance="12630" /> <!-- fish -->
+		<item id="15430" chance="6640" /> <!-- deepling scales -->
+		<item id="13838" chance="490" /> <!-- heavy trident -->
+		<item id="13870" chance="340" /><!-- eye of a deepling -->
+		<item id="5895" chance="280" /><!-- fish fin -->
+		<item id="2149" chance="60" /> <!-- small emerald -->
 	</loot>
 </monster>
