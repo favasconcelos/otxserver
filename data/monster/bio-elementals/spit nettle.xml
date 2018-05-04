@@ -15,6 +15,7 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="poison" interval="1000" chance="20" range="7" target="1" min="-15" max="-40">
@@ -24,7 +25,7 @@
 			<attribute key="shootEffect" value="poison" />
 		</attack>
 	</attacks>
-	<defenses armor="15" defense="15">
+	<defenses armor="12" defense="12">
 		<defense name="healing" interval="2000" chance="10" min="8" max="16">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
@@ -40,12 +41,12 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="2804" chance="10650" /><!-- shadow herb -->
-		<item id="12432" chance="10000" /><!-- nettle spit -->
-		<item id="2148" countmax="5" chance="10600" /><!-- gold coin -->
-		<item id="2802" countmax="2" chance="5263" /><!-- sling herb -->
-		<item id="2802" chance="1010" /><!-- grave flower -->
-		<item id="11231" chance="833" /><!-- nettle blossom -->
-		<item id="2802" chance="362" /><!-- seeds-->
+		<item id="2148" countmax="5" chance="10470" /><!-- gold coin -->
+		<item id="12432" chance="10430" /><!-- nettle spit -->
+		<item id="2804" chance="9720" /><!-- shadow herb -->
+		<item id="2802" chance="5440" /><!-- sling herb -->
+		<item id="2802" chance="960" /><!-- grave flower -->
+		<item id="11231" chance="960" /><!-- nettle blossom -->
+		<item id="2802" chance="450" /><!-- seeds-->
 	</loot>
 </monster>

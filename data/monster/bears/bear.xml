@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<monster name="Bear" namedescription="a bear" race="blood" experience="23" speed="145" manacost="300">
+<monster name="Bear" namedescription="a bear" race="blood" experience="23" speed="156" manacost="300">
 	<health now="80" max="80" />
 	<look type="16" corpse="5975" />
 	<targetchange interval="4000" chance="0" />
@@ -10,17 +10,17 @@
 		<flag illusionable="1" />
 		<flag convinceable="1" />
 		<flag pushable="0" />
-		<flag isblockable="0" />
 		<flag canpushitems="0" />
 		<flag canpushcreatures="0" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="15" />
+		<flag isblockable="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="40" attack="10" />
 	</attacks>
-	<defenses armor="10" defense="10" />
+	<defenses armor="6" defense="6" />
 	<elements>
 		<element holyPercent="10" />
 		<element icePercent="-10" />
@@ -31,9 +31,9 @@
 		<voice sentence="Groar" />
 	</voices>
 	<loot>
-		<item id="5896" chance="2000" /><!-- bear paw -->
-		<item id="2671" countmax="3" chance="20000" /><!-- ham -->
-		<item id="2666" countmax="4" chance="39750" /><!-- meat -->
-		<item id="5902" chance="460" /><!-- honeycomb -->
+		<item id="2666" countmax="4" chance="46760" /><!-- meat -->
+		<item id="2671" countmax="3" chance="20380" /><!-- ham -->
+		<item id="5896" chance="2280" /><!-- bear paw -->
+		<item id="5902" chance="410" /><!-- honeycomb -->
 	</loot>
 </monster>

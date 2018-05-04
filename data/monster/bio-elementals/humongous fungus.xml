@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Humongous Fungus" nameDescription="a humongous fungus" race="blood" experience="2600" speed="270" manacost="0">
+<monster name="Humongous Fungus" nameDescription="a humongous fungus" race="blood" experience="2600" speed="260" manacost="0">
 	<health now="3400" max="3400" />
 	<look type="488" corpse="18382" />
 	<targetchange interval="4000" chance="15" />
@@ -15,9 +15,10 @@
 		<flag targetdistance="1" />
 		<flag staticattack="80" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-90" max="-330" />
+		<attack name="melee" interval="2000" skill="69" attack="89" />
 		<attack name="earth" interval="2000" chance="15" range="7" min="-180" max="-350">
 			<attribute key="shootEffect" value="smallearth" />
 			<attribute key="areaEffect" value="smallplants" />
@@ -26,15 +27,12 @@
 		<attack name="poisoncondition" interval="2000" chance="10" length="8" spread="0" min="-500" max="-1000">
 			<attribute key="areaEffect" value="greenbubble" />
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="10" target="0" length="5" spread="0" min="-130" max="-260">
-			<attribute key="areaEffect" value="redshimmer" />
-		</attack>
 		<attack name="poisoncondition" interval="2000" chance="10" target="0" radius="3" range="7" min="-400" max="-640">
 			<attribute key="areaEffect" value="greenspark" />
 		</attack>
 	</attacks>
-	<defenses armor="45" defense="45">
-		<defense name="healing" interval="2000" chance="10" min="225" max="380">
+	<defenses armor="70" defense="70">
+		<defense name="healing" interval="2000" chance="10" min="225" max="275">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="invisible" interval="2000" chance="15" duration="4000">
@@ -55,6 +53,9 @@
 	</immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="Munch munch munch!" />
+		<voice sentence="Hissss!" />
+		<voice sentence="La La Laaa La" />
+		<voice sentence="La La Laaa Laaaaaah!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="100" chance="60000" /><!-- gold coin -->

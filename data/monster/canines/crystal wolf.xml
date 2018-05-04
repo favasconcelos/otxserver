@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Crystal Wolf" nameDescription="a crystal wolf" race="undead" experience="275" speed="200" manacost="0">
+<monster name="Crystal Wolf" nameDescription="a crystal wolf" race="undead" experience="275" speed="360" manacost="0">
 	<health now="750" max="750" />
 	<look type="391" corpse="13584" />
 	<targetchange interval="4000" chance="10" />
@@ -27,7 +27,7 @@
 		</attack>
 		<attack name="manadrain" interval="2000" chance="10" range="7" min="-25" max="-80" />
 	</attacks>
-	<defenses armor="20" defense="20">
+	<defenses armor="60" defense="60">
 		<defense name="healing" interval="2000" chance="5" min="15" max="55">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Jellyfish" nameDescription="a Jellyfish" race="undead" experience="0" speed="170" manacost="0">
+<monster name="Jellyfish" nameDescription="a Jellyfish" race="undead" experience="0" speed="168" manacost="0">
 	<health now="55" max="55" />
 	<look type="452" corpse="15284" />
 	<targetchange interval="4000" chance="10" />
@@ -15,6 +15,7 @@
 		<flag targetdistance="0" />
 		<flag runonhealth="0" />
 		<flag staticattack="80" />
+		<flag isblockable="1" />
 	</flags>
 	<immunities>
 		<immunity fire="1" />

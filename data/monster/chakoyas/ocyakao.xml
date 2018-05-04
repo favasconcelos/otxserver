@@ -42,21 +42,19 @@
 		<voice sentence="Kiyosa sipaju!" />
 	</voices>
 	<loot>
-	<item id="21400" chance="200" /><!-- silver token -->
-		<item id="2148" countmax="20" chance="60000" /><!-- gold coin -->
-		<item id="2667" countmax="2" chance="25000" /><!-- fish -->
-		<item id="2398" chance="4000" /><!-- mace-->
-		<item id="2553" chance="940" /><!-- pick -->
-		<item id="2541" chance="870" /><!-- bone shield -->
-		<item id="7381" chance="150" /><!-- mammoth whopper -->
-		<item id="7441" chance="470" /><!-- ice cube -->
-		<item id="7159" chance="100" /><!-- green perch -->
-		<item id="2669" chance="120" /><!-- northern pike -->
-		<item id="7158" chance="170" /><!-- rainbow trout -->
-		<item id="22727" chance="100" /><!-- fireprof -->
-		<item id="5909" chance="900" /><!-- fireprof -->
-		<item id="2143" chance="900" /><!-- fireprof -->
-		<item id="21703" chance="900" /><!-- fireprof -->
-		
+		<item id="2148" countmax="20" chance="100000" /><!-- gold coin -->
+		<item id="2667" countmax="5" chance="100000" /><!-- fish -->
+		<item id="2143" chance="100000" /><!-- white pearl -->
+		<item id="7441" chance="67000" /><!-- ice cube -->
+		<item id="2398" chance="45000" /><!-- mace-->
+		<item id="2553" chance="36700" /><!-- pick -->
+		<item id="2541" chance="36600" /><!-- bone shield -->
+		<item id="7381" chance="36300" /><!-- mammoth whopper -->
+		<item id="7159" chance="12000" /><!-- green perch -->
+		<item id="2669" chance="12000" /><!-- northern pike -->
+		<item id="7158" chance="12000" /><!-- rainbow trout -->
+		<item id="22727" chance="11000" /><!-- fireprof -->
+		<item id="21703" chance="10000" /><!-- eye of the storm -->
+		<item id="21400" chance="6000" /><!-- silver token -->
 	</loot>
 </monster>

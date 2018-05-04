@@ -15,6 +15,7 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="30" attack="40" />
@@ -25,7 +26,7 @@
 			<attribute key="areaEffect" value="watersplash" />
 		</attack>
 	</attacks>
-	<defenses armor="10" defense="10" />
+	<defenses armor="4" defense="4" />
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
@@ -35,11 +36,11 @@
 		<voice sentence="Crrrck!" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="12" chance="60000" /><!-- gold coin -->
-		<item id="2787" countmax="5" chance="8980" /><!-- White Mushroom -->
-		<item id="20103" chance="12610" /><!-- Piece of Swampling Wood -->
-		<item id="20104" chance="8270" /><!-- Swampling Club -->
-		<item id="20102" chance="18670" /><!-- Swampling Moss -->
-		<item id="2120" chance="4540" /><!-- rope -->
+		<item id="2148" countmax="12" chance="85320" /><!-- gold coin -->
+		<item id="20102" chance="21720" /><!-- Swampling Moss -->
+		<item id="20103" chance="15130" /><!-- Piece of Swampling Wood -->
+		<item id="2787" chance="9520" /><!-- White Mushroom -->
+		<item id="20104" chance="6940" /><!-- Swampling Club -->
+		<item id="2120" chance="4740" /><!-- rope -->
 	</loot>
 </monster>

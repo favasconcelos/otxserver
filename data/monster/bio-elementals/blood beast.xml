@@ -11,7 +11,6 @@
 		<flag illusionable="0" />
 		<flag convinceable="0" />
 		<flag pushable="0" />
-				<flag isblockable="0" />
 		<flag canpushcreatures="1" />
 		<flag canpushitems="1" />
 		<flag staticattack="90" />
@@ -19,6 +18,7 @@
 		<flag lightcolor="0" />
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
+		<flag isblockable="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="82" attack="50" poison="260" />
@@ -30,7 +30,7 @@
 			<attribute key="areaEffect" value="greenshimmer" />
 		</attack>
 	</attacks>
-	<defenses armor="23" defense="36">
+	<defenses armor="35" defense="35">
 		<defense name="speed" interval="2000" chance="8" speedchange="314" duration="6000">
 			<attribute key="areaEffect" value="redshimmer" />
 		</defense>
@@ -40,7 +40,7 @@
 	</defenses>
 	<elements>
 		<element energyPercent="10" />
-		<element firePercent="-5" />
+		<element firePercent="-10" />
 	</elements>
 	<immunities>
 		<immunity paralyze="1" />
@@ -54,17 +54,17 @@
 		<voice sentence="Roarr!" />
 	</voices>
 	<loot>
-		<item id="23549" countmax="1" chance="2010" /><!-- poisoned fang -->
-		<item id="10557" countmax="1" chance="3080" /><!-- poisonous slime -->
-		<item id="23517" countmax="1" chance="2720" /><!-- glooth steak -->
-		<item id="2148" countmax="139" chance="100000" /><!-- gold coin -->
-		<item id="23565" countmax="1" chance="1040" /><!-- slime heart -->
-		<item id="7588" chance="7710" /><!-- strong health potion -->
-		<item id="7366" countmax="5" chance="1290" /><!-- viper star -->
-		<item id="23554" chance="250" /><!-- glooth amulet -->
-		<item id="23550" chance="210" /><!-- glooth blade -->
-		<item id="23549" chance="210" /><!-- glooth club -->
-		<item id="23551" chance="250" /><!-- glooth axe -->
-		<item id="23529" chance="280" /><!-- glooth spear -->
+		<item id="2148" countmax="150" chance="100000" /><!-- gold coin -->
+		<item id="23565" countmax="1" chance="20070" /><!-- slime heart -->
+		<item id="23549" countmax="1" chance="15970" /><!-- poisoned fang -->
+		<item id="7366" countmax="5" chance="7840" /><!-- viper star -->
+		<item id="7588" chance="7460" /><!-- strong health potion -->
+		<item id="10557" countmax="1" chance="5060" /><!-- poisonous slime -->
+		<item id="23517" countmax="1" chance="3490" /><!-- glooth steak -->
+		<item id="23550" chance="860" /><!-- glooth blade -->
+		<item id="23549" chance="820" /><!-- glooth club -->
+		<item id="23551" chance="810" /><!-- glooth axe -->
+		<item id="23554" chance="800" /><!-- glooth amulet -->
+		<item id="23529" chance="800" /><!-- glooth spear -->
 	</loot>
 </monster>
