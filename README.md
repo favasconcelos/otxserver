@@ -9,10 +9,15 @@
 
 # Contato:
 -> Facebook: www.facebook.com/erick.nunes.75
+
 -> Skype: e_nunes@live.com
+
 -> Whatsapp: +5493412163786
+
 -> [Grupo do Whatsapp] (https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8) 
--> [Grupo do Discord] (https://discord.gg/nkUDKrb)
+
+-> [Grupo do Discord] (https://discord.gg/k8kxPw)
+
 
 # Referências:
 -> [Fórum BR](http://www.tibiaking.com)
