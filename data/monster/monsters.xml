@@ -2,18 +2,19 @@
 <monsters>
 	   
 	   <!-- NOVOS 11.2 bosses -->
-	   <monster name="Lady Tenebris" file="11.2/bosses/Lady Tenebris.xml" />
-	   <monster name="Lloyd" file="11.2/bosses/Lloyd.xml" />
-	   <monster name="Melting Frozen Horror" file="11.2/bosses/Melting Frozen Horror.xml" />
-	   <monster name="The Last Lore Keeper" file="11.2/bosses/The Last Lore Keeper.xml" />
-	   <monster name="Sword Of Vengeance" file="11.2/bosses/Sword Of Vengeance.xml" />
-	   <monster name="An Observer Eye" file="11.2/bosses/An Observer Eye.xml" />
-	   <monster name="Dragonking Zyrtarch" file="11.2/bosses/Dragonking Zyrtarch.xml" />
-	   <monster name="Soul of Dragonking Zyrtarch" file="11.2/bosses/Soul of Dragonking Zyrtarch.xml" />
-	   <monster name="Mounted Thorn Knight" file="11.2/bosses/Mounted Thorn Knight.xml" />
-	   <monster name="The Shielded Thorn Knight" file="11.2/bosses/The Shielded Thorn Knight.xml" />
-	   <monster name="Thorn Steed" file="11.2/bosses/Thorn Steed.xml" />
-	   <monster name="The Enraged Thorn Knight" file="11.2/bosses/The Enraged Thorn Knight.xml" />
+	   <monster name="Gelidrazah the Frozen" file="bosses/Gelidrazah the Frozen.xml" />
+	   <monster name="Lady Tenebris" file="bosses/Lady Tenebris.xml" />
+	   <monster name="Lloyd" file="bosses/Lloyd.xml" />
+	   <monster name="Melting Frozen Horror" file="bosses/Melting Frozen Horror.xml" />
+	   <monster name="The Last Lore Keeper" file="bosses/The Last Lore Keeper.xml" />
+	   <monster name="Sword Of Vengeance" file="11.2/Sword Of Vengeance.xml" />
+	   <monster name="An Observer Eye" file="11.2/An Observer Eye.xml" />
+	   <monster name="Dragonking Zyrtarch" file="bosses/Dragonking Zyrtarch.xml" />
+	   <monster name="Soul of Dragonking Zyrtarch" file="bosses/Soul of Dragonking Zyrtarch.xml" />
+	   <monster name="Mounted Thorn Knight" file="bosses/Mounted Thorn Knight.xml" />
+	   <monster name="The Shielded Thorn Knight" file="bosses/The Shielded Thorn Knight.xml" />
+	   <monster name="Thorn Steed" file="bosses/Thorn Steed.xml" />
+	   <monster name="The Enraged Thorn Knight" file="bosses/The Enraged Thorn Knight.xml" />
 	   
 	     <!-- NOVOS 11.2 -->
 	   <monster name="A Shielded Astral Glyph" file="11.2/A Shielded Astral Glyph.xml" />
@@ -125,16 +126,16 @@
 	   <monster name="Vile Grandmaster" file="Novos/Vile Grandmaster.xml" />
 	   
 	   <monster name="Rage Of Mazoran" file="Novos/Rage Of Mazoran.xml" />
-	   <monster name="Plagirath" file="Novos/Plagirath.xml" />
-	   <monster name="Mazoran" file="Novos/Mazoran.xml" />
-	   <monster name="Ragiaz" file="Novos/Ragiaz.xml" />
-	   <monster name="Zamulosh" file="Novos/Zamulosh.xml" />
+	   <monster name="Plagirath" file="bosses/Plagirath.xml" />
+	   <monster name="Mazoran" file="bosses/Mazoran.xml" />
+	   <monster name="Ragiaz" file="bosses/Ragiaz.xml" />
+	   <monster name="Zamulosh" file="bosses/Zamulosh.xml" />
 	    <monster name="Zamulosh Summom" file="Novos/ZamuloshSummom.xml" />
 	   <monster name="Guilt" file="Novos/Guilt.xml" />
-	   <monster name="Shulgrax" file="Novos/Shulgrax.xml" />
-	   <monster name="Tarbaz" file="Novos/Tarbaz.xml" />
-	   <monster name="Razzagorn" file="Novos/Razzagorn.xml" />
-	   <monster name="The Shatterer" file="Novos/The Shatterer.xml" />	   
+	   <monster name="Shulgrax" file="bosses/Shulgrax.xml" />
+	   <monster name="Tarbaz" file="bosses/Tarbaz.xml" />
+	   <monster name="Razzagorn" file="bosses/Razzagorn.xml" />
+	   <monster name="The Shatterer" file="bosses/The Shatterer.xml" />	   
 	   <monster name="Death Dragon" file="Novos/Death Dragon.xml" />	   
 	   
 		<monster name="Zumbi" file="Zumbi.xml"/>		

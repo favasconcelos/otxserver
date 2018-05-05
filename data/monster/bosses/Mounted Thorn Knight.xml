@@ -9,8 +9,8 @@
 		<flag hostile="1" />
 		<flag illusionable="1" />
 		<flag convinceable="1" />
-		<flag pushable="1" />
-		<flag canpushitems="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
 		<flag canpushcreatures="0" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
@@ -21,10 +21,8 @@
 	</attacks>
 	<defenses armor="10" defense="10" />
 	<elements>
-		<element energyPercent="20" />
-		<element holyPercent="1" />
-		<element earthPercent="100" />
-		<element deathPercent="-10" />
+		<element icePercent="40" />
+		<element deathPercent="1100" />
 	</elements>
 	<voices interval="20000" chance="7">
 		<voice sentence="I'm the hunter and you are my prey!" />

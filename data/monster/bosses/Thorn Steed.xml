@@ -22,10 +22,7 @@
 	</attacks>
 	<defenses armor="10" defense="10" />
 	<elements>
-		<element energyPercent="20" />
-		<element holyPercent="1" />
 		<element earthPercent="100" />
-		<element deathPercent="-10" />
 	</elements>
 	
 </monster>
