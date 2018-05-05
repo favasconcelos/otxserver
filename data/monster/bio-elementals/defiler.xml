@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Defiler" nameDescription="a defiler" race="venom" experience="3700" speed="230" manacost="0">
+<monster name="Defiler" nameDescription="a defiler" race="venom" experience="3700" speed="160" manacost="0">
 	<health now="3650" max="3650" />
 	<look type="238" corpse="6532" />
 	<targetchange interval="4000" chance="10" />
@@ -14,7 +14,8 @@
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="80" />
-		<flag runonhealth="85" />
+		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="80" poison="150" />
@@ -34,7 +35,7 @@
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
 	</attacks>
-	<defenses armor="20" defense="20">
+	<defenses armor="60" defense="60">
 		<defense name="healing" interval="2000" chance="10" min="280" max="350">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
@@ -54,22 +55,21 @@
 		<voice sentence="Blubb Blubb" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
-		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
-		<item id="2148" countmax="72" chance="100000" /><!-- gold coin -->
-		<item id="2152" countmax="6" chance="9500" /><!-- platinum coin -->
-		<item id="5944" chance="7000" /><!-- soul orb -->
-		<item id="6500" chance="9320" /><!-- demonic essence -->
-		<item id="9967" chance="5210" /><!-- glob of acid slime -->
-		<item id="9968" chance="3000" /><!-- glob of tar -->
-		<item id="2151" chance="2710" /><!-- talon -->
+		<item id="2148" countmax="205" chance="100000" /><!-- gold coin -->
+		<item id="2152" countmax="6" chance="96280" /><!-- platinum coin -->
+		<item id="5944" chance="20310" /><!-- soul orb -->
+		<item id="6500" chance="19560" /><!-- demonic essence -->
+		<item id="9968" chance="11860" /><!-- glob of tar -->
+		<item id="9967" chance="11580" /><!-- glob of acid slime -->
+		<item id="2149" countmax="2" chance="5730" /><!-- small emeralds-->
+		<item id="2151" chance="4910" /><!-- talon -->
+		<item id="2147" countmax="2" chance="3460" /><!-- small rubies -->
 		<item id="2158" chance="300" /><!-- blue gem -->
-		<item id="2149" countmax="3" chance="1366" /><!-- small emeralds-->
-		<item id="2147" countmax="2" chance="1000" /><!-- small rubies -->
-		<item id="6300" chance="1030" /><!-- death ring-->
-		<item id="2145" countmax="2" chance="1439" /><!-- small diamond -->
-		<item id="2156" chance="938" /><!-- red gem -->
-		<item id="2154" chance="1219" /><!-- yellow gem -->
-		<item id="2155" chance="313" /><!-- green gem -->
+		<item id="2145" countmax="2" chance="2350" /><!-- small diamond -->
+		<item id="6300" chance="2290" /><!-- death ring-->
+		<item id="2156" chance="1160" /><!-- red gem -->
+		<item id="2154" chance="1140" /><!-- yellow gem -->
+		<item id="2158" chance="790" /><!-- blue gem -->
+		<item id="2155" chance="740" /><!-- green gem -->
 	</loot>
 </monster>

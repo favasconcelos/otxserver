@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Haunted Treeling" nameDescription="a haunted treeling" experience="310" speed="220" race="undead" manacost="0">
+<monster name="Haunted Treeling" nameDescription="a haunted treeling" experience="310" speed="230" race="undead" manacost="0">
 	<health now="450" max="450" />
 	<look type="310" corpse="9867" />
 	<targetchange interval="4000" chance="10" />
@@ -15,6 +15,7 @@
 		<flag targetdistance="0" />
 		<flag staticattack="85" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="40" attack="60" />
@@ -38,8 +39,8 @@
 	<defenses armor="20" defense="20" />
 	<elements>
 		<element firePercent="-5" />
-		<element deathPercent="1" />
-		<element icePercent="15" />
+		<element deathPercent="10" />
+		<element icePercent="10" />
 		<element holyPercent="20" />
 	</elements>
 	<immunities>
@@ -52,16 +53,16 @@
 		<voice sentence="Knorrrrrr" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="95" chance="60000" /><!-- gold coin -->
-		<item id="4860" chance="25000" /><!-- wooden trash -->
-		<item id="2788" chance="7142" /><!-- red mushroom -->
-		<item id="2787" countmax="2" chance="5263" /><!-- white mushroom -->
-		<item id="10600" chance="5000" /><!-- haunted piece of wood -->
-		<item id="7618" chance="5000" /><!-- health potion -->
-		<item id="2790" chance="1851" /><!-- orange mushroom -->
-		<item id="7588" chance="900" /><!-- strong health potion -->
-		<item id="2213" chance="621" /><!-- dwarven ring -->
-		<item id="2146" chance="585" /><!-- small emerald -->
-		<item id="7443" chance="80" /><!-- bullseye potion -->
+		<item id="2148" countmax="95" chance="92200" /><!-- gold coin -->
+		<item id="4860" chance="30220" /><!-- wooden trash -->
+		<item id="2788" chance="8010" /><!-- red mushroom -->
+		<item id="7618" chance="5270" /><!-- health potion -->
+		<item id="2787" countmax="2" chance="5150" /><!-- white mushroom -->
+		<item id="10600" chance="4850" /><!-- haunted piece of wood -->
+		<item id="2790" chance="2210" /><!-- orange mushroom -->
+		<item id="7588" chance="960" /><!-- strong health potion -->
+		<item id="2149" chance="750" /><!-- small emeralds -->
+		<item id="2213" chance="570" /><!-- dwarven ring -->
+		<item id="7443" chance="70" /><!-- bullseye potion -->
 	</loot>
 </monster>

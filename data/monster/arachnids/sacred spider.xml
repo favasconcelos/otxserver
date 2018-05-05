@@ -15,6 +15,7 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-160" poison="80" />
@@ -30,11 +31,10 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="2148" countmax="100" chance="40000" /><!-- gold coin -->
-		<item id="2148" countmax="19" chance="50000" /><!-- gold coin -->
-		<item id="8859" chance="25000" /><!-- spider fangs -->
-		<item id="2159" countmax="4" chance="7142" /><!-- scarab coin -->
-		<item id="2463" chance="4761" /><!-- plate armor -->
-		<item id="9971" chance="95" /><!-- gold ingot -->
+		<item id="2148" countmax="120" chance="89790" /><!-- gold coin -->
+		<item id="8859" chance="26930" /><!-- spider fangs -->
+		<item id="2159" countmax="4" chance="6510" /><!-- scarab coin -->
+		<item id="2463" chance="5250" /><!-- plate armor -->
+		<item id="9971" chance="160" /><!-- gold ingot -->
 	</loot>
 </monster>

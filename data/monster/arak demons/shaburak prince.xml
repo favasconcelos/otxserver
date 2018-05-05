@@ -15,6 +15,7 @@
 		<flag targetdistance="1" />
 		<flag staticattack="80" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="75" attack="75" />
@@ -32,7 +33,7 @@
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 	</attacks>
-	<defenses armor="30" defense="30">
+	<defenses armor="35" defense="35">
 		<defense name="healing" interval="2000" chance="15" min="100" max="150">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
@@ -53,20 +54,19 @@
 		<voice sentence="ONLY WE ARE TRUE DEMONS!" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="100" chance="50000" /><!-- gold coin -->
-		<item id="2148" countmax="78" chance="50000" /><!-- gold coin -->
-		<item id="2152" countmax="4" chance="33333" /><!-- platinum coin -->
-		<item id="7589" chance="14285" /><!-- Strong Mana Potion -->
-		<item id="7588" chance="14285" /><!-- Strong Health Potion -->
-		<item id="2147" countmax="5" chance="2500" /><!-- Small Rubies -->
-		<item id="2165" chance="1000" /><!-- Stealth Ring -->
-		<item id="2789" chance="3545" /><!-- Brown Mushroom -->
-		<item id="2187" chance="292" /><!-- Wand of Inferno -->
-		<item id="7443" chance="714" /><!-- Bullseye Potion -->
-		<item id="7899" chance="214" /><!-- Magma Coat -->
-		<item id="5904" chance="134" /><!-- magic sulphur -->
-		<item id="7412" chance="257" /><!-- Butcher's Axe -->
-		<item id="13530" chance="178" /><!-- Demonic Finger -->
-		<item id="2645" chance="89" /><!-- Steel Boots -->
+		<item id="2148" countmax="172" chance="95460" /><!-- gold coin -->
+		<item id="2152" countmax="4" chance="34020" /><!-- platinum coin -->
+		<item id="7588" chance="15050" /><!-- Strong Health Potion -->
+		<item id="7589" chance="14710" /><!-- Strong Mana Potion -->
+		<item id="2147" countmax="5" chance="12440" /><!-- Small Rubies -->
+		<item id="2789" chance="5910" /><!-- Brown Mushroom -->
+		<item id="2165" chance="5570" /><!-- Stealth Ring -->
+		<item id="2187" chance="1580" /><!-- Wand of Inferno -->
+		<item id="5904" chance="1240" /><!-- magic sulphur -->
+		<item id="7899" chance="480" /><!-- Magma Coat -->
+		<item id="7443" chance="340" /><!-- Bullseye Potion -->
+		<item id="13530" chance="140" /><!-- Demonic Finger -->
+		<item id="2645" chance="140" /><!-- Steel Boots -->
+		<item id="7412" chance="70" /><!-- Butcher's Axe -->
 	</loot>
 </monster>

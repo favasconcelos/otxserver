@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Winter Wolf" nameDescription="a winter wolf" race="blood" experience="20" speed="160" manacost="260">
+<monster name="Winter Wolf" nameDescription="a winter wolf" race="blood" experience="20" speed="170" manacost="260">
 	<health now="30" max="30" />
 	<look type="52" corpse="5997" />
 	<targetchange interval="4000" chance="0" />
@@ -15,6 +15,7 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag isblockable="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="10" attack="20" />
@@ -23,9 +24,9 @@
 	<elements>
 		<element icePercent="20" />
 		<element firePercent="10" />
-		<element holyPercent="5" />
+		<element holyPercent="10" />
 		<element energyPercent="-5" />
-		<element deathPercent="-5" />
+		<element deathPercent="-10" />
 	</elements>
 	<voices interval="2000" chance="7">
 		<voice sentence="Yoooohhuuuuu!" />
