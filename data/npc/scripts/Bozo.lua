@@ -577,7 +577,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 
-	if msgcontains(msg, 'join') then
+	if msgcontains(msg, 'jester') then
 		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= -1 then
 			npcHandler:say('Wow, your stupidity would be pride and joy for every fool. You\'ve already applied as a member. Let\'s rather talk about your current mission.', cid)
 			return true
@@ -609,7 +609,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 3
 			value[cid] = targetValue
 		end
-	elseif msgcontains(msg, 'jester outfit') then
+	elseif msgcontains(msg, 'outfit') then
 		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 12 then
 			local targetValue = jesterOutfit[player:getStorageValue(Storage.WhatAFoolishQuest.JesterOutfit)]
 			if not targetValue then

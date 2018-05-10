@@ -434,7 +434,29 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Come back if change mind.', cid)
 		end
 		npcHandler.topic[cid] = 0
-
+	elseif msgcontains(msg, 'cookie') then
+			if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31
+					and player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Hairycles) ~= 1 then
+				npcHandler:say('Oh you bring cookie for old Hairycles?', cid)
+				npcHandler.topic[cid] = 19
+			end
+	elseif msgcontains(msg, 'yes') then
+		if npcHandler.topic[cid] == 19 then
+			if player:getItemCount(8111) == 0 then
+				npcHandler:say('You have no cookie that I\'d like.', cid)
+				npcHandler.topic[cid] = 0
+				return true
+			elseif player:getItemCount(8111) > 0 then
+				Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
+				npcHandler:say('Thank you, you are ... YOU SON OF LIZARD!', cid)
+				doPlayerRemoveItem(cid, 8111, 1)
+				player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Hairycles, 1)
+				if player:getCookiesDelivered() == 10 then
+					player:addAchievement('Allow Cookies?')
+				end
+				npcHandler:releaseFocus(cid)
+				npcHandler:resetNpc(cid)
+			end
 	elseif npcHandler.topic[cid] == 19 then
 		if msgcontains(msg, 'yes') then
 			if not player:removeItem(8111, 1) then
@@ -449,13 +471,15 @@ local function creatureSayCallback(cid, type, msg)
 
 			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 			npcHandler:say('Thank you, you are ... YOU SON OF LIZARD!', cid)
-			addEvent(releasePlayer, 1000, cid)
+			npcHandler:releaseFocus(cid)
+			npcHandler:resetNpc(cid)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('I see.', cid)
 		end
 		npcHandler.topic[cid] = 0
 	end
 	return true
+end
 end
 
 keywordHandler:addKeyword({'busy'}, StdModule.say, {npcHandler = npcHandler, text = 'Me great {wizard}. Me great doctor of {ape people}. Me know many plants. Me old and me have seen many things.'})

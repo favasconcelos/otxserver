@@ -36,21 +36,21 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('So you want to have the demon outfit, hah! Let\'s have a look first if you really deserve it. Tell me: {base}, {shield} or {helmet}?', cid)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 3 then
-			if not player:removeItem(8111, 1) then
+			if player:getItemCount(8111) == 0 then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true
+			elseif player:getItemCount(8111) > 0 then
+				Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
+				npcHandler:say('Well, you won\'t! Though it looks tasty ...What the ... WHAT DO YOU THINK YOU ARE? THIS IS THE ULTIMATE INSULT! GET LOST!', cid)
+				doPlayerRemoveItem(cid, 8111, 1)
+				player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.AvarTar, 1)
+				if player:getCookiesDelivered() == 10 then
+					player:addAchievement('Allow Cookies?')
+				end
+				npcHandler:releaseFocus(cid)
+				npcHandler:resetNpc(cid)
 			end
-
-			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.AvarTar, 1)
-			if player:getCookiesDelivered() == 10 then
-				player:addAchievement('Allow Cookies?')
-			end
-
-			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-			npcHandler:say('Well, you won\'t! Though it looks tasty ...What the ... WHAT DO YOU THINK YOU ARE? THIS IS THE ULTIMATE INSULT! GET LOST!', cid)
-			npcHandler:releaseFocus(cid)
-			npcHandler:resetNpc(cid)
 		end
 	elseif msgcontains(msg, 'no') then
 		if npcHandler.topic[cid] == 3 then
