@@ -83,21 +83,21 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
-			if not player:removeItem(8111, 1) then
+			if player:getItemCount(8111) == 0 then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true
+			elseif player:getItemCount(8111) > 0 then
+				Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
+				npcHandler:say('Well, it\'s the least you can do for those who live in dire poverty. A single cookie is a bit less than I\'d expected, but better than ... WHA ... WHAT?? MY BEARD! MY PRECIOUS BEARD! IT WILL TAKE AGES TO CLEAR IT OF THIS CONFETTI!', cid)
+				doPlayerRemoveItem(cid, 8111, 1)
+				player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar, 1)
+				if player:getCookiesDelivered() == 10 then
+					player:addAchievement('Allow Cookies?')
+				end
+				npcHandler:releaseFocus(cid)
+				npcHandler:resetNpc(cid)
 			end
-
-			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar, 1)
-			if player:getCookiesDelivered() == 10 then
-				player:addAchievement('Allow Cookies?')
-			end
-
-			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-			npcHandler:say('Well, it\'s the least you can do for those who live in dire poverty. A single cookie is a bit less than I\'d expected, but better than ... WHA ... WHAT?? MY BEARD! MY PRECIOUS BEARD! IT WILL TAKE AGES TO CLEAR IT OF THIS CONFETTI!', cid)
-			npcHandler:releaseFocus(cid)
-			npcHandler:resetNpc(cid)
 		elseif npcHandler.topic[cid] == 2 then
 			if not player:removeMoney(100) then
 				npcHandler:say('You haven\'t got enough money for me.', cid)
