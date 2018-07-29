@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -127,7 +127,7 @@ bool CreatureEvents::playerLogout(Player* player) const
 }
 
 bool CreatureEvents::playerAdvance(Player* player, skills_t skill, uint32_t oldLevel,
-                                       uint32_t newLevel)
+									   uint32_t newLevel)
 {
 	for (const auto& it : creatureEvents) {
 		if (it.second->getEventType() == CREATURE_EVENT_ADVANCE) {
@@ -385,7 +385,7 @@ bool CreatureEvent::executeOnDeath(Creature* creature, Item* corpse, Creature* k
 }
 
 bool CreatureEvent::executeAdvance(Player* player, skills_t skill, uint32_t oldLevel,
-                                       uint32_t newLevel)
+									   uint32_t newLevel)
 {
 	//onAdvance(player, skill, oldLevel, newLevel)
 	if (!scriptInterface->reserveScriptEnv()) {
@@ -499,11 +499,7 @@ void CreatureEvent::executeHealthChange(Creature* creature, Creature* attacker, 
 		lua_pushnil(L);
 	}
 
-	lua_pushnumber(L, damage.primary.value);
-	lua_pushnumber(L, damage.primary.type);
-	lua_pushnumber(L, damage.secondary.value);
-	lua_pushnumber(L, damage.secondary.type);
-	lua_pushnumber(L, damage.origin);
+	LuaScriptInterface::pushCombatDamage(L, damage);
 
 	if (scriptInterface->protectedCall(L, 7, 4) != 0) {
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
@@ -523,10 +519,10 @@ void CreatureEvent::executeHealthChange(Creature* creature, Creature* attacker, 
 	scriptInterface->resetScriptEnv();
 }
 
-void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, int32_t& manaChange, CombatOrigin origin)
+void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, CombatDamage& damage)
 {
-	//onManaChange(creature, attacker, manaChange, origin)
-	if (!scriptInterface->reserveScriptEnv()) {
+		//onManaChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+		if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - CreatureEvent::executeManaChange] Call stack overflow" << std::endl;
 		return;
 	}
@@ -546,15 +542,13 @@ void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, in
 		lua_pushnil(L);
 	}
 
-	lua_pushnumber(L, manaChange);
-	lua_pushnumber(L, origin);
+	LuaScriptInterface::pushCombatDamage(L, damage);
 
-	if (scriptInterface->protectedCall(L, 4, 1) != 0) {
-		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::getString(L, -1));
+	if (scriptInterface->protectedCall(L, 7, 4) != 0) {
+		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
 	} else {
-		manaChange = LuaScriptInterface::getNumber<int32_t>(L, -1);
+		damage = LuaScriptInterface::getCombatDamage(L);
 	}
-	lua_pop(L, 1);
 
 	scriptInterface->resetScriptEnv();
 }

@@ -329,7 +329,7 @@ HistoryStoreOfferList IOGameStore::getHistoryEntries(uint32_t account_id, uint32
 	query << "SELECT `description`,`mode`,`coin_amount`,`time` FROM `store_history` WHERE `account_id` = " <<account_id << " ORDER BY `time` DESC LIMIT "
 		  << (std::max<int>((page-1),0)*GameStore::HISTORY_ENTRIES_PER_PAGE)
 		  << "," << (uint16_t)GameStore::HISTORY_ENTRIES_PER_PAGE <<";";
-	DBResult_ptr result = Database::getInstance()->storeQuery(query.str());
+	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
 
 	if(result) {
 		do {

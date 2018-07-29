@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,13 +28,14 @@
 #include "configmanager.h"
 #include "scriptmanager.h"
 #include "rsa.h"
+#include "protocolspectator.h"
 #include "protocolold.h"
 #include "protocollogin.h"
 #include "protocolstatus.h"
-#include "protocolspectator.h"
 #include "databasemanager.h"
 #include "scheduler.h"
 #include "databasetasks.h"
+// TODO: #include "stdarg.h"
 
 DatabaseTasks g_databaseTasks;
 Dispatcher g_dispatcher;
@@ -96,7 +97,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-void mainLoader(int, char*[], ServiceManager* services)
+void mainLoader(int argc, char* argv[], ServiceManager* services)
 {
 	//dispatcher thread
 	g_game.setGameState(GAME_STATE_STARTUP);
@@ -105,8 +106,8 @@ void mainLoader(int, char*[], ServiceManager* services)
 #ifdef _WIN32
 	SetConsoleTitle(STATUS_SERVER_NAME);
 #endif
-	std::cout << STATUS_SERVER_NAME << " - Version " << STATUS_SERVER_VERSION << std::endl;
-	std::cout << "Compiled with " << BOOST_COMPILER << std::endl;
+	std::cout << "The " << STATUS_SERVER_NAME << " Global - Version: (" << STATUS_SERVER_VERSION << "." << MINOR_VERSION << ")" << std::endl;
+	std::cout << "Compiled with: " << BOOST_COMPILER << std::endl;
 	std::cout << "Compiled on " << __DATE__ << ' ' << __TIME__ << " for platform ";
 
 #if defined(__amd64__) || defined(_M_X64)
@@ -120,14 +121,22 @@ void mainLoader(int, char*[], ServiceManager* services)
 #endif
 	std::cout << std::endl;
 
-	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << std::endl;
-	std::cout << "Visit our forum for updates, support, and resources: http://otland.net/." << std::endl;
+	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << "." << std::endl;
+	std::cout << "Visit our forum for updates, support, and resources: " << GIT_REPO <<"." << std::endl;
 	std::cout << std::endl;
 
+	// TODO: dirty for now; Use stdarg;
+	if (argc > 1) {
+		std::string param = { argv[1] };
+		if (param == "-c") {
+			g_config.setConfigFileLua(argv[2]);
+		}
+	}
+
 	// read global config
-	std::cout << ">> Loading config" << std::endl;
+	std::cout << ">> Loading config: " << g_config.getConfigFileLua() << std::endl;
 	if (!g_config.load()) {
-		startupErrorMessage("Unable to load config.lua!");
+		startupErrorMessage("Unable to load Config File!");
 		return;
 	}
 
@@ -147,8 +156,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 
 	std::cout << ">> Establishing database connection..." << std::flush;
 
-	Database* db = Database::getInstance();
-	if (!db->connect()) {
+	if (!Database::getInstance().connect()) {
 		startupErrorMessage("Failed to connect to database.");
 		return;
 	}
@@ -159,7 +167,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 	std::cout << ">> Running database manager" << std::endl;
 
 	if (!DatabaseManager::isDatabaseSetup()) {
-		startupErrorMessage("The database you have specified in config.lua is empty, please import the schema.sql to your database.");
+		startupErrorMessage("The database you have specified in config lua file is empty, please import the schema.sql to your database.");
 		return;
 	}
 	g_databaseTasks.start();
@@ -190,7 +198,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 	}
 
 	std::cout << ">> Loading script systems" << std::endl;
-	if (!ScriptingManager::getInstance()->loadScriptSystems()) {
+	if (!ScriptingManager::getInstance().loadScriptSystems()) {
 		startupErrorMessage("Failed to load script systems");
 		return;
 	}
@@ -202,8 +210,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 	}
 
 	std::cout << ">> Loading outfits" << std::endl;
-	Outfits* outfits = Outfits::getInstance();
-	if (!outfits->loadFromXml()) {
+	if (!Outfits::getInstance().loadFromXml()) {
 		startupErrorMessage("Unable to load outfits!");
 		return;
 	}
@@ -238,9 +245,9 @@ void mainLoader(int, char*[], ServiceManager* services)
 	// Game client protocols
 	services->add<ProtocolGame>(g_config.getNumber(ConfigManager::GAME_PORT));
 	if (g_config.getBoolean(ConfigManager::ENABLE_LIVE_CASTING)) {
- 		ProtocolGame::clearLiveCastInfo();
- 		services->add<ProtocolSpectator>(g_config.getNumber(ConfigManager::LIVE_CAST_PORT));
- 	}
+		ProtocolGame::clearLiveCastInfo();
+		services->add<ProtocolSpectator>(g_config.getNumber(ConfigManager::LIVE_CAST_PORT));
+	}
 	services->add<ProtocolLogin>(g_config.getNumber(ConfigManager::LOGIN_PORT));
 
 	// OT protocols
@@ -267,7 +274,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 	g_game.map.houses.payHouses(rentPeriod);
 
 	IOMarket::checkExpiredOffers();
-	IOMarket::getInstance()->updateStatistics();
+	IOMarket::getInstance().updateStatistics();
 
 	std::cout << ">> Loaded all modules, server starting up..." << std::endl;
 

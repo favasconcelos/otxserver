@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,8 +27,8 @@ class Creature;
 class Game;
 class Spawn;
 
-typedef std::unordered_set<Creature*> CreatureHashSet;
-typedef std::list<Creature*> CreatureList;
+using CreatureHashSet = std::unordered_set<Creature*>;
+using CreatureList = std::list<Creature*>;
 
 enum TargetSearchType_t {
 	TARGETSEARCH_DEFAULT,
@@ -44,7 +44,7 @@ class Monster final : public Creature
 		static int32_t despawnRange;
 		static int32_t despawnRadius;
 
-		explicit Monster(MonsterType* mtype);
+		explicit Monster(MonsterType* mType);
 		~Monster();
 
 		// non-copyable
@@ -113,6 +113,12 @@ class Monster final : public Creature
 		bool isHostile() const {
 			return mType->info.isHostile;
 		}
+		bool isPet() const {
+			return mType->info.isPet;
+		}
+		bool isPassive() const {
+			return mType->info.isPassive;
+		}
 		bool canSee(const Position& pos) const final;
 		bool canSeeInvisibility() const final {
 			return isImmune(CONDITION_INVISIBLE);
@@ -141,7 +147,6 @@ class Monster final : public Creature
 		void onThink(uint32_t interval) final;
 
 		bool challengeCreature(Creature* creature) final;
-		bool convinceCreature(Creature* creature) final;
 
 		void setNormalCreatureLight() final;
 		bool getCombatValues(int32_t& min, int32_t& max) final;
@@ -161,9 +166,6 @@ class Monster final : public Creature
 			return friendList;
 		}
 
-		void updateHadRecentBattleVar();
-		bool hadRecentBattle() const { return hadRecentBattleVar; }
-
 		bool isTarget(const Creature* creature) const;
 		bool isFleeing() const {
 			return !isSummon() && getHealth() <= mType->info.runAwayHealth;
@@ -173,22 +175,18 @@ class Monster final : public Creature
 		bool isTargetNearby() const {
 			return stepDuration >= 1;
 		}
-
 		bool isRandomSteping() const {
 			return randomSteping;
-			
 		}
 		void setIgnoreFieldDamage(bool ignore) {
 			ignoreFieldDamage = ignore;
-			
 		}
 		bool getIgnoreFieldDamage() const {
 			return ignoreFieldDamage;
-			
 		}
 
 		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-		                     bool checkDefense = false, bool checkArmor = false, bool field = false);
+							 bool checkDefense = false, bool checkArmor = false, bool field = false);
 
 		static uint32_t monsterAutoID;
 
@@ -220,8 +218,6 @@ class Monster final : public Creature
 		bool isMasterInRange = false;
 		bool randomSteping = false;
 		bool ignoreFieldDamage = false;
-		bool hadRecentBattleVar;
-		int64_t timeOfLastHit;
 
 		void onCreatureEnter(Creature* creature);
 		void onCreatureLeave(Creature* creature);
@@ -249,14 +245,13 @@ class Monster final : public Creature
 
 		void onAddCondition(ConditionType_t type) final;
 		void onEndCondition(ConditionType_t type) final;
-		void onCreatureConvinced(const Creature* convincer, const Creature* creature) final;
 
 		bool canUseAttack(const Position& pos, const Creature* target) const;
 		bool canUseSpell(const Position& pos, const Position& targetPos,
-		                 const spellBlock_t& sb, uint32_t interval, bool& inRange, bool& resetTicks);
+						 const spellBlock_t& sb, uint32_t interval, bool& inRange, bool& resetTicks);
 		bool getRandomStep(const Position& creaturePos, Direction& direction) const;
 		bool getDanceStep(const Position& creaturePos, Direction& direction,
-		                  bool keepAttack = true, bool keepDistance = true);
+						  bool keepAttack = true, bool keepDistance = true);
 		bool isInSpawnRange(const Position& pos) const;
 		bool canWalkTo(Position pos, Direction direction) const;
 
@@ -289,7 +284,8 @@ class Monster final : public Creature
 		bool useCacheMap() const final {
 			return !randomSteping;
 		}
-
+		
+        void insertKillStatistics();
 		friend class LuaScriptInterface;
 };
 

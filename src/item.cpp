@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -585,14 +585,14 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 		}
 
 		case ATTR_SPECIAL: {
-            std::string special;
-            if (!propStream.readString(special)) {
-                return ATTR_READ_ERROR;
-            }
- 
-            setStrAttr(ITEM_ATTRIBUTE_SPECIAL, special);
-            break;
-        }
+			std::string special;
+			if (!propStream.readString(special)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setStrAttr(ITEM_ATTRIBUTE_SPECIAL, special);
+			break;
+		}
 
 		//these should be handled through derived classes
 		//If these are called then something has changed in the items.xml since the map was saved
@@ -781,9 +781,9 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 	}
 
 	if (hasAttribute(ITEM_ATTRIBUTE_SPECIAL)) {
-        propWriteStream.write<uint8_t>(ATTR_SPECIAL);
-        propWriteStream.writeString(getStrAttr(ITEM_ATTRIBUTE_SPECIAL));
-    }
+		propWriteStream.write<uint8_t>(ATTR_SPECIAL);
+		propWriteStream.writeString(getStrAttr(ITEM_ATTRIBUTE_SPECIAL));
+	}
 }
 
 bool Item::hasProperty(ITEMPROPERTY prop) const
@@ -816,7 +816,7 @@ uint32_t Item::getWeight() const
 }
 
 std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
-                                 const Item* item /*= nullptr*/, int32_t subType /*= -1*/, bool addArticle /*= true*/)
+								 const Item* item /*= nullptr*/, int32_t subType /*= -1*/, bool addArticle /*= true*/)
 {
 	const std::string* text = nullptr;
 
@@ -882,7 +882,9 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	} else if (it.weaponType != WEAPON_NONE) {
 		if (it.weaponType == WEAPON_DISTANCE && it.ammoType != AMMO_NONE) {
-			s << " (Range:" << static_cast<uint16_t>(item ? item->getShootRange() : it.shootRange);
+			bool begin = true;
+			begin = false;
+			s << " (Range: " << static_cast<uint16_t>(item ? item->getShootRange() : it.shootRange);
 
 			int32_t attack;
 			int8_t hitChance;
@@ -895,14 +897,162 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 			}
 
 			if (attack != 0) {
-				s << ", Atk" << std::showpos << attack << std::noshowpos;
+				s << ", Atk " << std::showpos << attack << std::noshowpos;
 			}
 
 			if (hitChance != 0) {
-				s << ", Hit%" << std::showpos << static_cast<int16_t>(hitChance) << std::noshowpos;
+				s << ", Hit% " << std::showpos << static_cast<int16_t>(hitChance) << std::noshowpos;
 			}
 
+			if (it.abilities) {
+				for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
+					if (!it.abilities->skills[i]) {
+						continue;
+					}
+
+					if (begin) {
+						begin = false;
+						s << " (";
+					} else {
+						s << ", ";
+					}
+
+					s << getSkillName(i) << ' ' << std::showpos << it.abilities->skills[i] << std::noshowpos;
+				}
+
+				for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; i++) {
+					if (!it.abilities->skills[i]) {
+						continue;
+					}
+
+					if (begin) {
+						begin = false;
+						s << " (";
+					}
+					else {
+						s << ", ";
+					}
+					s << getSkillName(i) << ' ' << std::showpos << it.abilities->skills[i] << std::noshowpos;
+				}
+
+				if (it.abilities->stats[STAT_MAGICPOINTS]) {
+					if (begin) {
+						begin = false;
+						s << " (";
+					} else {
+						s << ", ";
+					}
+
+					s << "magic level " << std::showpos << it.abilities->stats[STAT_MAGICPOINTS] << std::noshowpos;
+				}
+
+				int16_t show = it.abilities->absorbPercent[0];
+				if (show != 0) {
+					for (size_t i = 1; i < COMBAT_COUNT; ++i) {
+						if (it.abilities->absorbPercent[i] != show) {
+							show = 0;
+							break;
+						}
+					}
+				}
+
+				if (show == 0) {
+					bool tmp = true;
+
+					for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+						if (it.abilities->absorbPercent[i] == 0) {
+							continue;
+						}
+
+						if (tmp) {
+							tmp = false;
+
+							if (begin) {
+								begin = false;
+								s << " (";
+							} else {
+								s << ", ";
+							}
+
+							s << "protection ";
+						} else {
+							s << ", ";
+						}
+
+						s << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
+					}
+				} else {
+					if (begin) {
+						begin = false;
+						s << " (";
+					} else {
+						s << ", ";
+					}
+
+					s << "protection all " << std::showpos << show << std::noshowpos << '%';
+				}
+
+				show = it.abilities->fieldAbsorbPercent[0];
+				if (show != 0) {
+					for (size_t i = 1; i < COMBAT_COUNT; ++i) {
+						if (it.abilities->absorbPercent[i] != show) {
+							show = 0;
+							break;
+						}
+					}
+				}
+
+				if (show == 0) {
+					bool tmp = true;
+
+					for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+						if (it.abilities->fieldAbsorbPercent[i] == 0) {
+							continue;
+						}
+
+						if (tmp) {
+							tmp = false;
+
+							if (begin) {
+								begin = false;
+								s << " (";
+							} else {
+								s << ", ";
+							}
+
+							s << "protection ";
+						} else {
+							s << ", ";
+						}
+
+						s << getCombatName(indexToCombatType(i)) << " field " << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
+					}
+				} else {
+					if (begin) {
+						begin = false;
+						s << " (";
+					} else {
+						s << ", ";
+					}
+
+					s << "protection all fields " << std::showpos << show << std::noshowpos << '%';
+				}
+
+				if (it.abilities->speed) {
+					if (begin) {
+						begin = false;
+						s << " (";
+					} else {
+						s << ", ";
+					}
+
+					s << "speed " << std::showpos << (it.abilities->speed >> 1) << std::noshowpos;
+				}
+			}
+
+			if (!begin) {
 			s << ')';
+			}
 		} else if (it.weaponType != WEAPON_AMMO) {
 			bool begin = true;
 
@@ -941,7 +1091,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 			}
 
 			if (it.abilities) {
-				for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; i++) {
+				for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
 					if (!it.abilities->skills[i]) {
 						continue;
 					}
@@ -1100,7 +1250,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 
 		if (it.abilities) {
-			for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; i++) {
+			for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; i++) {
 				if (!it.abilities->skills[i]) {
 					continue;
 				}
@@ -1127,6 +1277,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				else {
 					s << ", ";
 				}
+
 				s << getSkillName(i) << ' ' << std::showpos << it.abilities->skills[i] << std::noshowpos << '%';
 			}
 

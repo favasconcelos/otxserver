@@ -1,6 +1,6 @@
-/**
+﻿/**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -106,7 +106,7 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 	} else if (majorVersion != 3) {
 		std::cout << "Old version detected, a newer version of items.otb is required." << std::endl;
 		return ERROR_INVALID_FORMAT;
-	} else if (minorVersion < CLIENT_VERSION_1098) {
+	} else if (minorVersion < CLIENT_VERSION_1140) {
 		std::cout << "A newer version of items.otb is required." << std::endl;
 		return ERROR_INVALID_FORMAT;
 	}
@@ -265,6 +265,7 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 		iType.useable = hasBitSet(FLAG_USEABLE, flags);
 		iType.pickupable = hasBitSet(FLAG_PICKUPABLE, flags);
 		iType.moveable = hasBitSet(FLAG_MOVEABLE, flags);
+		iType.wrapContainer = hasBitSet(FLAG_WRAPCONTAINER, flags);
 		iType.stackable = hasBitSet(FLAG_STACKABLE, flags);
 
 		iType.alwaysOnTop = hasBitSet(FLAG_ALWAYSONTOP, flags);
@@ -326,31 +327,7 @@ bool Items::loadFromXml()
 			parseItemNode(itemNode, id++);
 		}
 	}
-
-	buildInventoryList();
 	return true;
-}
-
-void Items::buildInventoryList()
-{
-	inventory.reserve(30000);
-	for(const auto &type: items) {
-		if(type.weaponType != WEAPON_NONE || type.ammoType != AMMO_NONE ||
-			type.attack != 0 || type.defense != 0 ||
-			type.extraDefense != 0 || type.armor != 0 ||
-			(type.slotPosition & SLOTP_NECKLACE) == SLOTP_NECKLACE ||
-			(type.slotPosition & SLOTP_RING) == SLOTP_RING ||
-			(type.slotPosition & SLOTP_AMMO) == SLOTP_AMMO ||
-			(type.slotPosition & SLOTP_FEET) == SLOTP_FEET ||
-			(type.slotPosition & SLOTP_HEAD) == SLOTP_HEAD ||
-			(type.slotPosition & SLOTP_ARMOR) == SLOTP_ARMOR ||
-			(type.slotPosition & SLOTP_LEGS) == SLOTP_LEGS)
-		{
-			inventory.push_back(type.clientId);
-		}
-	}
-	inventory.shrink_to_fit();
-	std::sort(inventory.begin(), inventory.end());
 }
 
 void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
@@ -396,6 +373,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 		}
 
 		std::string tmpStrValue = asLowerCaseString(keyAttribute.as_string());
+
+		// Put here because have many conditions (C1601 - compiler limit: blocks nested too deeply)
 		if (tmpStrValue == "type") {
 			tmpStrValue = asLowerCaseString(valueAttribute.as_string());
 			if (tmpStrValue == "key") {
@@ -408,7 +387,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else if (tmpStrValue == "depot") {
 				it.type = ITEM_TYPE_DEPOT;
 			} else if (tmpStrValue == "rewardchest") {
- 				it.type = ITEM_TYPE_REWARDCHEST;
+				it.type = ITEM_TYPE_REWARDCHEST;
 			} else if (tmpStrValue == "carpet") {
 				it.type = ITEM_TYPE_CARPET;
 			} else if (tmpStrValue == "mailbox") {
@@ -440,10 +419,14 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			it.defense = pugi::cast<int32_t>(valueAttribute.value());
 		} else if (tmpStrValue == "extradef") {
 			it.extraDefense = pugi::cast<int32_t>(valueAttribute.value());
-		} else if (tmpStrValue == "imbuingslots") {
-			it.imbuingSlots = pugi::cast<int32_t>(valueAttribute.value());
 		} else if (tmpStrValue == "attack") {
 			it.attack = pugi::cast<int32_t>(valueAttribute.value());
+		} else if (tmpStrValue == "wrapcontainer") {
+			it.wrapContainer = valueAttribute.as_bool();
+		} else if (tmpStrValue == "imbuingslots") {
+			it.imbuingSlots = pugi::cast<int32_t>(valueAttribute.value());
+		} else if (tmpStrValue == "wrapableto" || tmpStrValue == "unwrapableto") {
+			it.wrapableTo = pugi::cast<int32_t>(valueAttribute.value());
 		} else if (tmpStrValue == "rotateto") {
 			it.rotateTo = pugi::cast<int32_t>(valueAttribute.value());
 		} else if (tmpStrValue == "moveable" || tmpStrValue == "movable") {
@@ -741,8 +724,6 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			it.getAbilities().absorbPercent[combatTypeToIndex(COMBAT_PHYSICALDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
 		} else if (tmpStrValue == "absorbpercenthealing") {
 			it.getAbilities().absorbPercent[combatTypeToIndex(COMBAT_HEALING)] += pugi::cast<int16_t>(valueAttribute.value());
-		} else if (tmpStrValue == "absorbpercentundefined") {
-			it.getAbilities().absorbPercent[combatTypeToIndex(COMBAT_UNDEFINEDDAMAGE)] += pugi::cast<int16_t>(valueAttribute.value());
 		} else if (tmpStrValue == "suppressdrunk") {
 			if (valueAttribute.as_bool()) {
 				it.getAbilities().conditionSuppressions |= CONDITION_DRUNK;
@@ -904,6 +885,14 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			Abilities& abilities = it.getAbilities();
 			abilities.elementDamage = pugi::cast<uint16_t>(valueAttribute.value());
 			abilities.elementType = COMBAT_ENERGYDAMAGE;
+		} else if (tmpStrValue == "elementdeath") {
+			Abilities& abilities = it.getAbilities();
+			abilities.elementDamage = pugi::cast<uint16_t>(valueAttribute.value());
+			abilities.elementType = COMBAT_DEATHDAMAGE;
+		} else if (tmpStrValue == "elementholy") {
+			Abilities& abilities = it.getAbilities();
+			abilities.elementDamage = pugi::cast<uint16_t>(valueAttribute.value());
+			abilities.elementType = COMBAT_HOLYDAMAGE;
 		} else if (tmpStrValue == "walkstack") {
 			it.walkStack = valueAttribute.as_bool();
 		} else if (tmpStrValue == "blocking") {

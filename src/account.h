@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,9 +29,18 @@ struct Account {
 	time_t lastDay = 0;
 	uint32_t id = 0;
 	uint16_t premiumDays = 0;
+	uint32_t coinBalance = 0;
 	AccountType_t accountType = ACCOUNT_TYPE_NORMAL;
 
 	Account() = default;
+};
+
+class IOAccount {
+	public:
+		static uint32_t getCoinBalance(uint32_t accountId);
+		static void addCoins(uint32_t accountId, int32_t amount);
+		static void removeCoins(uint32_t accountId, int32_t amount);
+		static void registerTransaction(uint32_t accountId, int32_t coins, const std::string &description);
 };
 
 #endif

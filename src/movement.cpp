@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,12 +21,15 @@
 
 #include "game.h"
 
+#include "events.h"
+
 #include "pugicast.h"
 
 #include "movement.h"
 
 extern Game g_game;
 extern Vocations g_vocations;
+extern Events* g_events;
 
 MoveEvents::MoveEvents() :
 	scriptInterface("MoveEvents Interface")
@@ -103,14 +106,14 @@ bool MoveEvents::registerEvent(Event* event, const pugi::xml_node& node)
 		pugi::xml_attribute tileItemAttribute = node.attribute("tileitem");
 		if (tileItemAttribute && pugi::cast<uint16_t>(tileItemAttribute.value()) == 1) {
 			switch (eventType) {
-				case MOVE_EVENT_ADD_ITEM:
-					moveEvent->setEventType(MOVE_EVENT_ADD_ITEM_ITEMTILE);
-					break;
-				case MOVE_EVENT_REMOVE_ITEM:
-					moveEvent->setEventType(MOVE_EVENT_REMOVE_ITEM_ITEMTILE);
-					break;
-				default:
-					break;
+			case MOVE_EVENT_ADD_ITEM:
+				moveEvent->setEventType(MOVE_EVENT_ADD_ITEM_ITEMTILE);
+				break;
+			case MOVE_EVENT_REMOVE_ITEM:
+				moveEvent->setEventType(MOVE_EVENT_REMOVE_ITEM_ITEMTILE);
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -207,17 +210,17 @@ MoveEvent* MoveEvents::getEvent(Item* item, MoveEvent_t eventType, slots_t slot)
 {
 	uint32_t slotp;
 	switch (slot) {
-		case CONST_SLOT_HEAD: slotp = SLOTP_HEAD; break;
-		case CONST_SLOT_NECKLACE: slotp = SLOTP_NECKLACE; break;
-		case CONST_SLOT_BACKPACK: slotp = SLOTP_BACKPACK; break;
-		case CONST_SLOT_ARMOR: slotp = SLOTP_ARMOR; break;
-		case CONST_SLOT_RIGHT: slotp = SLOTP_RIGHT; break;
-		case CONST_SLOT_LEFT: slotp = SLOTP_LEFT; break;
-		case CONST_SLOT_LEGS: slotp = SLOTP_LEGS; break;
-		case CONST_SLOT_FEET: slotp = SLOTP_FEET; break;
-		case CONST_SLOT_AMMO: slotp = SLOTP_AMMO; break;
-		case CONST_SLOT_RING: slotp = SLOTP_RING; break;
-		default: slotp = 0; break;
+	case CONST_SLOT_HEAD: slotp = SLOTP_HEAD; break;
+	case CONST_SLOT_NECKLACE: slotp = SLOTP_NECKLACE; break;
+	case CONST_SLOT_BACKPACK: slotp = SLOTP_BACKPACK; break;
+	case CONST_SLOT_ARMOR: slotp = SLOTP_ARMOR; break;
+	case CONST_SLOT_RIGHT: slotp = SLOTP_RIGHT; break;
+	case CONST_SLOT_LEFT: slotp = SLOTP_LEFT; break;
+	case CONST_SLOT_LEGS: slotp = SLOTP_LEGS; break;
+	case CONST_SLOT_FEET: slotp = SLOTP_FEET; break;
+	case CONST_SLOT_AMMO: slotp = SLOTP_AMMO; break;
+	case CONST_SLOT_RING: slotp = SLOTP_RING; break;
+	default: slotp = 0; break;
 	}
 
 	auto it = itemIdMap.find(item->getID());
@@ -340,7 +343,7 @@ uint32_t MoveEvents::onPlayerDeEquip(Player* player, Item* item, slots_t slot)
 	if (!moveEvent) {
 		return 1;
 	}
-	return moveEvent->fireEquip(player, item, slot, true);
+	return moveEvent->fireEquip(player, item, slot, false);
 }
 
 uint32_t MoveEvents::onItemMove(Item* item, Tile* tile, bool isAdd)
@@ -386,32 +389,18 @@ uint32_t MoveEvents::onItemMove(Item* item, Tile* tile, bool isAdd)
 
 MoveEvent::MoveEvent(LuaScriptInterface* interface) : Event(interface) {}
 
-MoveEvent::MoveEvent(const MoveEvent* copy) :
-	Event(copy),
-	eventType(copy->eventType),
-	stepFunction(copy->stepFunction),
-	moveFunction(copy->moveFunction),
-	equipFunction(copy->equipFunction),
-	slot(copy->slot),
-	reqLevel(copy->reqLevel),
-	reqMagLevel(copy->reqMagLevel),
-	premium(copy->premium),
-	vocationString(copy->vocationString),
-	wieldInfo(copy->wieldInfo),
-	vocEquipMap(copy->vocEquipMap) {}
-
 std::string MoveEvent::getScriptEventName() const
 {
 	switch (eventType) {
-		case MOVE_EVENT_STEP_IN: return "onStepIn";
-		case MOVE_EVENT_STEP_OUT: return "onStepOut";
-		case MOVE_EVENT_EQUIP: return "onEquip";
-		case MOVE_EVENT_DEEQUIP: return "onDeEquip";
-		case MOVE_EVENT_ADD_ITEM: return "onAddItem";
-		case MOVE_EVENT_REMOVE_ITEM: return "onRemoveItem";
-		default:
-			std::cout << "[Error - MoveEvent::getScriptEventName] Invalid event type" << std::endl;
-			return std::string();
+	case MOVE_EVENT_STEP_IN: return "onStepIn";
+	case MOVE_EVENT_STEP_OUT: return "onStepOut";
+	case MOVE_EVENT_EQUIP: return "onEquip";
+	case MOVE_EVENT_DEEQUIP: return "onDeEquip";
+	case MOVE_EVENT_ADD_ITEM: return "onAddItem";
+	case MOVE_EVENT_REMOVE_ITEM: return "onRemoveItem";
+	default:
+		std::cout << "[Error - MoveEvent::getScriptEventName] Invalid event type" << std::endl;
+		return std::string();
 	}
 }
 
@@ -536,6 +525,236 @@ bool MoveEvent::configureEvent(const pugi::xml_node& node)
 	return true;
 }
 
+namespace {
+	uint32_t StepInField(Creature* creature, Item* item, const Position&)
+	{
+		MagicField* field = item->getMagicField();
+		if (field) {
+			field->onStepInField(creature);
+			return 1;
+		}
+
+		return LUA_ERROR_ITEM_NOT_FOUND;
+	}
+
+	uint32_t StepOutField(Creature*, Item*, const Position&)
+	{
+		return 1;
+	}
+
+	uint32_t AddItemField(Item* item, Item*, const Position&)
+	{
+		if (MagicField* field = item->getMagicField()) {
+			Tile* tile = item->getTile();
+			if (CreatureVector* creatures = tile->getCreatures()) {
+				for (Creature* creature : *creatures) {
+					field->onStepInField(creature);
+				}
+			}
+			return 1;
+		}
+		return LUA_ERROR_ITEM_NOT_FOUND;
+	}
+
+	uint32_t RemoveItemField(Item*, Item*, const Position&)
+	{
+		return 1;
+	}
+
+	uint32_t EquipItem(MoveEvent* moveEvent, Player* player, Item* item, slots_t slot, bool isCheck)
+	{
+		if (player->isItemAbilityEnabled(slot)) {
+			return 1;
+		}
+
+		if (!player->hasFlag(PlayerFlag_IgnoreWeaponCheck) && moveEvent->getWieldInfo() != 0) {
+			if (player->getLevel() < moveEvent->getReqLevel() || player->getMagicLevel() < moveEvent->getReqMagLv()) {
+				return 0;
+			}
+
+			if (moveEvent->isPremium() && !player->isPremium()) {
+				return 0;
+			}
+
+			const VocEquipMap& vocEquipMap = moveEvent->getVocEquipMap();
+			if (!vocEquipMap.empty() && vocEquipMap.find(player->getVocationId()) == vocEquipMap.end()) {
+				return 0;
+			}
+		}
+
+		if (isCheck) {
+			return 1;
+		}
+
+		const ItemType& it = Item::items[item->getID()];
+		if (it.transformEquipTo != 0) {
+			Item* newItem = g_game.transformItem(item, it.transformEquipTo);
+			g_game.startDecay(newItem);
+		} else {
+			player->setItemAbility(slot, true);
+		}
+
+		if (it.imbuingSlots > 0) {
+			g_events->eventPlayerOnEquipImbuement(player, item);
+		}
+
+		if (!it.abilities) {
+			return 1;
+		}
+
+		if (it.abilities->invisible) {
+			Condition* condition = Condition::createCondition(static_cast<ConditionId_t>(slot), CONDITION_INVISIBLE, -1, 0);
+			player->addCondition(condition);
+		}
+
+		if (it.abilities->manaShield) {
+			Condition* condition = Condition::createCondition(static_cast<ConditionId_t>(slot), CONDITION_MANASHIELD, -1, 0);
+			player->addCondition(condition);
+		}
+
+		if (it.abilities->speed != 0) {
+			g_game.changeSpeed(player, it.abilities->speed);
+		}
+
+		if (it.abilities->conditionSuppressions != 0) {
+			player->addConditionSuppressions(it.abilities->conditionSuppressions);
+			player->sendIcons();
+		}
+
+		if (it.abilities->regeneration) {
+			Condition* condition = Condition::createCondition(static_cast<ConditionId_t>(slot), CONDITION_REGENERATION, -1, 0);
+
+			if (it.abilities->healthGain != 0) {
+				condition->setParam(CONDITION_PARAM_HEALTHGAIN, it.abilities->healthGain);
+			}
+
+			if (it.abilities->healthTicks != 0) {
+				condition->setParam(CONDITION_PARAM_HEALTHTICKS, it.abilities->healthTicks);
+			}
+
+			if (it.abilities->manaGain != 0) {
+				condition->setParam(CONDITION_PARAM_MANAGAIN, it.abilities->manaGain);
+			}
+
+			if (it.abilities->manaTicks != 0) {
+				condition->setParam(CONDITION_PARAM_MANATICKS, it.abilities->manaTicks);
+			}
+
+			player->addCondition(condition);
+		}
+
+		//skill modifiers
+		bool needUpdateSkills = false;
+		for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
+			if (it.abilities->skills[i]) {
+				needUpdateSkills = true;
+				player->setVarSkill(static_cast<skills_t>(i), it.abilities->skills[i]);
+			}
+		}
+
+		if (needUpdateSkills) {
+			player->sendSkills();
+		}
+
+		//stat modifiers
+		bool needUpdateStats = false;
+		for (int32_t s = STAT_FIRST; s <= STAT_LAST; ++s) {
+			if (it.abilities->stats[s]) {
+				needUpdateStats = true;
+				player->setVarStats(static_cast<stats_t>(s), it.abilities->stats[s]);
+			}
+
+			if (it.abilities->statsPercent[s]) {
+				needUpdateStats = true;
+				player->setVarStats(static_cast<stats_t>(s), static_cast<int32_t>(player->getDefaultStats(static_cast<stats_t>(s)) * ((it.abilities->statsPercent[s] - 100) / 100.f)));
+			}
+		}
+
+		if (needUpdateStats) {
+			player->sendStats();
+		}
+
+		return 1;
+	}
+
+	uint32_t DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t slot, bool)
+	{
+		if (!player->isItemAbilityEnabled(slot)) {
+			return 1;
+		}
+
+		player->setItemAbility(slot, false);
+
+		const ItemType& it = Item::items[item->getID()];
+		if (it.transformDeEquipTo != 0) {
+			g_game.transformItem(item, it.transformDeEquipTo);
+			g_game.startDecay(item);
+		}
+
+		if (it.imbuingSlots > 0) {
+			g_events->eventPlayerOnDeEquipImbuement(player, item);
+		}
+
+		if (!it.abilities) {
+			return 1;
+		}
+
+		if (it.abilities->invisible) {
+			player->removeCondition(CONDITION_INVISIBLE, static_cast<ConditionId_t>(slot));
+		}
+
+		if (it.abilities->manaShield) {
+			player->removeCondition(CONDITION_MANASHIELD, static_cast<ConditionId_t>(slot));
+		}
+
+		if (it.abilities->speed != 0) {
+			g_game.changeSpeed(player, -it.abilities->speed);
+		}
+
+		if (it.abilities->conditionSuppressions != 0) {
+			player->removeConditionSuppressions(it.abilities->conditionSuppressions);
+			player->sendIcons();
+		}
+
+		if (it.abilities->regeneration) {
+			player->removeCondition(CONDITION_REGENERATION, static_cast<ConditionId_t>(slot));
+		}
+
+		//skill modifiers
+		bool needUpdateSkills = false;
+		for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
+			if (it.abilities->skills[i] != 0) {
+				needUpdateSkills = true;
+				player->setVarSkill(static_cast<skills_t>(i), -it.abilities->skills[i]);
+			}
+		}
+
+		if (needUpdateSkills) {
+			player->sendSkills();
+		}
+
+		//stat modifiers
+		bool needUpdateStats = false;
+		for (int32_t s = STAT_FIRST; s <= STAT_LAST; ++s) {
+			if (it.abilities->stats[s]) {
+				needUpdateStats = true;
+				player->setVarStats(static_cast<stats_t>(s), -it.abilities->stats[s]);
+			}
+
+			if (it.abilities->statsPercent[s]) {
+				needUpdateStats = true;
+				player->setVarStats(static_cast<stats_t>(s), -static_cast<int32_t>(player->getDefaultStats(static_cast<stats_t>(s)) * ((it.abilities->statsPercent[s] - 100) / 100.f)));
+			}
+		}
+
+		if (needUpdateStats) {
+			player->sendStats();
+		}
+
+		return 1;
+	}
+}
+
 bool MoveEvent::loadFunction(const pugi::xml_attribute& attr)
 {
 	const char* functionName = attr.as_string();
@@ -568,230 +787,6 @@ MoveEvent_t MoveEvent::getEventType() const
 void MoveEvent::setEventType(MoveEvent_t type)
 {
 	eventType = type;
-}
-
-uint32_t MoveEvent::StepInField(Creature* creature, Item* item, const Position&)
-{
-	MagicField* field = item->getMagicField();
-	if (field) {
-		field->onStepInField(creature);
-		return 1;
-	}
-
-	return LUA_ERROR_ITEM_NOT_FOUND;
-}
-
-uint32_t MoveEvent::StepOutField(Creature*, Item*, const Position&)
-{
-	return 1;
-}
-
-uint32_t MoveEvent::AddItemField(Item* item, Item*, const Position&)
-{
-	if (MagicField* field = item->getMagicField()) {
-		Tile* tile = item->getTile();
-		if (CreatureVector* creatures = tile->getCreatures()) {
-			for (Creature* creature : *creatures) {
-				field->onStepInField(creature);
-			}
-		}
-		return 1;
-	}
-	return LUA_ERROR_ITEM_NOT_FOUND;
-}
-
-uint32_t MoveEvent::RemoveItemField(Item*, Item*, const Position&)
-{
-	return 1;
-}
-
-uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, slots_t slot, bool isCheck)
-{
-	if (player->isItemAbilityEnabled(slot)) {
-		return 1;
-	}
-
-	if (!player->hasFlag(PlayerFlag_IgnoreWeaponCheck) && moveEvent->getWieldInfo() != 0) {
-		if (player->getLevel() < moveEvent->getReqLevel() || player->getMagicLevel() < moveEvent->getReqMagLv()) {
-			return 0;
-		}
-
-		if (moveEvent->isPremium() && !player->isPremium()) {
-			return 0;
-		}
-
-		const VocEquipMap& vocEquipMap = moveEvent->getVocEquipMap();
-		if (!vocEquipMap.empty() && vocEquipMap.find(player->getVocationId()) == vocEquipMap.end()) {
-			return 0;
-		}
-	}
-
-	if (isCheck) {
-		return 1;
-	}
-
-	const ItemType& it = Item::items[item->getID()];
-	if (it.transformEquipTo != 0) {
-		Item* newItem = g_game.transformItem(item, it.transformEquipTo);
-		g_game.startDecay(newItem);
-	} else {
-		player->setItemAbility(slot, true);
-	}
-
-	if (!it.abilities) {
-		return 1;
-	}
-
-	if (it.abilities->invisible) {
-		Condition* condition = Condition::createCondition(static_cast<ConditionId_t>(slot), CONDITION_INVISIBLE, -1, 0);
-		player->addCondition(condition);
-	}
-
-	if (it.abilities->manaShield) {
-		Condition* condition = Condition::createCondition(static_cast<ConditionId_t>(slot), CONDITION_MANASHIELD, -1, 0);
-		player->addCondition(condition);
-	}
-
-	if (it.abilities->speed != 0) {
-		g_game.changeSpeed(player, it.abilities->speed);
-	}
-
-	if (it.abilities->conditionSuppressions != 0) {
-		player->addConditionSuppressions(it.abilities->conditionSuppressions);
-		player->sendIcons();
-	}
-
-	if (it.abilities->regeneration) {
-		Condition* condition = Condition::createCondition(static_cast<ConditionId_t>(slot), CONDITION_REGENERATION, -1, 0);
-
-		if (it.abilities->healthGain != 0) {
-			condition->setParam(CONDITION_PARAM_HEALTHGAIN, it.abilities->healthGain);
-		}
-
-		if (it.abilities->healthTicks != 0) {
-			condition->setParam(CONDITION_PARAM_HEALTHTICKS, it.abilities->healthTicks);
-		}
-
-		if (it.abilities->manaGain != 0) {
-			condition->setParam(CONDITION_PARAM_MANAGAIN, it.abilities->manaGain);
-		}
-
-		if (it.abilities->manaTicks != 0) {
-			condition->setParam(CONDITION_PARAM_MANATICKS, it.abilities->manaTicks);
-		}
-
-		player->addCondition(condition);
-	}
-
-	//skill modifiers
-	bool needUpdateSkills = false;
-
-	for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-		if (it.abilities->skills[i]) {
-			needUpdateSkills = true;
-			player->setVarSkill(static_cast<skills_t>(i), it.abilities->skills[i]);
-		}
-	}
-
-	if (needUpdateSkills) {
-		player->sendSkills();
-	}
-
-	//stat modifiers
-	bool needUpdateStats = false;
-
-	for (int32_t s = STAT_FIRST; s <= STAT_LAST; ++s) {
-		if (it.abilities->stats[s]) {
-			needUpdateStats = true;
-			player->setVarStats(static_cast<stats_t>(s), it.abilities->stats[s]);
-		}
-
-		if (it.abilities->statsPercent[s]) {
-			needUpdateStats = true;
-			player->setVarStats(static_cast<stats_t>(s), static_cast<int32_t>(player->getDefaultStats(static_cast<stats_t>(s)) * ((it.abilities->statsPercent[s] - 100) / 100.f)));
-		}
-	}
-
-	if (needUpdateStats) {
-		player->sendStats();
-	}
-
-	return 1;
-}
-
-uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t slot, bool)
-{
-	if (!player->isItemAbilityEnabled(slot)) {
-		return 1;
-	}
-
-	player->setItemAbility(slot, false);
-
-	const ItemType& it = Item::items[item->getID()];
-	if (it.transformDeEquipTo != 0) {
-		g_game.transformItem(item, it.transformDeEquipTo);
-		g_game.startDecay(item);
-	}
-
-	if (!it.abilities) {
-		return 1;
-	}
-
-	if (it.abilities->invisible) {
-		player->removeCondition(CONDITION_INVISIBLE, static_cast<ConditionId_t>(slot));
-	}
-
-	if (it.abilities->manaShield) {
-		player->removeCondition(CONDITION_MANASHIELD, static_cast<ConditionId_t>(slot));
-	}
-
-	if (it.abilities->speed != 0) {
-		g_game.changeSpeed(player, -it.abilities->speed);
-	}
-
-	if (it.abilities->conditionSuppressions != 0) {
-		player->removeConditionSuppressions(it.abilities->conditionSuppressions);
-		player->sendIcons();
-	}
-
-	if (it.abilities->regeneration) {
-		player->removeCondition(CONDITION_REGENERATION, static_cast<ConditionId_t>(slot));
-	}
-
-	//skill modifiers
-	bool needUpdateSkills = false;
-
-	for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-		if (it.abilities->skills[i] != 0) {
-			needUpdateSkills = true;
-			player->setVarSkill(static_cast<skills_t>(i), -it.abilities->skills[i]);
-		}
-	}
-
-	if (needUpdateSkills) {
-		player->sendSkills();
-	}
-
-	//stat modifiers
-	bool needUpdateStats = false;
-
-	for (int32_t s = STAT_FIRST; s <= STAT_LAST; ++s) {
-		if (it.abilities->stats[s]) {
-			needUpdateStats = true;
-			player->setVarStats(static_cast<stats_t>(s), -it.abilities->stats[s]);
-		}
-
-		if (it.abilities->statsPercent[s]) {
-			needUpdateStats = true;
-			player->setVarStats(static_cast<stats_t>(s), -static_cast<int32_t>(player->getDefaultStats(static_cast<stats_t>(s)) * ((it.abilities->statsPercent[s] - 100) / 100.f)));
-		}
-	}
-
-	if (needUpdateStats) {
-		player->sendStats();
-	}
-
-	return 1;
 }
 
 uint32_t MoveEvent::fireStepEvent(Creature* creature, Item* item, const Position& pos)
@@ -827,19 +822,19 @@ bool MoveEvent::executeStep(Creature* creature, Item* item, const Position& pos)
 	return scriptInterface->callFunction(4);
 }
 
-uint32_t MoveEvent::fireEquip(Player* player, Item* item, slots_t slot, bool boolean)
+uint32_t MoveEvent::fireEquip(Player* player, Item* item, slots_t slot, bool isCheck)
 {
 	if (scripted) {
-		return executeEquip(player, item, slot);
+		return executeEquip(player, item, slot, isCheck);
 	} else {
-		return equipFunction(this, player, item, slot, boolean);
+		return equipFunction(this, player, item, slot, isCheck);
 	}
 }
 
-bool MoveEvent::executeEquip(Player* player, Item* item, slots_t slot)
+bool MoveEvent::executeEquip(Player* player, Item* item, slots_t slot, bool isCheck)
 {
-	//onEquip(player, item, slot)
-	//onDeEquip(player, item, slot)
+	//onEquip(player, item, slot, isCheck)
+	//onDeEquip(player, item, slot, isCheck)
 	if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - MoveEvent::executeEquip] Call stack overflow" << std::endl;
 		return false;
@@ -855,8 +850,9 @@ bool MoveEvent::executeEquip(Player* player, Item* item, slots_t slot)
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 	LuaScriptInterface::pushThing(L, item);
 	lua_pushnumber(L, slot);
+	LuaScriptInterface::pushBoolean(L, isCheck);
 
-	return scriptInterface->callFunction(3);
+	return scriptInterface->callFunction(4);
 }
 
 uint32_t MoveEvent::fireAddRemItem(Item* item, Item* tileItem, const Position& pos)
