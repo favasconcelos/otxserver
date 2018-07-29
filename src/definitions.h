@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,13 +20,15 @@
 #ifndef FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 #define FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 
-static constexpr auto STATUS_SERVER_NAME = "OTXServer";
-static constexpr auto STATUS_SERVER_VERSION = "3.10";
-static constexpr auto STATUS_SERVER_DEVELOPERS = "OTX Contributors and The Forgotten Server Developers";
+static constexpr auto STATUS_SERVER_NAME = "OTX 3,10";
+static constexpr auto STATUS_SERVER_VERSION = "3";
+static constexpr auto MINOR_VERSION = "10";
+static constexpr auto STATUS_SERVER_DEVELOPERS = "Matt Gomez, Leandro Brewster, Erick Nunes, Joao Leonardo Pereira, Bruno Carvalho, Charles Kassab, OTX Contributors and The Forgotten Server Developers";
+static constexpr auto GIT_REPO = "https://github.com/malucooo/otxserver-new";
 
 static constexpr auto CLIENT_VERSION_MIN = 1100;
-static constexpr auto CLIENT_VERSION_MAX = 1173;
-static constexpr auto CLIENT_VERSION_STR = "11.73";
+static constexpr auto CLIENT_VERSION_MAX = 1160;
+static constexpr auto CLIENT_VERSION_STR = "11.60";
 
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;

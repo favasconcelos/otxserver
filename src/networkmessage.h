@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ class RSA;
 class NetworkMessage
 {
 	public:
-		typedef uint16_t MsgSize_t;
+		using MsgSize_t = uint16_t;
 		// Headers:
 		// 2 bytes for unencrypted message size
 		// 4 bytes for checksum
@@ -132,6 +132,8 @@ class NetworkMessage
 			return static_cast<uint16_t>(buffer[0] | buffer[1] << 8);
 		}
 
+		int32_t decodeHeader();
+
 		bool isOverrun() const {
 			return info.overrun;
 		}
@@ -150,11 +152,11 @@ class NetworkMessage
 		}
 
 	protected:
-		inline bool canAdd(size_t size) const {
+		bool canAdd(size_t size) const {
 			return (size + info.position) < MAX_BODY_LENGTH;
 		}
 
-		inline bool canRead(int32_t size) {
+		bool canRead(int32_t size) {
 			if ((info.position + size) > (info.length + 8) || size >= (NETWORKMESSAGE_MAXSIZE - info.position)) {
 				info.overrun = true;
 				return false;

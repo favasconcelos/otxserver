@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,6 +35,14 @@ struct LootBlock {
 	int32_t subType;
 	int32_t actionId;
 	std::string text;
+	std::string name;
+	std::string article;
+	int32_t attack;
+	int32_t defense;
+	int32_t extraDefense;
+	int32_t armor;
+	int32_t shootRange;
+	int32_t hitChance;
 	bool unique;
 
 	std::vector<LootBlock> childLoot;
@@ -45,6 +53,13 @@ struct LootBlock {
 
 		subType = -1;
 		actionId = -1;
+		attack = -1;
+		defense = -1;
+		extraDefense = -1;
+		armor = -1;
+		shootRange = -1;
+		hitChance = -1;
+		unique = false;
 	}
 };
 
@@ -144,12 +159,15 @@ class MonsterType
 		bool isConvinceable = false;
 		bool isAttackable = true;
 		bool isHostile = true;
-		bool isBlockable = false;
 		bool hiddenHealth = false;
+		bool isBlockable = false;
+		bool isPet = false;
+		bool isPassive = false;
+		bool isRewardBoss = false;
+		bool isBoss = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
 		bool canWalkOnPoison = true;
-		bool isRewardBoss = false;
 	};
 
 	public:
@@ -167,6 +185,10 @@ class MonsterType
 		void createLoot(Container* corpse);
 		bool createLootContainer(Container* parent, const LootBlock& lootblock);
 		std::vector<Item*> createLootItem(const LootBlock& lootBlock, bool canRerollLoot = false);
+
+	private:
+		void insertLootStatistic(uint32_t itemID, uint32_t itemCount);
+		
 };
 
 class Monsters
@@ -185,20 +207,21 @@ class Monsters
 
 		MonsterType* getMonsterType(const std::string& name);
 		std::vector<std::string> getPreyMonsters();
-		
+
 		static uint32_t getLootRandom();
 
 	private:
 		ConditionDamage* getDamageCondition(ConditionType_t conditionType,
-		                                    int32_t maxDamage, int32_t minDamage, int32_t startDamage, uint32_t tickInterval);
+											int32_t maxDamage, int32_t minDamage, int32_t startDamage, uint32_t tickInterval);
 		bool deserializeSpell(const pugi::xml_node& node, spellBlock_t& sb, const std::string& description = "");
 
-		bool loadMonster(const std::string& file, const std::string& monsterName, std::list<std::pair<MonsterType*, std::string>>& monsterScriptList, bool reloading = false);
+		MonsterType* loadMonster(const std::string& file, const std::string& monsterName, bool reloading = false);
 
 		void loadLootContainer(const pugi::xml_node& node, LootBlock&);
 		bool loadLootItem(const pugi::xml_node& node, LootBlock&);
 
 		std::map<std::string, MonsterType> monsters;
+		std::map<std::string, std::string> unloadedMonsters;
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
 
 		bool loaded = false;
