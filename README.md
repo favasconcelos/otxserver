@@ -3,28 +3,22 @@
 
 # (GIT PRIVADO) Requisito:
 -> [Gitlab Privado](https://gitlab.com/malucooo/Otxserver-Global)
-###### 0.1 -> Sera invitado no projeto somente por meio de convite, sendo que os membros invitados tenham conteúdo para subir ou no passado já contribuíram frequentemente.
+###### 0.1 -> Sera invitado no projeto somente por meio de convite, adquirido através de contribuições funcionais e estaveis, sendo que os membros invitados tenham conteúdo para subir ou no passado já contribuíram frequentemente.
 ###### 0.2 -> Regularmente sera feita a limpeza de membros que não estejam alimentando com conteúdo o projeto.
-###### 0.3 -> Entre em contato caso tenha interesse em acessa o conteúdo "privado" (isso não quer dizer que seja pago)!
+###### 0.3 -> Entre em contato caso tenha interesse em acessar o conteúdo "privado" (isso não quer dizer que seja pago)!
 
 # Contato:
 -> Facebook: www.facebook.com/erick.nunes.75
 
 -> Skype: e_nunes@live.com
 
--> Whatsapp: +5493412163786
+-> [Grupo do Whatsapp] (https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8)
 
--> [Grupo do Whatsapp] (https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8) 
-
--> [Grupo do Discord] (https://discord.gg/k8kxPw)
+-> [Grupo do Discord] (https://discord.gg/7dnCeau)
 
 
 # Referências:
--> [Fórum BR](http://www.tibiaking.com)
-
--> [Fórum BR²](http://www.xtibia.com)
-
--> [Fórum Alternativo](https://www.otland.net)
+-> [Fórum BR](http://www.otserv.com.br)
 
 # Tutoriais
 -> Temos uma Wiki explicando como compilar o servidor  [TFS Wiki](https://github.com/otland/forgottenserver/wiki/Compiling)
@@ -34,7 +28,7 @@
 
 # Sites Compativeis
 
--> [Gesior by Leonardo Pereira](https://github.com/jlcvp/GesiorMonteiro/archive/master.zip).
+-> [Gesior Compativel](https://github.com/jlcvp/GesiorMonteiro/archive/master.zip).
 Originally by Monteiro, security fixes and features by Leonardo Pereira (jlcvp)
 
 # Mapa Editor Compativel
