@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,8 +28,8 @@
 #include "enums.h"
 #include "creatureevent.h"
 
-typedef std::list<Condition*> ConditionList;
-typedef std::list<CreatureEvent*> CreatureEventList;
+using ConditionList = std::list<Condition*>;
+using CreatureEventList = std::list<CreatureEvent*>;
 
 enum slots_t : uint8_t {
 	CONST_SLOT_WHEREEVER = 0,
@@ -79,10 +79,10 @@ class FrozenPathingConditionCall
 		explicit FrozenPathingConditionCall(Position targetPos) : targetPos(std::move(targetPos)) {}
 
 		bool operator()(const Position& startPos, const Position& testPos,
-		                const FindPathParams& fpp, int32_t& bestMatchDist) const;
+						const FindPathParams& fpp, int32_t& bestMatchDist) const;
 
 		bool isInRange(const Position& startPos, const Position& testPos,
-		               const FindPathParams& fpp) const;
+					   const FindPathParams& fpp) const;
 
 	protected:
 		Position targetPos;
@@ -172,6 +172,13 @@ class Creature : virtual public Thing
 		}
 		void setHiddenHealth(bool b) {
 			hiddenHealth = b;
+		}
+
+		bool isMoveLocked() const {
+			return moveLocked;
+		}
+		void setMoveLocked(bool locked) {
+			moveLocked = locked;
 		}
 
 		int32_t getThrowRange() const final {
@@ -276,11 +283,17 @@ class Creature : virtual public Thing
 		}
 		virtual bool setAttackedCreature(Creature* creature);
 		virtual BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-		                             bool checkDefense = false, bool checkArmor = false, bool field = false);
+									 bool checkDefense = false, bool checkArmor = false, bool field = false);
 
-		void setMaster(Creature* creature) {
-			master = creature;
+		bool setMaster(Creature* newMaster);
+
+		void removeMaster() {
+			if (master) {
+				master = nullptr;
+				decrementReferenceCounter();
+			}
 		}
+
 		bool isSummon() const {
 			return master != nullptr;
 		}
@@ -288,8 +301,6 @@ class Creature : virtual public Thing
 			return master;
 		}
 
-		void addSummon(Creature* creature);
-		void removeSummon(Creature* creature);
 		const std::list<Creature*>& getSummons() const {
 			return summons;
 		}
@@ -347,9 +358,6 @@ class Creature : virtual public Thing
 		virtual bool challengeCreature(Creature*) {
 			return false;
 		}
-		virtual bool convinceCreature(Creature*) {
-			return false;
-		}
 
 		void onDeath();
 		virtual uint64_t getGainedExperience(Creature* attacker) const;
@@ -366,6 +374,7 @@ class Creature : virtual public Thing
 		virtual void onAttacked();
 		virtual void onAttackedCreatureDrainHealth(Creature* target, int32_t points);
 		virtual void onTargetCreatureGainHealth(Creature*, int32_t) {}
+		void onAttackedCreatureKilled(Creature* target);
 		virtual bool onKilledCreature(Creature* target, bool lastHit = true);
 		virtual void onGainExperience(uint64_t gainExp, Creature* target);
 		virtual void onAttackedCreatureBlockHit(BlockType_t) {}
@@ -387,21 +396,20 @@ class Creature : virtual public Thing
 
 		void onAddTileItem(const Tile* tile, const Position& pos);
 		virtual void onUpdateTileItem(const Tile* tile, const Position& pos, const Item* oldItem,
-		                              const ItemType& oldType, const Item* newItem, const ItemType& newType);
+									  const ItemType& oldType, const Item* newItem, const ItemType& newType);
 		virtual void onRemoveTileItem(const Tile* tile, const Position& pos, const ItemType& iType,
-		                              const Item* item);
+									  const Item* item);
 
 		virtual void onCreatureAppear(Creature* creature, bool isLogin);
 		virtual void onRemoveCreature(Creature* creature, bool isLogout);
 		virtual void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
-		                            const Tile* oldTile, const Position& oldPos, bool teleport);
+									const Tile* oldTile, const Position& oldPos, bool teleport);
 
 		virtual void onAttackedCreatureDisappear(bool) {}
 		virtual void onFollowCreatureDisappear(bool) {}
 
 		virtual void onCreatureSay(Creature*, SpeakClasses, const std::string&) {}
 
-		virtual void onCreatureConvinced(const Creature*, const Creature*) {}
 		virtual void onPlacedCreature() {}
 
 		virtual bool getCombatValues(int32_t&, int32_t&) {
@@ -414,8 +422,11 @@ class Creature : virtual public Thing
 		void setDropLoot(bool lootDrop) {
 			this->lootDrop = lootDrop;
 		}
-		void setLossSkill(bool skillLoss) {
+		void setSkillLoss(bool skillLoss) {
 			this->skillLoss = skillLoss;
+		}
+		void setUseDefense(bool useDefense) {
+			canUseDefense = useDefense;
 		}
 
 		//creature script events
@@ -430,7 +441,7 @@ class Creature : virtual public Thing
 			position = tile->getPosition();
 		}
 
-		inline const Position& getPosition() const final {
+		const Position& getPosition() const final {
 			return position;
 		}
 
@@ -483,7 +494,7 @@ class Creature : virtual public Thing
 
 		Position position;
 
-		typedef std::map<uint32_t, CountBlock_t> CountMap;
+		using CountMap = std::map<uint32_t, CountBlock_t>;
 		CountMap damageMap;
 
 		std::list<Creature*> summons;
@@ -534,6 +545,8 @@ class Creature : virtual public Thing
 		bool hasFollowPath = false;
 		bool forceUpdateFollowPath = false;
 		bool hiddenHealth = false;
+		bool canUseDefense = true;
+		bool moveLocked = false;
 
 		//creature script events
 		bool hasEventRegistered(CreatureEventType_t event) const {

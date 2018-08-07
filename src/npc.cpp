@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -97,7 +97,6 @@ bool Npc::load()
 
 void Npc::reset()
 {
-	isIdle = true;
 	loaded = false;
 	walkTicks = 1500;
 	floorChange = false;
@@ -111,7 +110,6 @@ void Npc::reset()
 
 	parameters.clear();
 	shopPlayerSet.clear();
-	spectators.clear();
 }
 
 void Npc::reload()
@@ -259,7 +257,7 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 		}
 
 		spectators.insert(player);
- 		updateIdleStatus();
+		updateIdleStatus();
 	}
 }
 
@@ -278,12 +276,12 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 		}
 
 		spectators.erase(player);
- 		updateIdleStatus();
+		updateIdleStatus();
 	}
 }
 
 void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
-                         const Tile* oldTile, const Position& oldPos, bool teleport)
+						 const Tile* oldTile, const Position& oldPos, bool teleport)
 {
 	Creature::onCreatureMove(creature, newTile, newPos, oldTile, oldPos, teleport);
 
@@ -293,17 +291,17 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 		}
 
 		if (creature != this) {
- 			Player* player = creature->getPlayer();
- 
- 			// if player is now in range, add to spectators list, otherwise erase
- 			if (player->canSee(position)) {
- 				spectators.insert(player);
- 			} else {
- 				spectators.erase(player);
- 			}
- 
- 			updateIdleStatus();
- 		}
+			Player* player = creature->getPlayer();
+
+			// if player is now in range, add to spectators list, otherwise erase
+			if (player->canSee(position)) {
+				spectators.insert(player);
+			} else {
+				spectators.erase(player);
+			}
+
+			updateIdleStatus();
+		}
 	}
 }
 
@@ -356,7 +354,7 @@ void Npc::doSayToPlayer(Player* player, const std::string& text)
 }
 
 void Npc::onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count,
-                        uint8_t amount, bool ignore/* = false*/, bool inBackpacks/* = false*/)
+						uint8_t amount, bool ignore/* = false*/, bool inBackpacks/* = false*/)
 {
 	if (npcEventHandler) {
 		npcEventHandler->onPlayerTrade(player, callback, itemId, count, amount, ignore, inBackpacks);
@@ -412,12 +410,8 @@ void Npc::setIdle(bool idle)
 
 	isIdle = idle;
 
-	if (!isIdle) {
-		g_game.addCreatureCheck(this);
-	} else {
+	if (isIdle) {
 		onIdleStatus();
-		Game::removeCreatureCheck(this);
-		closeAllShopWindows();
 	}
 }
 
@@ -1206,7 +1200,7 @@ void NpcEventsHandler::onCreatureSay(Creature* creature, SpeakClasses type, cons
 }
 
 void NpcEventsHandler::onPlayerTrade(Player* player, int32_t callback, uint16_t itemid,
-                              uint8_t count, uint8_t amount, bool ignore, bool inBackpacks)
+							  uint8_t count, uint8_t amount, bool ignore, bool inBackpacks)
 {
 	if (callback == -1) {
 		return;

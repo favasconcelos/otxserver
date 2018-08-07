@@ -69,6 +69,13 @@ levelDoors = {
 
 keys = {2086, 2087, 2088, 2089, 2090, 2091, 2092, 10032}
 
+--[ Impact Analyser ]--
+updateInterval = 2 --every 2 seconds
+-- Healing
+healingImpact = {} -- global table to insert data
+-- Damage
+damageImpact = {} -- global table to insert data
+ 
 function doCreatureSayWithRadius(cid, text, type, radiusx, radiusy, position)
 	if not position then
 		position = Creature(cid):getPosition()
