@@ -18,7 +18,7 @@
 
 
 # Referências:
--> [Fórum BR](http://www.otserv.com.br)
+-> [Fórum OTBR](http://www.otserv.com.br)
 
 # Tutoriais
 -> Temos uma Wiki explicando como compilar o servidor  [TFS Wiki](https://github.com/otland/forgottenserver/wiki/Compiling)
