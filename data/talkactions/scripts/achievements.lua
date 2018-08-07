@@ -1,8 +1,13 @@
 function onSay(player, words, param)
-	if (player:getAccountType() < ACCOUNT_TYPE_GOD) then
-		return false
+	
+	if not player:getGroup():getAccess() then
+		return true
 	end
 
+	if player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return false
+	end
+		
 	if words == "/addach" then
 		local p = param:split(",")
 
@@ -42,9 +47,8 @@ function onSay(player, words, param)
 
 		if action == "all" then
 			return target:removeAllAchievements()
-		elseif action == "withdotr" then 
-			player:sendCancelMessage("vai tomar no cu")
-		end --remove all achievements
+		
+			end --remove all achievements
 
 		local ach = (isNumber(action) and tonumber(action) or action)
 		target:removeAchievement(ach)

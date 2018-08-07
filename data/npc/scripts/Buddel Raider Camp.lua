@@ -13,6 +13,6 @@ local travelNode = keywordHandler:addKeyword({'svargrond'}, StdModule.say, {npcH
 	travelNode:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, reset = true, text = 'SHIP AHOY! I AM BUDDEL THE ..... did you say no??? Alright.'})
 
 -- Kick
-keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32020, 31297, 7), Position(32021, 31297, 7), Position(32022, 31297, 7)}})
+--keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32020, 31297, 7), Position(32021, 31297, 7), Position(32022, 31297, 7)}})
 
 npcHandler:addModule(FocusModule:new())

@@ -8,11 +8,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		item:transform(4864)
 		target:remove()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
-	elseif target.itemid == 2913 then
+	elseif target.itemid == 3108 then
 		if player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 45 then
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 46)
 			toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			item:transform(4864)
+			item:transform(8182)
 			target:remove()
 		end
 	end

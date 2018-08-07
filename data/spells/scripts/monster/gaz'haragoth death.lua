@@ -1,29 +1,29 @@
 local voc = {1, 2, 3, 4, 5, 6, 7, 8}
-
-	arr = {
-	{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-	{0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
-	{0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
-	{0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-	{1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
-	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-	{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-	{0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-	{0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
-	{0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
-	{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-	}
-
+ 
+    arr = {
+    {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+    {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+    {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    {1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+    {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+    {0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+    }
+ 
 local area = createCombatArea(arr)
-
-local combat = createCombatObject()
-setCombatArea(combat, area)
-
-function onTargetTile(cid, pos)
+ 
+local combat = Combat()
+combat:setArea(area)
+ 
+function onTargetTile(creature, pos)
     local creatureTable = {}
-    local n, i = getTileInfo({x=pos.x, y=pos.y, z=pos.z}).creatures, 1
+    local n, i = Tile({x=pos.x, y=pos.y, z=pos.z}).creatures, 1
     if n ~= 0 then
         local v = getThingfromPos({x=pos.x, y=pos.y, z=pos.z, stackpos=i}).uid
         while v ~= 0 do
@@ -39,32 +39,36 @@ function onTargetTile(cid, pos)
     end
     if #creatureTable ~= nil and #creatureTable > 0 then
         for r = 1, #creatureTable do
-            if creatureTable[r] ~= cid then
+            if creatureTable[r] ~= creature then
                 local min = 30000
                 local max = 30000
-                if isPlayer(creatureTable[r]) == true and isInArray(voc, getPlayerVocation(creatureTable[r])) == true then
-                    doTargetCombatHealth(cid, creatureTable[r], COMBAT_ENERGYDAMAGE, -min, -max, CONST_ME_NONE)
+                local player = Player(creatureTable[r])
+               
+                if isPlayer(creatureTable[r]) == true and isInArray(voc, player:getVocation():getId()) then
+                    doTargetCombatHealth(creature, creatureTable[r], COMBAT_ENERGYDAMAGE, -min, -max, CONST_ME_NONE)
                 elseif isMonster(creatureTable[r]) == true then
-                    doTargetCombatHealth(cid, creatureTable[r], COMBAT_ENERGYDAMAGE, -min, -max, CONST_ME_NONE)
+                    doTargetCombatHealth(creature, creatureTable[r], COMBAT_ENERGYDAMAGE, -min, -max, CONST_ME_NONE)
                 end
             end
         end
     end
-    doSendMagicEffect(pos, CONST_ME_PURPLEENERGY)
+    pos:sendMagicEffect(CONST_ME_PURPLEENERGY)
     return true
 end
-
-setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
-
-local function delayedCastSpell(cid, var)
-    if isCreature(cid) == true then
-        doCombat(cid, combat, positionToVariant(getCreaturePosition(cid)))
-	doCreatureSay(cid, "Gaz'haragoth calls down: DEATH AND DOOM!", TALKTYPE_ORANGE_2)
+ 
+combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
+ 
+local function delayedCastSpell(cid)
+    local creature = Creature(cid)
+    if not creature then
+        return
     end
+    creature:say("Gaz'haragoth calls down: DEATH AND DOOM!", TALKTYPE_ORANGE_2)
+    return combat:execute(creature, Variant(creature:getPosition()))
 end
-
-function onCastSpell(cid, var)
-    doCreatureSay(cid, "Gaz'haragoth begins to channel DEATH AND DOOM into the area! RUN!", TALKTYPE_ORANGE_2)
-    addEvent(delayedCastSpell, 5000, cid, var)
+ 
+function onCastSpell(creature, var)
+    creature:say("Gaz'haragoth begins to channel DEATH AND DOOM into the area! RUN!", TALKTYPE_ORANGE_2)
+    addEvent(function() delayedCastSpell(creature:getId()) end, 5000)
     return true
 end

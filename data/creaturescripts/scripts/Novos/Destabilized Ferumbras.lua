@@ -3,9 +3,9 @@ local posdotp8 = {x=33409, y=32280, z=14}
 function MoveStone8() 
     local criistal9 = getTileItemById(posdotp8, 1353)  
     if not criistal9 then       
-    doCreateItem(1353,1,posdotp8)
+    Game.createItem(1353,1,posdotp8)
 	else 
-	doCreateItem(1353,1,posdotp8)
+	Game.createItem(1353,1,posdotp8)
 	end 
 	return true
 end

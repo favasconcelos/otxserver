@@ -8,21 +8,25 @@ function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)
 function onThink()				npcHandler:onThink()					end
 
 -- Travel 
-local function addTravelKeyword(keyword, cost, destination)
+local function addTravelKeyword(keyword, cost, destination, condition)
+	if condition then
+		keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m sorry but I don\'t sail there.'}, condition)
+	end
+
 	local travelKeyword = keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'Do you seek a passage to ' .. keyword:titleCase() .. ' for |TRAVELCOST|?', cost = cost, discount = 'postman'})
 		travelKeyword:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, cost = cost, discount = 'postman', destination = destination})
 		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'We would like to serve you some time.', reset = true})
 end
 
-addTravelKeyword('edron', 0, Position(33175, 31764, 6))
-addTravelKeyword('venore', 0, Position(32954, 32022, 6))
-addTravelKeyword('port hope', 0, Position(32527, 32784, 6))
-addTravelKeyword('liberty bay', 0, Position(32285, 32892, 6))
-addTravelKeyword('darashia', 0, Position(33289, 32480, 6))
-addTravelKeyword('yalahar', 0, Position(32816, 31272, 6))
+addTravelKeyword('edron', 160, Position(33175, 31764, 6))
+addTravelKeyword('venore', 150, Position(32954, 32022, 6))
+addTravelKeyword('port hope', 80, Position(32527, 32784, 6))
+addTravelKeyword('liberty bay', 90, Position(32285, 32892, 6))
+addTravelKeyword('darashia', 100, Position(33289, 32480, 6))
+addTravelKeyword('yalahar', 230, Position(32816, 31272, 6), function(player) return player:getStorageValue(Storage.SearoutesAroundYalahar.Ankrahmun) ~= 1 and player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) < 5 end)
 
 -- Kick
-keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(33082, 32879, 6), Position(33085, 32879, 6), Position(33085, 32881, 6)}})
+--keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(33082, 32879, 6), Position(33085, 32879, 6), Position(33085, 32881, 6)}})
 
 -- Basic
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "I'm known all over the world as Captain Sinbeard"})

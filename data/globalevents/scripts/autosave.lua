@@ -1,16 +1,16 @@
 local cleanMapAtSave = true
 
-local function serverSave()
+local function serverSave(interval)
 	if cleanMapAtSave then
-		--cleanMap()
-	Game.broadcastMessage('Server Saved, next save in 1 hour.', MESSAGE_EVENT_ADVANCE)
+		cleanMap()
 	end
 
 	saveServer()
+	Game.broadcastMessage('Server save complete. Next save in ' .. math.floor(interval / 60000) .. ' minutes!', MESSAGE_STATUS_WARNING)
 end
 
 function onThink(interval)
-	Game.broadcastMessage('The server will save all accounts within 60 seconds, possibly will have lag for 5 seconds, find a safe place.', MESSAGE_EVENT_ADVANCE)
-	addEvent(serverSave, 60000)
+	Game.broadcastMessage('The server will save all accounts within 60 seconds. You might lag or freeze for 5 seconds, please find a safe place.', MESSAGE_STATUS_WARNING)
+	addEvent(serverSave, 60000, interval)
 	return true
 end

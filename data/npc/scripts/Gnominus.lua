@@ -32,9 +32,9 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then
-			if player:getMoney() >= 10 then
+			if player:getMoney() + player:getBankBalance() >= 10 then
 				npcHandler:say('And here it is! Drink it quick, it gets stale quite fast!', cid)
-				player:removeMoney(10)
+				player:removeMoneyNpc(10)
 				local beerItem = player:addItem(18305)
 				if beerItem then
 					beerItem:decay()

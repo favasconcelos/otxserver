@@ -42,7 +42,7 @@ function onTargetTile(cid, pos)
             if creatureTable[r] ~= cid then
                 local min = 4000
                 local max = 8000
-                if isPlayer(creatureTable[r]) == true and isInArray(voc, getPlayerVocation(creatureTable[r])) == true then
+                if isPlayer(creatureTable[r]) == true and table.contains(voc, getPlayerVocation(creatureTable[r])) == true then
                     doTargetCombatHealth(cid, creatureTable[r], COMBAT_ENERGYDAMAGE, -min, -max, CONST_ME_NONE)
                 elseif isMonster(creatureTable[r]) == true then
                     doTargetCombatHealth(cid, creatureTable[r], COMBAT_ENERGYDAMAGE, -min, -max, CONST_ME_NONE)

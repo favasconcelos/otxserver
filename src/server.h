@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -144,8 +144,8 @@ bool ServiceManager::add(uint16_t port)
 
 		if (service_port->is_single_socket() || ProtocolType::server_sends_first) {
 			std::cout << "ERROR: " << ProtocolType::protocol_name() <<
-			          " and " << service_port->get_protocol_names() <<
-			          " cannot use the same port " << port << '.' << std::endl;
+					  " and " << service_port->get_protocol_names() <<
+					  " cannot use the same port " << port << '.' << std::endl;
 			return false;
 		}
 	}

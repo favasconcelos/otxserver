@@ -14,11 +14,11 @@ local function addTravelKeyword(keyword, text, cost, destination)
 		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'You shouldn\'t miss the experience.', reset = true})
 end
 
-addTravelKeyword('darashia', 'Darashia on Darama', 0, Position(33270, 32441, 6))
-addTravelKeyword('svargrond', 'Svargrond', 0, Position(32253, 31097, 4))
-addTravelKeyword('femor hills', 'the Femor Hills', 0, Position(32536, 31837, 4))
-addTravelKeyword('edron', 'Edron', 0, Position(33193, 31784, 3))
-addTravelKeyword('kazordoon', 'Kazordoon', 0, Position(32588, 31942, 0))
+addTravelKeyword('darashia', 'Darashia on Darama', 60, Position(33270, 32441, 6))
+addTravelKeyword('svargrond', 'Svargrond', 60, Position(32253, 31097, 4))
+addTravelKeyword('femor hills', 'the Femor Hills', 60, Position(32536, 31837, 4))
+addTravelKeyword('edron', 'Edron', 60, Position(33193, 31784, 3))
+addTravelKeyword('kazordoon', 'Kazordoon', 70, Position(32588, 31941, 0))
 
 npcHandler:setMessage(MESSAGE_GREET, "Ah, the wind brings in another visitor. Feel welcome |PLAYERNAME|. Where do you want me to {fly} you?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Daraman's blessings!")

@@ -6,7 +6,6 @@ local magePositions = {
 
 local positions = {
 	Position(33313, 31852, 9),
-	Position(33313, 31865, 9),
 	Position(33313, 31881, 9),
 	Position(33328, 31860, 9),
 	Position(33328, 31873, 9),
@@ -22,7 +21,6 @@ local positions = {
 	Position(33345, 31900, 9),
 	Position(33352, 31900, 9),
 	Position(33355, 31854, 9),
-	Position(33355, 31861, 9),
 	Position(33355, 31885, 9),
 	Position(33345, 31864, 9),
 	Position(33345, 31881, 9),
@@ -35,9 +33,16 @@ local positions = {
 }
 
 local servants = {
+	'iron servant', -- 50%
 	'iron servant',
+	'iron servant',	
+	'iron servant',	
+	'iron servant',	
+	'golden servant', -- 40%	
 	'golden servant',
-	'diamond servant'
+	'golden servant',	
+	'golden servant',	
+	'diamond servant' -- 10%
 }
 
 local function fillFungus(fromPosition, toPosition)
@@ -48,8 +53,11 @@ local function fillFungus(fromPosition, toPosition)
 			if tile then
 				local item = tile:getItemById(13590)
 				if item then
-					item:transform(math.random(13585, 13589))
-					position:sendMagicEffect(CONST_ME_YELLOW_RINGS)
+					local slimeChance = math.random(100)
+					if slimeChance <= 30 then
+						item:transform(math.random(13585, 13589))
+						position:sendMagicEffect(CONST_ME_YELLOW_RINGS)
+					end	
 				end
 			end
 		end
@@ -72,19 +80,17 @@ function onKill(creature, target)
 	end
 
 	local wave, killedAmount = Game.getStorageValue(GlobalStorage.TheirMastersVoice.CurrentServantWave), Game.getStorageValue(GlobalStorage.TheirMastersVoice.ServantsKilled)
-	if killedAmount == #positions and wave < 25 then
+	local numberofwaves = 19 -- first wave number = 0, so '19' = 20 waves of servants
+	if killedAmount < (#positions - 1) and wave <= numberofwaves then
+		Game.setStorageValue(GlobalStorage.TheirMastersVoice.ServantsKilled, killedAmount + 1)
+	elseif killedAmount == (#positions - 1) and wave < numberofwaves then
 		Game.setStorageValue(GlobalStorage.TheirMastersVoice.ServantsKilled, 0)
 		Game.setStorageValue(GlobalStorage.TheirMastersVoice.CurrentServantWave, wave + 1)
-
 		for i = 1, #positions do
 			addEvent(summonServant, 5 * 1000, positions[i])
-		end
-
-	elseif killedAmount < #positions and wave < 25 then
-		Game.setStorageValue(GlobalStorage.TheirMastersVoice.ServantsKilled, killedAmount + 1)
-
-	elseif killedAmount == #positions and wave == 25 then
-		Game.createMonster('mad mage', magePositions[math.random(#magePositions)])
+		end	
+	elseif killedAmount == (#positions - 1) and wave == numberofwaves then
+		Game.createMonster("Mad Mage", magePositions[math.random(#magePositions)])
 		targetMonster:say('The Mad Mage has been spawned!', TALKTYPE_MONSTER_SAY)
 		fillFungus({x = 33306, y = 31847}, {x = 33369, y = 31919})
 	end

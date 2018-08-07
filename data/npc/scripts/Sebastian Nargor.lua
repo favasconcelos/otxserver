@@ -14,8 +14,8 @@ local function addTravelKeyword(keyword, cost, destination)
 		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'We would like to serve you some time.', reset = true})
 end
 
-addTravelKeyword('liberty bay', 0, Position(32349, 32856, 7))
-addTravelKeyword('meriana', 0, Position(32346, 32625, 7))
+addTravelKeyword('liberty bay', 100, Position(32349, 32856, 7))
+addTravelKeyword('meriana', 50, Position(32346, 32625, 7))
 
 -- Basic
 keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = 'Where do you want to go? To {Liberty bay} or to {Meriana}?'})

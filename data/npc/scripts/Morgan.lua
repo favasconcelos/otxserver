@@ -55,7 +55,7 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.OutfitQuest.Knight.AddonSword) < 1 then
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonSword, 1)
 			npcHandler:say('Great! Simply bring me 100 Iron Ore and one Crude Iron and I will happily {forge} it for you.', cid)
-		elseif player:getStorageValue(Storage.OutfitQuest.KnightSwordAddon) == 1 and npcHandler.topic[cid] == 1 then
+		elseif player:getStorageValue(Storage.OutfitQuest.Knight.AddonSword) == 1 and npcHandler.topic[cid] == 1 then
 			if player:getItemCount(5892) > 0 and player:getItemCount(5880) > 99 then
 				player:removeItem(5892, 1)
 				player:removeItem(5880, 100)

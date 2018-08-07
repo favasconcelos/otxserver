@@ -32,7 +32,7 @@ elseif(getTileItemById(barrier, 18460).uid > 0) then
 doTransformItem(getTileItemById(barrier, 18460).uid, getTileItemById(barrier, 18459), 19461, 1)
 elseif(getTileItemById(barrier, 18459).uid > 0) then
 doRemoveItem(getTileItemById(barrier, 18461).uid, 1)
-addEvent(doCreateItem, 30 * 60 * 1000, 18459, 1, barrier)
+addEvent(Game.createItem, 30 * 60 * 1000, 18459, 1, barrier)
 last = true
 end
 end

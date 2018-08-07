@@ -4,28 +4,28 @@ local config = {
 	-- strong mana potion
 	[7589] = {mana = {min = 115, max = 185}, vocations = {1, 2, 3}, text = 'sorcerers, druids and paladins', level = 50, emptyId = 7634},
 	-- great mana potion
-	[7590] = {mana = {min = 150, max = 250}, vocations = {1, 2}, text = 'sorcerers and druids', level = 80, emptyId = 7635},
+	[7590] = {mana = {min = 150, max = 240}, vocations = {1, 2}, text = 'sorcerers and druids', level = 80, emptyId = 7635},
 	-- great health potion
 	[7591] = {health = {min = 425, max = 575}, vocations = {4}, text = 'knights', level = 80, emptyId = 7635},
 	-- health potion
 	[7618] = {health = {min = 130, max = 200}, emptyId = 7636},
 	-- mana potion
-	[7620] = {mana = {min = 75, max = 125}, emptyId = 7636},
+	[7620] = {mana = {min = 75, max = 135}, emptyId = 7636},
 	-- great spirit potion
 	[8472] = {health = {min = 250, max = 350}, mana = {min = 100, max = 200}, vocations = {3}, text = 'paladins', level = 80, emptyId = 7635},
 	-- ultimate health potion
-	[8473] = {health = {min = 550, max = 700}, vocations = {4}, text = 'knights', level = 130, emptyId = 7635},
+	[8473] = {health = {min = 650, max = 780}, vocations = {4}, text = 'knights', level = 130, emptyId = 7635},
 	
 	-- POT NOVOS
 	
 	-- ultimate mana potion 26029
-	[26029] = {mana = {min = 350, max = 420}, vocations = {1, 2}, text = 'sorcerers and druids', level = 130, emptyId = 7635},
+	[26029] = {mana = {min = 430, max = 550}, vocations = {1, 2}, text = 'sorcerers and druids', level = 130, emptyId = 7635},
 	
 	-- Supreme Health Potion 26031
-	[26031] = {health = {min = 750, max = 900}, vocations = {4}, text = 'knights', level = 200, emptyId = 7635},
+	[26031] = {health = {min = 800, max = 950}, vocations = {4}, text = 'knights', level = 200, emptyId = 7635},
 	
 	-- Ultimate Spirit Potion 26030
-	[26030] = {health = {min = 400, max = 430}, mana = {min = 140, max = 250}, vocations = {3}, text = 'paladins', level = 130, emptyId = 7635},
+	[26030] = {health = {min = 400, max = 550}, mana = {min = 140, max = 250}, vocations = {3}, text = 'paladins', level = 130, emptyId = 7635},
 	
 	
 	-- antidote potion

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,8 +61,8 @@ class Spawn
 
 	private:
 		//map of the spawned creatures
-		typedef std::multimap<uint32_t, Monster*> SpawnedMap;
-		typedef SpawnedMap::value_type spawned_pair;
+		using SpawnedMap = std::multimap<uint32_t, Monster*>;
+		using spawned_pair = SpawnedMap::value_type;
 		SpawnedMap spawnedMap;
 
 		//map of creatures in the spawn
@@ -77,7 +77,7 @@ class Spawn
 		static bool findPlayer(const Position& pos);
 		bool spawnMonster(uint32_t spawnId, MonsterType* mType, const Position& pos, Direction dir, bool startup = false);
 		void checkSpawn();
-		void scheduleSpawn(uint32_t spawnId, spawnBlock_t sb, uint32_t interval);
+		void scheduleSpawn(uint32_t spawnId, spawnBlock_t& sb, uint16_t interval);
 };
 
 class Spawns
@@ -92,6 +92,9 @@ class Spawns
 		bool isStarted() const {
 			return started;
 		}
+		std::forward_list<Spawn>& getSpawnList() {
+			return spawnList;
+		}
 
 	private:
 		std::forward_list<Npc*> npcList;
@@ -100,5 +103,7 @@ class Spawns
 		bool loaded = false;
 		bool started = false;
 };
+
+static constexpr int32_t NONBLOCKABLE_SPAWN_INTERVAL = 1400;
 
 #endif

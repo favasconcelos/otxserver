@@ -14,6 +14,9 @@ local exhausth = 3600 --em quantos segundos podera usar denovo
 local holes = {468, 481, 483, 7932, 23712}
 local pools = {2016, 2017, 2018, 2019, 2020, 2021, 2025, 2026, 2027, 2028, 2029, 2030}
 function onUse(cid, item, fromPosition, itemEx, toPosition)
+if isInArray(pools, itemEx.itemid) then
+        itemEx = Tile(toPosition):getGround()
+    end
     if(isInArray(config.swampId, itemEx.itemid)) then
         if (getPlayerStorageValue(cid, 32901) <= os.time()) then
         if math.random(0,500) > 255 then

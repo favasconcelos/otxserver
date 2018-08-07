@@ -1,3 +1,13 @@
+-- Only works with 11.10 Tibia Version
+-- Incomplete System.
+-- Image: http://prntscr.com/fbpayn
+
+InspectionSystem = {
+	Developer = "Charles (Cjaker)",
+	Version = "1.0",
+	LastUpdate = "24/05/2017 - 05:37 (AM)"
+}
+
 local ClientPackets = {
 	InspectItem = 0xCD,
 	InspectPlayer = 0xCE
@@ -9,13 +19,11 @@ local ServerPackets = {
 }
 
 function onRecvbyte(player, msg, byte)
-	player:sendCancelMessage("Sorry, not possible.")
-	return false
-	--[[if (byte == ClientPackets.InspectItem) then
+	if (byte == ClientPackets.InspectItem) then
 		parseInspectItem(player, msg)
 	elseif (byte == ClientPackets.InspectPlayer) then
 		parseInspectPlayer(player, msg)
-	end--]]
+	end
 end
 
 function parseInspectItem(player, msg)
@@ -27,7 +35,7 @@ function parseInspectItem(player, msg)
 		local index = msg:getByte()
 		local myItem = player:getSlotItem(contId)
 		if (myItem) then
-			player:say("JUNIOR VIADO: " ..myItem:getName(), TALKTYPE_SAY)
+			player:say("Item: " ..myItem:getName(), TALKTYPE_SAY)
 		end
 	else
 		local posY = msg:getU16()

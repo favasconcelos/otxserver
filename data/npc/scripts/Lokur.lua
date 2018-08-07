@@ -259,7 +259,7 @@ local function creatureSayCallback(cid, type, msg)
         end
     elseif npcHandler.topic[cid] == 2 then
         if msgcontains(msg, 'yes') then
-            if player:getMoney() >= tonumber(count[cid]) then
+            if player:getMoney() + player:getBankBalance() >= tonumber(count[cid]) then
                 player:depositMoney(count[cid])
                 npcHandler:say('Alright, we have added the amount of ' .. count[cid] .. ' gold to your {balance}. You can {withdraw} your money anytime you want to.', cid)
             else
@@ -633,7 +633,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 29 then
-			if player:removeMoney(250) then
+			if player:removeMoneyNpc(250) then
 				player:setStorageValue(Storage.wagonTicket, os.time() + 7 * 24 * 60 * 60)
 				npcHandler:say("Here is your stamp. It can't be transferred to another person and will last one week from now. You'll get notified upon using an ore wagon when it isn't valid anymore.", cid)
 			else

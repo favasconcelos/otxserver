@@ -4,6 +4,7 @@
 	<look type="295" corpse="0" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
+		<flag boss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -15,6 +16,9 @@
 		<flag targetdistance="0" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="1200" skill="120" attack="100" />

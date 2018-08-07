@@ -23,7 +23,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	--if not hasTouchedOneThrone(player) or player:getLevel() < 100 or player:getStorageValue(Storage.TheInquisition.Questline) < 20 then
+	if not hasTouchedOneThrone(player) or player:getLevel() < 100 or player:getStorageValue(Storage.TheInquisition.Questline) < 20 then
 	if player:getLevel() < 100 then
 		player:teleportTo(fromPosition)
 		position:sendMagicEffect(CONST_ME_TELEPORT)
@@ -36,4 +36,5 @@ function onStepIn(creature, item, position, fromPosition)
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 	destination:sendMagicEffect(CONST_ME_TELEPORT)
 	return true
+	end
 end

@@ -1132,7 +1132,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	}
 
 	Item* moveItem = item;
-
+	bool itemDecays = item->canDecay();
 	//check if we can remove this item
 	ret = fromCylinder->queryRemove(*item, m, flags);
 	if (ret != RETURNVALUE_NOERROR) {
@@ -1162,10 +1162,14 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	//update item(s)
 	if (item->isStackable()) {
 		uint32_t n;
-
+		uint32_t duration;
 		if (item->equals(toItem)) {
+			duration = std::min<uint32_t>(item->getDuration(), toItem->getDuration());
 			n = std::min<uint32_t>(100 - toItem->getItemCount(), m);
 			toCylinder->updateThing(toItem, toItem->getID(), toItem->getItemCount() + n);
+			if(toItem->getDuration() > duration){ //punishing the duppers with the minimum time
+				toItem->setDuration(duration);
+			}
 			updateItem = toItem;
 		} else {
 			n = 0;
@@ -1187,6 +1191,10 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	//add item
 	if (moveItem /*m - n > 0*/) {
 		toCylinder->addThing(index, moveItem);
+		if(itemDecays) {
+			moveItem->setDecaying(DECAYING_PENDING);
+			moveItem->startDecaying();
+		}
 	}
 
 	if (itemIndex != -1) {
@@ -1632,6 +1640,8 @@ Item* Game::transformItem(Item* item, uint16_t newId, int32_t newCount /*= -1*/)
 				}
 			}
 		} else {
+			uint32_t currentDuration = item->getDuration();
+
 			cylinder->postRemoveNotification(item, cylinder, itemIndex);
 			uint16_t itemId = item->getID();
 			int32_t count = item->getSubType();
@@ -1649,6 +1659,9 @@ Item* Game::transformItem(Item* item, uint16_t newId, int32_t newCount /*= -1*/)
 			}
 
 			cylinder->updateThing(item, itemId, count);
+			if(currentDuration) {
+				item->setDuration(currentDuration);
+			}
 			cylinder->postAddNotification(item, cylinder, itemIndex);
 			return item;
 		}
@@ -5213,7 +5226,7 @@ void Game::playerBrowseMarketOwnHistory(uint32_t playerId)
 	player->sendMarketBrowseOwnHistory(buyOffers, sellOffers);
 }
 
-void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spriteId, uint16_t amount, uint32_t price, bool anonymous)
+void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spriteId, uint16_t amount, uint32_t price, bool anonymous) //Custom: Anti bug do market
 {
 	if (amount == 0 || amount > 64000) {
 		return;
@@ -5235,6 +5248,13 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 	if (!player->isInMarket()) {
 		return;
 	}
+	
+	//Custom: Anti bug do market
+	if(player->isMarketExhausted()){
+        player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+        g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+        return;
+    }
 
 	if (g_config.getBoolean(ConfigManager::MARKET_PREMIUM) && !player->isPremium()) {
 		player->sendMarketLeave();
@@ -5329,9 +5349,11 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 	const MarketOfferList& buyOffers = IOMarket::getActiveOffers(MARKETACTION_BUY, it.id);
 	const MarketOfferList& sellOffers = IOMarket::getActiveOffers(MARKETACTION_SELL, it.id);
 	player->sendMarketBrowseItem(it.id, buyOffers, sellOffers);
+	//Custom: Anti bug do market
+	player->updateMarketExhausted();
 }
 
-void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter)
+void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter) //Custom: Anti bug do market
 {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
@@ -5341,6 +5363,13 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	if (!player->isInMarket()) {
 		return;
 	}
+	
+	//Custom: Anti bug do market
+	if(player->isMarketExhausted()){
+        player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+        g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+        return;
+    }
 
 	MarketOfferEx offer = IOMarket::getOfferByCounter(timestamp, counter);
 	if (offer.id == 0 || offer.playerId != player->getGUID()) {
@@ -5394,9 +5423,11 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	offer.timestamp += g_config.getNumber(ConfigManager::MARKET_OFFER_DURATION);
 	player->sendMarketCancelOffer(offer);
 	player->sendMarketEnter(player->getLastDepotId());
+	//Custom: Anti bug do market
+	player->updateMarketExhausted();
 }
 
-void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter, uint16_t amount)
+void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter, uint16_t amount) //Custom: Anti bug do market
 {
 	if (amount == 0 || amount > 64000) {
 		return;
@@ -5410,6 +5441,13 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	if (!player->isInMarket()) {
 		return;
 	}
+	
+		//Custom: Anti bug do market
+	if(player->isMarketExhausted()){
+        player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+        g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
+        return;
+    }
 
 	MarketOfferEx offer = IOMarket::getOfferByCounter(timestamp, counter);
 	if (offer.id == 0) {
@@ -5596,6 +5634,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	player->sendMarketEnter(player->getLastDepotId());
 	offer.timestamp += marketOfferDuration;
 	player->sendMarketAcceptOffer(offer);
+	//Custom: Anti bug do market
+	player->updateMarketExhausted();
 }
 
 void Game::playerStoreOpen(uint32_t playerId, uint8_t serviceType)

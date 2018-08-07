@@ -17,7 +17,7 @@ keywordHandler:addKeyword({'guardian'}, StdModule.say, {npcHandler = npcHandler,
 keywordHandler:addKeyword({'forbidden land'}, StdModule.say, {npcHandler = npcHandler, text = 'Me guard the forbidden land behind the great palisade. If any want to enter, he must ask me for transport.'})
 keywordHandler:addKeyword({'hairycles'}, StdModule.say, {npcHandler = npcHandler, text = 'Good ape he is. Has to work hard to make other apes listen but you helped a lot.'})
 keywordHandler:addKeyword({'bong'}, StdModule.say, {npcHandler = npcHandler, text = ' Our holy ancestor he is. Big as mountain. Lizards say they built palisade to keep him but we not believe ... We think Bong palisade built to have peace from pesky lizards. We respect peace of Bong, keep people away from forbidden land.'})
-keywordHandler:addKeyword({'Lizards'}, StdModule.say, {npcHandler = npcHandler, text = ' The lizards evil and vengeful are. Ape people on guard must be.'})
+keywordHandler:addKeyword({'lizards'}, StdModule.say, {npcHandler = npcHandler, text = ' The lizards evil and vengeful are. Ape people on guard must be.'})
 keywordHandler:addKeyword({'ape'}, StdModule.say, {npcHandler = npcHandler, text = 'Our people a lot to learn have. One day we might live in peace with you hairless apes, who knows.'})
 keywordHandler:addKeyword({'excalibug'}, StdModule.say, {npcHandler = npcHandler, text = 'Me not know. Me seldom have visions of not banana related objects.'})
 keywordHandler:addKeyword({'port hope'}, StdModule.say, {npcHandler = npcHandler, text = 'Hairless apes strange people are. '})

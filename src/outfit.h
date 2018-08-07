@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,10 +44,12 @@ struct ProtocolOutfit {
 class Outfits
 {
 	public:
-		static Outfits* getInstance() {
+		static Outfits& getInstance() {
 			static Outfits instance;
-			return &instance;
+			return instance;
 		}
+
+		const Outfit* getOpositeSexOutfitByLookType(PlayerSex_t sex, uint16_t lookType);
 
 		bool loadFromXml();
 

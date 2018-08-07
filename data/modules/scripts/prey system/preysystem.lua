@@ -1,19 +1,14 @@
 PreySystem = {
 	Developer = "Charles (Cjaker)",
-	Version = "1.0",
-	LastUpdate = "14/01/2017 - 13:06 (PM)"
+	Version = "3.0",
+	LastUpdate = "23/07/2017 - 10:58 (AM)",
+	Missing = {}
 }
 
 local RerollStorages = {
 	[0] = 8420390,
 	[1] = 8420391,
-	[2] = 8420392
-}
-
-local ColumnId = {
-	[512] = 0,
-	[513] = 1,
-	[514] = 2
+	[10] = 8420392
 }
 
 local ServerPackets = {
@@ -23,12 +18,24 @@ local ServerPackets = {
 	PreyTimeLeft = 0xE7
 }
 
+local StateTypes = {
+	STATE_LOCKED = 0,
+	STATE_INACTIVE = 1,
+	STATE_ACTIVE = 2,
+	STATE_SELECTION = 3,
+	STATE_SELECTION_CHANGE_MONSTER = 4
+}
+
+local UnlockTypes = {
+	UNLOCK_PREMIUM_OR_STORE = 0,
+	UNLOCK_STORE = 1,
+	UNLOCK_NONE = 2
+}
+
 local ClientPackets = {
 	RequestData = 0xED,
 	PreyAction = 0xEB
 }
-
-local monstersGenerated = {}
 
 function getUnlockedColumn(player)
 	local resultId = db.storeQuery("SELECT * FROM players WHERE name = " ..db.escapeString(player:getName()))
@@ -42,24 +49,19 @@ end
 local function getMonsterList(player, column)
 	local resultId = db.storeQuery("SELECT * FROM player_prey WHERE player_id = " ..player:getGuid())
 	if (resultId ~= false) then
-		if (monstersGenerated[player:getGuid()] == nil) then
-			monstersGenerated[player:getGuid()] = {}
-		end
-
 		local preyMonsters = {}
+
 		repeat
 			local mName = result.getDataString(resultId, "name")
 			local mIndex = result.getDataInt(resultId, "mindex")
 			local mColumn = result.getDataInt(resultId, "mcolumn")
 			if (mColumn == column) then
 				preyMonsters[#preyMonsters+1] = {Name = mName, Index = mIndex, Column = mColumn}
-				table.insert(monstersGenerated[player:getGuid()], mName)
 			end
 		until not result.next(resultId)
 		result.free(resultId)
 
 		if (#preyMonsters == 0) then
-			monstersGenerated[player:getGuid()] = {}
 			return nil
 		end
 
@@ -79,108 +81,61 @@ local function tableContains(table, value)
 	return false
 end
 
+local function havePreyMonsterByName(playerId, name)
+	return db.storeQuery("SELECT player_id FROM player_prey WHERE player_id = " ..playerId.. " AND name = " ..db.escapeString(name))
+end
+
 local function createMonstersColumn(player, column)
 	local monsters, newTable = getPreyMonsters(), {}
 	local count = 1
 
-	if (monstersGenerated[player:getGuid()] == nil) then
-		monstersGenerated[player:getGuid()] = {}
-	end
-
 	-- Get New List
 	repeat
 		local randomName = monsters[math.random(#monsters)]
-		if (not tableContains(monstersGenerated[player:getGuid()], randomName)) then
-			if (MonsterType(randomName) and 
-				MonsterType(randomName):getOutfit().lookType > 0) then
+		if (not havePreyMonsterByName(player:getGuid(), randomName)) then
+			if (MonsterType(randomName) and MonsterType(randomName):getOutfit().lookType > 0) then
 				newTable[count] = {Name = randomName, Index = count, Column = column}
-				table.insert(monstersGenerated[player:getGuid()], randomName)
+				db.query("INSERT INTO player_prey SET player_id = " ..player:getGuid().. ", name = " ..db.escapeString(randomName).. ", mindex = " ..(count-1).. ", mcolumn = " ..column)
 				count = count + 1
 			end
 		end
 	until count == 10
 
-	for i = 1, #newTable do
-		db.asyncQuery("INSERT INTO player_prey SET player_id = " ..player:getGuid().. ", name = " ..db.escapeString(newTable[i].Name).. ", mindex = " ..(i-1).. ", mcolumn = " ..column)
-	end
-
 	return newTable
 end
 
-function sendPreyData(player)
+function changeStateToSelection(player, indexColumn)
 	local msg = NetworkMessage()
-	local columnUnlocked = getUnlockedColumn(player)
-	if (not columnUnlocked) then
-		columnUnlocked = 0
+
+	msg:addByte(ServerPackets.PreyData)
+	msg:addByte(indexColumn)
+	msg:addByte(StateTypes.STATE_SELECTION)
+
+	player:removeBonus(indexColumn)
+
+	local Monsters = getMonsterList(player, indexColumn)
+	if (not Monsters) then
+		Monsters = createMonstersColumn(player, indexColumn)
 	end
 
-	Monsters = nil
+	msg:addByte(#Monsters) -- column length
 
-	for i = 0, 2 do
-		local FreeRerollTime = player:getNextFreroll(i)
-
-		msg:addByte(ServerPackets.PreyData) -- Server Prey Data
-		msg:addByte(i) -- Atual Column
-
-		--local timeLeft = player:getStaminaBonus(i)
-		local timeLeft = player:getPreyStamina(i)
-		local Bonus = loadBonus(player, i)
-
-		if (columnUnlocked >= i) then
-			if (Bonus and timeLeft > 0) then
-				msg:addByte(0x02) -- Type action (STATE_SELECTION | LOAD PREY)
-			else
-				Monsters = getMonsterList(player, i)
-				if (not Monsters) then
-					Monsters = createMonstersColumn(player, i)
-				end
-
-				msg:addByte(0x03)
-				msg:addByte(#Monsters)
-			end
-		else
-			msg:addByte(0x00)
-			msg:addByte(0x00)
+	for i, v in pairs(Monsters) do
+		if (v.Name and MonsterType(v.Name)) then
+			msg:addString(v.Name)
+			local mLook = MonsterType(v.Name):getOutfit()
+			msg:addU16(mLook.lookType or 21)
+			msg:addByte(mLook.lookHead or 0x00) -- outfit
+			msg:addByte(mLook.lookBody or 0x00) -- outfit
+			msg:addByte(mLook.lookLegs or 0x00) -- outfit
+			msg:addByte(mLook.lookFeet or 0x00) -- outfit
+			msg:addByte(mLook.lookAddons or 0x00) -- outfit
 		end
-
-		if (columnUnlocked >= i) then
-			if (Bonus and timeLeft > 0) then
-				local mType = MonsterType(Bonus.Name)
-				local mLook = mType:getOutfit()
-				msg:addString(Bonus.Name)
-				msg:addU16(mLook.lookType)
-				msg:addByte(mLook.lookHead or 0x00) -- outfit
-				msg:addByte(mLook.lookBody or 0x00) -- outfit
-				msg:addByte(mLook.lookLegs or 0x00) -- outfit
-				msg:addByte(mLook.lookFeet or 0x00) -- outfit
-				msg:addByte(mLook.lookAddons or 0x00) -- outfit
-				msg:addByte(Bonus.Type) -- Type
-				msg:addU16(Bonus.Value) -- Value
-				msg:addByte(Bonus.Grade) -- 1~10 Grade
-				msg:addU16(timeLeft) -- Time Left Bonus
-			else
-				if (Bonus) then
-					player:removeBonus(i)
-				end
-
-				for i, v in pairs(Monsters) do
-					msg:addString(v.Name)
-					local mLook = MonsterType(v.Name):getOutfit()
-					msg:addU16(mLook.lookType or 21)
-					msg:addByte(mLook.lookHead or 0x00) -- outfit
-					msg:addByte(mLook.lookBody or 0x00) -- outfit
-					msg:addByte(mLook.lookLegs or 0x00) -- outfit
-					msg:addByte(mLook.lookFeet or 0x00) -- outfit
-					msg:addByte(mLook.lookAddons or 0x00) -- outfit
-				end
-			end
-		end
-
-		msg:addU16(FreeRerollTime) -- Time to next free roll
 	end
 
+	msg:addU16(player:getNextFreeroll(indexColumn))
 	msg:addByte(0xEC)
-	player:sendResource("prey", player:getBonusReroll()) -- Bonus Reroll
+	player:sendResource("prey", player:getBonusReroll())
 	player:sendResource("bank", player:getBankBalance())
 	player:sendResource("inventory", player:getMoney())
 	msg:addByte(ServerPackets.PreyRerollPrice)
@@ -188,8 +143,130 @@ function sendPreyData(player)
 	msg:sendToPlayer(player)
 end
 
+function changeStateToSelectionChangeMonster(player, indexColumn)
+	local msg = NetworkMessage()
+	msg:addByte(ServerPackets.PreyData)
+	msg:addByte(indexColumn)
+	msg:addByte(StateTypes.STATE_SELECTION_CHANGE_MONSTER)
+
+	local newBonus = getRandomBonus(player, indexColumn, player:getPreyName(indexColumn), true)
+	if (player:getPreyName(indexColumn) == "") then
+		player:setPreyName(indexColumn, "BONUSREROLL")
+		player:setPreyType(indexColumn, newBonus.Type)
+		player:setPreyValue(indexColumn, newBonus.Value)
+	end
+
+	msg:addByte(player:getPreyType(indexColumn)) -- Type
+	msg:addU16(player:getPreyValue(indexColumn)) -- Value
+	msg:addByte(getBonusGrade(player:getPreyType(indexColumn), player:getPreyValue(indexColumn))) -- 1~10 Grade
+
+	local Monsters = getMonsterList(player, indexColumn)
+	if (not Monsters) then
+		Monsters = createMonstersColumn(player, indexColumn)
+	end
+
+	msg:addByte(#Monsters) -- column length
+
+	for i, v in pairs(Monsters) do
+		msg:addString(v.Name)
+		local mLook = MonsterType(v.Name):getOutfit()
+		msg:addU16(mLook.lookType or 21)
+		msg:addByte(mLook.lookHead or 0x00) -- outfit
+		msg:addByte(mLook.lookBody or 0x00) -- outfit
+		msg:addByte(mLook.lookLegs or 0x00) -- outfit
+		msg:addByte(mLook.lookFeet or 0x00) -- outfit
+		msg:addByte(mLook.lookAddons or 0x00) -- outfit
+	end
+
+	msg:addU16(player:getNextFreeroll(indexColumn)) -- Next Free Reroll
+
+	msg:addByte(0xEC)
+	player:sendResource("prey", player:getBonusReroll())
+	player:sendResource("bank", player:getBankBalance())
+	player:sendResource("inventory", player:getMoney())
+
+	msg:sendToPlayer(player)
+end
+
+function changeStateToLocked(player, indexColumn)
+	local msg = NetworkMessage()
+	msg:addByte(ServerPackets.PreyData)
+	msg:addByte(indexColumn)
+	msg:addByte(StateTypes.STATE_LOCKED)
+	msg:addByte(UnlockTypes.UNLOCK_PREMIUM_OR_STORE)
+	msg:addU16(0)
+	msg:addByte(0xEC)
+	player:sendResource("prey", player:getBonusReroll())
+	player:sendResource("bank", player:getBankBalance())
+	player:sendResource("inventory", player:getMoney())
+	msg:sendToPlayer(player)
+end
+
+function changeStateToActive(player, indexColumn)
+	local timeLeft = player:getStaminaBonus(indexColumn)
+	local Bonus = loadBonus(player, indexColumn)
+	if (not Bonus) then
+		return changeStateToSelection(player, indexColumn)
+	end
+
+	local mType = MonsterType(Bonus.Name)
+	local mOutfit = nil
+	if mType then
+		mOutfit = mType:getOutfit()
+	else
+		mOutfit = {lookType = 250, lookBody = 0, lookLegs = 0, lookFeet = 0, lookAddons = 0}
+	end
+
+	local msg = NetworkMessage()
+	msg:addByte(ServerPackets.PreyData)
+	msg:addByte(indexColumn)
+	msg:addByte(StateTypes.STATE_ACTIVE)
+	msg:addString(Bonus.Name)
+	msg:addU16(mOutfit.lookType)
+	msg:addByte(mOutfit.lookHead)
+	msg:addByte(mOutfit.lookBody)
+	msg:addByte(mOutfit.lookLegs)
+	msg:addByte(mOutfit.lookFeet)
+	msg:addByte(mOutfit.lookAddons)
+	msg:addByte(Bonus.Type) -- Type
+	msg:addU16(Bonus.Value) -- Value
+	msg:addByte(Bonus.Grade) -- 1~10 Grade
+	msg:addU16(timeLeft) -- Time Left Bonus
+	msg:addU16(player:getNextFreeroll(indexColumn))
+
+	msg:addByte(0xEC)
+	player:sendResource("prey", player:getBonusReroll())
+	player:sendResource("bank", player:getBankBalance())
+	player:sendResource("inventory", player:getMoney())
+	msg:addByte(ServerPackets.PreyRerollPrice)
+	msg:addU32(player:getRerollPrice())
+	msg:sendToPlayer(player)
+end
+
+function sendPreyData(player, indexColumn)
+	local isUnlockedColumn = player:isOpenColumn(indexColumn)
+	if (not isUnlockedColumn) and (not player:isPremium()) then
+		-- STATE_LOCKED
+		changeStateToLocked(player, indexColumn)
+	elseif (player:isActive(indexColumn)) then
+		-- STATE_ACTIVE
+		changeStateToActive(player, indexColumn)
+	elseif (player:isBonusReroll(indexColumn)) then
+		-- STATE_SELECTION_CHANGE_MONSTER
+		changeStateToSelectionChangeMonster(player, indexColumn)
+	else
+		if (player:getBonusMonster(indexColumn) ~= "") then
+			player:removePreyMonster(player:getBonusMonster(indexColumn))
+			player:removeBonus(indexColumn)
+		end
+		-- STATE_SELECTION
+		changeStateToSelection(player, indexColumn)
+	end
+	-- STATE_SELECTION_CHANGE_MONSTER IS FROM BONUSREROLL
+end
+
 local function getMonsterName(player, column, index)
-	local resultId = db.storeQuery("SELECT * FROM player_prey WHERE mcolumn = " ..column.. " AND mindex = " ..index.." AND player_id = "..player:getGuid())
+	local resultId = db.storeQuery("SELECT name FROM player_prey WHERE mcolumn = " ..column.. " AND mindex = " ..index.." AND player_id = "..player:getGuid())
 	if (not resultId) then
 		return false
 	end
@@ -212,30 +289,38 @@ function CheckPrey(player, msg)
 	if (PreyAction == 0) then
 		player:preyRerollList(PreyColumn)
 	elseif (PreyAction == 1) then
+		if (player:isBonusReroll(PreyColumn)) then
+			return sendError(player, "Are you fucking kidding me? Do you really wanna try bug my system? Get out of here little sniffer.")
+		end
+
 		-- Bonus Reroll
 		player:bonusReroll(PreyColumn)
 	elseif (PreyAction == 2) then
 		local PreyIndex = msg:getByte() -- monster index
 		--print(PreyColumn.. " e " ..PreyAction.. " e " ..PreyIndex)
-		if (getUnlockedColumn(player) < PreyColumn) then
-			return addEvent(function() sendError(player, "[ERROR] You don't have this column unlocked.") end, 250)
+		if (getUnlockedColumn(player) < PreyColumn) and (not player:isPremium()) then
+			return sendError(player, "An internal error ocurred.")
 		end
 
 		local mName = getMonsterName(player, PreyColumn, PreyIndex)
 		if (not mName) then
-			return addEvent(function() sendError(player, "[ERROR] Monster name don't exists in list.") end, 250)
+			return sendError(player, "An internal error ocurred.")
 		end
 
 		local mType = MonsterType(mName)
 		if (not mType) then
-			return addEvent(function() sendError(player, "[ERROR] This monster don't exists in Eldera.") end, 250)
+			return sendError(player, "An internal error ocurred.")
 		end
 
 		SelectPrey(player, PreyColumn, mType)
 	end
 end
 
-local function getBonusValue(min, max, steps)
+local function getBonusValue(min, max, steps, bonusReroll)
+	if (bonusReroll) then
+		return max, 10
+	end
+
 	local retValue = 0
 	local retGrade = 0
 	local random = math.random(1, 10)
@@ -271,19 +356,20 @@ function getRandomBonus(player, column, name, bonusReroll)
 
 	local randomBonus = math.random(0, 3)
 	
-	if (player:isActive(column) and
-		not bonusReroll) then
+	if (player:isActive(column) and	not bonusReroll) then
 		return false
 	end
 
 	local Bonus = BonusValues[randomBonus]
-	local BonusValue, BonusGrade = getBonusValue(Bonus.Min, Bonus.Max, Bonus.Steps)
+	local BonusValue, BonusGrade = getBonusValue(Bonus.Min, Bonus.Max, Bonus.Steps, bonusReroll)
 	local retTable = {Type = randomBonus, Left = 7200, Value = BonusValue, Grade = BonusGrade}
 
-	player:setPreyStamina(column, 7200)
-	player:setPreyType(column, retTable.Type)
-	player:setPreyValue(column, retTable.Value)
-	player:setPreyName(column, name)
+	if (not bonusReroll) then
+		player:setPreyStamina(column, 7200)
+		player:setPreyType(column, retTable.Type)
+		player:setPreyValue(column, retTable.Value)
+		player:setPreyName(column, name)
+	end
 	return retTable
 end
 
@@ -323,29 +409,31 @@ function loadBonus(player, column)
 	return retTable
 end
 
-function SelectPrey(player, PreyColumn, mType, bonusReroll)
+function SelectPrey(player, PreyColumn, mType)
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.PreyData)
 	msg:addByte(PreyColumn)
 
 	local mLook = mType:getOutfit()
 	if (not mLook) then
-		return addEvent(function() sendError(player, "[ERROR] Monster is invalid, please contact Administrator.") end, 250)
+		return sendError(player, "An internal error ocurred.")
 	end
 
-	local newBonus = getRandomBonus(player, PreyColumn, mType:getName(), bonusReroll)
-	if (not newBonus and
-		not bonusReroll) then
-		return addEvent(function() sendError(player, "[ERROR] You can't select a prey with bonus active.") end, 250)
+	local newBonus = nil
+	if (player:isBonusReroll(PreyColumn)) then
+		newBonus = {Type = player:getPreyType(PreyColumn), Left = 7200, Value = player:getPreyValue(PreyColumn), Grade = 10}
+		player:setPreyName(PreyColumn, mType:getName())
+	else
+		newBonus = getRandomBonus(player, PreyColumn, mType:getName(), false)
 	end
 
-	if (not bonusReroll) then
-		player:removePreyMonster(mType:getName())
+	if (not newBonus) then
+		return sendError(player, "An internal error ocurred.")
 	end
 
 	player:setPreyStamina(PreyColumn, 7200)
 
-	msg:addByte(0x02)
+	msg:addByte(StateTypes.STATE_ACTIVE)
 	msg:addString(mType:getName())
 	msg:addU16(mLook.lookType)
 	msg:addByte(mLook.lookHead or 0x00) -- outfit
@@ -357,21 +445,19 @@ function SelectPrey(player, PreyColumn, mType, bonusReroll)
 	msg:addU16(newBonus.Value) -- Value
 	msg:addByte(newBonus.Grade) -- 1~10 Grade
 	msg:addU16(newBonus.Left) -- Time Left Bonus
-	msg:addU16(player:getNextFreroll(PreyColumn)) -- Next Free Reroll
+	msg:addU16(player:getNextFreeroll(PreyColumn)) -- Next Free Reroll
 	msg:sendToPlayer(player)
 end
 
 function onRecvbyte(player, msg, byte)
 	if (byte == ClientPackets.RequestData) then
-		monstersGenerated[player:getGuid()] = nil
-		sendPreyData(player)
-		player:setExhaustion(5042021, 1)
-	elseif (byte == ClientPackets.PreyAction) then
-		if (player:getExhaustion(5042021) > 0) then
-			sendError(player, "Wait a time!")
-			return false
+		local column = msg:getByte()
+		if (column == 10) then
+			column = 2
 		end
 
+		sendPreyData(player, column)
+	elseif (byte == ClientPackets.PreyAction) then
 		CheckPrey(player, msg)
 	end
 end
@@ -386,31 +472,26 @@ function Player.getBonusReroll(self)
 end
 
 function Player.getRerollPrice(self)
-	return (self:getLevel()/2) * 500
+	return (self:getLevel()/2) * 100
 end
 
 function Player.preyRerollList(self, column)
-	if (self:getExhaustion(5042021) > 0) then
-		return addEvent(function() sendError(self, "[ERROR] Wait a time!") end, 250)
-	end
-
-	self:setExhaustion(5042021, 2)
-
 	local rerollStorage = RerollStorages[column]
 	if (self:getStorageValue(rerollStorage) > 0) then
 		local priceReroll = self:getRerollPrice()
 		if (not self:removeMoneyNpc(self:getRerollPrice())) then
-			return addEvent(function() sendError(self, "[ERROR] You don't have " ..priceReroll.. " gold.") end, 250)
+			sendError(self, "An internal error ocurred.")
 		end
 	end
 
 	self:removeBonus(column)
-	db.asyncQuery("DELETE FROM player_prey WHERE player_id = " ..self:getGuid().. " AND mcolumn = " ..column)
+	db.query("DELETE FROM player_prey WHERE player_id = " ..self:getGuid().. " AND mcolumn = " ..column)
+	db.query("UPDATE player_preytimes SET bonus_name" ..(column+1) .. " = '' WHERE player_id = " ..self:getGuid())
 	self:setStorageValue(rerollStorage, (os.time() / 60.000) + 1200)
-	sendPreyData(self, column)
+	changeStateToSelection(self, column)
 end
 
-function Player.getNextFreroll(self, column)
+function Player.getNextFreeroll(self, column)
 	local FreeRerollTime = self:getStorageValue(RerollStorages[column])
 	if (FreeRerollTime == -1) then
 		self:setStorageValue(RerollStorages[column], 0)
@@ -431,11 +512,11 @@ function Player.getNextFreroll(self, column)
 end
 
 function Player.setBonusReroll(self, value)
-	db.asyncQuery("UPDATE players SET bonus_reroll = " ..value.. " WHERE id = " ..self:getGuid())
+	db.query("UPDATE players SET bonus_reroll = " ..value.. " WHERE id = " ..self:getGuid())
 end
 
 function Player.addBonusReroll(self, value)
-	db.asyncQuery("UPDATE players SET bonus_reroll = bonus_reroll + " ..value.. " WHERE id = " ..self:getGuid())
+	db.query("UPDATE players SET bonus_reroll = bonus_reroll + " ..value.. " WHERE id = " ..self:getGuid())
 end
 
 function Player.removeBonus(self, column)
@@ -460,6 +541,15 @@ function Player.isActive(self, column)
 	end
 
 	return false
+end
+
+function Player.isOpenColumn(self, column)
+	local resultId = db.storeQuery("SELECT prey_column FROM players WHERE name = " ..db.escapeString(self:getName()))
+	if (resultId ~= false) then
+		return result.getDataInt(resultId, "prey_column") >= column
+	end
+
+	return nil
 end
 
 function Player.sendResource(self, resourceType, value)
@@ -488,23 +578,18 @@ function Player.isActiveByName(self, column, name)
 end
 
 function Player.bonusReroll(self, column)
-	if (self:getExhaustion(5042021) > 0) then
-		return addEvent(function() sendError(self, "[ERROR] Wait a time!") end, 250)
-	end
-
 	local bonusReroll = self:getBonusReroll()
 	if (bonusReroll == 0) then
-		return addEvent(function() sendError(self, "[ERROR] You don't have Bonus Reroll.") end, 250)
+		return sendError(self, "An internal error ocurred.")
 	end
 
 	if (not self:isActive(column)) then
-		return addEvent(function() sendError(self, "[ERROR] You don't have a active bonus.") end, 250)
+		return sendError(self, "An internal error ocurred.")
 	end
 
-	self:setExhaustion(5042021, 2)
+	local bonusMonster = self:getBonusMonster(column)
 
 	self:setBonusReroll(bonusReroll-1)
-	local bonusMonster = self:getBonusMonster(column)
 	self:removeBonus(column)
 
 	local msg = NetworkMessage()
@@ -513,7 +598,7 @@ function Player.bonusReroll(self, column)
 	msg:addU64(bonusReroll-1)
 	msg:sendToPlayer(self)
 
-	SelectPrey(self, column, MonsterType(bonusMonster), true)
+	changeStateToSelectionChangeMonster(self, column)
 end
 
 function Player.getStaminaBonus(self, column)
@@ -525,15 +610,34 @@ function Player.setStaminaBonus(self, column, value)
 end
 
 function Player.removePreyMonster(self, name)
-	db.asyncQuery("DELETE FROM player_prey WHERE player_id = " ..self:getGuid().. " AND name = " ..db.escapeString(name))
+	local resultId = db.storeQuery("SELECT * FROM player_prey WHERE player_id = " ..self:getGuid().. " AND name = " ..db.escapeString(name))
+	if (resultId ~= false) then
+		local lastIndex = 0
+		local mIndex = result.getDataInt(resultId, "mindex")
+		local mColumn = result.getDataInt(resultId, "mcolumn")
+		local totalElements = db.storeQuery("SELECT COUNT(*) FROM player_prey WHERE player_id = " ..self:getGuid().. " AND mcolumn = " ..mColumn)
+		if (totalElements ~= false) then lastIndex = result.getDataInt(totalElements, "COUNT(*)")-1 end
+		if (mIndex == lastIndex) then
+			return true
+		end
+
+		local resultMonsters = db.storeQuery("SELECT * FROM player_prey WHERE player_id = " ..self:getGuid().. " AND mcolumn = " ..mColumn.. " AND mindex > " ..mIndex.. " AND mindex <= " ..lastIndex)
+		repeat
+			local tmpIndex = result.getDataInt(resultMonsters, "mindex")
+			db.query("UPDATE player_prey SET mindex = mindex - 1 WHERE player_id = " ..self:getGuid() .. " AND mcolumn = " ..mColumn.. " AND mindex = " ..tmpIndex)
+		until not result.next(resultMonsters)
+		result.free(resultMonsters)
+		db.query("DELETE FROM player_prey WHERE player_id = " ..self:getGuid().. " AND name = " ..db.escapeString(name))
+	end
 end
 
 function Player.addPreySlot(self)
-	db.asyncQuery("UPDATE players SET prey_column = 2 WHERE id = " ..self:getGuid())
+	db.query("UPDATE players SET prey_column = 2 WHERE id = " ..self:getGuid())
+	sendPreyData(self, 2)
 end
 
 function Player.getPreySlots(self)
-	local resultId = db.storeQuery("SELECT * FROM players WHERE name = " ..db.escapeString(self:getName()))
+	local resultId = db.storeQuery("SELECT prey_column FROM players WHERE name = " ..db.escapeString(self:getName()))
 	if (resultId ~= false) then
 		return result.getDataInt(resultId, "prey_column")
 	end
@@ -547,4 +651,8 @@ function Player.sendPreyTimeLeft(self, column, time)
 	msg:addByte(column)
 	msg:addU16(time)
 	msg:sendToPlayer(self)
+end
+
+function Player.isBonusReroll(self, column)
+	return self:getPreyName(column) == "BONUSREROLL"
 end

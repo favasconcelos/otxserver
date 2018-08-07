@@ -5,7 +5,7 @@
 	<parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-			avalanche rune,2274,25;
+			avalanche rune,2274,45;
 			blank rune,2260,10;
 			chameleon rune,2291,210;
 			convince creature rune,2290,80;
@@ -35,7 +35,7 @@
 			stalagmite rune,2292,12;
 			strong health potion,7588,100;
 			strong mana potion,7589,80;
-			sudden death rune,2268,50;
+			sudden death rune,2268,108;
 			terra rod,2181,10000;
 			ultimate healing rune,2273,175;
 			ultimate health potion,8473,310;

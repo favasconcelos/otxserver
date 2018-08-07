@@ -2,11 +2,13 @@
 
 function onThink(interval, lastExecution)
 	local messages = {
-		"[COMANDOS] !report - !pz - !kills - !bless - !aol - !buyhouse - !sellhouse - !serverinfo - !online - !uptime - !outfit.",
-		"[SORTEIO] Entre agora em nosso facebook ... E participe do nosso sorteio Comartilhando vc pode ganar  1 BOOTS VIP.",
-		"[BUGS] problemas ou sugestões? Entre em nosso site e mande um Ticket!\nA cada Report válido de BUG's você recebe um bonus!",
-		"[Contato] whatsapp: https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8!"
-	}
+	"[TICKETS]: Utilize nosso atendimento por tickets para falar com um membro superior.",
+	"[TEAMSPEAK3]: Servidor de teamSpeak 3 com 1000 slots disponiveis, liberado para criar salas particulares e com senha.",
+	"[REGRAS]: Evite ser punido, não viole nossas regras.",
+	"[SISTEMA]: O global save do servidor ocorre todos os dias às 06:00hrs.",
+	"[SEGURANÇA]: Nunca use a mesma senha de outros servidores, pois você estará facilitando a vida dos hackers.",
+	"[SEGURANÇA]: Proteja sua senha. Use-a apenas em nosso website oficial."
+}
 
     Game.broadcastMessage(messages[math.random(#messages)], MESSAGE_EVENT_ADVANCE) 
     return true

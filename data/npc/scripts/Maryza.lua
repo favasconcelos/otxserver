@@ -24,7 +24,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeMoney(150) then
+			if not player:removeMoneyNpc(150) then
 				npcHandler:say('No gold, no sale, that\'s it.', cid)
 				return true
 			end
@@ -43,5 +43,6 @@ npcHandler:setMessage(MESSAGE_GREET, 'Welcome to the Jolly Axeman, |PLAYERNAME|.
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hi maryza')
+focusModule:addGreetMessage('hello maryza')
+focusModule:addGreetMessage('hello, maryza')
 npcHandler:addModule(focusModule)

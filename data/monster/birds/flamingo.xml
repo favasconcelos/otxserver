@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<monster name="Flamingo" nameDescription="a flamingo" race="blood" experience="0" speed="168" manacost="250">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Flamingo" nameDescription="a flamingo" race="blood" experience="0" speed="210" manacost="250">
 	<health now="25" max="25" />
 	<look type="212" corpse="6054" />
 	<targetchange interval="5000" chance="0" />
@@ -14,10 +14,12 @@
 		<flag canpushcreatures="0" />
 		<flag staticattack="90" />
 		<flag runonhealth="25" />
-		<flag isblockable="1" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
 	</flags>
-	<defenses armor="1" defense="1" />
+	<defenses armor="5" defense="5" />
 	<loot>
-		<item id="12640" chance="1250" /><!-- downy feather -->
+		<item name="downy feather" chance="700" />
 	</loot>
 </monster>

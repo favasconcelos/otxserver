@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if player:getStorageValue(Storage.WhatAFoolishQuest.Contract) ~= 0 then
+	if player:getStorageValue(Storage.WhatAFoolishQuest.Contract) ~= 1 then
 		return false
 	end
 
@@ -11,6 +11,5 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	item:remove()
 	target:transform(7491)
-	player:setStorageValue(Storage.WhatAFoolishQuest.Contract, -1)
 	return true
 end

@@ -41,16 +41,16 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			if(getPlayerStorageValue(cid, 41600) == 5) and getPlayerStorageValue(cid, 41650) < 3 then
 			doCreatureSay(cid, "You place the trap carefully on the  ground. Between twigs and leaves it is almost invisible.", TALKTYPE_ORANGE_1)
 			doRemoveItem(item.uid, 1)
-			doCreateItem(13174, 1, toPosition)
+			Game.createItem(13174, 1, toPosition)
 			setPlayerStorageValue(cid, 41650, getPlayerStorageValue(cid, 41650) + 1)
 		else
 			if(getPlayerStorageValue(cid, 41650) == 3) then
 			doCreatureSay(cid, "It looks like the merchants are about to arrive, better hide somewhere where you can see whats going on in the area.", TALKTYPE_ORANGE_1)
 			doRemoveItem(item.uid, 1)
-			doCreateItem(13174, 1, toPosition)
+			Game.createItem(13174, 1, toPosition)
 			doTeleportThing(cid, {x = 32660, y = 32193, z = 7})
 			doSendMagicEffect(getCreaturePosition(cid), 45)
-			doCreateItem(2768, 1, {x = 32662, y = 32190, z = 7}) -- small fir tree
+			Game.createItem(2768, 1, {x = 32662, y = 32190, z = 7}) -- small fir tree
 			----------------------- SUMMON MERCHANT -----------------------------
 			doSummonCreature("Travelling Merchant", {x = 32656, y = 32182, z = 7}) 
 			doSummonCreature("Travelling Merchant", {x = 32660, y = 32181, z = 7}) 

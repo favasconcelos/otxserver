@@ -23,7 +23,7 @@ function onSay(cid, words, param)
 		condition:setParameter(CONDITION_PARAM_SUBID, CHANNEL_HELP)
 		condition:setParameter(CONDITION_PARAM_TICKS, time*60*1000)
 
-		if player:getAccountType() < ACCOUNT_TYPE_SENIORTUTOR then
+		if player:getAccountType() < ACCOUNT_TYPE_TUTOR then
 			return false
 		end
 
@@ -32,8 +32,8 @@ function onSay(cid, words, param)
 			return false
 		end
 
-		if target:getAccountType() >= ACCOUNT_TYPE_SENIORTUTOR then
-			player:sendCancelMessage("Only player and tutor can be mutated for you!")
+		if target:getAccountType() >= ACCOUNT_TYPE_TUTOR then
+			player:sendCancelMessage("Only player can be mutated")
 			return false
 		end
 
@@ -47,7 +47,7 @@ function onSay(cid, words, param)
 
 		local remove = Player(param)
 
-		if player:getAccountType() < ACCOUNT_TYPE_SENIORTUTOR then
+		if player:getAccountType() < ACCOUNT_TYPE_TUTOR then
 			return false
 		end
 
@@ -56,7 +56,7 @@ function onSay(cid, words, param)
 			return false
 		end
 
-		if remove:getAccountType() >= ACCOUNT_TYPE_SENIORTUTOR then
+		if remove:getAccountType() >= ACCOUNT_TYPE_TUTOR then
 			return false
 		end
 

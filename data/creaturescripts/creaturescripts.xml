@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
-	<!-- Castle Event -->
-	<event type="death" name="DeathKing" script="castleEvent/deathKing.lua"/>
-
+    
+    <!-- New Summons (Pets) -->	
+    <event type="login" name="petlogin" script="pet.lua" />
+    <event type="think" name="petthink" script="pet.lua" />
+	<event type="death" name="petdeath" script="pet.lua" />
+	
     <!-- Anti-Entrosa -->
     <event type="login" name="WarPrivateLogin" script="warPrivate_creaturescript.lua"/>
     <event type="logout" name="WarPrivateLogout" script="warPrivate_creaturescript.lua"/>
     <event type="death" name="WarPrivateDeath" script="warPrivate_creaturescript.lua"/>
+	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />  
 
     <!-- Oramond Quest -->
     <event type="death" name="tp" script="quests/oramond/revanger.lua"/>
@@ -18,17 +22,6 @@
 
     <!-- Roshamuul-->
     <event type="kill" name="lowerRoshamuul" script="lowerRoshamuul.lua"/>
-
-        <!--<event type="preparedeath" name="BFPrepareDeath" script="battlefield.lua" />
-	<event type="healthchange" name="BFHealthChange" script="battlefield.lua" />
-	<event type="manachange" name="BFManaChange" script="battlefield.lua" />
-	<event type="logout" name="BFLogout" script="battlefield.lua" />-->
-
-    <event type="preparedeath" name="CTFDeath" script="ctf.lua" />
-    <event type="healthchange" name="CTFHealthChange" script="ctf.lua" />
-
-    <event type="death" name="DeathCounter" script="kdcounter.lua" />
-    <event type="kill" name="KillCounter" script="kdcounter.lua" />
 
     <!-- WARZONE BOSS -->
     <event type="death" name="WarzoneBossDeath" script="warzone157.lua" />
@@ -46,15 +39,11 @@
 	<event type="kill" name="FerumbrasKill" script="FerumbrasAscedantQuest/Ferumbras.lua" />
   
     <!-- Reward Chest 19/01 -->	
-    <event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />  
-	
-	<event type="logout" name="CityWarLogout" script="citywar.lua" />
-    <event type="preparedeath" name="CityWarDeath" script="citywar.lua" />
-    <event type="textedit" name="CityWarInvite" script="citywar.lua" />
-  
  	<event type="death" name="BossDeath" script="rewardChest/boss.lua" />
  	<event type="healthchange" name="BossParticipation" script="rewardChest/boss.lua" />
  	<event type="think" name="BossThink" script="rewardChest/boss.lua" />
+	<event type="healthchange" name="HealGaz" script="gaz'haragoth heal.lua"/>	
+
 
     <!-- Bigfoot Burden Quest -->
 	<event type="kill" name="Razzagorn" script="Novos/Razzagorn.lua"/>	
@@ -83,32 +72,13 @@
 	<event type="kill" name="BigfootBurdenWiggler" script="quests/bigfoot burden/WigglerKill.lua" />
 	<event type="kill" name="bossesWarzone" script="gnomebase/bossesWarzone.lua"/>
 
-
-    <event type="preparedeath" name="ZumbiDeath" script="ZE_creaturescript.lua"/> 
-    <!--<event type="preparedeath" name="ZumbiDeath1" script="ZE_creaturescript1.lua"/>-->
-	<!-- REWARD CHEST -->
-
+	<!-- Recompense by level -->
 	<event type="advance" name="Recompense" script="others/recompense.lua"/>
-	<!--<event type="modalwindow" name="modalAD" script="custom/modalAD.lua"/>
-    <event type="modalwindow" name="modalMD" script="custom/modalMD.lua"/>-->
-    <event type="modalwindow" name="modalMD1" script="custom/modalMD1.lua"/>
-	<event type="modalwindow" name="VibrantEgg" script="custom/VibrantEgg.lua"/>
 	
     <!-- ragingmagetower -->
 	<event type="kill" name="Yielothax" script="ragingmagetower/yielothax.lua"/>
 	<event type="kill" name="Energized Raging Mage" script="ragingmagetower/energized.lua"/> 
 	<event type="kill" name="Raging Mage" script="ragingmagetower/raging.lua"/>
-
-	
-	<event type="login" name="bless1" script="freeblesslowlevel.lua"/>
-	<!-- BattleField Event -->
-	<event type="login" name="battleflogin" script="others/battlefield.lua"/>
-	<event type="preparedeath" name="battledeath" script="others/battlefield.lua"/>
-	
-	<event type="login" name="battleflogin1" script="others/battlefield1.lua"/>
-	<event type="preparedeath" name="battledeath1" script="others/battlefield1.lua"/>
-	
-	
 
 	<!-- Rookgaard Cockroach -->
 	<event type="advance" name="AdvanceRookgaard" script="rookgaard/advance.lua" />
@@ -138,9 +108,12 @@
 	
 	<event type="kill" name="KillingInTheNameOfKillss" script="necro.lua" />
 	<event type="kill" name="KillingInTheNameOfKillsss" script="minos.lua" />
-	<!-- spike task -->
-	<event type="kill"  name="SpikeTaskQuestCrystal" script="quests/spike task/crystalkill.lua"/>
-	<event type="kill"  name="SpikeTaskQuestDrillworm" script="quests/spike task/drillwormkill.lua"/>
+
+	<!-- Spike Tasks Quest -->
+	<event type="kill" name="UpperSpikeKill" script="quests/spike tasks/upperspikekill.lua"/>
+	<event type="kill" name="MiddleSpikeKill" script="quests/spike tasks/middlespikekill.lua"/>
+	<event type="kill" name="LowerSpikeKill" script="quests/spike tasks/lowerspikekill.lua"/>
+
 	<!-- The Masters Voice Quest -->
 	<event type="kill" name="MastersVoiceServants" script="quests/their master's voice/ServantsKill.lua" />
 
@@ -161,12 +134,14 @@
 	<event type="kill" name="PythiusTheRotten" script="others/PythiusTheRotten.lua" />
 
 	<!-- Others -->
+	<event type="think" name="Idle" event="script" value="idle.lua"/>
+	<event type="login" name="AdventurerBlessings" script="adventureblessings.lua"/>
+	<event type="healthchange" name="ImpactAnalyzer" script="others/impact_analyzer.lua" />
 	<event type="login" name="PlayerLogin" script="others/login.lua" />
 	<event type="login" name="AntiMc" script="others/antimc.lua" />
 	<event type="login" name="FirstItems" script="others/firstitems.lua" />
 	<event type="login" name="RegenerateStamina" script="others/regeneratestamina.lua" />
 	<event type="login" name="OfflineTraining" script="others/offlinetraining.lua" />
-    <event type="login" name="AddonsMounts" script="others/addons-montarias.lua"/>
 	<event type="logout" name="PlayerLogout" script="others/logout.lua" />
 	<event type="death" name="PlayerDeath" script="others/playerdeath.lua" />
 	<event type="death" name="DropLoot" script="others/droploot.lua" />

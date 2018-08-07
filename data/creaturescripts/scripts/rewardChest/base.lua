@@ -119,7 +119,7 @@ function onKill(creature, target)
         if mt:useRewardChest() then
             local loot = BossLoot:new(target)
             if loot then
-                local corpse = Item(doCreateItem(MonsterType(target:getName()):getCorpseId(), 1, target:getPosition()))
+                local corpse = Item(Game.createItem(MonsterType(target:getName()):getCorpseId(), 1, target:getPosition()))
                 corpse:decay()
                 target:setDropLoot(false)
                 loot:updateDamage()

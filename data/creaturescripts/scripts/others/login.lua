@@ -55,7 +55,13 @@ local events = {
     'bless1',
 	'lowerRoshamuul',
 	'SpikeTaskQuestCrystal',
-	'SpikeTaskQuestDrillworm'
+	'SpikeTaskQuestDrillworm',
+	'petlogin',
+	'Idle',
+	'petthink',
+	'UpperSpikeKill',
+	'MiddleSpikeKill',
+	'LowerSpikeKill'
 }
  
 local function onMovementRemoveProtection(cid, oldPosition, time)
@@ -155,12 +161,16 @@ function onLogin(player)
         player:popupFYI(msg)
     end
    
-     -- ABRIR CHANNELS
-    if(not isInArray({1,2,3,5,6,7,8}, player:getVocation():getId()) or player:getLevel() < 6) then
-        player:openChannel(6)   -- advertsing rook main
-    else
-        player:openChannel(5)   -- advertsing main 
-    end
+ 	-- OPEN CHANNERLS (ABRIR CHANNELS)
+	if table.contains({"Rookgaard", "Dawnport"}, player:getTown():getName())then
+		--player:openChannel(7) -- help channel
+		player:openChannel(3) -- world chat
+		player:openChannel(6) -- advertsing rook main
+	else
+		--player:openChannel(7) -- help channel
+		player:openChannel(3) -- world chat
+		player:openChannel(5) -- advertsing main
+	end
 
       --
     -- Rewards
@@ -182,33 +192,49 @@ function onLogin(player)
     	messageType = MESSAGE_EVENT_ADVANCE
     end
 
-	player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_ORANGE, 'Bem vindo ao Otxserver-Global!')
-    
-    if Game.getStorageValue(GlobalStorage.FuryGates, (9710)) == 1 then
+    if Game.getStorageValue(9710) == 1 then
         player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Venore Today.')
-    elseif Game.getStorageValue(GlobalStorage.FuryGates, (9711)) == 2 then
+    elseif Game.getStorageValue(9711) == 2 then
         player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Abdendriel Today.')
-    elseif Game.getStorageValue(GlobalStorage.FuryGates, (9712)) == 3 then
+    elseif Game.getStorageValue(9712) == 3 then
         player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Thais Today.')
-    elseif Game.getStorageValue(GlobalStorage.FuryGates, (9713)) == 4 then
+    elseif Game.getStorageValue(9713) == 4 then
         player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Carlin Today.')
-    elseif Game.getStorageValue(GlobalStorage.FuryGates, (9714)) == 5 then
+    elseif Game.getStorageValue(9714) == 5 then
         player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Edron Today.')
-    elseif Game.getStorageValue(GlobalStorage.FuryGates, (9716)) == 6 then
+    elseif Game.getStorageValue(9716) == 6 then
         player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Kazordoon Today.')
     end
 
-    player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_ORANGE, '[PREY SYSTEM and IMBUIMENT] Desfrute de todos os nossos sistemas disponiveis no servidor.')
-    player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_ORANGE, '[how to get Premium Edition?] https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8')
+	player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_ORANGE, '[BUGS?] Reporte em http://www.github.com/malucooo/otxserver-new/issues')
    
     -- Events
     for i = 1, #events do
         player:registerEvent(events[i])
     end
- 	
-    if player:getStorageValue(Storage.combatProtectionStorage) <= os.time() then
-        player:setStorageValue(Storage.combatProtectionStorage, os.time() + 10)
+ 
+ 
+ 	if player:getStorageValue(Storage.combatProtectionStorage) < 1 then
+        player:setStorageValue(Storage.combatProtectionStorage, 1)
         onMovementRemoveProtection(playerId, player:getPosition(), 10)
-    end
+	end
+
+	-- Exp stats
+	local staminaMinutes = player:getStamina()
+	local Boost = player:getExpBoostStamina()
+	if staminaMinutes > 2400 and player:isPremium() and Boost > 0 then
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*2) -- 200 = 1.0x, 200 = 2.0x, ... premium account
+	elseif staminaMinutes > 2400 and player:isPremium() and Boost <= 0 then
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account
+	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and Boost > 0 then
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5) -- 150 = 1.5x		premium account
+	elseif staminaMinutes > 840 and Boost > 0 then
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5) -- 150 = 1.5x		free account
+	elseif staminaMinutes <= 840 and Boost > 0 then
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1) -- 50 = 0.5x	all players
+	elseif staminaMinutes <= 840 then
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*0.5) -- 50 = 0.5x	all players
+	end
+
     return true
 end

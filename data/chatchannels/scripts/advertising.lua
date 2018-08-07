@@ -16,8 +16,8 @@ function onSpeak(player, type, message)
 		return true
 	end
 
-	if player:getLevel() <= 20 then
-		player:sendCancelMessage("You may not speak into channels as long as you are on level 20.")
+	if player:getLevel() < 30 then
+		player:sendCancelMessage("You may not speak into channels as long as you are not on level 30+.")
 		return false
 	end
 

@@ -17,7 +17,6 @@ function onSay(player, words, param)
 	local target = Player(param)
 	if target ~= nil then
 		target:setAccountType(ACCOUNT_TYPE_NORMAL)
-		target:setStorageValue(15954, -1)
 	else
 		db.query("UPDATE `accounts` SET `type` = " .. ACCOUNT_TYPE_NORMAL .. " WHERE `id` = " .. result.getNumber(resultId, "account_id"))
 	end

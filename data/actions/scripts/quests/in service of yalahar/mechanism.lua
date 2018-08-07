@@ -20,13 +20,13 @@ local mechanisms2 = {
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(mechanisms[item.uid]) then
-		--if(player:getStorageValue(Storage.InServiceofYalahar.Questline) >= mechanisms[item.uid].value) then
+		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) >= mechanisms[item.uid].value) then
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			player:teleportTo(mechanisms[item.uid].pos)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		--else
-			--player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The gate mechanism won't move. You probably have to find a way around until you figure out how to operate the gate.")
-		--end
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The gate mechanism won't move. You probably have to find a way around until you figure out how to operate the gate.")
+		end
 	elseif(mechanisms2[item.uid]) then
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(mechanisms2[item.uid].pos)

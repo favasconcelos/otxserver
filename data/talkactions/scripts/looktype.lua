@@ -14,10 +14,9 @@ local invalidTypes = {
 	809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822, 823, 
 	824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838,
 	839, 840, 841, 861, 844, 845, 846, 847, 871, 872, 880, 891, 892, 893, 894,
-	895, 896, 897, 898, 917, 930, 941, 942, 946, 953, 954, 976, 977, 978, 979,
-	980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994,
-	995, 996, 997, 998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008,
-	1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1022,
+	895, 896, 897, 898, 917, 930, 941, 942, 946, 953, 954, 995, 996, 997, 998,
+	999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1012,
+	1014, 1015
 }
 
 function onSay(player, words, param)
@@ -26,7 +25,7 @@ function onSay(player, words, param)
 	end
 
 	local lookType = tonumber(param)
-	if lookType >= 0 and lookType < 1022 and not table.contains(invalidTypes, lookType) then
+	if lookType >= 0 and lookType < 1021 and not table.contains(invalidTypes, lookType) then
 		local playerOutfit = player:getOutfit()
 		playerOutfit.lookType = lookType
 		player:setOutfit(playerOutfit)

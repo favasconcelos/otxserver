@@ -1,6 +1,5 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_GREEN)
-combat:setParameter(COMBAT_PARAM_DISPEL, CONDITION_PARALYZE)
 combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 
 local condition = Condition(CONDITION_HASTE)

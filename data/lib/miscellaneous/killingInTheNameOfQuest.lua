@@ -26,10 +26,8 @@ REPEATSTORAGE_BASE = 48950
 POINTSSTORAGE = 2500
 tasks =
 {
-	-- [1] = {killsRequired = 100, raceName = "Trolls", level = {6, 19}, premium = true, creatures = {"troll", "troll champion", "island troll", "swamp troll"}, rewards = {{type = "exp", value = {200}},{type = "money", value = {200}}}},
-	--[1] = {killsRequired = 4000, raceName = "Necromancers", level = {60, 500}, storage = {65050, 1}, norepeatable = true, premium = true, creatures = {"necromancer", "priestess", "blood priest", "blood hand", "shadow pupil"}, rewards = {{type = "storage", value = {35033, 1}},{type = "storage", value = {17521, 1}}}},
-    --[2] = {killsRequired = 150, raceName = "Goblins", level = {6, 19}, premium = true, creatures = {"goblin", "goblin assassin", "goblin leader"}, rewards = {{type = "exp", value = {300}},{type = "money", value = {250}}}},
-	--[2] = {killsRequired = 5000, raceName = "Minotaurs", level = {6, 500}, storage = {65049, 1}, norepeatable = true, premium = false, creatures = {"minotaur", "minotaur mage", "minotaur archer", "minotaur guard"}, rewards = {{type = "storage", value = {17522, 1}}}},
+	[1] = {killsRequired = 100, raceName = "Trolls", level = {6, 19}, premium = true, creatures = {"troll", "troll champion", "island troll", "swamp troll"}, rewards = {{type = "exp", value = {200}},{type = "money", value = {200}}}},
+    [2] = {killsRequired = 150, raceName = "Goblins", level = {6, 19}, premium = true, creatures = {"goblin", "goblin assassin", "goblin leader"}, rewards = {{type = "exp", value = {300}},{type = "money", value = {250}}}},
 	[3] = {killsRequired = 300, raceName = "Crocodiles", level = {6, 49}, premium = true, creatures = {"crocodile"}, rewards = {{type = "exp", value = {800}},{type = "achievement", value = {"Blood-Red Snapper"}},{type = "storage", value = {35000, 1}},{type = "points", value = {1}}}},
 	[4] = {killsRequired = 300, raceName = "Badgers", level = {6, 49}, premium = true, creatures = {"badger"}, rewards = {{type = "exp", value = {500}},{type = "points", value = {1}}}},
 	[5] = {killsRequired = 300, raceName = "Tarantulas", level = {6, 49}, premium = true, creatures = {"tarantula"}, rewards = {{type = "exp", value = {1500}},{type = "achievement", value = {"No More Hiding"}},{type = "storage", value = {35001, 1}},{type = "points", value = {2}}}},
@@ -71,23 +69,20 @@ tasks =
 	[41] = {killsRequired = 900, raceName = "Drakens", level = {130, 9999}, premium = true, creatures = {"draken spellweaver", "draken warmaster", "draken abomination", "draken elite"} , rewards = {{type = "exp", value = {30000}},{type = "achievement", value = {"Enter zze Draken!"}},{type = "storage", value = {35025, 1}},{type = "points", value = {3}}}},
 	[42] = {killsRequired = 650, raceName = "Destroyers", level = {130, 9999}, premium = true, creatures = {"destroyer"}, rewards = {{type = "exp", value = {30000}},{type = "achievement", value = {"Best there was!"}},{type = "storage", value = {35026, 1}},{type = "points", value = {4}}}},
 	[43] = {killsRequired = 400, raceName = "Undead Dragons", level = {130, 9999}, premium = true, creatures = {"undead dragon"}, rewards = {{type = "exp", value = {50000}},{type = "achievement", value = {"Back from the Dead"}},{type = "storage", value = {35027, 1}},{type = "points", value = {6}}}},
-	[44] = {killsRequired = 666, raceName = "Demons", level = {130, 9999}, rank = RANK_ELITEHUNTER, premium = true, creatures = {"demon"}, rewards = {{type = "item", value = {10305, 1}}}},
+	[44] = {killsRequired = 6666, raceName = "Demons", level = {130, 9999}, rank = RANK_ELITEHUNTER, premium = true, creatures = {"demon"}, rewards = {{type = "item", value = {10305, 1}},{type = "storage", value = {41300, 1}}}},
 	[45] = {killsRequired = 500, raceName = "Green Djinns or Efreets", level = {1, 9999}, storage = {12500, 1}, premium = true, creatures = {"green djinn", "efreet"}, rewards = {{type = "exp", value = {10000}},{type = "money", value = {5000}},{type = "storage", value = {35028, 1}}}},
 	[46] = {killsRequired = 500, raceName = "Blue Djinns or Marids", level = {1, 9999}, storage = {12501, 1}, premium = true, creatures = {"blue djinn", "marid"}, rewards = {{type = "exp", value = {10000}},{type = "money", value = {5000}},{type = "storage", value = {35029, 1}}}},
 	[47] = {killsRequired = 3000, raceName = "Pirates", level = {1, 9999}, storage = {65047, 1}, premium = true, creatures = {"pirate ghost", "pirate marauder", "pirate cutthroad", "pirate buccaneer", "pirate corsair", "pirate skeleton"}, rewards = {{type = "exp", value = {10000}},{type = "money", value = {5000}},{type = "storage", value = {17523, 1}}}},
 	[48] = {killsRequired = 3000, raceName = "Pirates second task", level = {1, 9999}, storage = {REPEATSTORAGE_BASE + 47, 3}, norepeatable = true, premium = true, creatures = {"pirate ghost", "pirate marauder", "pirate cutthroad", "pirate buccaneer", "pirate corsair", "pirate skeleton"}, rewards = {{type = "exp", value = {10000}},{type = "money", value = {5000}},{type = "storage", value = {17523, 1}}}},
-	--[49] = {killsRequired = 5000, raceName = "Minotaurs", level = {1, 9999}, storage = {12700, 1}, norepeatable = true, premium = false, creatures = {"minotaur", "minotaur mage", "minotaur archer"}, rewards = {{type = "storage", value = {17522, 1}}}},
-	--[50] = {killsRequired = 4000, raceName = "Necromancers and Priestess", level = {60, 9999}, norepeatable = true, premium = true, creatures = {"necromancer", "priestess"}, rewards = {{type = "storage", value = {35033, 1}},{type = "storage", value = {17521, 1}}}},
+	[49] = {killsRequired = 5000, raceName = "Minotaurs", level = {1, 9999}, storage = {12700, 1}, norepeatable = true, premium = false, creatures = {"minotaur", "minotaur mage", "minotaur archer"}, rewards = {{type = "storage", value = {17522, 1}}}},
+	[50] = {killsRequired = 4000, raceName = "Necromancers and Priestess", level = {60, 9999}, norepeatable = true, premium = true, creatures = {"necromancer", "priestess"}, rewards = {{type = "storage", value = {35033, 1}},{type = "storage", value = {17521, 1}}}},
     }  
 
 tasksByPlayer = 3
 repeatTimes = 3
 
---function Player.getPawAndFurRank(self)
-	--return (self:getStorageValue(POINTSSTORAGE) >= 100 and RANK_ELITEHUNTER or self:getStorageValue(POINTSSTORAGE) >= 70 and RANK_TROPHYHUNTER or self:getStorageValue(POINTSSTORAGE) >= 40 and RANK_BIGGAMEHUNTER or self:getStorageValue(POINTSSTORAGE) >= 20 and RANK_RANGER or self:getStorageValue(POINTSSTORAGE) >= 10 and RANK_HUNTSMAN or self:getStorageValue(JOIN_STOR) == 1 and RANK_JOIN or RANK_NONE)
---end
 function Player.getPawAndFurRank(self)
-	return (self:getStorageValue(POINTSSTORAGE) >= 71 and RANK_ELITEHUNTER or self:getStorageValue(POINTSSTORAGE) >= 70 and RANK_TROPHYHUNTER or self:getStorageValue(POINTSSTORAGE) >= 40 and RANK_BIGGAMEHUNTER or self:getStorageValue(POINTSSTORAGE) >= 20 and RANK_RANGER or self:getStorageValue(POINTSSTORAGE) >= 10 and RANK_HUNTSMAN or self:getStorageValue(JOIN_STOR) == 1 and RANK_JOIN or RANK_NONE)
+	return (self:getStorageValue(POINTSSTORAGE) >= 100 and RANK_ELITEHUNTER or self:getStorageValue(POINTSSTORAGE) >= 70 and RANK_TROPHYHUNTER or self:getStorageValue(POINTSSTORAGE) >= 40 and RANK_BIGGAMEHUNTER or self:getStorageValue(POINTSSTORAGE) >= 20 and RANK_RANGER or self:getStorageValue(POINTSSTORAGE) >= 10 and RANK_HUNTSMAN or self:getStorageValue(JOIN_STOR) == 1 and RANK_JOIN or RANK_NONE)
 end
 
 function Player.getPawAndFurPoints(self)

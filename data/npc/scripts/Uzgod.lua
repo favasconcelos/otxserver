@@ -23,7 +23,7 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		else
-			npcHandler:say("You dont have these items.", cid)
+			npcHandler:say("You don\'t have these items.", cid)
 			npcHandler.topic[cid] = 0
 		end
 	end
@@ -45,7 +45,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif(msgcontains(msg, "brooch")) then
 		if player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 2 then
-			npcHandler:say("True dwarven pickaxes having to be maded by true weaponsmith! You wanting to get pickaxe for explorer society?", cid)
+			npcHandler:say("You got me brooch?", cid)
 			npcHandler.topic[cid] = 3
 		end
 	elseif(msgcontains(msg, "yes")) then
@@ -60,18 +60,18 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 2)
 		elseif(npcHandler.topic[cid] == 3) then
-			if player:removeItem(2318, 1) then
+			if player:removeItem(4845, 1) then -----
 				npcHandler:say("Thanking you for brooch. Me guessing you now want your pickaxe?", cid)
 				npcHandler.topic[cid] = 4
 			end
 		elseif(npcHandler.topic[cid] == 4) then
 			npcHandler:say("Here you have it.", cid)
-			player:addItem(11421, 1)
+			player:addItem(4874, 1) -----
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 3)
 			npcHandler.topic[cid] = 0
 		elseif(npcHandler.topic[cid] == 9) then
-			if player:getMoney() >= 250 and player:getItemCount(5880) >= 3 then
-				if player:removeMoney(250) and player:removeItem(5880, 3) then
+			if player:getMoney() + player:getBankBalance() >= 250 and player:getItemCount(5880) >= 3 then
+				if player:removeMoneyNpc(250) and player:removeItem(5880, 3) then
 					npcHandler:say("Ah, that's how me like me customers. Ok, me do this... <pling pling> ... another fine swing of the hammer here and there... <ploing>... here you have it!", cid)
 					player:addItem(7385, 1)
 					player:setStorageValue(Storage.TravellingTrader.Mission05, 2)

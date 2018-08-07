@@ -434,29 +434,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Come back if change mind.', cid)
 		end
 		npcHandler.topic[cid] = 0
-	elseif msgcontains(msg, 'cookie') then
-			if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31
-					and player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Hairycles) ~= 1 then
-				npcHandler:say('Oh you bring cookie for old Hairycles?', cid)
-				npcHandler.topic[cid] = 19
-			end
-	elseif msgcontains(msg, 'yes') then
-		if npcHandler.topic[cid] == 19 then
-			if player:getItemCount(8111) == 0 then
-				npcHandler:say('You have no cookie that I\'d like.', cid)
-				npcHandler.topic[cid] = 0
-				return true
-			elseif player:getItemCount(8111) > 0 then
-				Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-				npcHandler:say('Thank you, you are ... YOU SON OF LIZARD!', cid)
-				doPlayerRemoveItem(cid, 8111, 1)
-				player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Hairycles, 1)
-				if player:getCookiesDelivered() == 10 then
-					player:addAchievement('Allow Cookies?')
-				end
-				npcHandler:releaseFocus(cid)
-				npcHandler:resetNpc(cid)
-			end
+
 	elseif npcHandler.topic[cid] == 19 then
 		if msgcontains(msg, 'yes') then
 			if not player:removeItem(8111, 1) then
@@ -471,15 +449,13 @@ local function creatureSayCallback(cid, type, msg)
 
 			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 			npcHandler:say('Thank you, you are ... YOU SON OF LIZARD!', cid)
-			npcHandler:releaseFocus(cid)
-			npcHandler:resetNpc(cid)
+			addEvent(releasePlayer, 1000, cid)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('I see.', cid)
 		end
 		npcHandler.topic[cid] = 0
 	end
 	return true
-end
 end
 
 keywordHandler:addKeyword({'busy'}, StdModule.say, {npcHandler = npcHandler, text = 'Me great {wizard}. Me great doctor of {ape people}. Me know many plants. Me old and me have seen many things.'})
@@ -492,6 +468,15 @@ keywordHandler:addKeyword({'merlkin'}, StdModule.say, {npcHandler = npcHandler, 
 keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, text = 'We see many things and learning quick. Merlkin magic learn quick, quick. We just watch and learn. Sometimes we try and learn.'})
 keywordHandler:addKeyword({'jungle'}, StdModule.say, {npcHandler = npcHandler, text = 'Jungle is dangerous. Jungle also provides us food. Take care when in jungle and safe you be.'})
 
+local function onTradeRequest(cid)
+	if Player(cid):getStorageValue(Storage.TheApeCity.Questline) < 18 then
+		return false
+	end
+
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

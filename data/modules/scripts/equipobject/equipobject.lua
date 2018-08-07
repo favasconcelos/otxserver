@@ -11,6 +11,7 @@ EquipObject.Slots = {
 	[560] = CONST_SLOT_AMMO,
 	[2096] = SLOTP_TWO_HAND -- We only use slot position in this!
 }
+
 function onRecvbyte(player, msg, byte)
 	local itemType = Game.getItemIdByClientId(msg:getU16())
 	local item = player:getItemById(itemType:getId(), true)
@@ -83,8 +84,7 @@ function onRecvbyte(player, msg, byte)
 		end
 	elseif slotP then
 		local slotItem = player:getSlotItem(slotP)
-		
-		
+
 		if slotItem then
 			if slotItem:getId() == item:getId() then
 				item:moveToSlot(player, 0)
@@ -95,7 +95,7 @@ function onRecvbyte(player, msg, byte)
 			EquipObject.StackAdd(player, item, slotP, newItemType:isStackable())
 		end
 	end
-	return player:sendCancelMessage("You are exhausted.")
+	return true
 end
 
 EquipObject.StackAdd = function(player, item, slotP, isStackable)

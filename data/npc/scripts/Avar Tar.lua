@@ -36,21 +36,21 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('So you want to have the demon outfit, hah! Let\'s have a look first if you really deserve it. Tell me: {base}, {shield} or {helmet}?', cid)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 3 then
-			if player:getItemCount(8111) == 0 then
+			if not player:removeItem(8111, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true
-			elseif player:getItemCount(8111) > 0 then
-				Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-				npcHandler:say('Well, you won\'t! Though it looks tasty ...What the ... WHAT DO YOU THINK YOU ARE? THIS IS THE ULTIMATE INSULT! GET LOST!', cid)
-				doPlayerRemoveItem(cid, 8111, 1)
-				player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.AvarTar, 1)
-				if player:getCookiesDelivered() == 10 then
-					player:addAchievement('Allow Cookies?')
-				end
-				npcHandler:releaseFocus(cid)
-				npcHandler:resetNpc(cid)
 			end
+
+			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.AvarTar, 1)
+			if player:getCookiesDelivered() == 10 then
+				player:addAchievement('Allow Cookies?')
+			end
+
+			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
+			npcHandler:say('Well, you won\'t! Though it looks tasty ...What the ... WHAT DO YOU THINK YOU ARE? THIS IS THE ULTIMATE INSULT! GET LOST!', cid)
+			npcHandler:releaseFocus(cid)
+			npcHandler:resetNpc(cid)
 		end
 	elseif msgcontains(msg, 'no') then
 		if npcHandler.topic[cid] == 3 then
@@ -59,12 +59,15 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'base') then
-			if player:getStorageValue(Storage.AnnihilatorDone) == 1 or player:getStorageValue(2216, 1) then
+			if player:getStorageValue(Storage.AnnihilatorDone) == 1 then
 				player:addOutfit(541)
 				player:addOutfit(542)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.AnnihilatorDone, 2)
 				npcHandler:say('Receive the base outfit, |PLAYERNAME|.', cid)
+			else
+				npcHandler:say('You need to complete annihilator quest first, |PLAYERNAME|.', cid)
+				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'shield') then
 			if player:getStorageValue(Storage.AnnihilatorDone) == 2 and player:getStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet) == 1 then
@@ -73,6 +76,9 @@ local function creatureSayCallback(cid, type, msg)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet, 2)
 				npcHandler:say('Receive the shield, |PLAYERNAME|.', cid)
+			else
+				npcHandler:say('The shield will only be granted to those adventurers who have finished the demon helmet quest, |PLAYERNAME|.', cid)	
+				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'helmet') then
 			if player:getStorageValue(Storage.AnnihilatorDone) == 2 and player:getStorageValue(Storage.DemonOak.Done) == 3 then
@@ -81,9 +87,11 @@ local function creatureSayCallback(cid, type, msg)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.DemonOak.Done, 4)
 				npcHandler:say('Receive the helmet, |PLAYERNAME|.', cid)
+			else
+				npcHandler:say('The helmet is for those who have hunted down all 6666 demons and finished the demon oak as well, |PLAYERNAME|.', cid)
+				npcHandler.topic[cid] = 2
 			end
 		end
-		npcHandler.topic[cid] = 0
 	end
 	return true
 end

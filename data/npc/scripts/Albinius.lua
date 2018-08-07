@@ -46,7 +46,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 
 if msgcontains(msg, "tomes") then
-	  npcHandler:say("I you have some old shaper tomes I would {buy} them.", cid)
+	  npcHandler:say("If you have some old shaper tomes I would {buy} them.", cid)
 end
 
 

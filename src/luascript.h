@@ -1056,6 +1056,8 @@ class LuaScriptInterface
 		static int luaMonsterSelectTarget(lua_State* L);
 		static int luaMonsterSearchTarget(lua_State* L);
 
+		static int luaMonsterSetSpawnPosition(lua_State* L);
+
 		// Npc
 		static int luaNpcCreate(lua_State* L);
 

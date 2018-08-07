@@ -28,9 +28,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "spectral dress") then
-		if player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 48 then
+		if player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 48 and player:getStorageValue(Storage.ExplorerSociety.bansheeDoor) < 1 then
 			npcHandler:say("Your wish for a spectral dress is silly. Although I will grant you the permission to take one. My maidens left one in a box in a room, directly south of here.", cid)
-			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 49)
 			player:setStorageValue(Storage.ExplorerSociety.bansheeDoor, 1)
 		end
 	elseif msgcontains(msg, "addon") then

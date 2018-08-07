@@ -5,7 +5,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			doTransformItem(getTileItemById({x = 33080, y = 32582, z = 3},1945).uid,1946)
 			doRemoveItem(getTileItemById({x = 33075, y = 32591, z = 3}, 1498).uid, 1)
 			setGlobalStorageValue(71543, os.time()+5*60)
-			addEvent(doCreateItem, 60*1000, 1498, {x = 33075, y = 32591, z = 3})
+			addEvent(Game.createItem, 60*1000, 1498, {x = 33075, y = 32591, z = 3})
 		else
 			doPlayerSendTextMessage(cid, 19, "You do not have the Chayenne's magical key.")
 			end

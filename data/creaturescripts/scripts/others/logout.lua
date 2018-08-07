@@ -18,8 +18,5 @@ function onLogout(player)
  			stats.stamina = player:getStamina()
  		end
  	end
- if captureTheFlag.getPlayerState(player) ~= CTF_STATE_NONE then
-		captureTheFlag.onLeave(player)
- end
-    return true
+     return true
 end

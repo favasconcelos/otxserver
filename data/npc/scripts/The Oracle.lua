@@ -4,24 +4,11 @@ NpcSystem.parseParameters(npcHandler)
 
 local vocation = {}
 local town = {}
-
 local config = {
-
 	towns = {
 		["venore"] = 1,
 		["thais"] = 2,
-		["kazordoon"] = 3,
-		["carlin"] = 4,
-		["ab dendriel"] = 5,
-		["abdendriel"] = 5,
-		["ab'dendriel"] = 5,
-		["liberty bay"] = 7,
-		["port hope"] = 8,
-		["ankrahmun"] = 9,
-		["darashia"] = 10,
-		["edron"] = 11,
-		["svargrond"] = 12,
-		["yalahar"] = 13
+		["carlin"] = 4
 	},
 
 	vocations = {
@@ -30,8 +17,8 @@ local config = {
 			vocationId = 1,
 			--equipment spellbook, wand of vortex, magician's robe, mage hat, studded legs, leather boots, scarf
 			{{2175, 1}, {2190, 1}, {8819, 1}, {8820, 1}, {2468, 1}, {2643, 1}, {2661, 1}},
-			--container rope, shovel, mana potion
-			{{2120, 1}, {2554, 1}, {7620, 1}}
+			--container rope, shovel, mana potion, adventurer's stone
+			{{2120, 1}, {2554, 1}, {7620, 1}, {18559, 1}}
 		},
 
 		["druid"] = {
@@ -39,8 +26,8 @@ local config = {
 			vocationId = 2,
 			--equipment spellbook, snakebite rod, magician's robe, mage hat, studded legs, leather boots scarf
 			{{2175, 1}, {2182, 1}, {8819, 1}, {8820, 1}, {2468, 1}, {2643, 1}, {2661, 1}},
-			--container rope, shovel, mana potion
-			{{2120, 1}, {2554, 1}, {7620, 1}}
+			--container rope, shovel, mana potion, adventurer's stone
+			{{2120, 1}, {2554, 1}, {7620, 1}, {18559, 1}}
 		},
 
 		["paladin"] = {
@@ -48,8 +35,8 @@ local config = {
 			vocationId = 3,
 			--equipment dwrven shield, 5 spear, ranger's cloak, ranger legs scarf, legion helmet
 			{{2525, 1}, {2389, 5}, {2660, 1}, {8923, 1}, {2643, 1}, {2661, 1}, {2480, 1}},
-			--container rope, shovel, health potion, bow, 50 arrow
-			{{2120, 1}, {2554, 1}, {7618, 1}, {2456, 1}, {2544, 50}}
+			--container rope, shovel, health potion, bow, 50 arrow, adventurer's stone
+			{{2120, 1}, {2554, 1}, {7618, 1}, {2456, 1}, {2544, 50}, {18559, 1}}
 		},
 
 		["knight"] = {
@@ -57,8 +44,8 @@ local config = {
 			vocationId = 4,
 			--equipment dwarven shield, steel axe, brass armor, brass helmet, brass legs scarf
 			{{2525, 1}, {8601, 1}, {2465, 1}, {2460, 1}, {2478, 1}, {2643, 1}, {2661, 1}},
-			--container jagged sword, daramian mace, rope, shovel, health potion
-			{{8602, 1}, {2439, 1}, {2120, 1}, {2554, 1}, {7618, 1}}
+			--container jagged sword, daramian mace, rope, shovel, health potion, adventurer's stone
+			{{8602, 1}, {2439, 1}, {2120, 1}, {2554, 1}, {7618, 1}, {18559, 1}}
 		}
 	}
 }
@@ -75,8 +62,12 @@ local function greetCallback(cid)
 		npcHandler:say("CHILD! COME BACK WHEN YOU HAVE GROWN UP!", cid)
 		npcHandler:resetNpc(cid)
 		return false
-	elseif level > 31 then
+	elseif level > 10 then
 		npcHandler:say(player:getName() ..", I CAN'T LET YOU LEAVE - YOU ARE TOO STRONG ALREADY! YOU CAN ONLY LEAVE WITH LEVEL 9 OR LOWER.", cid)
+		npcHandler:resetNpc(cid)
+		return false
+	elseif player:getVocation():getId() > 0 then
+		npcHandler:say("YOU ALREADY HAVE A VOCATION!", cid)
 		npcHandler:resetNpc(cid)
 		return false
 	else
@@ -93,7 +84,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if npcHandler.topic[cid] == 0 then
 		if msgcontains(msg, "yes") then
-			npcHandler:say("IN WHICH TOWN DO YOU WANT TO LIVE: {CARLIN}, {THAIS}, {VENORE}, {KAZORDOON}, {AB'DENDRIEL}, {LIBERTY BAY}, {PORT HOPE}, {ANKRAHMUN}, {DARASHIA}, {EDRON}, {SVARGROND} OR {YALAHAR}?", cid)
+			npcHandler:say("IN WHICH TOWN DO YOU WANT TO LIVE: {CARLIN}, {THAIS}, OR {VENORE}?", cid)
 			npcHandler.topic[cid] = 1
 		end
 	elseif npcHandler.topic[cid] == 1 then
@@ -103,7 +94,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("IN ".. string.upper(msg) .."! AND WHAT PROFESSION HAVE YOU CHOSEN: {KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", cid)
 			npcHandler.topic[cid] = 2
 		else
-			npcHandler:say("IN WHICH TOWN DO YOU WANT TO LIVE: {CARLIN}, {THAIS}, {VENORE}, {KAZORDOON}, {AB'DENDRIEL}, {LIBERTY BAY}, {PORT HOPE}, {ANKRAHMUN}, {DARASHIA}, {EDRON}, {SVARGROND} OR {YALAHAR}?", cid)
+			npcHandler:say("IN WHICH TOWN DO YOU WANT TO LIVE: {CARLIN}, {THAIS}, OR {VENORE}?", cid)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		local vocationTable = config.vocations[msg:lower()]
@@ -151,7 +142,6 @@ end
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
-
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setMessage(MESSAGE_FAREWELL, "COME BACK WHEN YOU ARE PREPARED TO FACE YOUR DESTINY!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "COME BACK WHEN YOU ARE PREPARED TO FACE YOUR DESTINY!")

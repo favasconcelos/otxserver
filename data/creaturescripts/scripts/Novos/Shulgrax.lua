@@ -3,9 +3,9 @@ local posdotp4 = {x=33487, y=32780, z=13}
 function MoveStone4() --creates wall back
 local criistal4 = getTileItemById(posdotp4, 1353)
 if not criistal4 then 
-doCreateItem(1353,1,posdotp4)-- Stone pos
+Game.createItem(1353,1,posdotp4)-- Stone pos
 else 
-doCreateItem(1353,1,posdotp4)
+Game.createItem(1353,1,posdotp4)
 end 
 return true
 end

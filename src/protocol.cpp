@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,11 @@ void Protocol::onSendMessage(const OutputMessage_ptr& msg) const
 
 		if (encryptionEnabled) {
 			XTEA_encrypt(*msg);
-			msg->addCryptoHeader(checksumEnabled);
+			if (!compactCrypt) {
+				msg->addCryptoHeader((checksumEnabled ? 1 : 0));
+			} else {
+				msg->addCryptoHeader(2);
+			}
 		}
 	}
 }
@@ -49,13 +53,12 @@ void Protocol::onRecvMessage(NetworkMessage& msg)
 OutputMessage_ptr Protocol::getOutputBuffer(int32_t size)
 {
 	//dispatcher thread
-	if (!outputBuffer) {
+	if (outputBuffer && NetworkMessage::MAX_PROTOCOL_BODY_LENGTH >= outputBuffer->getLength() + size) {
+		return outputBuffer;
+	} else {
 		outputBuffer = OutputMessagePool::getOutputMessage();
-	} else if ((outputBuffer->getLength() + size) > NetworkMessage::MAX_PROTOCOL_BODY_LENGTH) {
-		send(outputBuffer);
-		outputBuffer = OutputMessagePool::getOutputMessage();
+		return outputBuffer;
 	}
-	return outputBuffer;
 }
 
 void Protocol::XTEA_encrypt(OutputMessage& msg) const

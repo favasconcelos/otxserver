@@ -10,10 +10,10 @@ local config = {
 
 
 function CriarWalls() --creates walls 
-doCreateItem(3514,1,Poswall1)-- posição da wall 
-doCreateItem(3514,1,Poswall2)-- posição da wall 
-doCreateItem(3514,1,Poswall3)-- posição da wall 
-doCreateItem(3514,1,Poswall4)-- posição da wall 
+Game.createItem(3514,1,Poswall1)-- posição da wall 
+Game.createItem(3514,1,Poswall2)-- posição da wall 
+Game.createItem(3514,1,Poswall3)-- posição da wall 
+Game.createItem(3514,1,Poswall4)-- posição da wall 
 
 end
 
@@ -115,10 +115,10 @@ elseif item.actionid == 50010 then
 			--addEvent(doSummonCreature, 45*1000, "Horestis", {x = 32942, y = 32765, z = 12}) 
 			
 			addEvent(CriarWalls, 61000+6*20*1800)
-			--addEvent(doCreateItem, 20 * 60 * 1000, 3514, {x = 32941, y = 32754, z = 12})			
-			--addEvent(doCreateItem, 20 * 60 * 1000, 3514, {x = 32942, y = 32754, z = 12})
-			--addEvent(doCreateItem, 20 * 60 * 1000, 3514, {x = 32943, y = 32754, z = 12})
-			--addEvent(doCreateItem, 20 * 60 * 1000, 3514, {x = 32944, y = 32754, z = 12}) 
+			--addEvent(Game.createItem, 20 * 60 * 1000, 3514, {x = 32941, y = 32754, z = 12})			
+			--addEvent(Game.createItem, 20 * 60 * 1000, 3514, {x = 32942, y = 32754, z = 12})
+			--addEvent(Game.createItem, 20 * 60 * 1000, 3514, {x = 32943, y = 32754, z = 12})
+			--addEvent(Game.createItem, 20 * 60 * 1000, 3514, {x = 32944, y = 32754, z = 12}) 
 		else
 			doPlayerSendCancel(cid, "You need to break the fourth jar.")
 			end	

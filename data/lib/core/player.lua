@@ -1,5 +1,5 @@
 function Player.allowMovement(self, allow)
-	return self:setStorageValue(Storage.blockMovementStorage, allow and -1 or 1)
+	return self:setStorageValue(STORAGE.blockMovementStorage, allow and -1 or 1)
 end
 
 function Player.checkGnomeRank(self)
@@ -36,15 +36,33 @@ end
 function Player.setExhaustion(self, value, time)
     return self:setStorageValue(value, time + os.time())
 end
-
+ 
 function Player.getExhaustion(self, value)
     local storage = self:getStorageValue(value)
     if storage <= 0 then
-       return 0
+        return 0
     end
-   return storage - os.time()
+    return storage - os.time()
 end
-
+ 
+function Player.addFamePoint(self)
+    local points = self:getStorageValue(SPIKE_FAME_POINTS)
+    local current = math.max(0, points)
+    self:setStorageValue(SPIKE_FAME_POINTS, current + 1)
+    self:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have received a fame point.")
+end
+ 
+function Player.getFamePoints(self)
+    local points = self:getStorageValue(SPIKE_FAME_POINTS)
+    return math.max(0, points)
+end
+ 
+function Player.removeFamePoints(self, amount)
+    local points = self:getStorageValue(SPIKE_FAME_POINTS)
+    local current = math.max(0, points)
+    self:setStorageValue(SPIKE_FAME_POINTS, current - amount)
+end
+ 
 function Player.depositMoney(self, amount)
 	if not self:removeMoney(amount) then
 		return false
@@ -96,10 +114,10 @@ end
 
 function Player.getCookiesDelivered(self)
 	local storage, amount = {
-		Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar, Storage.WhatAFoolishQuest.CookieDelivery.Markwin, Storage.WhatAFoolishQuest.CookieDelivery.Ariella,
-		Storage.WhatAFoolishQuest.CookieDelivery.Hairycles, Storage.WhatAFoolishQuest.CookieDelivery.Djinn, Storage.WhatAFoolishQuest.CookieDelivery.AvarTar,
-		Storage.WhatAFoolishQuest.CookieDelivery.OrcKing, Storage.WhatAFoolishQuest.CookieDelivery.Lorbas, Storage.WhatAFoolishQuest.CookieDelivery.Wyda,
-		Storage.WhatAFoolishQuest.CookieDelivery.Hjaern
+		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.SIMONTHEBEGGAR, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.MARKWIN, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.ARIELLA,
+		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.HAIRYCLES, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.DJINN, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.AVARTAR,
+		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.ORCKING, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.LORBAS, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.WYDA,
+		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.HJAERN
 	}, 0
 	for i = 1, #storage do
 		if self:getStorageValue(storage[i]) == 1 then
@@ -127,7 +145,7 @@ function Player.getLossPercent(self)
 end
 
 function Player.hasAllowMovement(self)
-	return self:getStorageValue(Storage.blockMovementStorage) ~= 1
+	return self:getStorageValue(STORAGE.blockMovementStorage) ~= 1
 end
 
 function Player.hasRookgaardShield(self)
@@ -242,3 +260,20 @@ function Player.addManaSpent(...)
 	APPLY_SKILL_MULTIPLIER = true
 	return ret
 end
+
+--jlcvp - impact analyser
+function Player.sendHealingImpact(self, healAmmount)
+	local msg = NetworkMessage()
+	msg:addByte(0xCC) -- DEC: 204
+	msg:addByte(0) -- 0 = healing / 1 = damage (boolean)
+	msg:addU32(healAmmount) -- unsigned int
+	msg:sendToPlayer(self)
+end
+
+function Player.sendDamageImpact(self, damage)
+	local msg = NetworkMessage()
+	msg:addByte(0xCC) -- DEC: 204
+	msg:addByte(1) -- 0 = healing / 1 = damage (boolean)
+	msg:addU32(damage) -- unsigned int
+	msg:sendToPlayer(self)
+end 

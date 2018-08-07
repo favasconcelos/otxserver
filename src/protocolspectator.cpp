@@ -1,21 +1,21 @@
 /**
- * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2014  Mark Samman <mark.samman@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- */
+* The Forgotten Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation; either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program; if not, write to the Free Software Foundation, Inc.,
+* 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
 
 #include "otpch.h"
 
@@ -40,7 +40,7 @@ extern Game g_game;
 extern ConfigManager g_config;
 extern Chat* g_chat;
 
-ProtocolSpectator::ProtocolSpectator(Connection_ptr connection):
+ProtocolSpectator::ProtocolSpectator(Connection_ptr connection) :
 	ProtocolGameBase(connection),
 	client(nullptr)
 {
@@ -65,6 +65,9 @@ void ProtocolSpectator::onRecvFirstMessage(NetworkMessage& msg)
 
 	operatingSystem = (OperatingSystem_t)msg.get<uint16_t>();
 	version = msg.get<uint16_t>();
+	if (version >= 1111) {
+		enableCompact();
+	}
 
 	msg.skipBytes(7); // U32 clientVersion, U8 clientType
 
@@ -100,9 +103,9 @@ void ProtocolSpectator::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	if (version < CLIENT_VERSION_MIN || version > CLIENT_VERSION_MAX) {
+	if (version < g_config.getNumber(ConfigManager::VERSION_MIN) || version > g_config.getNumber(ConfigManager::VERSION_MAX)) {
 		std::ostringstream ss;
-		ss << "Only clients with protocol " << CLIENT_VERSION_STR << " allowed!";
+		ss << "Only clients with protocol " << g_config.getString(ConfigManager::VERSION_STR) << " allowed!";
 		disconnectSpectator(ss.str());
 		return;
 	}
@@ -155,9 +158,9 @@ void ProtocolSpectator::addDummyCreature(NetworkMessage& msg, const uint32_t& cr
 {
 	// add dummy creature
 	CreatureType_t creatureType = CREATURETYPE_NPC;
-	if(creatureID <= 0x10000000) {
+	if (creatureID <= 0x10000000) {
 		creatureType = CREATURETYPE_PLAYER;
-	} else if(creatureID <= 0x40000000) {
+	} else if (creatureID <= 0x40000000) {
 		creatureType = CREATURETYPE_MONSTER;
 	}
 	msg.addByte(0x6A);
@@ -224,13 +227,6 @@ void ProtocolSpectator::syncKnownCreatureSets()
 
 void ProtocolSpectator::syncChatChannels()
 {
-	const auto channels = g_chat->getChannelList(*player);
-	for (const auto channel : channels) {
-		const auto& channelUsers = channel->getUsers();
-		if (channelUsers.find(player->getID()) != channelUsers.end()) {
-			sendChannel(channel->getId(), channel->getName(), &channelUsers, channel->getInvitedUsers());
-		}
-	}
 	sendChannel(CHANNEL_CAST, LIVE_CAST_CHAT_NAME, nullptr, nullptr);
 }
 
@@ -247,13 +243,13 @@ void ProtocolSpectator::syncOpenContainers()
 void ProtocolSpectator::login(const std::string& liveCastName, const std::string& password)
 {
 	//dispatcher thread
-	auto _player = g_game.getPlayerByName(liveCastName);
-	if (!_player || _player->isRemoved()) {
+	auto foundPlayer = g_game.getPlayerByName(liveCastName);
+	if (!foundPlayer || foundPlayer->isRemoved()) {
 		disconnectSpectator("Live cast no longer exists. Please relogin to refresh the list.");
 		return;
 	}
 
-	const auto liveCasterProtocol = ProtocolGame::getLiveCast(_player);
+	const auto liveCasterProtocol = ProtocolGame::getLiveCast(foundPlayer);
 	if (!liveCasterProtocol) {
 		disconnectSpectator("Live cast no longer exists. Please relogin to refresh the list.");
 		return;
@@ -266,7 +262,7 @@ void ProtocolSpectator::login(const std::string& liveCastName, const std::string
 			return;
 		}
 
-		player = _player;
+		player = foundPlayer;
 		player->incrementReferenceCounter();
 		eventConnect = 0;
 		client = liveCasterProtocol;
@@ -278,28 +274,25 @@ void ProtocolSpectator::login(const std::string& liveCastName, const std::string
 		syncOpenContainers();
 
 		liveCasterProtocol->addSpectator(std::static_pointer_cast<ProtocolSpectator>(shared_from_this()));
-		std::stringstream ss;
-		ss << "Spectators (" << client->getSpectatorCount() << ")";
-		g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::broadcastMessage, client, "", ss.str())));
 	} else {
 		disconnectSpectator("Live cast no longer exists. Please relogin to refresh the list.");
 	}
-	
 }
 
 void ProtocolSpectator::logout()
 {
+	acceptPackets = false;
+	if (client && player) {
+		client->removeSpectator(std::static_pointer_cast<ProtocolSpectator>(shared_from_this()));
+		player->decrementReferenceCounter();
+		player = nullptr;
+	}
 	disconnect();
-	release();
 }
 
 void ProtocolSpectator::parsePacket(NetworkMessage& msg)
 {
 	if (!acceptPackets || g_game.getGameState() == GAME_STATE_SHUTDOWN || msg.getLength() <= 0) {
-		return;
-	}
-
-	if (getThis() == nullptr) {
 		return;
 	}
 
@@ -320,22 +313,15 @@ void ProtocolSpectator::parsePacket(NetworkMessage& msg)
 	}
 
 	switch (recvbyte) {
-		case 0x14: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::logout, getThis()))); break;
-		case 0x1D: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::sendPingBack, getThis()))); break;
-		case 0x1E: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::sendPing, getThis()))); break;
+	case 0x14: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::logout, getThis()))); break;
+	case 0x1D: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::sendPingBack, getThis()))); break;
+	case 0x1E: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::sendPing, getThis()))); break;
 		//Reset viewed position/direction if the spectator tries to move in any way
-		case 0x64: 
-		case 0x65:
-		case 0x66: 
-		case 0x67: 
-		case 0x68: 
-		case 0x6A: 
-		case 0x6B: 
-		case 0x6C: 
-		case 0x6D: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::sendCancelWalk, getThis()))); break;
-		case 0x96: parseSpectatorSay(msg); break;
-		default:
-			break;
+	case 0x64: case 0x65: case 0x66: case 0x67: case 0x68: case 0x6A: case 0x6B: case 0x6C: case 0x6D: case 0x6F: case 0x70: case 0x71:
+	case 0x72: g_dispatcher.addTask(createTask(std::bind(&ProtocolSpectator::sendCancelWalk, getThis()))); break;
+	case 0x96: parseSpectatorSay(msg); break;
+	default:
+		break;
 	}
 
 	if (msg.isOverrun()) {
@@ -345,92 +331,53 @@ void ProtocolSpectator::parsePacket(NetworkMessage& msg)
 
 void ProtocolSpectator::parseSpectatorSay(NetworkMessage& msg)
 {
-	if (!client->isChatEnabled()) {
+	SpeakClasses type = (SpeakClasses)msg.getByte();
+	uint16_t channelId = 0;
+
+	if (type == TALKTYPE_CHANNEL_Y) {
+		channelId = msg.get<uint16_t>();
+	} else {
 		return;
 	}
 
- SpeakClasses type = (SpeakClasses)msg.getByte();
- uint16_t channelId = 0;
+	const std::string text = msg.getString();
 
- if (type == TALKTYPE_CHANNEL_Y) {
-  channelId = msg.get<uint16_t>();
- }
- else {
-  return;
- }
-
- const std::string text = msg.getString();
-
- if (text.length() > 255 || channelId != CHANNEL_CAST || !client) {
-  return;
- }
-
- if (text.substr(0, 5) == "/nick" && text.length() > 6 && name.empty()) {
-  std::string newName = text.substr(6);
-  int iSpaces = 0;
- unsigned int strSize = strlen(newName.c_str());
- for(unsigned int iLoop = 0; iLoop < strSize; iLoop++ ) {
-	if(newName [iLoop] == ' ' ) {
-		iSpaces++;
+	if (text.length() > 255 || channelId != CHANNEL_CAST || !client) {
+		return;
 	}
- }
 
-  if (newName.length() > 20) {
-  	sendChannelMessage("", "Your nick have more than 20 letters.", TALKTYPE_CHANNEL_O, CHANNEL_CAST);
-  	return;
-  }
+	if (text.substr(0, 5) == "/nick" && text.length() > 6) {
+		std::string newName = text.substr(6);
+		if (client) {
+			g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::broadcastSpectatorMessage, client, "", (name.empty() ? "spectator" : name) + " changed nick to " + newName)));
+		}
+		name = newName;
+		return;
+	}
 
-  if (iSpaces > 1) {
-  	sendChannelMessage("", "Your nick have more than one whitespace.", TALKTYPE_CHANNEL_O, CHANNEL_CAST);
-  	return;
-  }
+	if (name.empty()) {
+		sendChannelMessage("", "You can not talk before choosing a nick with the /nick YOURNAME.", TALKTYPE_CHANNEL_O, CHANNEL_CAST);
+		return;
+	}
 
-  if (client->existSpecByName(newName)) {
-  	sendChannelMessage("", "This name already exists, please choose another name.", TALKTYPE_CHANNEL_O, CHANNEL_CAST);
-  	return;
-  }
-
-  if (client) {
-   g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::broadcastSpectatorMessage, client, "", (name.empty() ? "spectator" : name) + " changed nick to " + newName)));
-  }
-  name = newName;
-  return;
- }
-
- if (name.empty()) {
- 	sendChannelMessage("", "You can not talk before choosing a nick with the /nick command.", TALKTYPE_CHANNEL_O, CHANNEL_CAST);
- 	return;
- }
- 
- if (OTSYS_TIME() < (lastTalkTime + 2000)) {
- 	return;
- }
-
- if (client) {
- 	g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::broadcastSpectatorMessage, client, name, text)));
- }
- 
- lastTalkTime = OTSYS_TIME();
+	if (client) {
+		g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::broadcastSpectatorMessage, client, name, text)));
+	}
 }
 
 void ProtocolSpectator::release()
 {
-	acceptPackets = false;
 	//dispatcher
 	if (client && player) {
 		client->removeSpectator(std::static_pointer_cast<ProtocolSpectator>(shared_from_this()));
 		player->decrementReferenceCounter();
-		std::stringstream ss;
-		ss << "Spectators (" << client->getSpectatorCount() << ")";
-		g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::broadcastMessage, client, "", ss.str())));
 		player = nullptr;
 	}
-
 	Protocol::release();
 	OutputMessagePool::getInstance().removeProtocolFromAutosend(shared_from_this());
 }
 
-void ProtocolSpectator::writeToOutputBuffer(const NetworkMessage& msg, bool broadcast)
+void ProtocolSpectator::writeToOutputBuffer(const NetworkMessage& msg, bool)
 {
 	OutputMessage_ptr out = getOutputBuffer(msg.getLength());
 	out->append(msg);

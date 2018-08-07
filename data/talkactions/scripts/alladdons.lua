@@ -15,7 +15,7 @@ function onSay(player, words, param)
 	if param == '' then
 		target = player:getTarget()
 		if not target then
-			player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 'Gives players the ability to wear all addons. Usage: /addons <player name>')
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Gives players the ability to wear all addons. Usage: /addons <player name>')
 			return false
 		end
 	else
@@ -23,12 +23,12 @@ function onSay(player, words, param)
 	end
 
 	if not target then
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 'Player ' .. param .. ' is currently not online.')
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Player ' .. param .. ' is currently not online.')
 		return false
 	end
 
 	if target:getAccountType() > player:getAccountType() then
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 'Cannot perform action.')
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Cannot perform action.')
 		return false
 	end
 
@@ -36,7 +36,7 @@ function onSay(player, words, param)
 		target:addOutfitAddon(looktypes[i], 3)
 	end
 
-	player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 'All addons unlocked for ' .. target:getName() .. '.')
-	target:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, '[Server] All addons unlocked.')
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'All addons unlocked for ' .. target:getName() .. '.')
+	target:sendTextMessage(MESSAGE_EVENT_ADVANCE, '[Server] All addons unlocked.')
 	return false
 end

@@ -1,5 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <quests>
+	<quest name="The Explorer Society" startstorageid="90" startstoragevalue="1">
+		<mission name="Joining the Explorers" storageid="90" startvalue="1" endvalue="4">
+			<missionstate id="1" description="The mission should be simple to fulfil. You have to seek out Uzgod in Kazordoon and get the pickaxe for us. Or just find dwarven pickaxe on your own..." />
+			<missionstate id="2" description="Get into Dwacatra and bring family brooch back to Uzgod." />
+			<missionstate id="3" description="Bring the pickaxe back to the Explorer Society representative." />
+		</mission>
+		<mission name="The Ice Delivery" storageid="90" startvalue="5" endvalue="7">
+			<missionstate id="5" description="Take this ice pick and use it on a block of ice in the caves beneath Folda. Get some ice and bring it here as fast as you can. If the ice melt away, report on your ice delivery mission anyway." />
+			<missionstate id="6" description="You have 10 minutes before the icicle defrosts. Run back to the Explorer Society representative!" />
+		</mission>
+		<mission name="The Butterfly Hunt" storageid="90" startvalue="8" endvalue="16">
+			<missionstate id="8" description="This preparation kit will allow you to collect a PURPLE butterfly you have killed. Just use it on the fresh corpse of a PURPLE butterfly." />
+			<missionstate id="9" description="Return the prepared butterfly to Explorer Society representative." />
+			<missionstate id="10" description="Ask for another butterfly hunt." />
+			<missionstate id="11" description="This preparation kit will allow you to collect a BLUE butterfly you have killed. Just use it on the fresh corpse of a BLUE butterfly." />
+			<missionstate id="12" description="Return the prepared butterfly to Explorer Society representative." />
+			<missionstate id="13" description="Ask for another butterfly hunt." />			
+			<missionstate id="14" description="This preparation kit will allow you to collect a RED butterfly you have killed. Just use it on the fresh corpse of a RED butterfly." />	
+			<missionstate id="15" description="Return the prepared butterfly to Explorer Society representative." />		
+		</mission>
+		<mission name="The Plant Collection" storageid="90" startvalue="17" endvalue="26">
+			<missionstate id="17" description="Take botanist's container. Use it on a jungle bells plant to collect a sample." />
+			<missionstate id="18" description="Report about your plant collection to Explorer Society representative." />
+			<missionstate id="19" description="Ask for plant collection when you are ready to continue." />
+			<missionstate id="20" description="Use botanist's container on a witches cauldron to collect a sample." />			
+			<missionstate id="21" description="Report about your plant collection to Explorer Society representative." />
+			<missionstate id="22" description="Ask for plant collection when you are ready to continue." />			
+			<missionstate id="23" description="Use this botanist's container on a giant jungle rose to obtain a sample." />			
+			<missionstate id="24" description="Report about your plant collection to Explorer Society representative." />				
+		</mission>
+		<mission name="The Lizard Urn" storageid="90" startvalue="27" endvalue="29">
+			<missionstate id="27" description="In the south-east of Tiquanda is a small settlement of the lizard people. Beneath the newly constructed temple there, the lizards hide the urn. Acquire an ancient urn which is some sort of relic to the lizard people of Tiquanda." />
+			<missionstate id="28" description="Bring the Funeral Urn back to the Explorer Society." />
+		</mission>		
+		<mission name="The Bonelord Secret" storageid="90" startvalue="30" endvalue="32">
+			<missionstate id="30" description="Travel to the city of Darashia and then head north-east for the pyramid. If any documents are left, you probably find them in the catacombs beneath." />
+			<missionstate id="31" description="Bring the Wrinkled Parchment back to the Explorer Society representative." />
+		</mission>	
+		<mission name="The Orc Powder" storageid="90" startvalue="33" endvalue="35">
+			<missionstate id="33" description="As far as we can tell, the orcs maintain some sort of training facility in some hill in the north-east of their city. There you should find lots of their war wolves and hopefully also some of the orcish powder." />
+			<missionstate id="34" description="Bring the Strange Powder to the Explorer Society representative to complete your mission." />
+		</mission>
+		<mission name="The Elven Poetry" storageid="90" startvalue="36" endvalue="38">
+			<missionstate id="36" description="This mission is easy but nonetheless vital. Travel Hellgate beneath Ab'Dendriel and get the book." />
+			<missionstate id="37" description="Bring back an elven poetry book to the Explorer Society representative." />
+		</mission>
+		<mission name="The Memory Stone" storageid="90" startvalue="39" endvalue="41">
+			<missionstate id="39" description="In the ruins of north-western Edron you should be able to find a memory stone. " />
+			<missionstate id="40" description="Bring back a memory stone to the Explorer Society representative." />
+		</mission>
+		<mission name="The Rune Writings" storageid="90" startvalue="42" endvalue="47">
+			<missionstate id="42" description="Somewhere under the ape infested city of Banuta, one can find dungeons that were once inhabited by lizards. Look there for an atypical structure that would rather fit to Ankrahmun and its Ankrahmun Tombs. Copy the runes you will find on this structure." />
+			<missionstate id="43" description="Report back to the Explorer Society representative." />
+		</mission>	
+		<mission name="The Ectoplasm" storageid="90" startvalue="45" endvalue="47">
+			<missionstate id="45" description="Take ectoplasm container and use it on a ghost that was recently slain." />
+			<missionstate id="46" description="Return back to the Explorer Society representative with the collected ectoplasm." />
+		</mission>	
+		<mission name="The Spectral Dress" storageid="90" startvalue="48" endvalue="50">
+			<missionstate id="48" description="The queen of the banshees lives in the so called Ghostlands, south west of Carlin. Try to get a spectral dress from her." />
+			<missionstate id="49" description="Report to the Explorer Society with the spectral dress." />
+		</mission>	
+		<mission name="The Spectral Stone" storageid="90" startvalue="51" endvalue="55">
+			<missionstate id="51" description="Please travel to our second base and ask them to mail us their latest research reports. Then return here and ask about new missions." />
+			<missionstate id="52" description="Tell our fellow explorer that the papers are in the mail already." />
+			<missionstate id="53" description="Take the spectral essence and use it on the strange carving in this building as well as on the corresponding tile in our second base." />
+			<missionstate id="54" description="Good! Now use the spectral essence on the strange carving in our second base." />			
+		</mission>	
+		<mission name="The Astral Portals" storageid="90" startvalue="56" endvalue="56">
+			<missionstate id="56" description="Both carvings are now charged and harmonised. You are able to travel in zero time from one base to the other, but you need to have an orichalcum pearl in your possession to use it as power source." />
+		</mission>	
+		<mission name="The Island of Dragons" storageid="90" startvalue="57" endvalue="58">
+			<missionstate id="57" description="Travel to Okolnir and try to find a proof for the existence of dragon lords there in the old times. I think old Buddel might be able to bring you there." />
+			<missionstate id="58" description="Report back to Lurik with the dragon scale." />
+		</mission>	
+		<mission name="The Ice Music" storageid="90" startvalue="60" endvalue="61">
+			<missionstate id="60" description="There is a cave on Hrodmir, north of the southernmost barbarian camp Krimhorn. In this cave, there are a waterfall and a lot of stalagmites. Take the resonance crystal and use it on the stalagmites in the cave to record the sound of the wind." />
+			<missionstate id="61" description="Report back to Lurik." />
+			<missionstate id="62" description="Now you may use the Astral Bridge from Liberty Bay to Svargrond." />
+		</mission>		
+		<mission name="The Undersea Kingdom" storageid="93" startvalue="1" endvalue="2">
+			<missionstate id="1" description="Captain Max will bring you to Calassa whenever you are ready. Please try to retrieve the missing logbook which must be in one of the sunken shipwrecks." />
+			<missionstate id="2" description="Report about your Calassa mission to Berenice in Liberty Bay." />
+		</mission>		
+	</quest>
 	<quest name="Spirithunters Quest" startstorageid="165163" startstoragevalue="1">
 		<mission name="Method" storageid="165163" startvalue="1" endvalue="2">
             <missionstate id="1" description="Use the item on the tombstones."/>
@@ -363,12 +448,12 @@
 		<mission name="Paw and Fur: Undead Dragons" storageid="65043" startvalue="0" endvalue="400" description="You already hunted |STATE|/400 undead dragons." />
 
 		<!-- Specials -->
-		<mission name="Paw and Fur: Demons" storageid="65044" startvalue="0" endvalue="666" description="You already hunted |STATE|/666 demons." />
+		<mission name="Paw and Fur: Demons" storageid="65044" startvalue="0" endvalue="6666" description="You already hunted |STATE|/6666 demons." />
 		<mission name="Paw and Fur: Green Djinns or Efreets" storageid="65045" startvalue="0" endvalue="500" description="You already hunted |STATE|/500 green djinns or efreets." />
 		<mission name="Paw and Fur: Blue Djinns or Marids" storageid="65046" startvalue="0" endvalue="500" description="You already hunted |STATE|/500 blue djinns or marids." />
 		<mission name="Paw and Fur: Pirates" storageid="65047" startvalue="0" endvalue="3000" description="You already hunted |STATE|/3000 pirates." />
 		<mission name="Paw and Fur: Pirates Second" storageid="65048" startvalue="0" endvalue="3000" description="You already hunted |STATE|/3000 pirates." />
-		<mission name="Paw and Fur: Minotaurs" storageid="65049" startvalue="0" endvalue="5000" description="You already hunted |STATE|/5000 minotaurs." />
+		<mission name="Turmoil of War" storageid="65049" startvalue="0" endvalue="5000" description="Budrik asked you to kill 5000 minotaurs for him. You already killed |STATE| minotaurs." />
 		<mission name="Paw and Fur: Necromancers and Priestess" storageid="65050" startvalue="0" endvalue="4000" description="You already hunted |STATE|/4000 necromancers and priestess." />
 		<!-- <mission name="Paw and Fur: Necromancers and Priestess Second" storageid="65050" startvalue="0" endvalue="1000" description="You already hunted |STATE|/1000 necromancers and priestess." />
 	--></quest>

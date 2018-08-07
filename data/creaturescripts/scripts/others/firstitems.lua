@@ -1,10 +1,9 @@
--- Without Rookgaard
 local config = {
 	[0] = {
 		--club, coat
-		items = {{2510, 1}, {2480, 1}, {2464, 1}, {2468, 1}, {2643, 1}, {2412, 1}},
+		items = {{2382, 1}, {2650, 1}},
 		--container rope, shovel, red apple
-		container = {{2120, 1}, {2666, 1}, {2554, 1}}
+		container = {{2120, 1}, {2554, 1}, {2674, 2}}
 	},	
 	[1] = {
 		--equipment spellbook, wand of vortex, magician's robe, mage hat, studded legs, leather boots, scarf
@@ -30,6 +29,7 @@ local config = {
 		--container platinum coin, jagged sword, daramian mace, rope, shovel, health potion, mana potion
 		container = {{2152, 20}, {8602, 1}, {2439, 1}, {7618, 5}, {7620, 5}, {18559, 1}}
 	}
+
 }
 
 function onLogin(player)

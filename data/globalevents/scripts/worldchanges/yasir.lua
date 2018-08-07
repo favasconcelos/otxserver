@@ -1,5 +1,6 @@
 local config = {
-	[1] = { -- Ankrahmun
+	-- Ankrahmun
+	[1] = {
 		removeItems = {
 			{position = Position(33096, 32882, 6), itemId = 4978},
 			{position = Position(33096, 32883, 6), itemId = 4978},
@@ -12,7 +13,8 @@ local config = {
 		mapName = 'ankrahmun',
 		yasirPosition = Position(33102, 32884, 6)
 	},
-	[2] = { -- Carlin
+	-- Carlin
+	[2] = {
 		removeItems = {
 			{position = Position(32393, 31814, 6), itemId = 10408},
 			{position = Position(32393, 31815, 6), itemId = 10408},
@@ -23,7 +25,19 @@ local config = {
 		mapName = 'carlin',
 		yasirPosition = Position(32400, 31815, 6)
 	},
-	[3] = { -- Liberty Bay
+	-- Liberty Bay
+	[3] = {
+		removeItems = {
+			{position = Position(32309, 32896, 6), itemId = 3782},
+			{position = Position(32309, 32895, 6), itemId = 3782},
+			{position = Position(32309, 32894, 6), itemId = 3782},
+			{position = Position(32309, 32893, 6), itemId = 3782},
+			{position = Position(32309, 32896, 6), itemId = 3760},
+			{position = Position(32309, 32895, 6), itemId = 3760},
+			{position = Position(32309, 32894, 6), itemId = 3760},
+			{position = Position(32309, 32893, 6), itemId = 3760},
+			{position = Position(32309, 32892, 6), itemId = 3759}
+		},
 		fromPosition = Position(32311, 32884, 1),
 		toPosition = Position(32318, 32904, 7),
 		mapName = 'libertybay',
@@ -46,6 +60,7 @@ function onStartup()
 		math.randomseed(os.time())
 		if math.random(100) <= yasirChance then
 			local randTown = config[math.random(#config)]
+			print('>> Yasir: '.. randTown.mapName ..'. ')
 			iterateArea(
 				function(position)
 					local tile = Tile(position)
@@ -79,6 +94,8 @@ function onStartup()
 
 			Game.loadMap('data/world/yasir/' .. randTown.mapName .. '.otbm')
 			addEvent(spawnYasir, 5000, randTown.yasirPosition)
+		else
+			print('>> Yasir: not this time.')
 		end
 	end
 end

@@ -4,6 +4,7 @@
 	<look type="129" head="115" body="80" legs="114" feet="114" corpse="24251"/> 
 	<targetchange interval="5000" chance="5"/>
 	<flags>
+		<flag boss="1" />
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -12,7 +13,7 @@
 		<flag pushable="1"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
-				<flag isblockable="0" />
+		<flag isblockable="0" />
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="25"/>

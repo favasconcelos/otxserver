@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -179,7 +179,7 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 		premium = attr.as_bool();
 	}
 
-	if ((attr = node.attribute("breakchance"))) {
+	if ((attr = node.attribute("breakchance")) && g_config.getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
 		breakChance = std::min<uint8_t>(100, pugi::cast<uint16_t>(attr.value()));
 	}
 
@@ -377,7 +377,6 @@ void Weapon::internalUseWeapon(Player* player, Item* item, Creature* target, int
 		} else {
 			damage.origin = ORIGIN_MELEE;
 		}
-
 		damage.primary.type = params.combatType;
 		damage.primary.value = (getWeaponDamage(player, target, item) * damageModifier) / 100;
 		damage.secondary.type = getElementType();
@@ -385,9 +384,8 @@ void Weapon::internalUseWeapon(Player* player, Item* item, Creature* target, int
 		if (damage.origin == ORIGIN_MELEE) {
 			g_events->eventPlayerOnUseWeapon(player, damage.primary.value, damage.secondary.type, tmpDamage);
 		}
-		
-		damage.secondary.value = getElementDamage(player, target, item, tmpDamage, damage.secondary.type);
 
+		damage.secondary.value = getElementDamage(player, target, item, tmpDamage, damage.secondary.type);
 		Combat::doCombatHealth(player, target, damage, params);
 	}
 
@@ -436,12 +434,14 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 
 	switch (action) {
 		case WEAPONACTION_REMOVECOUNT:
-			Weapon::decrementItemCount(item);
+			if(g_config.getBoolean(ConfigManager::REMOVE_WEAPON_AMMO)) {
+				Weapon::decrementItemCount(item);
+			}
 			break;
 
 		case WEAPONACTION_REMOVECHARGE: {
 			uint16_t charges = item->getCharges();
-			if (charges != 0) {
+			if (charges != 0 && g_config.getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
 				g_game.transformItem(item, item->getID(), charges - 1);
 			}
 			break;
@@ -534,7 +534,7 @@ bool WeaponMelee::useWeapon(Player* player, Item* item, Creature* target) const
 }
 
 bool WeaponMelee::getSkillType(const Player* player, const Item* item,
-                               skills_t& skill, uint32_t& skillpoint) const
+	skills_t& skill, uint32_t& skillpoint) const
 {
 	if (player->getAddAttackSkill() && player->getLastAttackBlockType() != BLOCK_IMMUNITY) {
 		skillpoint = 1;

@@ -22,7 +22,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			doPlayerAddItem(cid,13247,1)
             iEx:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
             Item(item.uid):remove(1)
-			--addEvent(doCreateItem, 1+1*5*1000, 21385, posdotp)
+			--addEvent(Game.createItem, 1+1*5*1000, 21385, posdotp)
             return true
         end
     end
@@ -31,6 +31,6 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
     Item(item.uid):remove(1)
 	--iEx:remove()
 	doCreatureSay(cid, "The item was broken.", TALKTYPE_ORANGE_1)
-	--addEvent(doCreateItem, 1+1*5*1000, 21385, posdotp)
+	--addEvent(Game.createItem, 1+1*5*1000, 21385, posdotp)
     return true
 end

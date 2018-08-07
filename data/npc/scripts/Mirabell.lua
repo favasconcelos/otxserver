@@ -17,7 +17,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 
-	if msgcontains(msg, '12') and msgcontains(msg, 'pies') then
+	if msgcontains(msg, 'pies') then
 		if player:getStorageValue(Storage.WhatAFoolishQuest.PieBuying) == -1 then
 			npcHandler:say('Oh you\'ve heard about my excellent pies, didn\'t you? I am flattered. Unfortunately I\'m completely out of flour. I need 2 portions of flour for one pie. Just tell me when you have enough flour for your pies.', cid)
 			return true
@@ -25,7 +25,7 @@ local function creatureSayCallback(cid, type, msg)
 
 		npcHandler:say('For 12 pies this is 240 gold. Do you want to buy them?', cid)
 		npcHandler.topic[cid] = 2
-	elseif msgcontains(msg, '24') and msgcontains(msg, 'flour') then
+	elseif msgcontains(msg, 'flour') then
 		npcHandler:say('Do you bring me the flour needed for your pies?', cid)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'yes') then
@@ -40,7 +40,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Excellent. Now I can start baking the pies. As you helped me, I will make you a good price for them.', cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 2 then
-			if not player:removeMoney(240) then
+			if not player:removeMoneyNpc(240) then
 				npcHandler:say('You don\'t have enough money, don\'t try to fool me.', cid)
 				npcHandler.topic[cid] = 0
 				return true

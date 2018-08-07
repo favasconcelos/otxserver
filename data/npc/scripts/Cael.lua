@@ -327,11 +327,11 @@ local function creatureSayCallback(cid, type, msg)
 					else
 						return
 						player:addItem(items[item].itemId, amount, false, items[item]) and
-						player:removeMoney(amount * items[item].buyPrice) and
+						player:removeMoneyNpc(amount * items[item].buyPrice) and
 						player:sendTextMessage(MESSAGE_INFO_DESCR, 'You bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 					end
 					player:sendTextMessage(MESSAGE_INFO_DESCR, 'You bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
-					player:removeMoney(amount * items[item].buyPrice)
+					player:removeMoneyNpc(amount * items[item].buyPrice)
 				else
 					player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You do not have enough money.')
 				end

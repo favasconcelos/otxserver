@@ -23,7 +23,6 @@
 #include "configmanager.h"
 #include "game.h"
 #include "spells.h"
-#include "databasetasks.h"
 
 extern Game g_game;
 extern Monsters g_monsters;
@@ -1917,7 +1916,6 @@ void Monster::dropLoot(Container* corpse, Creature*)
 	if (corpse && lootDrop) {
 		mType->createLoot(corpse);
 	}
-    insertKillStatistics();	
 }
 
 void Monster::setNormalCreatureLight()
@@ -1981,14 +1979,4 @@ void Monster::getPathSearchParams(const Creature* creature, FindPathParams& fpp)
 	} else {
 		fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
 	}
-}
-
-void Monster::insertKillStatistics()
-{
-	std::ostringstream query;
-	std::string nameDescription = mType->nameDescription;
-	boost::replace_all(nameDescription, "'", "''");
-	query << "INSERT INTO stats_creatures (creature_name,times_killed) VALUES ('" << nameDescription << "',1) " <<
-		"	  ON DUPLICATE KEY UPDATE times_killed = times_killed + 1";
-	g_databaseTasks.addTask(query.str());
 }

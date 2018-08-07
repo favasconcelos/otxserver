@@ -7,16 +7,18 @@ local tokenid = 25377
 local player = {}
 local chargetypechoose = {}
 
+local weaponChargeChoose = {}
+local weaponCharge = {"charged", "heavilycharged", "overcharged"}
+
 local weaponEnhanceChoose = {}
 local weaponEnhance = {"carving", "mayhem", "remedy"}
 
-local weaponChargeChoose = {}
-local weaponCharge = {"charged", "heavilycharged", "overcharged"}
 
 local weaponTypeChoose = {}
 local weaponType = {"axe", "blade", "bow", "chopper", "crossbow", "hammer", "mace", "rod", "slayer", "wand"}
 
 local weapon = {
+
 	["axe"] 		= {	carving 		= 	{normal = 25967, charged = 25968, heavilycharged = 25969, overcharged = 25970}, 	
 						mayhem 			= 	{normal = 25881, charged = 25891, heavilycharged = 25901, overcharged = 25911}, 	
 						remedy 			= 	{normal = 25927, charged = 25928, heavilycharged = 25929, overcharged = 25930}, 	
@@ -96,6 +98,7 @@ local weapon = {
 						charged 		= {5,100},	
 						heavilycharged 	= {10,100},	
 						overcharged 	= {15,70}}
+
 }
 
 local function exchangeItem(cid)
@@ -190,50 +193,9 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You don\'t have enough tokens.", cid)
 			npcHandler.topic[cid] = 0
 		end
-
-	elseif msgcontains(msg, "charge") and npcHandler.topic[cid] == 0 then
-		npcHandler:say("What charge would you like? I can offer {charged}, {heavilycharged} and {overcharged}.", cid)
-		npcHandler.topic[cid] = 6
-	elseif	isInArray(weaponCharge, msg:lower()) and npcHandler.topic[cid] == 6 then
-		weaponChargeChoose[cid] = msg:lower()
-		npcHandler:say(weaponChargeChoose[cid]:gsub("^%l", string.upper) .. " nice! What is your weapon type? {axe}, {blade}, {bow}, {chopper}, {crossbow}, {hammer}, {mace}, {rod}, {slayer} or {wand}.", cid)	
-		npcHandler.topic[cid] = 7
-	elseif	isInArray(weaponType, msg:lower()) and npcHandler.topic[cid] == 7 then
-		weaponTypeChoose[cid] = msg:lower()
-		npcHandler:say(weaponTypeChoose[cid]:gsub("^%l", string.upper) .. " of {Carving}, {Mayhem} or {Remedy} ?", cid)
-		npcHandler.topic[cid] = 8
-	elseif	isInArray(weaponEnhance, msg:lower()) and npcHandler.topic[cid] == 8 then
-		weaponEnhanceChoose[cid] = msg:lower()
-		chargetypechoose[cid] = weapon[weaponTypeChoose[cid]]
-		if weaponChargeChoose[cid] == "charged" then
-			chargetypechoose[cid] = chargetypechoose[cid].charged
-		elseif weaponChargeChoose[cid] == "heavilycharged" then
-			chargetypechoose[cid] = chargetypechoose[cid].heavilycharged
-		elseif weaponChargeChoose[cid] == "overcharged" then
-			chargetypechoose[cid] = chargetypechoose[cid].overcharged
-		end
-		npcHandler:say(weaponChargeChoose[cid]:gsub("^%l", string.upper) .. " " .. weaponTypeChoose[cid]:gsub("^%l", string.upper) .. " of " .. weaponEnhanceChoose[cid]:gsub("^%l", string.upper) .. " will cost " .. chargetypechoose[cid][1] .. " tokens, with " .. chargetypechoose[cid][2] .. "% of success. Would you like to continue?" , cid)	
-		npcHandler.topic[cid] = 9
-	elseif	msgcontains(msg, "yes") and npcHandler.topic[cid] == 9 then
-		local result = exchangeItem(cid)
-		if result == 1 then
-			npcHandler:say("Congratulation, you have gotten a " .. weaponChargeChoose[cid]:gsub("^%l", string.upper) .. " " .. weaponTypeChoose[cid]:gsub("^%l", string.upper) .. " of " .. weaponEnhanceChoose[cid]:gsub("^%l", string.upper), cid)
-		elseif result == 2 then
-			npcHandler:say("Item has broken.", cid)
-			npcHandler.topic[cid] = 0
-		elseif result == 3 then
-			npcHandler:say("You don\'t have enough tokens.", cid)
-			npcHandler.topic[cid] = 0
-		elseif result == 4 then
-			npcHandler:say("You don\'t have a " .. weaponTypeChoose[cid]:gsub("^%l", string.upper) .. " of " .. weaponEnhanceChoose[cid]:gsub("^%l", string.upper), cid)
-			npcHandler.topic[cid] = 0
-		end
-		npcHandler.topic[cid] = 0
-	end
-	
 	return true
 end
-
+end
 
 local function onAddFocus(cid)
 	chargetypechoose[cid] = 0

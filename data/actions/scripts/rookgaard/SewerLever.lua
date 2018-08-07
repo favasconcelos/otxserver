@@ -22,14 +22,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
-	for i, v in pairs(config.bridgePositions) do
-		if (Tile(v.position) and
-			Tile(v.position):getCreatureCount() > 0) then
-			for k, j in pairs(Tile(v.position):getCreatures()) do
-				j:teleportTo(Position(32097, 32205, 8))
-			end
-		end
-	end
 	local tile, tmpItem, bridge
 	if leverLeft then
 		for i = 1, #config.bridgePositions do
@@ -53,9 +45,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			bridge = config.bridgePositions[i]
 			tile = Tile(bridge.position)
 
+			tile:relocateTo(config.relocatePosition, true, config.relocateMonsterPosition)
 			tile:getGround():transform(bridge.groundId)
 			Game.createItem(bridge.itemId, 1, bridge.position)
 		end
+
 	end
 	return true
 end

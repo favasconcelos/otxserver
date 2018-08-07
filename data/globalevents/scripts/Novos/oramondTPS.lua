@@ -1,5 +1,3 @@
--- <globalevent type="startup" name="grayIslandBosses" script="spawn/grayIslandBosses.lua" />
-
 local config = {
 	teleportId = 1285,
 	dias = {

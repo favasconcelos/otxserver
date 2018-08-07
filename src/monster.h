@@ -284,8 +284,7 @@ class Monster final : public Creature
 		bool useCacheMap() const final {
 			return !randomSteping;
 		}
-		
-        void insertKillStatistics();
+
 		friend class LuaScriptInterface;
 };
 

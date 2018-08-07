@@ -76,10 +76,10 @@ function creatureSayCallback(cid, type, msg)
                return false
           end
 
-          if (player:getLevel() < 150) then
-               npcHandler:say("You need level 150 to get a present.", cid)
-               return false
-          end
+ --         if (player:getLevel() < 150) then
+ --              npcHandler:say("You need level 150 to get a present.", cid)
+ --              return false
+ --         end
 
           local reward = getReward()
           local cont = Container(Player(cid):addItem(6511):getUniqueId())

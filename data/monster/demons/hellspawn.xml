@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<monster name="Hellspawn" nameDescription="a hellspawn" experience="2550" speed="260" race="fire" manacost="0">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Hellspawn" nameDescription="a hellspawn" experience="2550" speed="260" race="fire">
 	<health now="3500" max="3500" />
 	<targetchange interval="4000" chance="15" />
 	<look type="322" corpse="9923" />
@@ -10,16 +10,19 @@
 		<flag illusionable="0" />
 		<flag convinceable="0" />
 		<flag pushable="0" />
-				<flag isblockable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="70" attack="88" />
-		<attack name="fireball" interval="2000" chance="20" min="-150" max="-175" />
+		<attack name="melee" interval="2000" min="0" max="-352" />
+		<attack name="fire" interval="2000" chance="20" min="-150" max="-175">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
 		<attack name="hellspawn soulfire" interval="2000" range="5" chance="10" />
 	</attacks>
 	<defenses armor="40" defense="40">
@@ -43,7 +46,7 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
+	<voices interval="5000" chance="10">
 		<voice sentence="Your fragile bones are like toothpicks to me." />
 		<voice sentence="You little weasel will not live to see another day." />
 		<voice sentence="I'm just a messenger of what's yet to come." />
@@ -51,26 +54,26 @@
 		<voice sentence="I'm taking you down with me!" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="100" chance="60000" /><!-- gold coin -->
-		<item id="2148" countmax="100" chance="60000" /><!-- gold coin -->
-		<item id="2148" countmax="36" chance="60000" /><!-- gold coin -->
-		<item id="7591" chance="4333" /><!-- great health potion -->
-		<item id="11221" chance="3000" /><!-- hellspawn tail -->
-		<item id="2413" chance="1000" /><!-- battle shield -->
-		<item id="2394" chance="10000" /><!-- morning star -->
-		<item id="7368" countmax="2" chance="2090" /><!-- assassin stars -->
-		<item id="8473" chance="3090" /><!-- ultimate health potion -->
-		<item id="6500" chance="3090" /><!-- demonic essence -->
-		<item id="2788" countmax="2" chance="7692" /><!-- red mushroom -->
-		<item id="9970" countmax="3" chance="1882" /><!-- small topaz -->
-		<item id="9810" chance="925" /><!-- rusty armor -->
-		<item id="9809" chance="925" /><!-- rusty armor -->
-		<item id="2477" chance="530" /><!-- knight legs -->
-		<item id="2475" chance="386" /><!-- warrior helmet -->
-		<item id="7452" chance="470" /><!-- spiked squelcher -->
-		<item id="7439" chance="234" /><!-- berserk potion -->
-		<item id="9969" chance="151" /><!-- black skull -->
-		<item id="9948" chance="90" /><!-- dracoyle statue -->
-		<item id="7421" chance="93" /><!-- onyx fail -->
+		<item name="gold coin" countmax="100" chance="60000" />
+		<item name="gold coin" countmax="100" chance="60000" />
+		<item name="gold coin" countmax="36" chance="60000" />
+		<item name="morning star" chance="10000" />
+		<item name="broadsword" chance="10000" />
+		<item name="warrior helmet" chance="1886" />
+		<item name="knight legs" chance="3030" />
+		<item name="red mushroom" countmax="2" chance="7692" />
+		<item name="demonic essence" chance="9090" />
+		<item name="assassin star" countmax="2" chance="9090" />
+		<item name="onyx flail" chance="103" />
+		<item name="berserk potion" chance="934" />
+		<item name="spiked squelcher" chance="970" />
+		<item name="great health potion" chance="40333" />
+		<item name="ultimate health potion" chance="9090" />
+		<item id="9809" chance="3125" /><!-- rusty armor -->
+		<item id="9810" chance="3125" /><!-- rusty armor -->
+		<item id="9948" chance="140" /><!-- dracoyle statue -->
+		<item name="black skull" chance="151" />
+		<item name="small topaz" countmax="3" chance="5882" />
+		<item name="hellspawn tail" chance="20000" />
 	</loot>
 </monster>

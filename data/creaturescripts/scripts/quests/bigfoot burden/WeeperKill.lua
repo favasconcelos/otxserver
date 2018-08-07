@@ -71,7 +71,7 @@ function onKill(creature, target)
 			--[[
 			elseif(getTileItemById(barrier[i], 18459).uid > 0) then
 				doRemoveItem(getTileItemById(barrier[i], 18461).uid, 1)
-				addEvent(doCreateItem, 30 * 60 * 1000, 18459, 1, barrier[i])
+				addEvent(Game.createItem, 30 * 60 * 1000, 18459, 1, barrier[i])
 				last = true
 			end
 			]]

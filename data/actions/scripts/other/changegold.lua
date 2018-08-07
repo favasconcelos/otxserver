@@ -12,10 +12,10 @@ function onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
 
 	if coin.changeTo and item.type == 100 then
 		item:remove()
-		player:addItem(coin.changeTo, 1)
+		player:addItem(coin.changeTo, 1, true)
 	elseif coin.changeBack then
 		item:transform(item.itemid, item.type - 1)
-		player:addItem(coin.changeBack, 100)
+		player:addItem(coin.changeBack, 100, true)
 	else
 		return false
 	end

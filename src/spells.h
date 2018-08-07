@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ class ConjureSpell;
 class RuneSpell;
 class Spell;
 
-typedef std::map<uint16_t, bool> VocSpellMap;
+using VocSpellMap = std::map<uint16_t, bool>;
 
 class Spells final : public BaseEvents
 {
@@ -51,12 +51,16 @@ class Spells final : public BaseEvents
 		InstantSpell* getInstantSpellByName(const std::string& name);
 
 		uint32_t getInstantSpellCount(const Player* player) const;
-		InstantSpell* getInstantSpellByIndex(const Player* player, uint32_t index);
+		InstantSpell* getInstantSpellById(uint32_t spellId);
 
 		TalkActionResult_t playerSaySpell(Player* player, std::string& words);
 
 		static Position getCasterPosition(Creature* creature, Direction dir);
 		std::string getScriptBaseName() const final;
+
+		const std::map<std::string, InstantSpell*>& getInstantSpells() const {
+			return instants;
+		};
 
 	protected:
 		void clear() final;
@@ -71,8 +75,7 @@ class Spells final : public BaseEvents
 		LuaScriptInterface scriptInterface { "Spell Interface" };
 };
 
-typedef bool (InstantSpellFunction)(const InstantSpell* spell, Creature* creature, const std::string& param);
-typedef bool (RuneSpellFunction)(const RuneSpell* spell, Player* player, const Position& posTo);
+using RuneSpellFunction = std::function<bool(const RuneSpell* spell, Player* player, const Position& posTo)>;
 
 class BaseSpell
 {
@@ -142,6 +145,9 @@ class Spell : public BaseSpell
 		uint32_t getMagicLevel() const {
 			return magLevel;
 		}
+		uint32_t getMana() const {
+			return mana;
+		}
 		uint32_t getManaPercent() const {
 			return manaPercent;
 		}
@@ -154,9 +160,6 @@ class Spell : public BaseSpell
 			return learnable;
 		}
 
-		static ReturnValue CreateIllusion(Creature* creature, const Outfit_t& outfit, int32_t time);
-		static ReturnValue CreateIllusion(Creature* creature, const std::string& name, int32_t time);
-		static ReturnValue CreateIllusion(Creature* creature, uint32_t itemId, int32_t time);
 
 		const VocSpellMap& getVocMap() const {
 			return vocSpellMap;
@@ -165,7 +168,7 @@ class Spell : public BaseSpell
 	protected:
 		bool playerSpellCheck(Player* player) const;
 		bool playerInstantSpellCheck(Player* player, const Position& toPos);
-		bool playerRuneSpellCheck(Player* player, const Position& toPos, uint16_t runeId = 0);
+		bool playerRuneSpellCheck(Player* player, const Position& toPos);
 
 		uint8_t spellId = 0;
 		SpellGroup_t group = SPELLGROUP_NONE;
@@ -180,6 +183,13 @@ class Spell : public BaseSpell
 		uint32_t level = 0;
 		uint32_t magLevel = 0;
 		int32_t range = -1;
+		int32_t fist = 0;
+		int32_t club = 0;
+		int32_t sword = 0;
+		int32_t axe = 0;
+		int32_t distance = 0;
+		int32_t shield = 0;
+		int32_t fish = 0;
 
 		bool needTarget = false;
 		bool needWeapon = false;
@@ -203,7 +213,6 @@ class InstantSpell : public TalkAction, public Spell
 		explicit InstantSpell(LuaScriptInterface* interface) : TalkAction(interface) {}
 
 		bool configureEvent(const pugi::xml_node& node) override;
-		bool loadFunction(const pugi::xml_attribute& attr) override;
 
 		virtual bool playerCastInstant(Player* player, std::string& param);
 
@@ -228,20 +237,7 @@ class InstantSpell : public TalkAction, public Spell
 	protected:
 		std::string getScriptEventName() const override;
 
-		static InstantSpellFunction HouseGuestList;
-		static InstantSpellFunction HouseSubOwnerList;
-		static InstantSpellFunction HouseDoorList;
-		static InstantSpellFunction HouseKick;
-		static InstantSpellFunction SearchPlayer;
-		static InstantSpellFunction SummonMonster;
-		static InstantSpellFunction Levitate;
-		static InstantSpellFunction Illusion;
-
-		static House* getHouseFromPos(Creature* creature);
-
 		bool internalCastSpell(Creature* creature, const LuaVariant& var);
-
-		InstantSpellFunction* function = nullptr;
 
 		bool needDirection = false;
 		bool hasParam = false;
@@ -283,7 +279,6 @@ class RuneSpell final : public Action, public Spell
 		explicit RuneSpell(LuaScriptInterface* interface) : Action(interface) {}
 
 		bool configureEvent(const pugi::xml_node& node) final;
-		bool loadFunction(const pugi::xml_attribute& attr) final;
 
 		ReturnValue canExecuteAction(const Player* player, const Position& toPos) final;
 		bool hasOwnErrorHandler() final {
@@ -311,12 +306,8 @@ class RuneSpell final : public Action, public Spell
 	protected:
 		std::string getScriptEventName() const final;
 
-		static RuneSpellFunction Illusion;
-		static RuneSpellFunction Convince;
-
 		bool internalCastSpell(Creature* creature, const LuaVariant& var, bool isHotkey);
 
-		RuneSpellFunction* runeFunction = nullptr;
 		uint16_t runeId = 0;
 		bool hasCharges = true;
 };

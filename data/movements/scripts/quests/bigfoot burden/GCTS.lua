@@ -1,6 +1,6 @@
 local destination = {
-	[4121] = {position = Position(32801, 31766, 9), storageValue = 1, needCrystal = false},
-	[3220] = {position = Position(32627, 31863, 11), storageValue = 1, needCrystal = false},
+	[4121] = {position = Position(32801, 31766, 9), storageValue = 1, needCrystal = true},
+	[3220] = {position = Position(32627, 31863, 11), storageValue = 1, needCrystal = true},
 	[3128] = {position = Position(33000, 31870, 13), storageValue = 14},
 	[3129] = {position = Position(32795, 31762, 10), storageValue = 14},
 	[3130] = {position = Position(32864, 31844, 11), storageValue = 15},
@@ -12,11 +12,11 @@ local destination = {
 	[3136] = {position = Position(32904, 31894, 13), storageValue = 16},
 	[3137] = {position = Position(32979, 31907, 9), storageValue = 16},
 	[35669] = {position = Position(32986, 31864, 9), storageValue = 1}, -- leave warzone 3
-	[3215] = {position = Position(32369, 32241, 7), storageValue = 1, needCrystal = false},
-	[3216] = {position = Position(32212, 31133, 7), storageValue = 1, needCrystal = false},
-	[3217] = {position = Position(32317, 32825, 7), storageValue = 1, needCrystal = false},
-	[3218] = {position = Position(33213, 32454, 1), storageValue = 1, needCrystal = false},
-	[3219] = {position = Position(33217, 31814, 8), storageValue = 1, needCrystal = false}
+	[3215] = {position = Position(32369, 32241, 7), storageValue = 1, needCrystal = true},
+	[3216] = {position = Position(32212, 31133, 7), storageValue = 1, needCrystal = true},
+	[3217] = {position = Position(32317, 32825, 7), storageValue = 1, needCrystal = true},
+	[3218] = {position = Position(33213, 32454, 1), storageValue = 1, needCrystal = true},
+	[3219] = {position = Position(33217, 31814, 8), storageValue = 1, needCrystal = true}
 }
 
 function onStepIn(creature, item, position, fromPosition)
@@ -41,9 +41,8 @@ function onStepIn(creature, item, position, fromPosition)
 			player:teleportTo(teleportCrystal.position)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		else
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			player:teleportTo(teleportCrystal.position)
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			player:getPosition():sendMagicEffect(CONST_ME_POFF)
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You need at least one Teleport Crystal!')
 		end
 		return true
 	end

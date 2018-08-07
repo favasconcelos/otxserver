@@ -2498,7 +2498,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Monster", "selectTarget", LuaScriptInterface::luaMonsterSelectTarget);
 	registerMethod("Monster", "searchTarget", LuaScriptInterface::luaMonsterSearchTarget);
-
+	registerMethod("Monster", "setSpawnPosition", LuaScriptInterface::luaMonsterSetSpawnPosition);
 	// Npc
 	registerClass("Npc", "Creature", LuaScriptInterface::luaNpcCreate);
 	registerMetaMethod("Npc", "__eq", LuaScriptInterface::luaUserdataCompare);
@@ -7781,10 +7781,15 @@ int LuaScriptInterface::luaCreatureGetZone(lua_State* L)
 // Player
 int LuaScriptInterface::luaPlayerCreate(lua_State* L)
 {
-	// Player(id or name or userdata)
+	// Player(id or guid or name or userdata)
 	Player* player;
 	if (isNumber(L, 2)) {
-		player = g_game.getPlayerByID(getNumber<uint32_t>(L, 2));
+		uint32_t id = getNumber<uint32_t>(L, 2);
+		if (id >= 0x10000000 && id <= Player::playerAutoID) {
+			player = g_game.getPlayerByID(id);
+		} else {
+			player = g_game.getPlayerByGUID(id);
+		}
 	} else if (isString(L, 2)) {
 		ReturnValue ret = g_game.getPlayerByNameWildcard(getString(L, 2), player);
 		if (ret != RETURNVALUE_NOERROR) {
@@ -10674,6 +10679,27 @@ int LuaScriptInterface::luaMonsterSearchTarget(lua_State* L)
 	} else {
 		lua_pushnil(L);
 	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterSetSpawnPosition(lua_State* L)
+{
+	// monster:setSpawnPosition()
+	Monster* monster = getUserdata<Monster>(L, 1);
+	if (!monster) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const Position& pos = monster->getPosition();
+	monster->setMasterPos(pos);
+
+	g_game.map.spawns.getSpawnList().emplace_front(pos, 5);
+	Spawn& spawn = g_game.map.spawns.getSpawnList().front();
+	spawn.addMonster(monster->mType->name, pos, DIRECTION_NORTH, 60000);
+	spawn.startSpawnCheck();
+
+	pushBoolean(L, true);
 	return 1;
 }
 

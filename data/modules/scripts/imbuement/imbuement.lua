@@ -1,7 +1,36 @@
 --[[
-1~3 => Element Type
-4~6 => Total Time (segundos - 20 h)
-7~9 => Time Passed (seconds)
+	1~3 => Element Type
+	4~6 => Total Time (segundos - 20 h)
+	7~9 => Time Passed (seconds)
+]]
+
+--[[ Icon List --
+	0 = NONE
+	1 ~ 3   = Critical
+	4 ~ 6   = Death
+	7 ~ 9   = Earth
+	10 ~ 12 = Energy
+	13 ~ 15 = Fire
+	16 ~ 18 = Holy
+	19 ~ 21 = Ice
+	22 ~ 24 = Fire (grey | not used)
+	25 ~ 27 = Shielding (grey | not used)
+	28 ~ 30 = Reduction Earth
+	31 ~ 33 = Reduction Energy
+	34 ~ 36 = Reduction Fire
+	37 ~ 39 = Reduction Holy
+	40 ~ 42 = Reduction Ice
+	43 ~ 45 = Shielding (white | not used)
+	46 ~ 48 = Life Leech
+	49 ~ 51 = Mana Leech
+	52 ~ 54 = Axe Fighting
+	55 ~ 57 = Club Fighting
+	58 ~ 60 = Distance Fighting
+	61 ~ 63 = Fist Fighting
+	64 ~ 66 = Magic Level
+	67 ~ 69 = Shielding Fighting
+	70 ~ 72 = Sword Fighting
+	73 ~ 75 = Speed
 ]]
 
 ImbuingSystem = {
@@ -15,6 +44,7 @@ local Imbuements = {
 		Name = "Scorch",
 		Category = "Elemental Damage (Fire)",
 		Type = "firedamage",
+		IconID = 13,
 		Description = "Converts % of the physical damage to fire damage.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {10, 25, 50},
@@ -25,6 +55,7 @@ local Imbuements = {
 		Name = "Venom",
 		Category = "Elemental Damage (Earth)",
 		Type = "earthdamage",
+		IconID = 7,
 		Description = "Converts % of the physical damage to earth damage.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {10, 25, 50},
@@ -35,6 +66,7 @@ local Imbuements = {
 		Name = "Frost",
 		Category = "Elemental Damage (Ice)",
 		Type = "icedamage",
+		IconID = 19,
 		Description = "Converts % of the physical damage to ice damage.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {10, 25, 50},
@@ -45,6 +77,7 @@ local Imbuements = {
 		Name = "Electrify",
 		Category = "Elemental Damage (Energy)",
 		Type = "energydamage",
+		IconID = 10,
 		Description = "Converts % of the physical damage to energy damage.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {10, 25, 50},
@@ -55,6 +88,7 @@ local Imbuements = {
 		Name = "Reap",
 		Category = "Elemental Damage (Death)",
 		Type = "deathdamage",
+		IconID = 4,
 		Description = "Converts % of the physical damage to death damage.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {10, 25, 50},
@@ -65,6 +99,7 @@ local Imbuements = {
 		Name = "Vampirism",
 		Category = "Life Leech",
 		Type = "hitpointsleech",
+		IconID = 46,
 		Description = "converts % of damage to HP with a chance of 100%.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {5, 10, 25},
@@ -75,6 +110,7 @@ local Imbuements = {
 		Name = "Void",
 		Category = "Mana Leech",
 		Type = "manapointsleech",
+		IconID = 49,
 		Description = "converts % of damage to MP with a chance of 100%.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 5, 8},
@@ -85,6 +121,7 @@ local Imbuements = {
 		Name = "Strike",
 		Category = "Critical Hit",
 		Type = "criticaldamage",
+		IconID = 1,
 		Description = "raises crit hit damage by % and crit hit chance by 10%.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {15, 25, 50},
@@ -95,6 +132,7 @@ local Imbuements = {
 		Name = "Lich Shroud",
 		Category = "Death Damage",
 		Type = "absorbPercentDeath",
+		IconID = 25,
 		Description = "reduces death damage by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 8, 15},
@@ -105,6 +143,7 @@ local Imbuements = {
 		Name = "Snake Skin",
 		Category = "Eart Damage",
 		Type = "absorbPercentEarth",
+		IconID = 28,
 		Description = "reduces earth damage by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 8, 15},
@@ -115,6 +154,7 @@ local Imbuements = {
 		Name = "Hide Dragon",
 		Category = "Fire Damage",
 		Type = "absorbPercentFire",
+		IconID = 34,
 		Description = "reduces fire damage by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 8, 15},
@@ -125,6 +165,7 @@ local Imbuements = {
 		Name = "Quara Scale",
 		Category = "Ice Damage",
 		Type = "absorbPercentIce",
+		IconID = 40,
 		Description = "reduces ice damage by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 8, 15},
@@ -135,6 +176,7 @@ local Imbuements = {
 		Name = "Cloud Fabric",
 		Category = "Energy Damage",
 		Type = "absorbPercentEnergy",
+		IconID = 31,
 		Description = "reduces energy damage by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 8, 15},
@@ -145,6 +187,7 @@ local Imbuements = {
 		Name = "Demon Presence",
 		Category = "Holy Damage",
 		Type = "absorbPercentHoly",
+		IconID = 37,
 		Description = "reduces holy damage by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {3, 8, 15},
@@ -155,6 +198,7 @@ local Imbuements = {
 		Name = "Swiftness",
 		Category = "Increase Speed",
 		Type = "speed",
+		IconID = 73,
 		Description = "raises walking speed by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {10, 15, 20},
@@ -165,6 +209,7 @@ local Imbuements = {
 		Name = "Chop",
 		Category = "Increase Axe Fighting",
 		Type = "skillAxe",
+		IconID = 52,
 		Description = "raises axe fighting skill by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {1, 2, 4},
@@ -175,6 +220,7 @@ local Imbuements = {
 		Name = "Slash",
 		Category = "Increase Sword Fighting",
 		Type = "skillSword",
+		IconID = 70,
 		Description = "raises sword fighting skill by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {1, 2, 4},
@@ -185,6 +231,7 @@ local Imbuements = {
 		Name = "Bash",
 		Category = "Increase Club Fighting",
 		Type = "skillClub",
+		IconID = 52,
 		Description = "raises club fighting skill by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {1, 2, 4},
@@ -195,6 +242,7 @@ local Imbuements = {
 		Name = "Precision",
 		Category = "Increase Distance Fighting",
 		Type = "skillDist",
+		IconID = 58,
 		Description = "raises distance fighting skill by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {1, 2, 4},
@@ -205,6 +253,7 @@ local Imbuements = {
 		Name = "Blockade",
 		Category = "Increase Shielding",
 		Type = "skillShield",
+		IconID = 67,
 		Description = "raises shielding skill by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {1, 2, 4},
@@ -215,26 +264,39 @@ local Imbuements = {
 		Name = "Epiphany",
 		Category = "Increase Magic Level",
 		Type = "magiclevelpoints",
+		IconID = 64,
 		Description = "raises magic level by %.",
 		Levels = {"Basic", "Intricate", "Powerful"},
 		LevelsPercent = {1, 2, 4},
 		Weapons = {"wand", "rod", "helmetmage"},
 		Items = {{10552, 25}, {12408, 15}, {11226, 15}}
+	},
+	{
+		Name = "Featherweight",
+		Category = "Increase Capacity",
+		Type = "capacity",
+		IconID = 64,
+		Description = "raises capacity by %.",
+		Levels = {"Basic", "Intricate", "Powerful"},
+		LevelsPercent = {3, 8, 15},
+		Weapons = {"backpack"},
+		Items = {{28998, 25}, {29006, 10}, {22539, 5}}
 	}
 }
 
 local Weapons = {
-	["armor"] = {21692, 2500, 2656, 2464, 2487, 2494, 15407, 2492, 2503, 12607, 2466, 23538, 10296, 2476, 3968, 2472, 7463, 8888, 23537, 2486, 15406, 8891, 18404, 10363},
-	["shield"] = {2537, 2518, 15491, 2534, 2535, 2536, 2542, 2539, 2519, 2520, 25382, 25414, 15411, 2516, 2514, 2522, 2533, 2531, 21707, 10289, 6433, 6391, 7460, 2524, 15413, 21697, 3974, 12644, 10297, 10294, 2509, 10364, 15453, 25411, 2217, 8900, 8901},
+	["armor"] = {21692, 2500, 2656, 2464, 2487, 2494, 15407, 2492, 2503, 12607, 2505, 2466, 23538, 10296, 2476, 3968, 2472, 7463, 8888, 23537, 2486, 15406, 8891, 18404},
+	["shield"] = {2528, 2537, 2518, 15491, 2534, 2535, 2536, 2542, 2539, 2519, 2520, 25382, 25414, 15411, 2516, 2514, 2522, 2533, 2531, 21707, 10289, 6433, 6391, 7460, 2524, 15413, 21697, 3974, 12644, 10297, 10294, 2509, 10364, 15453, 25411, 2217, 2175, 8900, 8901, 29003, 22422, 22423, 22424},
 	["boots"] = {9931, 3982, 15410, 2646, 24637, 5462, 18406, 2645, 25412, 21708},
-	["helmet"] = {2499, 2139, 3972, 2491, 2497, 2493, 2502, 12645, 7458, 2471, 10298, 10299, 20132, 2662, 10291, 2498, 24848, 5741, 25410, 2475, 11302},
+	["helmet"] = {2499, 2139, 3972, 2458, 2491, 2497, 2493, 2502, 12645, 7458, 2471, 10298, 10299, 20132, 2662, 10291, 2498, 24848, 5741, 25410, 2475, 11302},
 	["helmetmage"] = {10016, 2323, 12630, 11368, 8820, 10570, 9778},
-	["bow"] = {7438, 15643, 21696, 10295, 18454, 25522, 8857, 8854, 8850, 8851, 8852, 8853, 2455, 8849, 16111, 21690},
-	["wand"] = {8920, 8921, 8922, 2191},
-	["rod"] = {8910, 8911, 24839},
-	["axe"] = {2426, 2427, 2414, 2415, 2443, 11323, 7455, 2447, 7412, 8926, 7419, 7453, 2435, 3962, 15451, 7434, 7435, 6553, 15492, 7456, 8925, 18451, 2431, 8924},
-	["club"] = {7424, 2452, 2444, 7426, 7414, 7452, 7429, 7421, 15414, 7410, 15647, 20093, 7430, 7431, 23543, 2453, 8929, 12648, 7423, 2436, 2424, 7451, 7437, 2421, 8928, 18452, 25418},
-	["sword"] = {7407, 2393, 7382, 7403, 2413, 7405, 7391, 11309, 12613, 7417, 2376, 2400, 7404, 12649, 2438, 8930, 2451, 11395, 2407, 7416, 11307, 7418, 6528, 7408, 18465, 8931}
+	["bow"] = {8855, 7438, 15643, 21696, 10295, 18454, 25522, 8857, 8854, 22416, 22417, 22418, 8850, 8851, 8852, 8853, 2455, 8849, 25523, 16111, 21690, 22419, 22420, 22421, 25885, 25886, 25943, 25947, 25983, 25987},
+	["backpack"] = {1988, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 3940, 5801, 3960, 5926, 5949, 7342, 9774, 10518, 10519, 10521, 10522, 11119, 11241, 11243, 11244, 11263, 15645, 15646, 16007, 18393, 18394, 21475, 22696, 23666, 23816, 24740, 26181, 27061, 27063},
+	["wand"] = {8920, 8921, 8922, 2191, 29006, 29004, 25887, 25951, 25991},
+	["rod"] = {8910, 8911, 24839, 29006, 29004, 25888, 25955, 25995},
+	["axe"] = {2429, 2454, 2426, 2427, 2414, 2415, 2443, 7380, 7389, 11323, 7455, 2447, 7412, 8926, 7419, 7453, 2430, 2435, 3962, 15451, 7434, 7435, 6553, 15492, 7456, 8925, 18451, 2431, 8924, 25931, 11305, 25383, 22404, 22405, 22407, 22408, 22409, 25881, 25882, 25927, 25931, 25967, 25971},
+	["club"] = {2391, 2423, 7415, 2445, 7424, 2452, 2444, 7426, 7414, 7452, 7429, 7421, 15414, 7410, 15647, 20093, 7430, 7431, 23543, 2453, 8929, 12648, 7423, 2436, 2424, 7451, 7437, 2421, 8928, 18452, 25418, 22410, 22411, 22412, 22413, 22414, 22415, 25883, 25884, 25935, 25939},
+	["sword"] = {7407, 2393, 2383, 7382, 7383, 7384, 7385, 7403, 2413, 7405, 7406, 7391, 7392, 11309, 12613, 7417, 2376, 2400, 7404, 7402, 12649, 2438, 8930, 2451, 11395, 2407, 7416, 11307, 7418, 6528, 7408, 18465, 8931, 22398, 22399, 22400, 22401, 22402, 22403, 25879, 25880, 25919, 25923, 25959, 25963}
 }
 
 local ImbuingInfo = {
@@ -244,7 +306,7 @@ local ImbuingInfo = {
 }
 
 local imbuingShrineIds = {
-	27716, 27717, 27728, 27729, 27850, 27851
+	27728, 27729, 27850, 27851
 }
 
 local ImbuementElements = {
@@ -290,9 +352,8 @@ local function haveImbuingShrine(player)
 			local posX, posY, posZ = player:getPosition().x+x, player:getPosition().y+y, player:getPosition().z
 			local tile = Tile(posX, posY, posZ)
 			if (tile) then
-				local topItem = tile:getTopTopItem()
-				if (topItem) then
-					if (tableContains(imbuingShrineIds, topItem:getId())) then
+				for index, id in pairs(imbuingShrineIds) do
+					if tile:getItemById(id) then
 						return true
 					end
 				end
@@ -329,7 +390,7 @@ local function getActiveImbuement(item, slot)
 		for j = 1, 3 do
 			local level = Imbuements[i].Levels[j]
 			local enchant = item:getSpecialAttribute(slot)
-			if (enchant:find(level) and enchant:find(Imbuements[i].Name)) then
+			if (enchant and type(enchant) ~= 'number' and enchant:find(level) and enchant:find(Imbuements[i].Name)) then
 				return Imbuements[i], j
 			end
 		end
@@ -373,20 +434,6 @@ local function mergeImbuementList(table1, table2)
 	return newTable
 end
 
-local function getNewList(item)
-	local equip = getEquipById(item:getId())
-	local myImbuements = getImbuementEquip(equip)
-	local imbuingSlots = item:getType():getImbuingSlots()
-	for i = 1, imbuingSlots do
-		if (item:isActiveImbuement(i+3)) then
-			local existsImbuement, enchantLevel = getActiveImbuement(item, i)
-			myImbuements = mergeImbuementList(myImbuements, existsImbuement)
-		end
-	end
-
-	return myImbuements
-end
-
 function Player.applyImbuement(self, msg)
 	if (not haveImbuingShrine(self)) then
 		sendImbuementError(self, "An error ocurred, please reopen imbuement window.", ErrorMessages.MESSAGEDIALOG_IMBUEMENT_ERROR)
@@ -394,26 +441,40 @@ function Player.applyImbuement(self, msg)
 	end
 
 	local item = lastItemImbuing[self:getGuid()]
-	if (item == nil) then
+	if not item then
 		sendImbuementError(self, "Cannot find item, please contact an Administrator.", ErrorMessages.MESSAGEDIALOG_IMBUEMENT_ERROR)
 		return false
 	end
 
 	local slot, choiceId, useProtection = msg:getByte(), msg:getU32(), msg:getByte()
-	local myImbuement, imbuingLevel = getImbuementByIndex(choiceId, item:getId())
-	local imbuementsNow = getNewList(item)
-	local index = 0
-	for i = 1, #imbuementsNow do
-		for j = 1, item:getType():getImbuingSlots() do
+	local myImbuements = getImbuementEquip(getEquipById(item:getId()))
+	local imbuingLevel = 0
+	local imbuementNow, index = nil, 0
+
+	for i = 1, item:getType():getImbuingSlots() do
+		existsImbuement, enchantLevel = getActiveImbuement(item, i)
+		if existsImbuement then
+			myImbuements = mergeImbuementList(myImbuements, existsImbuement)
+		end
+	end
+
+	for k = 1, #myImbuements do
+		for i = 1, 3 do
 			index = index + 1
-			if (choiceId == index) then
-				myImbuement, imbuingLevel = imbuementsNow[i], j
-				break
+			if not imbuementNow and index == choiceId then
+				imbuementNow = myImbuements[k]
 			end
 		end
 	end
 
-	if (not myImbuement) then
+	for i = 3, index, 3 do
+		if choiceId >= i-2 and choiceId <= i then
+			imbuingLevel = math.abs((i - 2) - choiceId) + 1
+			break
+		end
+	end
+
+	if (not imbuementNow) then
 		sendImbuementError(self, "Cannot find imbuement data, please contact an Administrator.", ErrorMessages.MESSAGEDIALOG_IMBUEMENT_ERROR)
 		return false
 	end
@@ -429,14 +490,16 @@ function Player.applyImbuement(self, msg)
 	end
 
 	slot = slot + 1
-	for j = 1, imbuingLevel do
-		local itemID, itemCount = myImbuement.Items[j][1], myImbuement.Items[j][2]
-		if (self:getItemCount(itemID) < itemCount) then
-			sendImbuementError(self, "You don't have all necessary items.", ErrorMessages.MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED)
-			return false
-		end
+	if self:getAccountType() < 5 then
+		for j = 1, imbuingLevel do
+			local itemID, itemCount = imbuementNow.Items[j][1], imbuementNow.Items[j][2]
+			if (self:getItemCount(itemID) < itemCount) then
+				sendImbuementError(self, "You don't have all necessary items.", ErrorMessages.MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED)
+				return false
+			end
 
-		self:removeItem(itemID, itemCount)
+			self:removeItem(itemID, itemCount)
+		end
 	end
 
 	if (item:isActiveImbuement(slot+3)) then
@@ -450,7 +513,7 @@ function Player.applyImbuement(self, msg)
 		return false
 	end
 
-	item:setSpecialAttribute(slot, myImbuement.Levels[imbuingLevel].. " " ..myImbuement.Name, slot+3, 72000, slot+6, 0)
+	item:setSpecialAttribute(slot, imbuementNow.Levels[imbuingLevel].. " " ..imbuementNow.Name, slot+3, 72000, slot+6, 0)
 	self:openImbuementWindow(item)
 end
 
@@ -495,14 +558,16 @@ function Player.closeImbuementWindow(self)
 end
 
 function Player.openImbuementWindow(self, item)
-	if (not item:isImbuementEquip()) then
+	if (not item or not item:isItem() or not item:isImbuementEquip()) then
 		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This item is not imbuable.")
 		return false
 	end
 
-	if (self:getSlotItem(CONST_SLOT_LEFT) and self:getSlotItem(CONST_SLOT_LEFT):getUniqueId() == item:getUniqueId()) then
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue an equipped item.")
-		return false
+	for slot = 1, 10 do
+		if (self:getSlotItem(slot) and self:getSlotItem(slot):getUniqueId() == item:getUniqueId()) then
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue an equipped item.")
+			return false
+		end
 	end
 
 	local msg = NetworkMessage()
@@ -527,7 +592,7 @@ function Player.openImbuementWindow(self, item)
 			local newDescription = existsImbuement.Description:gsub(" %%", " " ..existsImbuement.LevelsPercent[enchantLevel].."%%")
 			msg:addString(newDescription.. "\nLasts for 20h 0min while fighting.") -- Description
 			msg:addString(existsImbuement.Category) -- Type Imbuement
-			msg:addU16(4) -- Icon ID (wtf?)
+			msg:addU16(existsImbuement.IconID+(enchantLevel-1)) -- Icon ID (wtf?)
 			msg:addU32(72000) -- duration in seconds (20hrs)
 			msg:addByte(0x01) -- premium true
 			msg:addByte(enchantLevel) -- Loop Length astral sources
@@ -585,7 +650,11 @@ function Player.openImbuementWindow(self, item)
 	for k = 1, #myImbuements do
 		for j = 1, 3 do
 			msg:addItemId(myImbuements[k].Items[j][1])
-			msg:addU16(self:getItemCount(myImbuements[k].Items[j][1]))
+			if self:getAccountType() < 5 then
+				msg:addU16(self:getItemCount(myImbuements[k].Items[j][1]))
+			else
+				msg:addU16(999)
+			end
 		end
 	end
 

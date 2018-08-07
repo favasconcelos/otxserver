@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,17 +43,14 @@ class SchedulerTask : public Task
 		}
 
 	protected:
-		SchedulerTask(uint32_t delay, const std::function<void (void)>& f) : Task(delay, f) {}
+		SchedulerTask(uint32_t delay, std::function<void (void)>&& f) : Task(delay, std::move(f)) {}
 
 		uint32_t eventId = 0;
 
-		friend SchedulerTask* createSchedulerTask(uint32_t, const std::function<void (void)>&);
+		friend SchedulerTask* createSchedulerTask(uint32_t, std::function<void (void)>);
 };
 
-inline SchedulerTask* createSchedulerTask(uint32_t delay, const std::function<void (void)>& f)
-{
-	return new SchedulerTask(delay, f);
-}
+SchedulerTask* createSchedulerTask(uint32_t delay, std::function<void (void)> f);
 
 struct TaskComparator {
 	bool operator()(const SchedulerTask* lhs, const SchedulerTask* rhs) const {

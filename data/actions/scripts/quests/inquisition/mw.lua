@@ -12,19 +12,9 @@ local function nexusMessage(player, message)
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    if player:getStorageValue(Storage.TheInquisition.Questline) < 22 then
-        -- The Inquisition Questlog- 'Mission 7: The Shadow Nexus'
-        player:setStorageValue(Storage.TheInquisition.Mission07, 2)
-        player:setStorageValue(Storage.TheInquisition.Questline, 22)
-
-        for i = 1, #effectPositions do
-            effectPositions[i]:sendMagicEffect(CONST_ME_HOLYAREA)
-        end
-    
-        nexusMessage(player, player:getName() .. ' destroyed the shadow nexus!')
-        player:teleportTo(Position(32319, 32248, 9))
-    else
-        player:teleportTo(Position(32319, 32248, 9))
+    if player:teleportTo(Position(32319, 32248, 9))
+   
+    then
     end
 
     return true

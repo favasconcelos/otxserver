@@ -17,8 +17,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 			local player = Player(cid)
-			if player:getMoney() >= 50 then
-				player:removeMoney(50)
+			if player:getMoney() + player:getBankBalance() >= 50 then
+				player:removeMoneyNpc(50)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				player:teleportTo(Position(32940, 31182, 7), false)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

@@ -3,9 +3,9 @@ local posdotpzzzz = {x = 32327, y = 31250, z = 14}
 function MoveStonezzzz() --creates wall back
 local criistal1zzzz = getTileItemById(posdotpzzzz, 1304)
    if not criistal1zzzz then 
-    doCreateItem(1304,1,posdotpzzzz)-- Stone pos
+    Game.createItem(1304,1,posdotpzzzz)-- Stone pos
 	else 
-	doCreateItem(1304,1,posdotpzzzz)
+	Game.createItem(1304,1,posdotpzzzz)
    end 
    return true
 end

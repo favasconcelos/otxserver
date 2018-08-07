@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2015  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,14 +45,7 @@ class ProtocolGameBase : public Protocol {
 
 	protected:
 		explicit ProtocolGameBase(Connection_ptr connection):
-			Protocol(connection),
-			player(nullptr),
-			eventConnect(0),
-			version(CLIENT_VERSION_MIN),
-			challengeTimestamp(0),
-			challengeRandom(0),
-			debugAssertSent(false),
-			acceptPackets(false) {}
+			Protocol(connection) {}
 
 		virtual void writeToOutputBuffer(const NetworkMessage& msg, bool broadcast = true) = 0;
 		void onConnect() final;
@@ -61,6 +54,8 @@ class ProtocolGameBase : public Protocol {
 		void AddCreature(NetworkMessage& msg, const Creature* creature, bool known, uint32_t remove);
 		void AddPlayerStats(NetworkMessage& msg);
 		void AddPlayerSkills(NetworkMessage& msg);
+		void sendBlessStatus();
+		void sendPremiumTrigger();
 		void AddWorldLight(NetworkMessage& msg, const LightInfo& lightInfo);
 		void AddCreatureLight(NetworkMessage& msg, const Creature* creature);
 		void AddOutfit(NetworkMessage& msg, const Outfit_t& outfit);
@@ -69,40 +64,34 @@ class ProtocolGameBase : public Protocol {
 		void GetTileDescription(const Tile* tile, NetworkMessage& msg);
 		// translate a floor to clientreadable format
 		void GetFloorDescription(NetworkMessage& msg, int32_t x, int32_t y, int32_t z,
-		                         int32_t width, int32_t height, int32_t offset, int32_t& skip);
+								 int32_t width, int32_t height, int32_t offset, int32_t& skip);
 		// translate a map area to clientreadable format
 		void GetMapDescription(int32_t x, int32_t y, int32_t z,
-		                       int32_t width, int32_t height, NetworkMessage& msg);
+							   int32_t width, int32_t height, NetworkMessage& msg);
 
 		static void RemoveTileThing(NetworkMessage& msg, const Position& pos, uint32_t stackpos);
 
-		void sendSpellCooldown(uint8_t spellId, uint32_t time);
-		void sendSpellGroupCooldown(SpellGroup_t groupId, uint32_t time);
-		
+		void sendChannelMessage(const std::string& author, const std::string& text, SpeakClasses type, uint16_t channel);
 		void sendUpdateTile(const Tile* tile, const Position& pos);
 		void sendContainer(uint8_t cid, const Container* container, bool hasParent, uint16_t firstIndex);
-		void sendChannelMessage(const std::string& author, const std::string& text, SpeakClasses type, uint16_t channel);
-		void sendChannelEvent(uint16_t channelId, const std::string& playerName, ChannelEvent_t channelEvent);
-		void sendClosePrivate(uint16_t channelId);
-		void sendCreatePrivateChannel(uint16_t channelId, const std::string& channelName);
-		void sendChannelsDialog();
 		void sendChannel(uint16_t channelId, const std::string& channelName, const UsersMap* channelUsers, const InvitedMap* invitedUsers);
-		void sendOpenPrivateChannel(const std::string& receiver);
-		void sendToChannel(const Creature* creature, SpeakClasses type, const std::string& text, uint16_t channelId);
-		void sendPrivateMessage(const Player* speaker, SpeakClasses type, const std::string& text);
 		void sendAddCreature(const Creature* creature, const Position& pos, int32_t stackpos, bool isLogin);
 		void sendMagicEffect(const Position& pos, uint8_t type);
 		void sendStats();
-		void sendBlessStatus();
+		void sendStoreHighlight();
 		void sendBasicData();
 		void sendPendingStateEntered();
 		void sendEnterWorld();
 		//inventory
 		void sendInventoryItem(slots_t slot, const Item* item);
+		void sendInventoryClientIds();
+		// Unjust Panel
+		void sendUnjustifiedPoints(const uint8_t& dayProgress, const uint8_t& dayLeft, const uint8_t& weekProgress, const uint8_t& weekLeft, const uint8_t& monthProgress, const uint8_t& monthLeft, const uint8_t& skullDuration);
 
-		void sendPreyData();
-		void sendSkullTime();
 		void sendSkills();
+
+		// Send preyInfo
+		void sendPreyData();
 
 		void sendCreatureLight(const Creature* creature);
 		void sendWorldLight(const LightInfo& lightInfo);
@@ -118,15 +107,17 @@ class ProtocolGameBase : public Protocol {
 		bool canSee(const Creature*) const;
 		bool canSee(const Position& pos) const;
 
-		Player* player;
-		uint32_t eventConnect;
-		uint16_t version;
+		Player* player = nullptr;
+		uint32_t eventConnect = 0;
+		uint16_t version = CLIENT_VERSION_MIN;
 
-		uint32_t challengeTimestamp;
-		uint8_t challengeRandom;
+		uint32_t challengeTimestamp = 0;
+		uint8_t challengeRandom = 0;
 
-		bool debugAssertSent;
-		bool acceptPackets;
+		bool debugAssertSent = false;
+		bool acceptPackets = false;
+
+		bool loggedIn = false;
 
 		std::unordered_set<uint32_t> knownCreatureSet;
 };

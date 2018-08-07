@@ -4,7 +4,7 @@ function onSay(player, words, param)
 	end
 
 	if param == '' then
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Command param required.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Command param required.")
 		return false
 	end
 
@@ -13,7 +13,7 @@ function onSay(player, words, param)
 	if tile[2] and tile[3] then
 		pos = Position(tile[1], tile[2], tile[3])
 	else
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Invalid param specified.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Invalid param specified.")
 		return false
 	end
 

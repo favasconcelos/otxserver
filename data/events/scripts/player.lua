@@ -1,7 +1,8 @@
 -- Internal Use
 STONE_SKIN_AMULET = 2197
-ITEM_STORE_INBOX = 26052
 GOLD_POUNCH = 26377
+ITEM_STORE_INBOX = 26052
+ITEM_PARCEL = 2595
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
@@ -53,7 +54,6 @@ local function getSeconds(seconds)
 	return seconds%60
 end
 
-
 local function getTime(seconds)
 	local hours, minutes = getHours(seconds), getMinutes(seconds)
 	if (minutes > 59) then
@@ -84,7 +84,6 @@ local function getTimeinWords(secs)
 	return timeStr
 end
 
-
 function Player:onLook(thing, position, distance)
 	local description = "You see "
 	if thing:isItem() then
@@ -96,9 +95,7 @@ function Player:onLook(thing, position, distance)
 		or thing.itemid >= ITEM_MANA_CASK_START and thing.itemid <= ITEM_MANA_CASK_END 
 		or thing.itemid >= ITEM_SPIRIT_CASK_START and thing.itemid <= ITEM_SPIRIT_CASK_END 
 		or thing.itemid >= ITEM_KEG_START and thing.itemid <= ITEM_KEG_END then
-		
 			description = description .. thing:getDescription(distance)
-
 			local charges = thing:getCharges()
 			if charges then
 			description = string.format("%s\nIt has %d refillings left.", description, charges)
@@ -135,14 +132,12 @@ function Player:onLook(thing, position, distance)
 		end
 	else
 		description = description .. thing:getDescription(distance)
-		--look summon
 		if thing:isMonster() then
 			local master = thing:getMaster()
 			if master and table.contains({'thundergiant','grovebeast','emberwing','skullfrost'}, thing:getName():lower()) then
 				description = description..' (Master: ' .. master:getName() .. '). It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
 			end
 		end
-		--final
 	end
 
 	if self:getGroup():getAccess() then
@@ -198,8 +193,12 @@ end
 
 function Player:onLookInBattleList(creature, distance)
 	local description = "You see " .. creature:getDescription(distance)
-	
-	
+	if creature:isMonster() then
+		local master = creature:getMaster()
+		if master and table.contains({'thundergiant','grovebeast','emberwing','skullfrost'}, creature:getName():lower()) then
+			description = description..' (Master: ' .. master:getName() .. '). It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
+		end
+	end
 	if self:getGroup():getAccess() then
 		local str = "%s\nHealth: %d / %d"
 		if creature:isPlayer() and creature:getMaxMana() > 0 then
@@ -218,7 +217,6 @@ function Player:onLookInBattleList(creature, distance)
 		end
 	end
 	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
-	
 end
 
 function Player:onLookInTrade(partner, item, distance)
@@ -285,83 +283,6 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return false
 	end
-	--- LIONS ROCK START 
-	if self:getStorageValue(lionrock.storages.playerCanDoTasks) - os.time() < 0 then
-		local p, i = lionrock.positions, lionrock.items
-		local checkPr = false
-		if item:getId() == lionrock.items.ruby and toPosition.x == p.ruby.x and toPosition.y == p.ruby.y  and toPosition.z == p.ruby.z then
-			-- Ruby
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the ruby on the small socket. A red flame begins to burn.")
-				checkPr = true
-			if lionrock.taskactive.ruby ~= true then
-				lionrock.taskactive.ruby = true
-			end
-
-			local tile = Tile(p.ruby)
-			if tile:getItemCountById(i.redflame) < 1 then
-				Game.createItem(i.redflame, 1, p.ruby)
-			end
-		end
-
-		if item:getId() == lionrock.items.sapphire and toPosition.x == p.sapphire.x and toPosition.y == p.sapphire.y  and toPosition.z == p.sapphire.z then
-			-- Sapphire
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the sapphire on the small socket. A blue flame begins to burn.")
-				checkPr = true
-			if lionrock.taskactive.sapphire ~= true then
-				lionrock.taskactive.sapphire = true
-			end
-
-			local tile = Tile(p.sapphire)
-			if tile:getItemCountById(i.blueflame) < 1 then
-				Game.createItem(i.blueflame, 1, p.sapphire)
-			end
-		end
-
-		if item:getId() == lionrock.items.amethyst and toPosition.x == p.amethyst.x and toPosition.y == p.amethyst.y  and toPosition.z == p.amethyst.z then
-			-- Amethyst
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the topaz on the small socket. A yellow flame begins to burn.")
-				checkPr = true
-			if lionrock.taskactive.amethyst ~= true then
-				lionrock.taskactive.amethyst = true
-			end
-
-			local tile = Tile(p.amethyst)
-			if tile:getItemCountById(i.yellowflame) < 1 then
-				Game.createItem(i.yellowflame, 1, p.amethyst)
-			end
-		end
-
-		if item:getId() == lionrock.items.topaz and toPosition.x == p.topaz.x and toPosition.y == p.topaz.y  and toPosition.z == p.topaz.z then
-			-- Topaz
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the amethyst on the small socket. A violet flame begins to burn.")
-				checkPr = true
-			if lionrock.taskactive.topaz ~= true then
-				lionrock.taskactive.topaz = true
-			end
-
-			local tile = Tile(p.topaz)
-			if tile:getItemCountById(i.violetflame) < 1 then
-				Game.createItem(i.violetflame, 1, p.topaz)
-			end
-		end
-
-		if checkPr == true then
-			-- Adding the Fountain which gives present
-			if lionrock.taskactive.ruby == true and lionrock.taskactive.sapphire == true and lionrock.taskactive.amethyst == true and lionrock.taskactive.topaz == true then
-				local fountain = Game.createItem(i.rewardfountain, 1, { x=33073, y=32300, z=9})
-				fountain:setActionId(41357)
-				local stone = Tile({ x=33073, y=32300, z=9}):getItemById(3608)
-				if stone ~= nil then
-					stone:remove()
-				end
-				self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Something happens at the centre of the room ...");
-			end
-
-			-- Removing Item
-			item:remove(1)
-		end
-	end
-	---- LIONS ROCK END
 
 	-- SSA exhaust
 	local exhaust = { }
@@ -501,6 +422,84 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
+	
+	--- LIONS ROCK START 
+	if self:getStorageValue(lionrock.storages.playerCanDoTasks) - os.time() < 0 then
+		local p, i = lionrock.positions, lionrock.items
+		local checkPr = false
+		if item:getId() == lionrock.items.ruby and toPosition.x == p.ruby.x and toPosition.y == p.ruby.y  and toPosition.z == p.ruby.z then
+			-- Ruby
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the ruby on the small socket. A red flame begins to burn.")
+				checkPr = true
+			if lionrock.taskactive.ruby ~= true then
+				lionrock.taskactive.ruby = true
+			end
+
+			local tile = Tile(p.ruby)
+			if tile:getItemCountById(i.redflame) < 1 then
+				Game.createItem(i.redflame, 1, p.ruby)
+			end
+		end
+
+		if item:getId() == lionrock.items.sapphire and toPosition.x == p.sapphire.x and toPosition.y == p.sapphire.y  and toPosition.z == p.sapphire.z then
+			-- Sapphire
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the sapphire on the small socket. A blue flame begins to burn.")
+				checkPr = true
+			if lionrock.taskactive.sapphire ~= true then
+				lionrock.taskactive.sapphire = true
+			end
+
+			local tile = Tile(p.sapphire)
+			if tile:getItemCountById(i.blueflame) < 1 then
+				Game.createItem(i.blueflame, 1, p.sapphire)
+			end
+		end
+
+		if item:getId() == lionrock.items.amethyst and toPosition.x == p.amethyst.x and toPosition.y == p.amethyst.y  and toPosition.z == p.amethyst.z then
+			-- Amethyst
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the topaz on the small socket. A yellow flame begins to burn.")
+				checkPr = true
+			if lionrock.taskactive.amethyst ~= true then
+				lionrock.taskactive.amethyst = true
+			end
+
+			local tile = Tile(p.amethyst)
+			if tile:getItemCountById(i.yellowflame) < 1 then
+				Game.createItem(i.yellowflame, 1, p.amethyst)
+			end
+		end
+
+		if item:getId() == lionrock.items.topaz and toPosition.x == p.topaz.x and toPosition.y == p.topaz.y  and toPosition.z == p.topaz.z then
+			-- Topaz
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the amethyst on the small socket. A violet flame begins to burn.")
+				checkPr = true
+			if lionrock.taskactive.topaz ~= true then
+				lionrock.taskactive.topaz = true
+			end
+
+			local tile = Tile(p.topaz)
+			if tile:getItemCountById(i.violetflame) < 1 then
+				Game.createItem(i.violetflame, 1, p.topaz)
+			end
+		end
+
+		if checkPr == true then
+			-- Adding the Fountain which gives present
+			if lionrock.taskactive.ruby == true and lionrock.taskactive.sapphire == true and lionrock.taskactive.amethyst == true and lionrock.taskactive.topaz == true then
+				local fountain = Game.createItem(i.rewardfountain, 1, { x=33073, y=32300, z=9})
+				fountain:setActionId(41357)
+				local stone = Tile({ x=33073, y=32300, z=9}):getItemById(3608)
+				if stone ~= nil then
+					stone:remove()
+				end
+				self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Something happens at the centre of the room ...");
+			end
+
+			-- Removing Item
+			item:remove(1)
+		end
+	end
+	---- LIONS ROCK END
 
 	if not antiPush(self, item, count, fromPosition, toPosition, fromCylinder, toCylinder) then
 		return false
@@ -553,8 +552,6 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 end
 
 function Player:onReportBug(message, position, category)
-	
-
 	local name = self:getName()
 	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
 
@@ -738,7 +735,7 @@ function Player:onUseWeapon(normalDamage, elementType, elementDamage)
 			weapon = nil
 		end
 	end
-	
+
 	for slot = 1, 10 do
 		local nextEquip = self:getSlotItem(slot)
 		if nextEquip and nextEquip:getType():getImbuingSlots() > 0 then
@@ -750,9 +747,9 @@ function Player:onUseWeapon(normalDamage, elementType, elementDamage)
 					if (typeEnchant ~= "" and typeEnchant ~= "skillShield" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
 						useStaminaImbuing(self:getId(), nextEquip:getUniqueId())
 					end
-					
+
 					if (typeEnchant ~= "hitpointsleech" and typeEnchant ~= "manapointsleech" and typeEnchant ~= "criticaldamage" 
-					and typeEnchant ~= "skillShield" and typeEnchant ~= "magiclevelpoints" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
+						and typeEnchant ~= "skillShield" and typeEnchant ~= "magiclevelpoints" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
 						local weaponType = nextEquip:getType():getWeaponType()
 						if weaponType ~= WEAPON_NONE and weaponType ~= WEAPON_SHIELD and weaponType ~= WEAPON_AMMO then
 							percentDamage = normalDamage*(enchantPercent/100)
@@ -760,7 +757,7 @@ function Player:onUseWeapon(normalDamage, elementType, elementDamage)
 							elementDamage = nextEquip:getType():getAttack()*(enchantPercent/100)
 						end
 					end
-					
+
 					if (typeEnchant == "hitpointsleech") then
 						local healAmountHP = normalDamage*(enchantPercent/100)
 						self:addHealth(math.abs(healAmountHP))
@@ -768,7 +765,7 @@ function Player:onUseWeapon(normalDamage, elementType, elementDamage)
 						local healAmountMP = normalDamage*(enchantPercent/100)
 						self:addMana(math.abs(healAmountMP))
 					end
-					
+
 					if (typeEnchant == "firedamage") then
 						elementType = COMBAT_FIREDAMAGE
 					elseif (typeEnchant == "earthdamage") then
@@ -797,7 +794,7 @@ function Player:onCombatSpell(normalDamage, elementDamage, elementType, changeDa
 			weapon = nil
 		end
 	end
-	
+
 	if normalDamage < 0 then
 		for slot = 1, 10 do
 			local nextEquip = self:getSlotItem(slot)
@@ -810,7 +807,7 @@ function Player:onCombatSpell(normalDamage, elementDamage, elementType, changeDa
 						if (typeEnchant ~= "" and typeEnchant ~= "skillShield" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
 							useStaminaImbuing(self:getId(), nextEquip:getUniqueId())
 						end
-						
+
 						if (typeEnchant == "firedamage" or typeEnchant == "earthdamage" or typeEnchant == "icedamage" or typeEnchant == "energydamage" or typeEnchant == "deathdamage") then
 							local weaponType = nextEquip:getType():getWeaponType()
 							if weaponType ~= WEAPON_NONE and weaponType ~= WEAPON_SHIELD and weaponType ~= WEAPON_AMMO then
@@ -819,7 +816,7 @@ function Player:onCombatSpell(normalDamage, elementDamage, elementType, changeDa
 								elementDamage = nextEquip:getType():getAttack()*(enchantPercent/100)
 							end
 						end
-						
+
 						if (typeEnchant == "firedamage") then
 							elementType = COMBAT_FIREDAMAGE
 						elseif (typeEnchant == "earthdamage") then
@@ -836,7 +833,7 @@ function Player:onCombatSpell(normalDamage, elementDamage, elementType, changeDa
 			end
 		end
 	end
-	
+
 	return normalDamage, elementDamage, elementType, changeDamage
 end
 
@@ -892,7 +889,7 @@ function Player:onEquipImbuement(item)
 				self:addCondition(conditionSkill)
 			elseif (typeEnchant == "speed") then
 				conditionHaste:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionHaste:setParameter(CONDITION_PARAM_SPEED, skillValue)
+				conditionHaste:setParameter(CONDITION_PARAM_SPEED, self:getSpeed() * (skillValue/100))
 				self:addCondition(conditionHaste)
 			elseif (typeEnchant == "criticaldamage") then
 				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
@@ -993,21 +990,21 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Exp Boost Modifier
 	useStaminaXp(self)
 
-	-- Exp stats
+		-- Exp stats
 	local staminaMinutes = self:getStamina()
 	local Boost = self:getExpBoostStamina()
 	if staminaMinutes > 2400 and self:isPremium() and Boost > 0 then
-		self:setBaseXpGain(200) -- 200 = 1.0x, 200 = 2.0x, ... premium account		
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*2) -- 200 = 1.0x, 200 = 2.0x, ... premium account
 	elseif staminaMinutes > 2400 and self:isPremium() and Boost <= 0 then
-		self:setBaseXpGain(150) -- 150 = 1.0x, 150 = 1.5x, ... premium account	
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account		
 	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and self:isPremium() and Boost > 0 then
-		self:setBaseXpGain(150) -- 150 = 1.5x		premium account
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		premium account
 	elseif staminaMinutes > 840 and Boost > 0 then
-		self:setBaseXpGain(150) -- 150 = 1.5x		free account
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		free account
 	elseif staminaMinutes <= 840 and Boost > 0 then
-		self:setBaseXpGain(100) -- 50 = 0.5x	all players	
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1) -- 50 = 0.5x	all players
 	elseif staminaMinutes <= 840 then
-		self:setBaseXpGain(50) -- 50 = 0.5x	all players	
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*0.5) -- 50 = 0.5x	all players
 	end
 
 	-- Stamina modifier

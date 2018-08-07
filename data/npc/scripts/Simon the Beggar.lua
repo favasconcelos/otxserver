@@ -23,8 +23,8 @@ function BeggarFirst(cid, message, keywords, parameters, node)
 	local player = Player(cid)
 	if player:isPremium() then
 		if player:getStorageValue(Storage.OutfitQuest.BeggarFirstAddon) == -1 then
-			if player:getItemCount(5883) >= 100 and player:getMoney() >= 20000 then
-				if player:removeItem(5883, 100) and player:removeMoney(20000) then
+			if player:getItemCount(5883) >= 100 and player:getMoney() + player:getBankBalance() >= 20000 then
+				if player:removeItem(5883, 100) and player:removeMoneyNpc(20000) then
 					npcHandler:say("Ah, right! The beggar beard or beggar dress! Here you go.", cid)
 					player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 					player:setStorageValue(Storage.OutfitQuest.BeggarFirstAddon, 1)
@@ -83,23 +83,23 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
-			if player:getItemCount(8111) == 0 then
+			if not player:removeItem(8111, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true
-			elseif player:getItemCount(8111) > 0 then
-				Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-				npcHandler:say('Well, it\'s the least you can do for those who live in dire poverty. A single cookie is a bit less than I\'d expected, but better than ... WHA ... WHAT?? MY BEARD! MY PRECIOUS BEARD! IT WILL TAKE AGES TO CLEAR IT OF THIS CONFETTI!', cid)
-				doPlayerRemoveItem(cid, 8111, 1)
-				player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar, 1)
-				if player:getCookiesDelivered() == 10 then
-					player:addAchievement('Allow Cookies?')
-				end
-				npcHandler:releaseFocus(cid)
-				npcHandler:resetNpc(cid)
 			end
+
+			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar, 1)
+			if player:getCookiesDelivered() == 10 then
+				player:addAchievement('Allow Cookies?')
+			end
+
+			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
+			npcHandler:say('Well, it\'s the least you can do for those who live in dire poverty. A single cookie is a bit less than I\'d expected, but better than ... WHA ... WHAT?? MY BEARD! MY PRECIOUS BEARD! IT WILL TAKE AGES TO CLEAR IT OF THIS CONFETTI!', cid)
+			npcHandler:releaseFocus(cid)
+			npcHandler:resetNpc(cid)
 		elseif npcHandler.topic[cid] == 2 then
-			if not player:removeMoney(100) then
+			if not player:removeMoneyNpc(100) then
 				npcHandler:say('You haven\'t got enough money for me.', cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -108,7 +108,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Thank you very much. Can you spare 500 more gold pieces for me? I will give you a nice hint.', cid)
 			npcHandler.topic[cid] = 3
 		elseif npcHandler.topic[cid] == 3 then
-			if not player:removeMoney(500) then
+			if not player:removeMoneyNpc(500) then
 				npcHandler:say('Sorry, that\'s not enough.', cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -117,7 +117,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('That\'s great! I have stolen something from Dermot. You can buy it for 200 gold. Do you want to buy it?', cid)
 			npcHandler.topic[cid] = 4
 		elseif npcHandler.topic[cid] == 4 then
-			if not player:removeMoney(200) then
+			if not player:removeMoneyNpc(200) then
 				npcHandler:say('Pah! I said 200 gold. You don\'t have that much.', cid)
 				npcHandler.topic[cid] = 0
 				return true

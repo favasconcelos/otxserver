@@ -17,8 +17,15 @@ npcHandler:addModule(VoiceModule:new(voices))
 
 keywordHandler:addKeyword({'master'}, StdModule.say, {npcHandler = npcHandler, text = "Our. Master. Is. Gone. You. Can. Not. Visit. Him! We. Stand. {Sentry}!"})
 keywordHandler:addKeyword({'sentry'}, StdModule.say, {npcHandler = npcHandler, text = "{Master}. Conducted. Experiments. Great. Problems. You. Must. Go!"})
-keywordHandler:addKeyword({'slime'}, StdModule.say, {npcHandler = npcHandler, text = "{Master}. Conducted. Experiments. Great. Problems. You. Must. Go!"})
-keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = "{Slime}. Dangerous. We. Have. It. Under. Control. ... We. Will. Stand. {Sentry}."}, function(player) return player:getStorageValue(Storage.TheirMastersVoice.SlimeGobblerReceived) == 1 end)
+keywordHandler:addKeyword({'slime'}, StdModule.say, {npcHandler = npcHandler, text = "{Slime}. Dangerous. We. Have. It. Under. Control. ... We. Will. Stand. {Sentry}."}, function(player) return player:getStorageValue(Storage.TheirMastersVoice.SlimeGobblerReceived) == 1 end)
+
+local function greetCallback(cid)
+	local player = Player(cid)
+	if player:getStorageValue(Storage.TheirMastersVoice.SlimeGobblerReceived) < 1 then
+		npcHandler:say("The. {Slime}. Has. Entered. Our. {Master}. Has. Left! We. Must. {Help}.", cid)
+	end
+	return true
+end	
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -26,11 +33,9 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if msgcontains(msg, "slime globber") then
-		if player:getStorageValue(Storage.TheirMastersVoice.SlimeGobblerReceived) < 1 then
+	if msgcontains(msg, "help") then	
 			npcHandler:say("Defeat. {Slime}. We. Will. Why. Did. You. Kill. Us? Do. You. Want. To. Rectify. And. Help?", cid)
-			npcHandler.topic[cid] = 1
-		end
+			npcHandler.topic[cid] = 1		
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 			player:setStorageValue(Storage.TheirMastersVoice.SlimeGobblerReceived, 1)

@@ -55,10 +55,8 @@ local bosses = {
 	[3259] = {bossName = 'demodras', storage = Storage.KillingInTheNameOf.DemodrasTeleport, playerPosition = Position(32748, 32287, 10), bossPosition = Position(32747, 32294, 10), centerPosition = Position(32887, 32583, 4), rangeX = 6, rangeY = 5, flamePosition = Position(33076, 31029, 12)},
 	[17521] = {bossName = 'necropharus', storage = 17521, playerPosition = Position(33028, 32426, 12), bossPosition = Position(33026, 32422, 12), centerPosition = Position(33028, 32424, 12), rangeX = 6, rangeY = 5, flamePosition = Position(33070, 31035, 12)},
 	[17522] = {bossName = 'the horned fox', storage = 17522, playerPosition = Position(32458, 31994, 9), bossPosition = Position(32458, 32005, 9), centerPosition = Position(32450, 31400, 9), rangeX = 5, rangeY = 8, flamePosition = Position(33070, 31029, 12)},
-
 	[17523] = {bossName = 'lethal lissy', storage = 17523, playerPosition = Position(31976, 32896, 0), bossPosition = Position(31983, 32897, 0), centerPosition = Position(31982, 32897, 0), rangeX = 5, rangeY = 8, flamePosition = Position(31987, 32896, 0)}
-
-	}
+}
 
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()

@@ -11,11 +11,14 @@ Storage = {
 		QuestLine = 90,
 		bansheeDoor = 91,
 		bonelordsDoor = 92,
-		calassaDoor = 93,
+		CalassaQuest = 93,
 		edronDoor = 94,
 		elvenDoor = 95,
 		orcDoor = 96,
-		urnDoor = 97
+		urnDoor = 97,
+		SpectralStone = 98,		-- = 1 - mission taken from Angus, = 2 - mission taken from Mortimer
+		skullofratha = 99,
+		giantsmithhammer = 100
 	},
 	TravellingTrader = {
 		Mission01 = 101,
@@ -674,6 +677,17 @@ Storage = {
 		DragahsSpellbook = 12709,
 		TheCounterspell = 12710
 	},
+	SearoutesAroundYalahar = {
+		TownsCounter = 12800,
+		AbDendriel = 12801,
+		Darashia = 12802,
+		Venore = 12803,
+		Ankrahmun = 12804,
+		PortHope = 12805,
+		Thais = 12806,
+		LibertyBay = 12807,
+		Carlin = 12808,
+	},	
 	KillingInTheNameOf = {
 		LugriNecromancers = 50000,
 		LugriNecromancerCount = 65050,
@@ -730,7 +744,7 @@ Storage = {
 	},
 	SvargrondArena = {
 		Arena = 1100,
-		Pit = 1101,
+		Pit = 13100,
 
 		QuestLogGreenhorn = 50140,
 		QuestLogScrapper = 50141,
@@ -976,7 +990,9 @@ Storage = {
 	Factions = 50716,
 	MaryzaCookbook = 50721,
 	combatProtectionStorage = 50722,
-	blockMovementStorage = 100000
+	blockMovementStorage = 100000,
+	PetSummon = 60045
+
 }
 
 GlobalStorage = {
@@ -1030,5 +1046,7 @@ GlobalStorage = {
 		AshmunrahSwitchesGlobalStorage = 202
 	},
 	NaginataStone = 50058,
+	ExpBoost = 51052,
 	SwordOfFury = 5635
+
 }

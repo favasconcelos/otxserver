@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@
 #include "mounts.h"
 #include "reward.h"
 #include "rewardchest.h"
+#include "gamestore.h"
 
 class House;
 class NetworkMessage;
@@ -105,9 +106,17 @@ struct Skill {
 	uint8_t percent = 0;
 };
 
-typedef std::map<uint32_t, uint32_t> MuteCountMap;
+struct Kill {
+	uint32_t target;
+	time_t time;
+	bool unavenged;
 
-static constexpr int32_t PLAYER_MAX_SPEED = 1500;
+	Kill(uint32_t _target, time_t _time, bool _unavenged) : target(_target), time(_time), unavenged(_unavenged) {}
+};
+
+using MuteCountMap = std::map<uint32_t, uint32_t>;
+
+static constexpr int32_t PLAYER_MAX_SPEED = 4500;
 static constexpr int32_t PLAYER_MIN_SPEED = 10;
 
 class Player final : public Creature, public Cylinder
@@ -193,15 +202,12 @@ class Player final : public Creature, public Cylinder
 		uint16_t getPreyStamina(uint16_t index) const {
 			return preyStaminaMinutes[index];
 		}
-
 		uint16_t getPreyType(uint16_t index) const {
 			return preyBonusType[index];
 		}
-
 		uint16_t getPreyValue(uint16_t index) const {
 			return preyBonusValue[index];
 		}
-
 		std::string getPreyName(uint16_t index) const {
 			return preyBonusName[index];
 		}
@@ -269,8 +275,8 @@ class Player final : public Creature, public Cylinder
 
 		uint16_t getClientIcons() const;
 
-		const GuildWarList& getGuildWarList() const {
-			return guildWarList;
+		const GuildWarVector& getGuildWarVector() const {
+			return guildWarVector;
 		}
 
 		Vocation* getVocation() const {
@@ -310,6 +316,8 @@ class Player final : public Creature, public Cylinder
 		void removePartyInvitation(Party* party);
 		void clearPartyInvitations();
 
+		void sendUnjustifiedPoints();
+
 		GuildEmblems_t getGuildEmblem(const Player* player) const;
 
 		uint64_t getSpentMana() const {
@@ -327,14 +335,25 @@ class Player final : public Creature, public Cylinder
 			bedItem = b;
 		}
 
-		void addBlessing(uint8_t blessing) {
-			blessings |= blessing;
+		void addBlessing(uint8_t index, uint8_t count) {
+			if (blessings[index - 1] == 255) {
+				return;
+			}
+
+			blessings[index-1] += count;
 		}
-		void removeBlessing(uint8_t blessing) {
-			blessings &= ~blessing;
+		void removeBlessing(uint8_t index, uint8_t count) {
+			if (blessings[index - 1] == 0) {
+				return;
+			}
+
+			blessings[index-1] -= count;
 		}
-		bool hasBlessing(uint8_t value) const {
-			return (blessings & (static_cast<uint8_t>(1) << value)) != 0;
+		bool hasBlessing(uint8_t index) const {
+			return blessings[index - 1] != 0;
+		}
+		uint8_t getBlessingCount(uint8_t index) const {
+			return blessings[index - 1];
 		}
 
 		bool isOffline() const {
@@ -422,6 +441,8 @@ class Player final : public Creature, public Cylinder
 		}
 		bool isPremium() const;
 		void setPremiumDays(int32_t v);
+
+		void setTibiaCoins(int32_t v);
 
 		uint16_t getHelpers() const;
 
@@ -523,7 +544,7 @@ class Player final : public Creature, public Cylinder
 		DepotChest* getDepotBox();
 		DepotChest* getDepotChest(uint32_t depotId, bool autoCreate);
 		DepotLocker* getDepotLocker(uint32_t depotId);
-		void onReceiveMail(bool isTibiaCoin) const;
+		void onReceiveMail() const;
 		bool isNearDepotBox() const;
 
 		bool canSee(const Position& pos) const final;
@@ -617,7 +638,7 @@ class Player final : public Creature, public Cylinder
 			return pzLocked;
 		}
 		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-		                             bool checkDefense = false, bool checkArmor = false, bool field = false) final;
+									 bool checkDefense = false, bool checkArmor = false, bool field = false) final;
 		void doAttacking(uint32_t interval) final;
 		bool hasExtraSwing() final {
 			return lastAttack > 0 && ((OTSYS_TIME() - lastAttack) >= getAttackSpeed());
@@ -686,8 +707,10 @@ class Player final : public Creature, public Cylinder
 		int64_t getSkullTicks() const { return skullTicks; }
 		void setSkullTicks(int64_t ticks) { skullTicks = ticks; }
 
+		bool hasKilled(const Player* player) const;
 		bool hasAttacked(const Player* attacked) const;
 		void addAttacked(const Player* attacked);
+		void removeAttacked(const Player* attacked);
 		void clearAttacked();
 		void addUnjustifiedDead(const Player* attacked);
 		void sendCreatureSkull(const Creature* creature) const {
@@ -695,7 +718,7 @@ class Player final : public Creature, public Cylinder
 				client->sendCreatureSkull(creature);
 			}
 		}
-		void checkSkullTicks(int32_t ticks);
+		void checkSkullTicks(int64_t ticks);
 
 		bool canWear(uint32_t lookType, uint8_t addons) const;
 		void addOutfit(uint16_t lookType, uint8_t addons);
@@ -827,9 +850,9 @@ class Player final : public Creature, public Cylinder
 				client->sendCreatureShield(creature);
 			}
 		}
-		void sendCreatureType(uint32_t creatureId, uint8_t creatureType) {
+		void sendCreatureType(const Creature* creature, uint8_t creatureType) {
 			if (client) {
-				client->sendCreatureType(creatureId, creatureType);
+				client->sendCreatureType(creature, creatureType);
 			}
 		}
 		void sendCreatureHelpers(uint32_t creatureId, uint16_t helpers) {
@@ -866,22 +889,60 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
-		void sendItems() {
- 			if (client) {
- 				client->sendItems();
- 			}
- 		}
+		void sendInventoryClientIds() {
+			if (client) {
+				client->sendInventoryClientIds();
+			}
+		}
+
+		//store
+		void sendOpenStore(uint8_t serviceType) {
+			if(client) {
+				client->sendOpenStore(serviceType);
+			}
+		}
+
+		void sendShowStoreCategoryOffers(StoreCategory* category) {
+			if(client) {
+				client->sendStoreCategoryOffers(category);
+			}
+		}
+
+		void sendStoreError(GameStoreError_t error, const std::string& errorMessage) {
+			if(client) {
+				client->sendStoreError(error, errorMessage);
+			}
+		}
+
+		void sendStorePurchaseSuccessful(const std::string& message, const uint32_t coinBalance) {
+			if(client)
+			{
+				client->sendStorePurchaseSuccessful(message, coinBalance);
+			}
+		}
+
+		void sendStoreRequestAdditionalInfo(uint32_t offerId, ClientOffer_t clientOfferType) {
+			if(client) {
+				client->sendStoreRequestAdditionalInfo(offerId, clientOfferType);
+			}
+		}
+
+		void sendStoreTrasactionHistory(HistoryStoreOfferList& list, uint32_t page, uint8_t entriesPerPage) {
+			if(client) {
+				client->sendStoreTrasactionHistory(list, page, entriesPerPage);
+			}
+		}
 
 		//event methods
 		void onUpdateTileItem(const Tile* tile, const Position& pos, const Item* oldItem,
-		                              const ItemType& oldType, const Item* newItem, const ItemType& newType) final;
+									  const ItemType& oldType, const Item* newItem, const ItemType& newType) final;
 		void onRemoveTileItem(const Tile* tile, const Position& pos, const ItemType& iType,
-		                              const Item* item) final;
+									  const Item* item) final;
 
 		void onCreatureAppear(Creature* creature, bool isLogin) final;
 		void onRemoveCreature(Creature* creature, bool isLogout) final;
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
-		                            const Tile* oldTile, const Position& oldPos, bool teleport) final;
+									const Tile* oldTile, const Position& oldPos, bool teleport) final;
 
 		void onAttackedCreatureDisappear(bool isLogout) final;
 		void onFollowCreatureDisappear(bool isLogout) final;
@@ -942,6 +1003,16 @@ class Player final : public Creature, public Cylinder
 				client->sendIcons(getClientIcons());
 			}
 		}
+		void sendClientCheck() const {
+			if (client) {
+				client->sendClientCheck();
+			}
+		}
+		void sendGameNews() const {
+			if (client) {
+				client->sendGameNews();
+			}
+		}
 		void sendMagicEffect(const Position& pos, uint8_t type) const {
 			if (client) {
 				client->sendMagicEffect(pos, type);
@@ -959,19 +1030,14 @@ class Player final : public Creature, public Cylinder
 				client->sendBasicData();
 			}
 		}
-		void sendSkills() const {
-			if (client) {
-				client->sendSkills();
-			}
-		}
 		void sendBlessStatus() const {
 			if (client) {
 				client->sendBlessStatus();
 			}
 		}
-		void sendSkullTime() const {
+		void sendSkills() const {
 			if (client) {
-				client->sendSkullTime();
+				client->sendSkills();
 			}
 		}
 		void sendTextMessage(MessageClasses mclass, const std::string& message) const {
@@ -1137,6 +1203,19 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
+		void sendCoinBalanceUpdating(bool updating) {
+			if(client) {
+				client->sendCoinBalanceUpdating(updating);
+			}
+		}
+
+		void sendStoreOpen(uint8_t serviceType) {
+			if(client)
+				client->sendOpenStore(serviceType);
+		}
+
+
+
 		void receivePing() {
 			lastPong = OTSYS_TIME();
 		}
@@ -1177,28 +1256,77 @@ class Player final : public Creature, public Cylinder
 		void learnInstantSpell(const std::string& spellName);
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
-		
+
 		bool startLiveCast(const std::string& password) {
 			return client && client->startLiveCast(password);
 		}
-
 		bool stopLiveCast() {
 			return client && client->stopLiveCast();
 		}
-
 		bool isLiveCaster() const {
 			return client && client->isLiveCaster();
+		}
+		bool getSpectators(std::vector<ProtocolSpectator_ptr>& spectators) const {
+			if (!isLiveCaster()) {
+				return false;
+			}
+			spectators = client->spectators;
+			return true;
 		}
 
 		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
 			return openContainers;
 		}
-		bool getSpectators(std::vector<ProtocolSpectator_ptr>& spectators) const {
-		if (!isLiveCaster()) {
-			return false;
+
+		uint16_t getBaseXpGain() const {
+			return baseXpGain;
 		}
-		spectators = client->spectators;
-		return true;
+		void setBaseXpGain(uint16_t value) {
+
+			baseXpGain = std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), value);
+		}
+		uint16_t getVoucherXpBoost() const {
+			return voucherXpBoost;
+		}
+		void setVoucherXpBoost(uint16_t value) {
+			voucherXpBoost = std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), value);
+		}
+		uint16_t getGrindingXpBoost() const {
+			return grindingXpBoost;
+		}
+		void setGrindingXpBoost(uint16_t value) {
+			grindingXpBoost = std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), value);
+		}
+		uint16_t getStoreXpBoost() const {
+			return storeXpBoost;
+		}
+		void setStoreXpBoost(uint16_t exp) {
+			storeXpBoost = exp;
+		}
+		uint16_t getStaminaXpBoost() const {
+			return staminaXpBoost;
+		}
+		void setStaminaXpBoost(uint16_t value) {
+			staminaXpBoost = std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), value);
+		}
+
+		void setExpBoostStamina(uint16_t stamina) {
+			expBoostStamina = stamina;
+		}
+
+		uint16_t getExpBoostStamina() {
+			return expBoostStamina;
+		}
+
+		int32_t getIdleTime() const {
+			return idleTime;
+		}
+
+		void doCriticalDamage(CombatDamage& damage) const;
+		bool isMarketExhausted() const; //Custom: Anti bug do market
+		//Custom: Anti bug do market
+		void updateMarketExhausted(){
+			lastMarketInteraction = OTSYS_TIME();
 		}
 	protected:
 		std::forward_list<Condition*> getMuteConditions() const;
@@ -1242,6 +1370,8 @@ class Player final : public Creature, public Cylinder
 		size_t getLastIndex() const final;
 		uint32_t getItemTypeCount(uint16_t itemId, int32_t subType = -1) const final;
 		std::map<uint32_t, uint32_t>& getAllItemTypeCount(std::map<uint32_t, uint32_t>& countMap) const final;
+		Item* getItemByClientId(uint16_t clientId) const;
+		std::map<uint16_t, uint16_t> getInventoryClientIds() const;
 		Thing* getThing(size_t index) const final;
 
 		void internalAddThing(Thing* thing) final;
@@ -1259,7 +1389,7 @@ class Player final : public Creature, public Cylinder
 		std::map<uint32_t, Reward*> rewardMap;
 
 		std::vector<OutfitEntry> outfits;
-		GuildWarList guildWarList;
+		GuildWarVector guildWarVector;
 
 		std::list<ShopInfo> shopItemList;
 
@@ -1288,9 +1418,12 @@ class Player final : public Creature, public Cylinder
 		int64_t skullTicks = 0;
 		int64_t lastWalkthroughAttempt = 0;
 		int64_t lastToggleMount = 0;
+		int64_t lastMarketInteraction = 0;  //Custom: Anti bug do market
 		int64_t lastPing;
 		int64_t lastPong;
 		int64_t nextAction = 0;
+
+		std::vector<Kill> unjustifiedKills;
 
 		BedItem* bedItem = nullptr;
 		Guild* guild = nullptr;
@@ -1333,12 +1466,12 @@ class Player final : public Creature, public Cylinder
 		int32_t saleCallback = -1;
 		int32_t MessageBufferCount = 0;
 		int32_t premiumDays = 0;
+		int32_t tibiaCoins = 0;
 		int32_t bloodHitCount = 0;
 		int32_t shieldBlockCount = 0;
 		int32_t offlineTrainingSkill = -1;
 		int32_t offlineTrainingTime = 0;
 		int32_t idleTime = 0;
-		uint16_t expBoost = 0;
 		uint16_t expBoostStamina = 0;
 
 		uint16_t lastStatsTrainingTime = 0;
@@ -1347,12 +1480,16 @@ class Player final : public Creature, public Cylinder
 		std::vector<uint16_t> preyBonusType = {0, 0, 0};
 		std::vector<uint16_t> preyBonusValue = {0, 0, 0};
 		std::vector<std::string> preyBonusName = {"", "", ""};
-		
+		std::vector<uint8_t> blessings = { 0, 0, 0, 0, 0, 0, 0, 0 };
 		uint16_t maxWriteLen = 0;
+		uint16_t baseXpGain = 100;
+		uint16_t voucherXpBoost = 0;
+		uint16_t grindingXpBoost = 0;
+		uint16_t storeXpBoost = 0;
+		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
 
 		uint8_t soul = 0;
-		uint8_t blessings = 0;
 		uint8_t levelPercent = 0;
 		uint8_t magLevelPercent = 0;
 
@@ -1387,22 +1524,6 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
-		void setExpBoost(uint16_t exp) {
-			expBoost = exp;
-		}
-
-		void setExpBoostStamina(uint16_t stamina) {
-			expBoostStamina = stamina;
-		}
-
-		uint16_t getExpBoost() {
-			return expBoost;
-		}
-
-		uint16_t getExpBoostStamina() {
-			return expBoostStamina;
-		}
-
 		bool isPromoted() const;
 
 		uint32_t getAttackSpeed() const {
@@ -1432,8 +1553,8 @@ class Player final : public Creature, public Cylinder
 		friend class Map;
 		friend class Actions;
 		friend class IOLoginData;
-		friend class ProtocolGameBase;
 		friend class ProtocolGame;
+		friend class ProtocolGameBase;
 };
 
 #endif

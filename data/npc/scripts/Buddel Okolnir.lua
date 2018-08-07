@@ -13,7 +13,7 @@ local travelNode = keywordHandler:addKeyword({'svargrond'}, StdModule.say, {npcH
 	travelNode:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, reset = true, text = 'SHIP AHOY! I AM BUDDEL THE ..... did you say no??? Alright.'})
 
 -- Kick
-keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, text = 'Get out o\' here!*HICKS*', destination = {Position(32224, 31385, 7), Position(32227, 31387, 7), Position(32229, 31385, 7)}})
+--keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, text = 'Get out o\' here!*HICKS*', destination = {Position(32224, 31385, 7), Position(32227, 31387, 7), Position(32229, 31385, 7)}})
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

@@ -7,7 +7,7 @@ function onSay(player, words, param)
 		return false
 	end
 
-	player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Multiclient Check List:")
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Multiclient Check List:")
 
 	local ipList = {}
 	local players = Game.getPlayers()
@@ -33,7 +33,7 @@ function onSay(player, words, param)
 				tmpPlayer = list[i]
 				message = ("%s, %s [%d]"):format(message, tmpPlayer:getName(), tmpPlayer:getLevel())
 			end
-			player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, message .. ".")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ".")
 		end
 	end
 	return false

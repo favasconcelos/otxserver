@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,8 +23,10 @@
 #include "outputmessage.h"
 
 #include "game.h"
+#include "configmanager.h"
 
 extern Game g_game;
+extern ConfigManager g_config;
 
 void ProtocolOld::disconnectClient(const std::string& message)
 {
@@ -49,7 +51,7 @@ void ProtocolOld::onRecvFirstMessage(NetworkMessage& msg)
 
 	if (version <= 760) {
 		std::ostringstream ss;
-		ss << "Only clients with protocol " << CLIENT_VERSION_STR << " allowed!";
+		ss << "Only clients with protocol " << g_config.getString(ConfigManager::VERSION_STR) << " allowed!";
 		disconnectClient(ss.str());
 		return;
 	}
@@ -72,6 +74,6 @@ void ProtocolOld::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	std::ostringstream ss;
-	ss << "Only clients with protocol " << CLIENT_VERSION_STR << " allowed!";
+	ss << "Only clients with protocol " << g_config.getString(ConfigManager::VERSION_STR) << " allowed!";
 	disconnectClient(ss.str());
 }

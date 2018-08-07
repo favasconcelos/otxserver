@@ -116,8 +116,10 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
+	--player:removeCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+
 	local condition = player:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
-	if condition and math.floor(condition:getTicks() / 1000 + food[1]) >= 1200 then
+	if condition and math.floor(condition:getTicks() / 1000 + (food[1] * 12)) >= 1200 then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are full.')
 		return true
 	end

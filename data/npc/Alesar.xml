@@ -12,11 +12,10 @@
 			serpent sword, 2409, 6000 " />
 		<parameter key="shop_sellable" value="
 			ancient shield, 2535, 900;
-			dark armor, 2489, 400;
-			dark helmet, 2490, 250;
-			serpent sword, 2409, 900;
 			black shield, 2529, 800;
 			bonebreaker, 7428, 10000;
+			dark armor, 2489, 400;
+			dark helmet, 2490, 250;
 			dragon hammer, 2434, 2000;
 			dreaded cleaver, 7419, 15000;
 			earth knight axe, 7860, 2000;
@@ -32,6 +31,8 @@
 			onyx flail, 7421, 22000;
 			ornamented axe, 7411, 20000;
 			poison dagger, 2411, 50;
+			scimitar, 2419, 150;
+			serpent sword, 2409, 900;
 			skull staff, 2436, 6000;
 			strange helmet, 2479, 500;
 			titan axe, 7413, 4000;

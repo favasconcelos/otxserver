@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -73,7 +73,7 @@ void printXMLError(const std::string& where, const std::string& fileName, const 
 	std::cout << '^' << std::endl;
 }
 
-inline static uint32_t circularShift(int bits, uint32_t value)
+static uint32_t circularShift(int bits, uint32_t value)
 {
 	return (value << bits) | (value >> (32 - bits));
 }
@@ -271,9 +271,9 @@ std::string asUpperCaseString(std::string source)
 	return source;
 }
 
-StringVec explodeString(const std::string& inString, const std::string& separator, int32_t limit/* = -1*/)
+StringVector explodeString(const std::string& inString, const std::string& separator, int32_t limit/* = -1*/)
 {
-	StringVec returnVector;
+	StringVector returnVector;
 	std::string::size_type start = 0, end = 0;
 
 	while (--limit != -1 && (end = inString.find(separator, start)) != std::string::npos) {
@@ -285,9 +285,9 @@ StringVec explodeString(const std::string& inString, const std::string& separato
 	return returnVector;
 }
 
-IntegerVec vectorAtoi(const StringVec& stringVector)
+IntegerVector vectorAtoi(const StringVector& stringVector)
 {
-	IntegerVec returnVector;
+	IntegerVector returnVector;
 	for (const auto& string : stringVector) {
 		returnVector.push_back(std::stoi(string));
 	}
@@ -586,9 +586,10 @@ MagicEffectNames magicEffectNames = {
 	{"yellowsmoke",		CONST_ME_YELLOWSMOKE},
 	{"greensmoke",		CONST_ME_GREENSMOKE},
 	{"purplesmoke",		CONST_ME_PURPLESMOKE},
-	{"lightning",		CONST_ME_LIGHTNING },
-	{"ragiazbonecapsule",		CONST_ME_RAGIAZ_BONE_CAPSULE},
-	{"criticalhit",		CONST_ME_CRITICAL_HIT},
+	{"earlythunder",		CONST_ME_EARLY_THUNDER },
+	{"ragiazbonecapsule",		CONST_ME_RAGIAZ_BONECAPSULE},
+	{"criticaldagame",		CONST_ME_CRITICAL_DAMAGE},
+	{"plugingfish",		CONST_ME_PLUNGING_FISH},
 };
 
 ShootTypeNames shootTypeNames = {
@@ -1012,7 +1013,7 @@ const char* getReturnMessage(ReturnValue value)
 	switch (value) {
 		case RETURNVALUE_REWARDCHESTISEMPTY:
 			return "The chest is currently empty. You did not take part in any battles in the last seven days or already claimed your reward.";
-		
+
 		case RETURNVALUE_DESTINATIONOUTOFREACH:
 			return "Destination is out of reach.";
 
@@ -1191,7 +1192,109 @@ const char* getReturnMessage(ReturnValue value)
 		case RETURNVALUE_YOUARENOTTHEOWNER:
 			return "You are not the owner.";
 
+		case RETURNVALUE_YOUCANTOPENCORPSEADM:
+			return "You can't open this corpse, because you are an Admin.";
+
+		case RETURNVALUE_NOSUCHRAIDEXISTS:
+			return "No such raid exists.";
+
+		case RETURNVALUE_ANOTHERRAIDISALREADYEXECUTING:
+			return "Another raid is already executing.";
+
+		case RETURNVALUE_TRADEPLAYERFARAWAY:
+			return "Trade player is too far away.";
+
+		case RETURNVALUE_YOUDONTOWNTHISHOUSE:
+			return "You don't own this house.";
+
+		case RETURNVALUE_TRADEPLAYERALREADYOWNSAHOUSE:
+			return "Trade player already owns a house.";
+
+		case RETURNVALUE_TRADEPLAYERHIGHESTBIDDER:
+			return "Trade player is currently the highest bidder of an auctioned house.";
+
+		case RETURNVALUE_YOUCANNOTTRADETHISHOUSE:
+			return "You can not trade this house.";
+
+		case RETURNVALUE_NOTENOUGHFISTLEVEL:
+			return "You do not have enough fist level";
+
+		case RETURNVALUE_NOTENOUGHCLUBLEVEL:
+			return "You do not have enough club level";
+
+		case RETURNVALUE_NOTENOUGHSWORDLEVEL:
+			return "You do not have enough sword level";
+
+		case RETURNVALUE_NOTENOUGHAXELEVEL:
+			return "You do not have enough axe level";
+
+		case RETURNVALUE_NOTENOUGHDISTANCELEVEL:
+			return "You do not have enough distance level";
+
+		case RETURNVALUE_NOTENOUGHSHIELDLEVEL:
+			return "You do not have enough shielding level";
+
+		case RETURNVALUE_NOTENOUGHFISHLEVEL:
+			return "You do not have enough fishing level";
+
 		default: // RETURNVALUE_NOTPOSSIBLE, etc
 			return "Sorry, not possible.";
 	}
+}
+
+int64_t OTSYS_TIME()
+{
+	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+}
+
+/**
+ * @authors jlcvp, acmh
+ * @details
+ * capitalize the first letter of every word in source
+ * @param source
+ */
+void capitalizeWords(std::string& source)
+{
+	toLowerCaseString(source);
+	uint8_t size = (uint8_t) source.size();
+	for(uint8_t i=0; i< size; i++) {
+		if(i==0) {
+			source[i] = (char)toupper(source[i]);
+		} else if(source[i-1] == ' ' || source[i-1] == '\'') {
+			source[i] = (char)toupper(source[i]);
+		}
+	}
+}
+
+NameEval_t validateName(const std::string &name)
+{
+
+	StringVector prohibitedWords = {"owner", "gamemaster", "hoster", "admin", "staff", "tibia", "account", "god", "anal", "ass", "fuck", "sex", "hitler", "pussy", "dick", "rape", "cm", "gm", "tutor", "counsellor", "god"};
+	StringVector toks;
+	std::regex regexValidChars("^[a-zA-Z' ]+$");
+
+	boost::split(toks, name, boost::is_any_of(" '"));
+	if(name.length()<3 || name.length()>14) {
+		return INVALID_LENGTH;
+	}
+
+	if(!std::regex_match(name, regexValidChars)) { //invalid chars in name
+		return INVALID_CHARACTER;
+	}
+
+	for(std::string str : toks) {
+		if(str.length()<2)
+			return INVALID_TOKEN_LENGTH;
+		else if(std::find(prohibitedWords.begin(), prohibitedWords.end(),str) != prohibitedWords.end()) { //searching for prohibited words
+			return INVALID_FORBIDDEN;
+		}
+	}
+
+	return VALID;
+}
+bool isCaskItem(uint16_t itemId)
+{
+	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) || 
+		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) || 
+		(itemId >= ITEM_SPIRIT_CASK_START && itemId <= ITEM_SPIRIT_CASK_END);
 }

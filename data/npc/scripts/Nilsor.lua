@@ -65,7 +65,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "sulphur") then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 23 then
-			npcHandler:say("I need fine sulphur of an inactive lava hole. No other sulphur will do. Use an ordinary kitchen spoon on an inactive lava hole. Do you have fine sulphurwith you?", cid)
+			npcHandler:say("I need fine sulphur of an inactive lava hole. No other sulphur will do. Use an ordinary kitchen spoon on an inactive lava hole. Do you have fine sulphur with you?", cid)
 			npcHandler.topic[cid] = 5
 		end
 	elseif msgcontains(msg, "herb") then
@@ -100,8 +100,8 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.TheIceIslands.Mission06, 1) -- Questlog The Ice Islands Quest, Nibelor 5: Cure the Dogs
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 2 then
-			if player:getMoney() >= 25 then
-				player:removeMoney(25)
+			if player:getMoney() + player:getBankBalance() >= 25 then
+				player:removeMoneyNpc(25)
 				npcHandler:say("Here you are. A waterskin!", cid)
 				player:addItem(7286, 1)
 			else
@@ -128,7 +128,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
-			if player:removeItem(8301, 1) then
+			if player:removeItem(7247, 1) then
 				npcHandler:say("Thank you for this ingredient. Now bring me the Frostbite {Herb}", cid)
 				player:setStorageValue(Storage.TheIceIslands.Questline, 24)
 				player:setStorageValue(Storage.TheIceIslands.Mission06, 4) -- Questlog The Ice Islands Quest, Nibelor 5: Cure the Dogs

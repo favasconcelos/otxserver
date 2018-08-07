@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2016  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
 class Player;
 class Party;
 
-typedef std::vector<Player*> PlayerVector;
+using PlayerVector = std::vector<Player*>;
 
 class Party
 {
@@ -78,7 +78,6 @@ class Party
 		bool canUseSharedExperience(const Player* player) const;
 		void updateSharedExperience();
 
-		void updateVocationsList();
 
 		void updatePlayerTicks(Player* player, uint32_t points);
 		void clearPlayerPoints(Player* player);
@@ -93,7 +92,6 @@ class Party
 
 		Player* leader;
 
-		float extraExpRate = 0.20f;
 
 		bool sharedExpActive = false;
 		bool sharedExpEnabled = false;

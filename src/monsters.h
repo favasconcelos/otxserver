@@ -185,10 +185,6 @@ class MonsterType
 		void createLoot(Container* corpse);
 		bool createLootContainer(Container* parent, const LootBlock& lootblock);
 		std::vector<Item*> createLootItem(const LootBlock& lootBlock, bool canRerollLoot = false);
-
-	private:
-		void insertLootStatistic(uint32_t itemID, uint32_t itemCount);
-		
 };
 
 class Monsters
