@@ -1,5 +1,5 @@
 local effects = {
-    {position = Position(32365, 32236, 7), text = 'TRAINERS', effect = CONST_ME_GROUNDSHAKER},
+    {position = Position(32373, 32239, 7), text = 'TRAINERS', effect = CONST_ME_GROUNDSHAKER},
 	{position = Position(32353, 32223, 7), text = 'ARENA PVP', effect = CONST_ME_GROUNDSHAKER},
 }
  
@@ -20,4 +20,3 @@ function onThink(interval)
     end
    return true
 end
- 
