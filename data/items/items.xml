@@ -36859,10 +36859,7 @@
 	</item>
 	<item fromid="29026" toid="29028" article="an" name="Unknown" />
 	<item id="29029" article="a" name="dark moon mirror" />
-		<attribute key="weight" value="2000" />
 	<item id="29030" article="a" name="moon mirror" />
-		<attribute key="absorbPercentDeath" value="5" />
-		<attribute key="weight" value="200" />
 	<item id="29031"  article="an" name="Empty starlight vial" />
 	<item id="29032"  article="a" name="gleaming starlight vial" />
 	<item id="29033"  article="a" name="shining sun catcher" />
