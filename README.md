@@ -18,11 +18,16 @@
 
 # Sites Compativeis
 -> by Leonardo Pereira (jlcvp) [Gesior Compativel](https://github.com/jlcvp/GesiorMonteiro/archive/master.zip).
+
 -> by Marco Oliveira (Marcomoa) [Gesior Compativel](https://github.com/marcomoa/Gesior-AAC/archive/master.zip).
+
 -> by Ricardo Souza (Riicksouza) [Gesior Compativel](https://github.com/Riicksouzaa/TheRealGesiorFerobra/archive/master.zip).
 
 # Contato:
 -> Facebook: www.facebook.com/erick.nunes.75
+
 -> Skype: e_nunes@live.com
+
 -> [Grupo do Whatsapp] (https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8)
+
 -> [Grupo do Discord] (https://discord.gg/7dnCeau)
