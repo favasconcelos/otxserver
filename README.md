@@ -1,21 +1,8 @@
 # OTXServer Global Free Version!  
 -> Servidor de Tibia mantido por vários voluntários de  bom coração. O servidor usa como base OTX Server 3.10 <- 
 
-# (GIT PRIVADO) Requisito:
--> [Gitlab Privado](https://gitlab.com/malucooo/Otxserver-Global)
-###### 0.1 -> Sera invitado no projeto somente por meio de convite, adquirido através de contribuições funcionais e estaveis, sendo que os membros invitados tenham conteúdo para subir ou no passado já contribuíram frequentemente.
-###### 0.2 -> Regularmente sera feita a limpeza de membros que não estejam alimentando com conteúdo o projeto.
-###### 0.3 -> Entre em contato caso tenha interesse em acessar o conteúdo "privado" (isso não quer dizer que seja pago)!
-
-# Contato:
--> Facebook: www.facebook.com/erick.nunes.75
-
--> Skype: e_nunes@live.com
-
--> [Grupo do Whatsapp] (https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8)
-
--> [Grupo do Discord] (https://discord.gg/7dnCeau)
-
+# Servidor de testes online:
+-> Site [Acesse aqui!](http://35.199.127.221)
 
 # Referências:
 -> [Fórum OTBR](http://www.otserv.com.br)
@@ -23,13 +10,19 @@
 # Tutoriais
 -> Temos uma Wiki explicando como compilar o servidor  [TFS Wiki](https://github.com/otland/forgottenserver/wiki/Compiling)
 
-# Downloads
--> Store Imagens [31/01/2018](http://www.mediafire.com/file/985ey1yb3x2fpyf/store31-01-2018.rar)
+# Ferramentas
+-> Nosso SDK está disponivel com as ferramentas configuradas para nosso servidor [Download aqui!](https://gitlab.com/malucooo/OTXServer-SDK/-/archive/master/OTXServer-SDK-master.zip)
+
+# Cliente 10
+-> Cliente disponivel constantemente atualizado e compativel ao nosso servidor [Download aqui!](https://gitlab.com/guilhermesidney/cliente10/-/archive/master/cliente10-master.zip)
 
 # Sites Compativeis
+-> by Leonardo Pereira (jlcvp) [Gesior Compativel](https://github.com/jlcvp/GesiorMonteiro/archive/master.zip).
+-> by Marco Oliveira (Marcomoa) [Gesior Compativel](https://github.com/marcomoa/Gesior-AAC/archive/master.zip).
+-> by Ricardo Souza (Riicksouza) [Gesior Compativel](https://github.com/Riicksouzaa/TheRealGesiorFerobra/archive/master.zip).
 
--> [Gesior Compativel](https://github.com/jlcvp/GesiorMonteiro/archive/master.zip).
-Originally by Monteiro, security fixes and features by Leonardo Pereira (jlcvp)
-
-# Mapa Editor Compativel
--> [Remeres Map Editor Official](https://github.com/hjnilsson/rme).
+# Contato:
+-> Facebook: www.facebook.com/erick.nunes.75
+-> Skype: e_nunes@live.com
+-> [Grupo do Whatsapp] (https://chat.whatsapp.com/EaoiRFXYxmdKqgmdQpWfg8)
+-> [Grupo do Discord] (https://discord.gg/7dnCeau)
