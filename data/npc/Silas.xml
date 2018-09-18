@@ -5,7 +5,7 @@
 	
 	<parameters>
 		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+		<parameter key="shop_sellable" value="
 			arrow,2544,3;
 			bolt,2543,4;			
 			bow,2456,400;
@@ -26,7 +26,7 @@
 			throwing star,2399,42;			
 			vortex bolt,15649,6
 			" />
-		<parameter key="shop_sellable" value="
+		<parameter key="shop_buyable" value="
 			
 			bow,2456,100;
 			crossbow,2455,120;

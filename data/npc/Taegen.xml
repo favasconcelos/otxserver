@@ -4,7 +4,7 @@
   <look type="980" head="100" body="41" legs="94" feet="41" addons="0" />
   <parameters>
 		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+		<parameter key="shop_buyable" value="
 			arrow,2544,3;
 			bolt,2543,4;			
 			bow,2456,400;
@@ -27,7 +27,7 @@
 			vortex bolt,15649,6
 				"/>
 
-		<parameter key="shop_buyable" value=" 
+		<parameter key="shop_sellable" value=" 
 		    bow,2456,100;
 			crossbow,2455,120;
 			spear,2389,3;" />	
