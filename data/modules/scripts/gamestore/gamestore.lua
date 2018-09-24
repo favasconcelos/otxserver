@@ -496,7 +496,7 @@ GameStore.Categories = {
 		offers = {
 			{name = "Prey Bonus Reroll", count = 1, type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS, price = 5, icons = {"Product_UsefulThings_PreyBonusReroll.png"}},
 			{name = "5x Prey Bonus Reroll", count = 5, type = GameStore.OfferTypes.OFFER_TYPE_PREYBONUS, price = 25, icons = {"Product_UsefulThings_PreyBonusReroll.png"}},
-			{name = "Permanent Prey Slot", type = GameStore.OfferTypes.OFFER_TYPE_PREYSLOT, price = 450, icons = {"preypermanet.png"}},
+			{name = "Permanent Prey Slot", type = GameStore.OfferTypes.OFFER_TYPE_PREYSLOT, price = 450, icons = {"Product_UsefulThings_PreyBonusReroll.png"}},
 			{name = "Temple Teleport", type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE, price = 25, icons = {"Product_Transportation_TempleTeleport.png"}},
 			{name = "Gold Pounch", thingId = 26377, count = 1, type = GameStore.OfferTypes.OFFER_TYPE_ITEM, price = 900, icons = {"Product_MagicCoinPurse.png"}, description = "With Gold Pounch you can carry the amount of gold without having to keep many knapsacks in the backpack, this product allows you to be charged as much gold as your ability allows."},
 		}
