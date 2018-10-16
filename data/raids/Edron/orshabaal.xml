@@ -10,7 +10,7 @@
   <announce delay="20000" type="Event" message="Orshabaal is about to make his way into the mortal realm. Run for your lives!" />
   <announce delay="60000" type="Event" message="Orshabaal has been summoned from hell to plague the lands of mortals once again." />
   <!--Single Spawns-->
-  <script delay="60000" script="orshabaal.lua" />
+  <script delay="60000" script="Orshabaal.lua" />
   <!--<singlespawn delay="60000" name="Orshabaal" x="33207" y="31719" z="7" />-->
   <!--Area Spawns-->
 </raid>
