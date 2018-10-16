@@ -7,5 +7,5 @@
   <announce delay="100000" type="Event" message="Ferumbras has returned to his citadel once more. Stop him before its too late." />
   
   <!--Single Spawns-->
-  <script delay="100000" script="ferumbras.lua" />
+  <script delay="100000" script="Ferumbras.lua" />
 </raid>
