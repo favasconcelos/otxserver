@@ -5,7 +5,7 @@
   <announce delay="30000" type="Event" message="Demonic entities are entering the mortal realm in the Hrodmir mines." />
   <announce delay="60000" type="Event" message="The demonic master has revealed itself in the mines of Hrodmir." />
   <!--Single Spawns-->
-  <script delay="60000" script="ghazbaran.lua" />
+  <script delay="60000" script="Ghazbaran.lua" />
   <!--Area Spawns-->
   <areaspawn delay="53000" fromx="32194" fromy="30986" fromz="14" tox="32213" toy="31012" toz="14">
     <monster name="Deathslicer" amount="12" />
