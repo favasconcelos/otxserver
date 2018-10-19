@@ -31996,7 +31996,11 @@
 	<item fromid="23704" toid="23705" article="a"  name="desconhecido" />
 	<item fromid="23706" toid="23707" article="a"  name="slime slide" />
 	<item id="23712" article="a" name="loose stone pile" />
-	<item id="23713" article="a" name="hole" />	
+	<item id="23713" article="a" name="hole">
+		<attribute key="floorchange" value="down" />
+		<attribute key="decayTo" value="481" />
+		<attribute key="duration" value="300" />
+	</item>
 	<item id="23715" article="a" name="hole" />	
 	<item id="23716" article="a" name="stone floor" />	
 	<item id="23717" article="a" name="stone floor" />
@@ -35879,23 +35883,57 @@
 	<item fromid="26565" toid="26596" article="a" name="stone floor" />
 	<item fromid="26617" toid="26648" article="a" name="stone floor" />
 	<item fromid="26649" toid="26652" article="a" name="monument wall" />
-	<item id="26653" article="an" name="Old Tome">
+	<item id="26653" article="an" name="old tome">
 		<attribute key="weight" value="2000" />
 	</item>
-	<item id="26654" article="a" name="Heavy Old Tome">
+	<item id="26654" article="a" name="heavy old tome">
 		<attribute key="weight" value="1000" />
 	</item>
 	<item fromid="26655" toid="26682" article="a" name="column" />
-	<item fromid="26683" toid="26774" article="a" name="Three" />
-
-	<item id="26893" article="an" name="an Astral Glyph" />
-	<item id="26894" article="an" name="a Shielded Astral Glyph" />
+	<item fromid="26812" toid="26817" article="a" name="water stream" />
+	<item id="26861" article="a" name="symbol of Fardos">
+		<attribute key="description" value="The hand represents Fardos the Creator, one of the Tibian gods." />
+	</item>
+	<item id="26869" article="a" name="symbol of Tibia">
+		<attribute key="description" value="The plant represents Tibia the Earth, one of the Tibian elemental gods." />
+	</item>
+	<item id="26871" article="a" name="symbol of Sula">
+		<attribute key="description" value="The drop over the wave represents Sula the Water, one of the Tibian elemental gods." />
+	</item>
+	<item id="26873" article="a" name="symbol of Fire">
+		<attribute key="description" value="The flames represent the Fire, one of the Tibian elemental gods." />
+	</item>
+	<item id="26875" article="a" name="symbol of Air">
+		<attribute key="description" value="The whirls represent the Air, one of the Tibian elemental gods." />
+	</item>
+	<item id="26889" article="a" name="symbol of Urgith">
+		<attribute key="description" value="The skull represents Urgith, Lord of Undeath, one of the Tibian gods." />
+	</item>
+	<item id="26883" article="a" name="symbol of Crunor">
+			<attribute key="description" value="The tree represents Crunor the First Tree, one the Tibian gods." />
+	</item>
+	<item id="26885" article="a" name="symbol of Nornur">
+			<attribute key="description" value="The eye represents Nornur, the Tibian god of Fate." />
+	</item>
+	<item id="26891" article="a" name="symbol of Toth">
+			<attribute key="description" value="The hand sheltering a human represents Toth, Guardian of the Dead, one of the Tibian gods." />
+	</item>
+	<item id="26887" article="a" name="symbol of Bastesh">
+			<attribute key="description" value="The wave represents Bastesh, Mistress of the Sea, one of the Tibian gods." />
+	</item>
+	<item id="26881" article="a" name="symbol of Suon and Fafnar">
+			<attribute key="description" value="The aureola and the corona combined represent Suon the Benevolent Sun and Fafnar the Destroying Sun, the Tibian sun gods." />
+	</item>
+	<item id="26868" article="a" name="sign of Uman and Zathroth">
+		<attribute key="description" value="The scroll and the thunderbolt represent the unity of Uman the Wise and Zathroth the Destroyer, two of the Tibian gods." />
+	</item>
+	<item id="26709" article="an" name="autumn sparkle blossom" />
+	<item id="26893" article="an" name="an astral glyph" />
+	<item id="26894" article="an" name="a shielded astral glyph" />
 	<item id="26895" article="an" name="animated Sword" />
-	<item id="26896" article="a" name="The Astral Source" />
-	<item id="26897" article="a" name="The Distorted Astral Source" />
-
-	
-	<item id="27048" article="a" name="Bone Toothpick">
+	<item id="26896" article="the" name="astral source" />
+	<item id="26897" article="the" name="distorted astral source" />
+	<item id="27048" article="a" name="bone toothpick">
 		<attribute key="weight" value="2000" />
 	</item>
 	<item id="27049" article="a" name="Beetle Carapace">

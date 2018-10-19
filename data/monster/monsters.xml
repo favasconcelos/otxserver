@@ -2,6 +2,12 @@
 <monsters>
 	<!-- Trainers -->
     <monster name="Training Monk" file="customs/Training Monk.xml" />
+
+	<!-- The First Dragon -->
+	<monster name="Tazhadur" file="FirstDragon/Tazhadur.xml" />
+	<monster name="Kalyassa" file="FirstDragon/Kalyassa.xml" />
+	<monster name="Zorvorax" file="FirstDragon/Zorvorax.xml" />
+	<monster name="Gelidrazah" file="FirstDragon/Gelidrazah.xml" />
 	
 	<!-- Cults of Tibia bosses -->
     <monster name="Ancient Spawn of Morgathla" file="Cults of tibia/Bosses/Ancient Spawn of Morgathla.xml" />
@@ -91,6 +97,9 @@
 	<monster name="The Shielded Thorn Knight" file="Hallsofhope/bosses/The Shielded Thorn Knight.xml" />
 	<monster name="Thorn Steed" file="Hallsofhope/bosses/Thorn Steed.xml" />
 	<monster name="The Enraged Thorn Knight" file="Hallsofhope/bosses/The Enraged Thorn Knight.xml" />
+	<monster name="The Time Guardian" file="Hallsofhope/bosses/The Time Guardian.xml" />
+	<monster name="The Freezing Time Guardian" file="Hallsofhope/bosses/The Freezing Time Guardian.xml" />
+	<monster name="The Blazing Time Guardian" file="Hallsofhope/bosses/The Blazing Time Guardian.xml" />
    
     <!-- Halls of Hope -->
 	<monster name="The Time Guardian" file="Hallsofhope/bosses/The Time Guardian.xml" />
@@ -598,6 +607,7 @@
 	<monster name="Askarak Lord" file="demons/askarak_lord.xml" />
 	<monster name="Askarak Prince" file="demons/askarak_prince.xml" />
 	<monster name="Dark Torturer" file="demons/dark_torturer.xml" />
+	<monster name="Angry Demon" file="demons/angry_demon.xml" />
 	<monster name="Demon" file="demons/demon.xml" />
 	<monster name="Destroyer" file="demons/destroyer.xml" />
 	<monster name="Diabolic Imp" file="demons/diabolic_imp.xml" />

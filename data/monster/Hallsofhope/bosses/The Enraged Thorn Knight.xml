@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Enraged Thorn Knight" nameDescription="a The Enraged Thorn Knight" race="blood" experience="15000" speed="250" manacost="290">
+<monster name="The Enraged Thorn Knight" nameDescription="The Enraged Thorn Knight" race="blood" experience="15000" speed="250" manacost="2955555">
 	<health now="20000" max="20000" />
-	<look type="512" addons="3" head="81" body="121" legs="121" feet="121" corpse="10319" />
+	<look type="512" addons="3" head="81" body="121" legs="121" feet="121" corpse="3058" />
 	<targetchange interval="5000" chance="0" />
 	<flags>
 		<flag summonable="0" />
@@ -15,15 +15,18 @@
 		<flag canpushcreatures="0" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
-		<flag runonhealth="15" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="200" attack="120" />
-		<attack name="physical" interval="3000" chance="10" range="7" min="0" max="-700">
-			<attribute key="shootEffect" value="smallstone" />
+		<attack name="melee" interval="2000" skill="180" attack="120" />
+		<attack name="melee" interval="3000" chance="50" target="0" min="-200" max="-800">
+			<attribute key="areaEffect" value="blackspark" />
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-400">
+			<attribute key="shootEffect" value="spear" />
 		</attack>
 	</attacks>
-	<defenses armor="10" defense="10" />
+	<defenses armor="40" defense="30" />
 	<elements>
 		<element energyPercent="20" />
 		<element holyPercent="1" />
@@ -37,6 +40,8 @@
 		<voice sentence="I will hurt you!" />
 	</voices>
 	<loot>
+		<item id="25377" chance="2200" /> <!-- gold token -->
+		<item id="25172" chance="8000" /> <!-- silver token -->
 		<item id="2148" countmax="165" chance="50320" /><!-- gold coin -->
 		<item id="2152" countmax="30" chance="50320" /><!-- platinun coin -->
 		<item id="5022" countmax="2" chance="50320" /><!-- Orichalcum Pearl -->
@@ -63,9 +68,9 @@
 		<item id="7443" chance="14460" /><!--Bullseye Potion -->
 		<item id="7632" chance="7000" /><!-- Giant Shimmering Pearl -->
         <item id="2407" chance="20000" /><!-- Bright -->
-        <item id="7453" chance="100" /><!-- Executioner -->
-        <item id="27622" chance="100" /><!-- Forbidden Fruit -->
-        <item id="5015" chance="500" /><!-- Mandrake -->
+        <item id="7453" chance="300" /><!-- Executioner -->
+        <item id="27622" chance="700" /><!-- Forbidden Fruit -->
+        <item id="5015" chance="800" /><!-- Mandrake -->
         <item id="2536" chance="1000" /><!-- Medusa Shield -->
         <item id="10219" chance="500" /><!-- Sacred Tree Amulet -->
         <item id="5875" chance="1000" /><!-- Sniper Gloves -->
@@ -74,7 +79,5 @@
         <item id="22537" chance="1000" /><!-- Trapped Bad Dream Monster -->
         <item id="27621" chance="200" /><!-- Thorn Seed  -->
         <item id="27610" chance="1000" /><!-- Part of a Rune(one)-->
-		<item id="25377" chance="100" /><!--     Gold Token -->
-		<item id="25172" chance="100" /><!--     silver token -->
 	</loot>
 </monster>

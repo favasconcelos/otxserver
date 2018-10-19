@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Sword Of Vengeance" nameDescription="a Sword Of Vengeance" race="undead" experience="0" speed="100" manacost="0">
-	<health now="500" max="500" />
+<monster name="Sword Of Vengeance" nameDescription="a sword of vengeance" race="undead" experience="0" speed="600" manacost="0">
+	<health now="2500" max="2500" />
 	<look typeex="26895" />
 	<targetchange interval="2000" chance="0" />
 	<flags>

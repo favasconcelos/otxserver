@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lady Tenebris" nameDescription="a Lady Tenebris" race="undead" experience="50000" speed="1000" manacost="0">
-	<health now="250000" max="250000" />
+<monster name="Lady Tenebris" nameDescription="Lady Tenebris" race="undead" experience="80000" speed="800" manacost="0">
+	<health now="90000" max="90000" />
 	<look type="433" head="57" body="95" legs="38" feet="94" addons="2" corpse="6081" />
 	<targetchange interval="2000" chance="20" />
 	<flags>
@@ -19,12 +19,12 @@
 	</flags>
 	
 	<attacks>
-		<attack name="melee" interval="200" chance="20" skill="153"  min="0" max="-1300"/>
-		<attack name="death" interval="200" chance="20" skill="153"  min="-600" max="-700"/>
-		<attack name="death" interval="500" chance="10" length="8" spread="0" target="1" min="-1200" max="-1500">
+		<attack name="melee" interval="200" chance="20" skill="153"  min="0" max="-1100"/>
+		<attack name="death" interval="200" chance="20" skill="153"  min="-600" max="-650"/>
+		<attack name="death" interval="500" chance="10" length="8" spread="0" target="1" min="-1100" max="-1200">
 		<attribute key="areaEffect" value="mortarea" />
     </attack>
-	<attack name="death" interval="500" chance="10" radius="8" min="-2000" max="-2500">
+	<attack name="death" interval="500" chance="10" radius="8" min="-800" max="-2500">
       	<attribute key="areaEffect" value="mortarea" />
     </attack>
 	</attacks>
@@ -37,13 +37,11 @@
 		</defense>
 	</defenses>
 	<elements>
-		<element firePercent="100" />
-		<element earthPercent="10" />
-		<element energyPercent="100" />
-		<element deathPercent="70" />
-		<element physicalPercent="100" />
-		<element holyPercent="70" />
-		<element icePercent="100" />
+		<element firePercent="62" />
+		<element earthPercent="-25" />
+		<element deathPercent="80" />
+		<element physicalPercent="50" />
+		<element holyPercent="-10" />
 	</elements>
 	<immunities>
 		<immunity paralyze="1" />
@@ -51,49 +49,48 @@
 	</immunities>
 	<summons maxSummons="6">
 		<summon name="Shadow Fiend" interval="2000" chance="5" />
-		<summon name="Shadow Tentacle" interval="2000" chance="5" />
 	</summons>
 	<voices interval="50000" chance="30">
 		<voice sentence="May the embrace of darkness kill you!" yell="1" />
 		<voice sentence="I'm the one and only mistress of shadows!" yell="1" />
-		<voice sentence="LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!" yell="1" />
+		<!--voice sentence="LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!" yell="1" /-->
 	</voices>
 	<loot>
-		<item id="2152" countmax="50" chance="10000" /> <!-- Platinum Coin -->
-		<item id="2160" countmax="6" chance="10000" /> <!-- Crystal Coins -->
-		<item id="18418" countmax="15" chance="10000" /> <!-- Blue Crystal Splinter -->
-		<item id="7368" countmax="100" chance="10000" /> <!-- Assassin Star -->
-		<item id="22598" countmax="3" chance="7000" /> <!-- Unrealized Dream -->
-		<item id="6500" countmax="2" chance="1000" /> <!-- Demonic Essence -->
-		<item id="8473" countmax="100" chance="10000" /> <!-- Ultimate Health Potion -->
-		<item id="7590" countmax="100" chance="10000" /> <!-- Great Mana Potions -->
-		<item id="8472" countmax="100" chance="10000" /> <!-- Great Spirit Potions -->
-		<item id="22397" countmax="3" chance="2000" /> <!-- Dream Matter -->
+		<item id="25377" chance="5200" /> <!-- gold token -->
+		<item id="25172" chance="8000" /> <!-- silver token -->
+		<item id="2152" countmax="100" chance="10000" /> <!-- Gold Coin -->
+		<item id="2152" countmax="25" chance="10000" /> <!-- Platinum Coin -->
+		<item id="2150" countmax="11" chance="10000" /> <!-- small sapphire -->
+		<item id="2145" countmax="12" chance="10000" /> <!-- small diamond -->
+		<item id="2147" countmax="15" chance="10000" /> <!-- small ruby -->
+		<item id="9970" countmax="8" chance="10000" /> <!-- small topaz -->
+		<item id="7590" countmax="5" chance="10000" /> <!-- Great Mana Potions -->
+		<item id="8472" countmax="10" chance="10000" /> <!-- Great Spirit Potions -->
+		<item id="18413" countmax="3" chance="2000" /> <!-- Blue Crystal Shard -->
 		<item id="18415" countmax="5" chance="10000" /> <!-- Green Crystal Shard -->
-		<item id="22396" countmax="14" chance="2000" /> <!-- Cluster of Solace -->
-		<item id="2158" countmax="2" chance="10000" /> <!-- Blue Gem -->
+		<item id="22396" countmax="2" chance="8000" /> <!-- Cluster of Solace -->
+		<item id="2154" chance="7000" /> <!-- yellow gem -->
+		<item id="2155" chance="7000" /> <!-- green gem -->
+		<item id="2156" chance="7000" /> <!-- red gem -->
 		<item id="18416" countmax="10" chance="10000" /> <!-- Green Crystal Splinter -->
-		<item id="18414" countmax="15" chance="10000" /> <!-- Violet Crystal Shard -->
-		<item id="6529" chance="6000" /> <!-- Infernal Bolt -->
-		<item id="22612" chance="6000" /> <!-- Demonic Tapestry -->
-		<item id="5914" chance="6000" /> <!-- Yellow Piece of Cloth -->
-		<item id="5911" chance="6000" /> <!-- Red Piece of Cloth -->
-		<item id="22610" chance="1100" /> <!-- Dream Warden Mask -->
-		<item id="7899" chance="6000" /> <!-- Magma Coat -->
-		<item id="7632" chance="6000" /> <!-- Giant Shimmering Pearl -->
-		<item id="5954" chance="6000" /> <!-- Demon Horn -->
-		<item id="22608" chance="6000" unique="1"/> <!-- Nightmare Horn -->
-		<item id="2195" chance="6000" /> <!-- Boots of Haste -->
-		<item id="2168" chance="6000" /> <!-- Life Ring -->
-		<item id="22614" chance="6000" /> <!-- Nightmare Beacon -->
-		<item id="22613" chance="6000" /> <!-- Eye Pod -->
+		<item id="18414" countmax="3" chance="10000" /> <!-- Violet Crystal Shard -->
+		<item id="7440" chance="6000" /> <!-- mastermind potion -->
+		<item id="24851" chance="6000" /> <!-- onyx pendant -->
+		<item id="2123" chance="8000" /> <!-- ring of the sky -->
+		<item id="7451" chance="6000" /> <!-- shadow sceptre -->
+		<item id="8903" chance="3100" /> <!-- spellbook of lost souls -->
+		<item id="8901" chance="9000" /> <!-- spellbook of warding -->
+		<item id="7632" chance="8000" /> <!-- Giant Shimmering Pearl -->
+		<item id="11355" chance="6500" /> <!-- spellweaver's robe -->
+		<item id="2436" chance="6010" /> <!-- skull staff -->
+		<item id="18390" chance="5000" /> <!-- wand of defiance -->
+		<item id="27641" chance="1000" /> <!-- shadow mask -->
+		<item id="27642" chance="1000" /> <!-- shadow paint -->
+		<item id="2138" chance="6000" /> <!-- sapphire amulet -->
 		<item id="8903" chance="200" /> <!-- spellbook of lost souls -->
 		<item id="22422" chance="300" /> <!-- Crude Umbral Spellbook -->
-		<item id="22424" chance="140" /> <!-- Umbral Master Spellbook -->
-		<item id="25377" chance="200" /> <!-- gold token -->
+		<item id="22423" chance="140" /> <!-- Umbral Spellbook -->
 		<item id="2453" chance="200" /> <!-- arcane staff -->
-		<item id="25172" chance="200" /> <!-- silver token -->
-		<item id="18390" chance="500" /> <!-- wand of defiance -->
 		<item id="25411" chance="200" /> <!-- book of lies -->
 	</loot>
 </monster>

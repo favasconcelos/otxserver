@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
+
+	<!-- Forgotten Knowledge -->
+	<event type="kill" name="thornknight" script="hallsofhope/thornknight.lua" />
+	<event type="kill" name="timeguardian" script="hallsofhope/timeguardian.lua" />
+	<event type="kill" name="TreeKill" script="hallsofhope/treeKill.lua" />
     
     <!-- New Summons (Pets) -->	
     <event type="login" name="petlogin" script="pet.lua" />
