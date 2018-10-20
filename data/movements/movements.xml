@@ -113,7 +113,7 @@
 	<!-- Teleports -->
 	<movevent event="StepIn" fromaid="9700" toaid="9705" script="others/tpab.lua" />
 	<movevent event="StepIn" actionid="5555" script="others/sorcererthais.lua" />
-	<movevent event="StepIn" fromaid="9710" toaid="9716" script="others/furygates.lua" />
+	<movevent event="StepIn" fromaid="9710" toaid="9717" script="others/furygates.lua" />
 	<movevent event="StepIn" fromaid="50084" toaid="50086" script="others/deeperBanutaShortcutTeleports.lua" />
 	<movevent event="StepIn" fromaid="50220" toaid="50229" script="others/vengothTeleports.lua" />
 

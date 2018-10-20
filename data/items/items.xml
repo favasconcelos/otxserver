@@ -34866,6 +34866,9 @@
 	<item fromid="26005" toid="26007" article="a" name="crater" />
 
 	<!-- MISSING -->
+	<item id="26020" article="a" name="rift hole">
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item id="26022" article="an" name="energy trap">
 		<attribute key="type" value="magicfield" />
 		<attribute key="field" value="energy">
