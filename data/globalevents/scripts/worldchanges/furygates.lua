@@ -42,7 +42,6 @@ function onStartup(interval)
 		Game.createItem(5066, {x = 32263, y = 31848, z = 7})
 		Game.createItem(7853, {x = 32262, y = 31848, z = 7})
 		Game.createItem(7851, {x = 32263, y = 31848, z = 7})
-		Game.createItem(2160, 1, {x = 32262, y = 31847, z = 7})
 
 		gate4 = Game.createItem(6116, 1, {x = 32263, y = 31848, z = 7})
 		gate4:setActionId(9713)

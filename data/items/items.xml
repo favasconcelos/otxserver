@@ -33276,6 +33276,7 @@
 		<attribute key="armor" value="9" />
 		<attribute key="speed" value="30" />
 		<attribute key="showattributes" value="1" />
+		<attribute key="slotType" value="head" />
 	</item>
 	<item id="24719" article="a" name="purple nightshade">
 		<attribute key="description" value="This rare flower will only bloom in the light of the moon." />
