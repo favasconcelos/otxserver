@@ -4,7 +4,8 @@ local gates = {
 	[9712] = {value = 3, position = Position(32268, 32162, 7)},
 	[9713] = {value = 4, position = Position(32263, 31847, 7)},
 	[9714] = {value = 5, position = Position(33221, 31921, 7)},
-	[9716] = {value = 6, position = Position(32574, 31981, 7)}
+	[9716] = {value = 6, position = Position(32574, 31981, 7)},
+	[9717] = {value = 7, position = Position(32574, 31981, 7)}
 }
 
 local exitPositions = {
@@ -18,6 +19,8 @@ local exitPositions = {
 
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
+	local destination = Position(33290, 31786, 13)
+	local exit = Position(32369, 32241, 7) --temporary fix
 	if not player then
 		return true
 	end
@@ -30,10 +33,8 @@ function onStepIn(creature, item, position, fromPosition)
 
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 
-		if Game.getStorageValue(GlobalStorage.FuryGates) ~= gate.value then
-			player:teleportTo(gate.position)
-			gate.position:sendMagicEffect(CONST_ME_TELEPORT)
-			return true
+		if gates.value == 7 then
+
 		end
 
 		if player:getLevel() < 60 then
@@ -41,20 +42,15 @@ function onStepIn(creature, item, position, fromPosition)
 			player:teleportTo(gate.position)
 			gate.position:sendMagicEffect(CONST_ME_TELEPORT)
 			return true
+		else
+			player:teleportTo(destination)
+			destination:sendMagicEffect(CONST_ME_FIREAREA)
 		end
 
-		local destination = Position(33290, 31786, 13)
-		player:teleportTo(destination)
-		destination:sendMagicEffect(CONST_ME_FIREAREA)
-	else
-		local destination = exitPositions[Game.getStorageValue(GlobalStorage.FuryGates)]
-		if not destination then
-			return true
-		end
-
-		position:sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(destination)
-		destination:sendMagicEffect(CONST_ME_FIREAREA)
+		
+	elseif isInArray({9717}, item.actionid) then
+		player:teleportTo(exit)
+		exit:sendMagicEffect(CONST_ME_TELEPORT)
 	end
 	return true
 end

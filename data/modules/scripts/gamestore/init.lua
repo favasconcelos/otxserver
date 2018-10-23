@@ -24,7 +24,8 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_TEMPLE = 13,
 	OFFER_TYPE_BLESSINGS = 14,
 	OFFER_TYPE_PREMIUM = 15,
-	OFFER_TYPE_POUNCH = 16
+	OFFER_TYPE_POUNCH = 16,
+	OFFER_TYPE_ALLBLESSINGS = 17
 }
 
 GameStore.ClientOfferTypes = {
@@ -291,6 +292,15 @@ function parseBuyStoreOffer(playerId, msg)
 		else
 		player:addBlessing(offer.thingId, 1)
 		end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS then
+			player:addBlessing(1, 1)
+			player:addBlessing(2, 1)
+			player:addBlessing(3, 1)
+			player:addBlessing(4, 1)
+			player:addBlessing(5, 1)
+			player:addBlessing(6, 1)
+			player:addBlessing(7, 1)
+			player:addBlessing(8, 1)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM then
 			player:addPremiumDays(offer.thingId)
 		-- If offer is Stackable.
