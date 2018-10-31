@@ -124,28 +124,6 @@ function onStartup(interval)
 	return true
 end
 
-		gate4:setActionId(9713)
-		print('>> Fury Gate will be active in carlin today.')
-	elseif (chance == 5) then -- edron
-		setGlobalStorageValue(9714, 5)
-		Game.createItem(5066, {x = 33220, y = 31922, z = 7})
-		Game.createItem(5066, {x = 33221, y = 31922, z = 7})
-		Game.createItem(7853, {x = 33220, y = 31922, z = 7})
-		Game.createItem(7851, {x = 33221, y = 31922, z = 7})
-		Game.createItem(5066, {x = 33220, y = 31923, z = 7})
-		Game.createItem(5066, {x = 33221, y = 31923, z = 7})
-
-		gate5 = Game.createItem(6116, 1, {x = 33221, y = 31922, z = 7})
-		gate5:setActionId(9714)
-		print('>> Fury Gate will be active in edron today.')
-	elseif (chance == 6) then -- kazordoon
-		setGlobalStorageValue(9716, 6)
-		Game.createItem(5066, {x = 32573, y = 31982, z = 7})
-		Game.createItem(5066, {x = 32574, y = 31982, z = 7})
-		Game.createItem(7853, {x = 32573, y = 31982, z = 7})
-		Game.createItem(7851, {x = 32574, y = 31982, z = 7})
-
-		gate6 = Game.createItem(6116, 1, {x = 32574, y = 31982, z = 7})
 		gate6:setActionId(9716)
 		print('>> Fury Gate will be active in kazordoon today.')
 	end
