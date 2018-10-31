@@ -123,9 +123,3 @@ function onStartup(interval)
 	end
 	return true
 end
-
-		gate6:setActionId(9716)
-		print('>> Fury Gate will be active in kazordoon today.')
-	end
-	return true
-end
