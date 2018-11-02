@@ -185,29 +185,6 @@ function onLogin(player)
         stats.playerId = player:getId()
     end
  
-    -- fury gates
-    local messageType = nil
-    if (player:getClient().os == 3 or
-    	player:getClient().os == 5) then
-    	messageType = MESSAGE_EVENT_ADVANCE
-    end
-
-    if Game.getStorageValue(9710) == 1 then
-        player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Venore Today.')
-    elseif Game.getStorageValue(9711) == 2 then
-        player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Abdendriel Today.')
-    elseif Game.getStorageValue(9712) == 3 then
-        player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Thais Today.')
-    elseif Game.getStorageValue(9713) == 4 then
-        player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Carlin Today.')
-    elseif Game.getStorageValue(9714) == 5 then
-        player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Edron Today.')
-    elseif Game.getStorageValue(9716) == 6 then
-        player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_BLUE, 'Fury Gate is on Kazordoon Today.')
-    end
-
-	player:sendTextMessage(messageType or MESSAGE_STATUS_CONSOLE_ORANGE, '[BUGS?] Reporte em http://www.github.com/malucooo/otxserver-new/issues')
-   
     -- Events
     for i = 1, #events do
         player:registerEvent(events[i])
