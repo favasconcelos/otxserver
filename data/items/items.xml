@@ -36920,15 +36920,15 @@
 		<attribute key="weaponType" value="shield" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
-	<item id="29004" article="a" name="dream blossom staff">
-		<attribute key="description" value="It's a gnarly branch with a gleaming blue blossom." />
-		<attribute key="weight" value="3200" />
-		<attribute key="weaponType" value="wand" />
-		<attribute key="shootType" value="death" />
-		<attribute key="range" value="4" />
-		<attribute key="magiclevelpoints" value="2" />
-		<attribute key="imbuingSlots" value="2" />
-	</item>
+	<!-- <item id="29004" article="a" name="dream blossom staff"> -->
+		<!-- <attribute key="description" value="It's a gnarly branch with a gleaming blue blossom." /> -->
+		<!-- <attribute key="weight" value="3200" /> -->
+		<!-- <attribute key="weaponType" value="wand" /> -->
+		<!-- <attribute key="shootType" value="death" /> -->
+		<!-- <attribute key="range" value="4" /> -->
+		<!-- <attribute key="magiclevelpoints" value="2" /> -->
+		<!-- <attribute key="imbuingSlots" value="2" /> -->
+	<!-- </item> -->
 	<item id="29005"  article="a" name="single human eye">
 	<attribute key="weight" value="150" />
 	<attribute key="showcount" value="0" />
