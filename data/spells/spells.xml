@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spells>
+       <!-- atualizações g.f. -->
+	 <instant name="the flaming orchid paralyze" words="###195" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/the flaming orchid paralyze.lua" />
+     <instant name="the flaming orchid fire" words="###196" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/the flaming orchid fire.lua" />
+     <instant name="dawnfire asura reducer magic" words="###179" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/dawnfire asura reducer magic.lua" />
+     <instant name="dawnfire asura fire" words="###180" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/dawnfire asura fire.lua" />  
+
+
 	<!-- under construction summons -->
 	<instant group="support" spellid="194" name="Summon Creature EK" words="utevo gran res eq" lvl="200" mana="1000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="support/pet.lua">
 		<vocation name="Elite Knight"/>
@@ -833,7 +840,6 @@
 	<instant name="lisa summon" words="###389" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/lisa summon.lua" />
 	<instant name="bullwark summon" words="###380" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/bullwark summon.lua" />
 	<instant name="bullwark paralyze" words="###381" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/bullwark paralyze.lua" />
-	<instant name="glooth fairy thunderstorm" words="###500" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy thunderstorm.lua" />
 	<instant name="glooth fairy skill reducer" words="###382" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy skill reducer.lua" />
 	<instant name="glooth fairy paralyze" words="###383" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy paralyze.lua" />
 	<instant name="glooth fairy healing" words="###384" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy healing.lua" />

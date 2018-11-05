@@ -202,6 +202,7 @@
 	<monster name="Shulgrax" file="Otherworld/Shulgrax.xml" />
 	<monster name="Tarbaz" file="Otherworld/Tarbaz.xml" />
 	<monster name="Razzagorn" file="Otherworld/Razzagorn.xml" />
+	<monster name="The Flaming Orchid" file="Otherworld/The Flaming Orchid.xml" />
 	<monster name="The Shatterer" file="Otherworld/The Shatterer.xml" />	   
 	<monster name="Death Dragon" file="Otherworld/Death Dragon.xml" />	   
 
