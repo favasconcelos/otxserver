@@ -122,4 +122,11 @@
 	<mount id="120" clientid="1073" name="Marsh Toad" speed="20" premium="yes" />
 	<mount id="121" clientid="1074" name="Sanguine Frog" speed="20" premium="yes" />
 	<mount id="122" clientid="1075" name="Toxic Toad" speed="20" premium="yes" />
+	<mount id="123" clientid="1091" name="Ebony Tiger" speed="20" premium="yes" />
+  <mount id="124" clientid="1092" name="Feral Tiger" speed="20" premium="yes" />
+  <mount id="125" clientid="1093" name="Jungle Tiger" speed="20" premium="yes" />
+  <mount id="126" clientid="1101" name="Flying Book" speed="20" premium="yes" />
+  <mount id="127" clientid="1104" name="Tawny Owl" speed="20" premium="yes" />
+  <mount id="128" clientid="1105" name="Boreal Owl" speed="20" premium="yes" />
+  <mount id="129" clientid="1106" name="Snowy Owl" speed="20" premium="yes" />
 </mounts>
