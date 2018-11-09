@@ -393,6 +393,7 @@
 	<monster name="Bretzecutioner" file="bosses/bretzecutioner.xml" />
 	<monster name="Bruise Payne" file="bosses/bruise payne.xml" />
 	<monster name="Brutus Bloodbeard" file="bosses/brutus_bloodbeard.xml" />
+	<monster name="Bullwark" file="bosses/bullwark.xml" />
 	<monster name="Chizzoron the Distorter" file="bosses/chizzoron_the_distorter.xml" />
 	<monster name="Coldheart" file="bosses/coldheart.xml" />
 	<monster name="Countess Sorrow" file="bosses/countess_sorrow.xml" />
