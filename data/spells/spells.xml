@@ -840,6 +840,7 @@
 	<instant name="lisa summon" words="###389" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/lisa summon.lua" />
 	<instant name="bullwark summon" words="###380" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/bullwark summon.lua" />
 	<instant name="bullwark paralyze" words="###381" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/bullwark paralyze.lua" />
+	<instant name="glooth fairy thunderstorm" words="###500" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy thunderstorm.lua" />
 	<instant name="glooth fairy skill reducer" words="###382" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy skill reducer.lua" />
 	<instant name="glooth fairy paralyze" words="###383" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy paralyze.lua" />
 	<instant name="glooth fairy healing" words="###384" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/glooth fairy healing.lua" />

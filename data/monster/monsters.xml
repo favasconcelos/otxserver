@@ -394,6 +394,7 @@
 	<monster name="Bretzecutioner" file="bosses/bretzecutioner.xml" />
 	<monster name="Bruise Payne" file="bosses/bruise payne.xml" />
 	<monster name="Brutus Bloodbeard" file="bosses/brutus_bloodbeard.xml" />
+	<monster name="Bullwark" file="bosses/bullwark.xml" />
 	<monster name="Chizzoron the Distorter" file="bosses/chizzoron_the_distorter.xml" />
 	<monster name="Coldheart" file="bosses/coldheart.xml" />
 	<monster name="Countess Sorrow" file="bosses/countess_sorrow.xml" />
@@ -459,6 +460,7 @@
 	<monster name="Latrivan" file="bosses/latrivan.xml" />
 	<monster name="Lethal Lissy" file="bosses/lethal_lissy.xml" />
 	<monster name="Leviathan" file="bosses/leviathan.xml" />
+	<monster name="Lisa" file="bosses/lisa.xml" />
 	<monster name="Lizard Abomination" file="bosses/lizard_abomination.xml" />
 	<monster name="Lord of the Elements" file="bosses/lord_of_the_elements.xml" />
 	<monster name="Mad Mage" file="bosses/mad_mage.xml" />
