@@ -36,14 +36,14 @@
     <monster name="Werefox" file="places/Cults of tibia/Werefox.xml" />
 
 	<!-- Nostalgia -->
-	<monster name="BearOld" file="nostalgia/old_bear.xml" />
-	<monster name="BonelordOld" file="nostalgia/old_bonelord.xml" />
-	<monster name="BugOld" file="nostalgia/old_bug.xml" />
-	<monster name="Giant SpiderOld" file="nostalgia/old_giant_spider.xml" />
-	<monster name="PigOld" file="nostalgia/old_pig.xml" />
-	<monster name="SpiderOld" file="nostalgia/old_spider.xml" />
-	<monster name="WaspOld" file="nostalgia/old_wasp.xml" />
-	<monster name="WolfOld" file="nostalgia/old_wolf.xml" />
+	<monster name="BearOld" file="other/nostalgia/old_bear.xml" />
+	<monster name="BonelordOld" file="other/nostalgia/old_bonelord.xml" />
+	<monster name="BugOld" file="other/nostalgia/old_bug.xml" />
+	<monster name="Giant SpiderOld" file="other/nostalgia/old_giant_spider.xml" />
+	<monster name="PigOld" file="other/nostalgia/old_pig.xml" />
+	<monster name="SpiderOld" file="other/nostalgia/old_spider.xml" />
+	<monster name="WaspOld" file="other/nostalgia/old_wasp.xml" />
+	<monster name="WolfOld" file="other/nostalgia/old_wolf.xml" />
 
     <!-- Dawnport -->		
 	<monster file="places/Dawnport/weakened shlorg.xml" name="Weakened Shlorg"/>
@@ -67,10 +67,10 @@
 	<monster file="places/Dawnport/juvenile cyclops.xml" name="Juvenile Cyclops"/>		
 	
 	<!-- VOCATION SUMMONS LV 200+ -->
-	<monster name="Emberwing" file="summons/Emberwing.xml" />
-	<monster name="Thundergiant" file="summons/Thundergiant.xml" />
-	<monster name="Skullfrost" file="summons/Skullfrost.xml" />
-	<monster name="Grovebeast" file="summons/Grovebeast.xml" />
+	<monster name="Emberwing" file="other/summons/Emberwing.xml" />
+	<monster name="Thundergiant" file="other/summons/Thundergiant.xml" />
+	<monster name="Skullfrost" file="other/summons/Skullfrost.xml" />
+	<monster name="Grovebeast" file="other/summons/Grovebeast.xml" />
 
 	<!--Feiryst-->
 	<monster name="Faun" file="humanoids/Feyrist/faun.xml" />
@@ -889,17 +889,17 @@
 
 	
 	<!-- Misc -->
-	<!-- Misc Mammals -->
-	<monster name="Badger" file="misc/Misc Mammals/badger.xml" />
-	<monster name="Bat" file="misc/Misc Mammals/bat.xml" />
-	<monster name="Ghoulish Hyaena" file="misc/Misc Mammals/ghoulish_hyaena.xml" />
-	<monster name="Hyaena" file="misc/Misc Mammals/hyaena.xml" />
-	<monster name="Skunk" file="misc/Misc Mammals/skunk.xml" />
-	<monster name="Water Buffalo" file="misc/Misc Mammals/water_buffalo.xml" />
+	<!-- misc Mammals -->
+	<monster name="Badger" file="misc/misc mammals/badger.xml" />
+	<monster name="Bat" file="misc/misc mammals/bat.xml" />
+	<monster name="Ghoulish Hyaena" file="misc/misc mammals/ghoulish_hyaena.xml" />
+	<monster name="Hyaena" file="misc/misc mammals/hyaena.xml" />
+	<monster name="Skunk" file="misc/misc mammals/skunk.xml" />
+	<monster name="Water Buffalo" file="misc/misc mammals/water_buffalo.xml" />
 
-	<!-- Misc Mounts -->
-	<monster name="Donkey" file="misc/Misc Mounts/donkey.xml" />
-	<monster name="Modified Gnarlhound" file="misc/Misc Mounts/modified_gnarlhound.xml" />
+	<!-- misc mounts -->
+	<monster name="Donkey" file="misc/misc mounts/donkey.xml" />
+	<monster name="Modified Gnarlhound" file="misc/misc mounts/modified_gnarlhound.xml" />
 
 	<!-- Misc Reptiles -->
 	<monster name="Crocodile" file="misc/misc reptiles/crocodile.xml" />
