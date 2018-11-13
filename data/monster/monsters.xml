@@ -4,73 +4,73 @@
     <monster name="Training Monk" file="customs/Training Monk.xml" />
 
 	<!-- The First Dragon -->
-	<monster name="Tazhadur" file="FirstDragon/Tazhadur.xml" />
-	<monster name="Kalyassa" file="FirstDragon/Kalyassa.xml" />
-	<monster name="Zorvorax" file="FirstDragon/Zorvorax.xml" />
-	<monster name="Gelidrazah" file="FirstDragon/Gelidrazah.xml" />
+	<monster name="Tazhadur" file="places/FirstDragon/Tazhadur.xml" />
+	<monster name="Kalyassa" file="places/FirstDragon/Kalyassa.xml" />
+	<monster name="Zorvorax" file="places/FirstDragon/Zorvorax.xml" />
+	<monster name="Gelidrazah" file="places/FirstDragon/Gelidrazah.xml" />
 	
 	<!-- Cults of Tibia bosses -->
-    <monster name="Ancient Spawn of Morgathla" file="Cults of tibia/Bosses/Ancient Spawn of Morgathla.xml" />
-    <monster name="Black Vixen" file="Cults of tibia/Bosses/Black Vixen.xml" />
-    <monster name="Bloodback" file="Cults of tibia/Bosses/Bloodback.xml" />
-    <monster name="Darkfang" file="Cults of tibia/Bosses/Darkfang.xml" />
-    <monster name="Last Planegazer" file="Cults of tibia/Bosses/Last Planegazer.xml" />
-    <monster name="Reflection Of Mawhawk" file="Cults of tibia/Bosses/Reflection Of Mawhawk.xml" />
-    <monster name="Reflection Of Obujos" file="Cults of tibia/Bosses/Reflection Of Obujos.xml" />
-    <monster name="Shadowpelt" file="Cults of tibia/Bosses/Shadowpelt.xml" />
-    <monster name="Sharpclaw" file="Cults of tibia/Bosses/Sharpclaw.xml" />
-    <monster name="The Baron from Below" file="Cults of tibia/Bosses/The Baron from Below.xml" />
-    <monster name="The Count Of The Core" file="Cults of tibia/Bosses/The Count Of The Core.xml" />
-    <monster name="The Duke Of The Depths" file="Cults of tibia/Bosses/The Duke Of The Depths.xml" />
+    <monster name="Ancient Spawn of Morgathla" file="places/Cults of tibia/Bosses/Ancient Spawn of Morgathla.xml" />
+    <monster name="Black Vixen" file="places/Cults of tibia/Bosses/Black Vixen.xml" />
+    <monster name="Bloodback" file="places/Cults of tibia/Bosses/Bloodback.xml" />
+    <monster name="Darkfang" file="places/Cults of tibia/Bosses/Darkfang.xml" />
+    <monster name="Last Planegazer" file="places/Cults of tibia/Bosses/Last Planegazer.xml" />
+    <monster name="Reflection Of Mawhawk" file="places/Cults of tibia/Bosses/Reflection Of Mawhawk.xml" />
+    <monster name="Reflection Of Obujos" file="places/Cults of tibia/Bosses/Reflection Of Obujos.xml" />
+    <monster name="Shadowpelt" file="places/Cults of tibia/Bosses/Shadowpelt.xml" />
+    <monster name="Sharpclaw" file="places/Cults of tibia/Bosses/Sharpclaw.xml" />
+    <monster name="The Baron from Below" file="places/Cults of tibia/Bosses/The Baron from Below.xml" />
+    <monster name="The Count Of The Core" file="places/Cults of tibia/Bosses/The Count Of The Core.xml" />
+    <monster name="The Duke Of The Depths" file="places/Cults of tibia/Bosses/The Duke Of The Depths.xml" />
 	
 	<!-- Cults of Tibia -->
-	<monster name="Agressive Lava" file="Cults of tibia/Agressive Lava.xml" />
-    <monster name="Cave Devourer" file="Cults of tibia/Cave Devourer.xml" />
-    <monster name="Chasm Spawn" file="Cults of tibia/Chasm Spawn.xml" />
-    <monster name="Deepworm" file="Cults of tibia/Deepworm.xml" />
-    <monster name="Diremaw" file="Cults of tibia/Diremaw.xml" />
-    <monster name="Fox" file="Cults of tibia/Fox.xml" />
-    <monster name="Mole" file="Cults of tibia/Mole.xml" />
-    <monster name="Stonerefiner" file="Cults of tibia/Stonerefiner.xml" />
-    <monster name="Tunnel Tyrant" file="Cults of tibia/Tunnel Tyrant.xml" />
-    <monster name="Werefox" file="Cults of tibia/Werefox.xml" />
+	<monster name="Agressive Lava" file="places/Cults of tibia/Agressive Lava.xml" />
+    <monster name="Cave Devourer" file="places/Cults of tibia/Cave Devourer.xml" />
+    <monster name="Chasm Spawn" file="places/Cults of tibia/Chasm Spawn.xml" />
+    <monster name="Deepworm" file="places/Cults of tibia/Deepworm.xml" />
+    <monster name="Diremaw" file="places/Cults of tibia/Diremaw.xml" />
+    <monster name="Fox" file="places/Cults of tibia/Fox.xml" />
+    <monster name="Mole" file="places/Cults of tibia/Mole.xml" />
+    <monster name="Stonerefiner" file="places/Cults of tibia/Stonerefiner.xml" />
+    <monster name="Tunnel Tyrant" file="places/Cults of tibia/Tunnel Tyrant.xml" />
+    <monster name="Werefox" file="places/Cults of tibia/Werefox.xml" />
 
 	<!-- Nostalgia -->
-	<monster name="BearOld" file="Nostalgia/old_bear.xml" />
-	<monster name="BonelordOld" file="Nostalgia/old_bonelord.xml" />
-	<monster name="BugOld" file="Nostalgia/old_bug.xml" />
-	<monster name="Giant SpiderOld" file="Nostalgia/old_giant_spider.xml" />
-	<monster name="PigOld" file="Nostalgia/old_pig.xml" />
-	<monster name="SpiderOld" file="Nostalgia/old_spider.xml" />
-	<monster name="WaspOld" file="Nostalgia/old_wasp.xml" />
-	<monster name="WolfOld" file="Nostalgia/old_wolf.xml" />
+	<monster name="BearOld" file="nostalgia/old_bear.xml" />
+	<monster name="BonelordOld" file="nostalgia/old_bonelord.xml" />
+	<monster name="BugOld" file="nostalgia/old_bug.xml" />
+	<monster name="Giant SpiderOld" file="nostalgia/old_giant_spider.xml" />
+	<monster name="PigOld" file="nostalgia/old_pig.xml" />
+	<monster name="SpiderOld" file="nostalgia/old_spider.xml" />
+	<monster name="WaspOld" file="nostalgia/old_wasp.xml" />
+	<monster name="WolfOld" file="nostalgia/old_wolf.xml" />
 
     <!-- Dawnport -->		
-	<monster file="Dawnport/weakened shlorg.xml" name="Weakened Shlorg"/>
-	<monster file="Dawnport/mountain troll.xml" name="Mountain Troll"/>
-	<monster file="Dawnport/salamander trainer.xml" name="Salamander Trainer"/>
-	<monster file="Dawnport/troll marauder.xml" name="Troll Marauder"/>		
-	<monster file="Dawnport/muglex clan assassin.xml" name="Muglex Clan Assassin"/>
-    <monster file="Dawnport/muglex clan footman.xml" name="Muglex Clan Footman"/>
-    <monster file="Dawnport/muglex clan scavenger.xml" name="Muglex Clan Scavenger"/>		
-	<monster file="Dawnport/troll-trained salamander.xml" name="Troll-Trained Salamander"/>	    
-    <monster file="Dawnport/brittle skeleton.xml" name="Brittle Skeleton"/>
-	<monster file="Dawnport/dawnfly.xml" name="Dawnfly"/>   
-   	<monster file="Dawnport/spidris elitesumom.xml" name="Spidris Elite Sumom"/> 		
-   	<monster file="Dawnport/woodling.xml" name="Woodling"/>
-	<monster file="Dawnport/dawn scorpion.xml" name="Dawn Scorpion"/>
-	<monster file="Dawnport/scar tribe shaman.xml" name="Scar Tribe Shaman"/>
- 	<monster file="Dawnport/scar tribe warrior.xml" name="Scar Tribe Warrior"/>
-	<monster file="Dawnport/crazed dwarf.xml" name="Crazed Dwarf"/>
-	<monster file="Dawnport/meadow strider.xml" name="Meadow Strider"/>
-	<monster file="Dawnport/lesser fire devil.xml" name="Lesser Fire Devil"/>
-	<monster file="Dawnport/juvenile cyclops.xml" name="Juvenile Cyclops"/>		
+	<monster file="places/Dawnport/weakened shlorg.xml" name="Weakened Shlorg"/>
+	<monster file="places/Dawnport/mountain troll.xml" name="Mountain Troll"/>
+	<monster file="places/Dawnport/salamander trainer.xml" name="Salamander Trainer"/>
+	<monster file="places/Dawnport/troll marauder.xml" name="Troll Marauder"/>		
+	<monster file="places/Dawnport/muglex clan assassin.xml" name="Muglex Clan Assassin"/>
+    <monster file="places/Dawnport/muglex clan footman.xml" name="Muglex Clan Footman"/>
+    <monster file="places/Dawnport/muglex clan scavenger.xml" name="Muglex Clan Scavenger"/>		
+	<monster file="places/Dawnport/troll-trained salamander.xml" name="Troll-Trained Salamander"/>	    
+    <monster file="places/Dawnport/brittle skeleton.xml" name="Brittle Skeleton"/>
+	<monster file="places/Dawnport/dawnfly.xml" name="Dawnfly"/>   
+   	<monster file="places/Dawnport/spidris elitesumom.xml" name="Spidris Elite Sumom"/> 		
+   	<monster file="places/Dawnport/woodling.xml" name="Woodling"/>
+	<monster file="places/Dawnport/dawn scorpion.xml" name="Dawn Scorpion"/>
+	<monster file="places/Dawnport/scar tribe shaman.xml" name="Scar Tribe Shaman"/>
+ 	<monster file="places/Dawnport/scar tribe warrior.xml" name="Scar Tribe Warrior"/>
+	<monster file="places/Dawnport/crazed dwarf.xml" name="Crazed Dwarf"/>
+	<monster file="places/Dawnport/meadow strider.xml" name="Meadow Strider"/>
+	<monster file="places/Dawnport/lesser fire devil.xml" name="Lesser Fire Devil"/>
+	<monster file="places/Dawnport/juvenile cyclops.xml" name="Juvenile Cyclops"/>		
 	
 	<!-- VOCATION SUMMONS LV 200+ -->
-	<monster name="Emberwing" file="Summons/Emberwing.xml" />
-	<monster name="Thundergiant" file="Summons/Thundergiant.xml" />
-	<monster name="Skullfrost" file="Summons/Skullfrost.xml" />
-	<monster name="Grovebeast" file="Summons/Grovebeast.xml" />
+	<monster name="Emberwing" file="summons/Emberwing.xml" />
+	<monster name="Thundergiant" file="summons/Thundergiant.xml" />
+	<monster name="Skullfrost" file="summons/Skullfrost.xml" />
+	<monster name="Grovebeast" file="summons/Grovebeast.xml" />
 
 	<!--Feiryst-->
 	<monster name="Faun" file="humanoids/Feyrist/faun.xml" />
@@ -85,160 +85,160 @@
 	<monster name="Swan Maiden" file="humanoids/Feyrist/swan_maiden.xml" />	   
 	
 	<!-- Otherworld Hallsofhope bosses -->
-	<monster name="Lady Tenebris" file="Hallsofhope/bosses/Lady Tenebris.xml" />
-	<monster name="Lloyd" file="Hallsofhope/bosses/Lloyd.xml" />
-	<monster name="Melting Frozen Horror" file="Hallsofhope/bosses/Melting Frozen Horror.xml" />
-	<monster name="The Last Lore Keeper" file="Hallsofhope/bosses/The Last Lore Keeper.xml" />
-	<monster name="Sword Of Vengeance" file="Hallsofhope/bosses/Sword Of Vengeance.xml" />
-	<monster name="An Observer Eye" file="Hallsofhope/bosses/An Observer Eye.xml" />
-	<monster name="Dragonking Zyrtarch" file="Hallsofhope/bosses/Dragonking Zyrtarch.xml" />
-	<monster name="Soul of Dragonking Zyrtarch" file="Hallsofhope/bosses/Soul of Dragonking Zyrtarch.xml" />
-	<monster name="Mounted Thorn Knight" file="Hallsofhope/bosses/Mounted Thorn Knight.xml" />
-	<monster name="The Shielded Thorn Knight" file="Hallsofhope/bosses/The Shielded Thorn Knight.xml" />
-	<monster name="Thorn Steed" file="Hallsofhope/bosses/Thorn Steed.xml" />
-	<monster name="The Enraged Thorn Knight" file="Hallsofhope/bosses/The Enraged Thorn Knight.xml" />
-	<monster name="The Time Guardian" file="Hallsofhope/bosses/The Time Guardian.xml" />
-	<monster name="The Freezing Time Guardian" file="Hallsofhope/bosses/The Freezing Time Guardian.xml" />
-	<monster name="The Blazing Time Guardian" file="Hallsofhope/bosses/The Blazing Time Guardian.xml" />
+	<monster name="Lady Tenebris" file="places/Hallsofhope/bosses/Lady Tenebris.xml" />
+	<monster name="Lloyd" file="places/Hallsofhope/bosses/Lloyd.xml" />
+	<monster name="Melting Frozen Horror" file="places/Hallsofhope/bosses/Melting Frozen Horror.xml" />
+	<monster name="The Last Lore Keeper" file="places/Hallsofhope/bosses/The Last Lore Keeper.xml" />
+	<monster name="Sword Of Vengeance" file="places/Hallsofhope/bosses/Sword Of Vengeance.xml" />
+	<monster name="An Observer Eye" file="places/Hallsofhope/bosses/An Observer Eye.xml" />
+	<monster name="Dragonking Zyrtarch" file="places/Hallsofhope/bosses/Dragonking Zyrtarch.xml" />
+	<monster name="Soul of Dragonking Zyrtarch" file="places/Hallsofhope/bosses/Soul of Dragonking Zyrtarch.xml" />
+	<monster name="Mounted Thorn Knight" file="places/Hallsofhope/bosses/Mounted Thorn Knight.xml" />
+	<monster name="The Shielded Thorn Knight" file="places/Hallsofhope/bosses/The Shielded Thorn Knight.xml" />
+	<monster name="Thorn Steed" file="places/Hallsofhope/bosses/Thorn Steed.xml" />
+	<monster name="The Enraged Thorn Knight" file="places/Hallsofhope/bosses/The Enraged Thorn Knight.xml" />
+	<monster name="The Time Guardian" file="places/Hallsofhope/bosses/The Time Guardian.xml" />
+	<monster name="The Freezing Time Guardian" file="places/Hallsofhope/bosses/The Freezing Time Guardian.xml" />
+	<monster name="The Blazing Time Guardian" file="places/Hallsofhope/bosses/The Blazing Time Guardian.xml" />
    
     <!-- Halls of Hope -->
-	<monster name="The Time Guardian" file="Hallsofhope/bosses/The Time Guardian.xml" />
-	<monster name="A Shielded Astral Glyph" file="Hallsofhope/A Shielded Astral Glyph.xml" />
-	<monster name="An Observer Eye (Imune)" file="Hallsofhope/An Observer Eye (Imune).xml" />
-	<monster name="Angry Plant" file="Hallsofhope/Angry Plant.xml" />
-	<monster name="Animated Sword" file="Hallsofhope/Animated Sword.xml" />
-	<monster name="baby dragon" file="Hallsofhope/Baby Dragon.xml" />
-	<monster name="Bound Astral Power" file="Hallsofhope/Bound Astral Power.xml" />
-	<monster name="Broken Shaper" file="Hallsofhope/Broken Shaper.xml" />
-	<monster name="Cave Parrot" file="Hallsofhope/Cave Parrot.xml" />
-	<monster name="Corrupted Soul" file="Hallsofhope/Corrupted Soul.xml" />
-	<monster name="Cosmic Energy Prism A" file="Hallsofhope/Cosmic Energy Prism A.xml" />
-	<monster name="Cosmic Energy Prism B" file="Hallsofhope/Cosmic Energy Prism B.xml" />
-	<monster name="Cosmic Energy Prism C" file="Hallsofhope/Cosmic Energy Prism C.xml" />
-	<monster name="Cosmic Energy Prism D" file="Hallsofhope/Cosmic Energy Prism D.xml" />
-	<monster name="Diamond Servant Replica" file="Hallsofhope/Diamond Servant Replica.xml" />
-	<monster name="Dragon Essence" file="Hallsofhope/Dragon Essence.xml" />
-	<monster name="Dragon Warden" file="Hallsofhope/Dragon Warden.xml" />
-	<monster name="Golden Servant Replica" file="Hallsofhope/Golden Servant Replica.xml" />
-	<monster name="Fallen Challenger" file="Hallsofhope/Fallen Challenger.xml" />  
-	<monster name="Frozen Man" file="Hallsofhope/Frozen Man.xml" />  
-	<monster name="Frozen Minion" file="Hallsofhope/Frozen Minion.xml" />  
-	<monster name="Ice Dragon" file="Hallsofhope/Ice Dragon.xml" />  
-	<monster name="Icicle" file="Hallsofhope/Icicle.xml" />  
-	<monster name="Iron Servant Replica" file="Hallsofhope/Iron Servant Replica.xml" />
-	<monster name="Lost Time" file="Hallsofhope/Lost Time.xml" />
-	<monster name="Orclops Doomhauler" file="Hallsofhope/Orclops Doomhauler.xml" />
-	<monster name="Orclops Ravager" file="Hallsofhope/Orclops Ravager.xml" />
-	<monster name="Pinata Dragon" file="Hallsofhope/Pinata Dragon.xml" />
-	<monster name="Possessed Tree" file="Hallsofhope/Possessed Tree.xml" />
-	<monster name="Shadow Fiend" file="Hallsofhope/Shadow Fiend.xml" />  
-	<monster name="Shadow Tentacle" file="Hallsofhope/Shadow Tentacle.xml" />  
-	<monster name="Shaper Matriarch" file="Hallsofhope/Shaper Matriarch.xml" />  
-	<monster name="Somewhat Beatable" file="Hallsofhope/Somewhat Beatable.xml" />  
-	<monster name="Spirit of Fertility" file="Hallsofhope/Spirit of Fertility.xml" />  
-	<monster name="Stone Rhino" file="Hallsofhope/Stone Rhino.xml" />
-	<monster name="Twisted Shaper" file="Hallsofhope/Twisted Shaper.xml" />
-	<monster name="The Astral Source" file="Hallsofhope/The Astral Source.xml" />
-	<monster name="The Distorted Astral Source" file="Hallsofhope/The Distorted Astral Source.xml" />
-	<monster name="Thorn Minion" file="Hallsofhope/Thorn Minion.xml" />
-	<monster name="Time Keeper" file="Hallsofhope/Time Keeper.xml" />
-	<monster name="Time Waster" file="Hallsofhope/Time Waster.xml" />
-	<monster name="Twisted Shaper" file="Hallsofhope/Twisted Shaper.xml" />
-	<monster name="Unbeatable Dragon" file="Hallsofhope/Unbeatable Dragon.xml" />
-	<monster name="Unbound Blightwalker" file="Hallsofhope/Unbound Blightwalker.xml" />
-	<monster name="Unbound Defiler" file="Hallsofhope/Unbound Defiler.xml" />
-	<monster name="Unbound Demon Outcast" file="Hallsofhope/Unbound Demon Outcast.xml" />
-	<monster name="Unbound Demon" file="Hallsofhope/Unbeatable Dragon.xml" />
+	<monster name="The Time Guardian" file="places/Hallsofhope/bosses/The Time Guardian.xml" />
+	<monster name="A Shielded Astral Glyph" file="places/Hallsofhope/A Shielded Astral Glyph.xml" />
+	<monster name="An Observer Eye (Imune)" file="places/Hallsofhope/An Observer Eye (Imune).xml" />
+	<monster name="Angry Plant" file="places/Hallsofhope/Angry Plant.xml" />
+	<monster name="Animated Sword" file="places/Hallsofhope/Animated Sword.xml" />
+	<monster name="baby dragon" file="places/Hallsofhope/Baby Dragon.xml" />
+	<monster name="Bound Astral Power" file="places/Hallsofhope/Bound Astral Power.xml" />
+	<monster name="Broken Shaper" file="places/Hallsofhope/Broken Shaper.xml" />
+	<monster name="Cave Parrot" file="places/Hallsofhope/Cave Parrot.xml" />
+	<monster name="Corrupted Soul" file="places/Hallsofhope/Corrupted Soul.xml" />
+	<monster name="Cosmic Energy Prism A" file="places/Hallsofhope/Cosmic Energy Prism A.xml" />
+	<monster name="Cosmic Energy Prism B" file="places/Hallsofhope/Cosmic Energy Prism B.xml" />
+	<monster name="Cosmic Energy Prism C" file="places/Hallsofhope/Cosmic Energy Prism C.xml" />
+	<monster name="Cosmic Energy Prism D" file="places/Hallsofhope/Cosmic Energy Prism D.xml" />
+	<monster name="Diamond Servant Replica" file="places/Hallsofhope/Diamond Servant Replica.xml" />
+	<monster name="Dragon Essence" file="places/Hallsofhope/Dragon Essence.xml" />
+	<monster name="Dragon Warden" file="places/Hallsofhope/Dragon Warden.xml" />
+	<monster name="Golden Servant Replica" file="places/Hallsofhope/Golden Servant Replica.xml" />
+	<monster name="Fallen Challenger" file="places/Hallsofhope/Fallen Challenger.xml" />  
+	<monster name="Frozen Man" file="places/Hallsofhope/Frozen Man.xml" />  
+	<monster name="Frozen Minion" file="places/Hallsofhope/Frozen Minion.xml" />  
+	<monster name="Ice Dragon" file="places/Hallsofhope/Ice Dragon.xml" />  
+	<monster name="Icicle" file="places/Hallsofhope/Icicle.xml" />  
+	<monster name="Iron Servant Replica" file="places/Hallsofhope/Iron Servant Replica.xml" />
+	<monster name="Lost Time" file="places/Hallsofhope/Lost Time.xml" />
+	<monster name="Orclops Doomhauler" file="places/Hallsofhope/Orclops Doomhauler.xml" />
+	<monster name="Orclops Ravager" file="places/Hallsofhope/Orclops Ravager.xml" />
+	<monster name="Pinata Dragon" file="places/Hallsofhope/Pinata Dragon.xml" />
+	<monster name="Possessed Tree" file="places/Hallsofhope/Possessed Tree.xml" />
+	<monster name="Shadow Fiend" file="places/Hallsofhope/Shadow Fiend.xml" />  
+	<monster name="Shadow Tentacle" file="places/Hallsofhope/Shadow Tentacle.xml" />  
+	<monster name="Shaper Matriarch" file="places/Hallsofhope/Shaper Matriarch.xml" />  
+	<monster name="Somewhat Beatable" file="places/Hallsofhope/Somewhat Beatable.xml" />  
+	<monster name="Spirit of Fertility" file="places/Hallsofhope/Spirit of Fertility.xml" />  
+	<monster name="Stone Rhino" file="places/Hallsofhope/Stone Rhino.xml" />
+	<monster name="Twisted Shaper" file="places/Hallsofhope/Twisted Shaper.xml" />
+	<monster name="The Astral Source" file="places/Hallsofhope/The Astral Source.xml" />
+	<monster name="The Distorted Astral Source" file="places/Hallsofhope/The Distorted Astral Source.xml" />
+	<monster name="Thorn Minion" file="places/Hallsofhope/Thorn Minion.xml" />
+	<monster name="Time Keeper" file="places/Hallsofhope/Time Keeper.xml" />
+	<monster name="Time Waster" file="places/Hallsofhope/Time Waster.xml" />
+	<monster name="Twisted Shaper" file="places/Hallsofhope/Twisted Shaper.xml" />
+	<monster name="Unbeatable Dragon" file="places/Hallsofhope/Unbeatable Dragon.xml" />
+	<monster name="Unbound Blightwalker" file="places/Hallsofhope/Unbound Blightwalker.xml" />
+	<monster name="Unbound Defiler" file="places/Hallsofhope/Unbound Defiler.xml" />
+	<monster name="Unbound Demon Outcast" file="places/Hallsofhope/Unbound Demon Outcast.xml" />
+	<monster name="Unbound Demon" file="places/Hallsofhope/Unbeatable Dragon.xml" />
 
 	<!-- Otherworld -->
-	<monster name="Instable Breach Brood" file="Otherworld/Instable Breach Brood.xml" />
-	<monster name="Breach Brood" file="Otherworld/Breach Brood.xml" />
-	<monster name="Instable Sparkion" file="Otherworld/Instable Sparkion.xml" />
-	<monster name="Dread Intruder" file="Otherworld/Dread Intruder.xml" />
-	<monster name="Reality Reaver" file="Otherworld/Reality Reaver.xml" />
-	<monster name="Spark of Destruction" file="Otherworld/Spark of Destruction.xml" />
-	<monster name="Charger" file="Otherworld/Charger.xml" />
-	<monster name="Sparkion" file="Otherworld/Sparkion.xml" />
-	<monster name="World Devourer" file="Otherworld/World Devourer.xml" />
-	<monster name="Eradicator" file="Otherworld/Eradicator.xml" />
-	<monster name="Eradicatorr" file="Otherworld/Eradicator1.xml" />
-	<monster name="Rupture" file="Otherworld/Rupture.xml" />
-	<monster name="The Rage" file="Otherworld/The Rage.xml" />
-	<monster name="The Hunger" file="Otherworld/The Hunger.xml" />
-	<monster name="Frenzy" file="Otherworld/Frenzy.xml" />
-	<monster name="Outburst" file="Otherworld/Outburst.xml" />
-	<monster name="Greed" file="Otherworld/Greed.xml" />
-	<monster name="Ogre Brute" file="Otherworld/Ogre Brute.xml" />
-	<monster name="Ogre Savage" file="Otherworld/Ogre Savage.xml" />
-	<monster name="Ogre Shaman" file="Otherworld/Ogre Shaman.xml" />
-	<monster name="Clomp" file="Otherworld/Clomp.xml" />
-	<monster name="Hellflayer" file="Otherworld/Hellflayer.xml" />
-	<monster name="Grimeleech" file="Otherworld/Grimeleech.xml" />
-	<monster name="Vexclaw" file="Otherworld/Vexclaw.xml" />
-	<monster name="Omnivora" file="Otherworld/Omnivora.xml" />
-	<monster name="Werebadger" file="Otherworld/Werebadger.xml" />
-	<monster name="Wereboar" file="Otherworld/Wereboar.xml" />
-	<monster name="Werebear" file="Otherworld/Werebear.xml" />
-	<monster name="Feroxa" file="Otherworld/Feroxa.xml" />
-	<monster name="Despair" file="Otherworld/Despair.xml" />
-	<monster name="Dawnfire Asura" file="Otherworld/Dawnfire Asura.xml" />
-	<monster name="Midnight Asura" file="Otherworld/Midnight Asura.xml" />
-	<monster name="Sacred Snake" file="Otherworld/Sacred Snake.xml" />
-	<monster name="Destabilized Ferumbras" file="Otherworld/Destabilized Ferumbras.xml" />
-	<monster name="Disgusting Ooze" file="Otherworld/Disgusting Ooze.xml" />
-	<monster name="Professor Maxxen" file="Otherworld/Professor Maxxen.xml" />
-	<monster name="Glooth Slasher" file="Otherworld/Glooth Slasher.xml" />
-	<monster name="Glooth Trasher" file="Otherworld/Glooth Trasher.xml" />
-	<monster name="Vicious Squire" file="Otherworld/Vicious Squire.xml" />
-	<monster name="Renegade Knight" file="Otherworld/Renegade Knight.xml" />
-	<monster name="Vile Grandmaster" file="Otherworld/Vile Grandmaster.xml" />
-	<monster name="Rage Of Mazoran" file="Otherworld/Rage Of Mazoran.xml" />
-	<monster name="Plagirath" file="Otherworld/Plagirath.xml" />
-	<monster name="Mazoran" file="Otherworld/Mazoran.xml" />
-	<monster name="Ragiaz" file="Otherworld/Ragiaz.xml" />
-	<monster name="Zamulosh" file="Otherworld/Zamulosh.xml" />
-	<monster name="Zamulosh Summom" file="Otherworld/ZamuloshSummom.xml" />
-	<monster name="Guilt" file="Otherworld/Guilt.xml" />
-	<monster name="Shulgrax" file="Otherworld/Shulgrax.xml" />
-	<monster name="Tarbaz" file="Otherworld/Tarbaz.xml" />
-	<monster name="Razzagorn" file="Otherworld/Razzagorn.xml" />
-	<monster name="The Flaming Orchid" file="Otherworld/The Flaming Orchid.xml" />
-	<monster name="The Shatterer" file="Otherworld/The Shatterer.xml" />	   
-	<monster name="Death Dragon" file="Otherworld/Death Dragon.xml" />	   
+	<monster name="Instable Breach Brood" file="places/Otherworld/Instable Breach Brood.xml" />
+	<monster name="Breach Brood" file="places/Otherworld/Breach Brood.xml" />
+	<monster name="Instable Sparkion" file="places/Otherworld/Instable Sparkion.xml" />
+	<monster name="Dread Intruder" file="places/Otherworld/Dread Intruder.xml" />
+	<monster name="Reality Reaver" file="places/Otherworld/Reality Reaver.xml" />
+	<monster name="Spark of Destruction" file="places/Otherworld/Spark of Destruction.xml" />
+	<monster name="Charger" file="places/Otherworld/Charger.xml" />
+	<monster name="Sparkion" file="places/Otherworld/Sparkion.xml" />
+	<monster name="World Devourer" file="places/Otherworld/World Devourer.xml" />
+	<monster name="Eradicator" file="places/Otherworld/Eradicator.xml" />
+	<monster name="Eradicatorr" file="places/Otherworld/Eradicator1.xml" />
+	<monster name="Rupture" file="places/Otherworld/Rupture.xml" />
+	<monster name="The Rage" file="places/Otherworld/The Rage.xml" />
+	<monster name="The Hunger" file="places/Otherworld/The Hunger.xml" />
+	<monster name="Frenzy" file="places/Otherworld/Frenzy.xml" />
+	<monster name="Outburst" file="places/Otherworld/Outburst.xml" />
+	<monster name="Greed" file="places/Otherworld/Greed.xml" />
+	<monster name="Ogre Brute" file="places/Otherworld/Ogre Brute.xml" />
+	<monster name="Ogre Savage" file="places/Otherworld/Ogre Savage.xml" />
+	<monster name="Ogre Shaman" file="places/Otherworld/Ogre Shaman.xml" />
+	<monster name="Clomp" file="places/Otherworld/Clomp.xml" />
+	<monster name="Hellflayer" file="places/Otherworld/Hellflayer.xml" />
+	<monster name="Grimeleech" file="places/Otherworld/Grimeleech.xml" />
+	<monster name="Vexclaw" file="places/Otherworld/Vexclaw.xml" />
+	<monster name="Omnivora" file="places/Otherworld/Omnivora.xml" />
+	<monster name="Werebadger" file="places/Otherworld/Werebadger.xml" />
+	<monster name="Wereboar" file="places/Otherworld/Wereboar.xml" />
+	<monster name="Werebear" file="places/Otherworld/Werebear.xml" />
+	<monster name="Feroxa" file="places/Otherworld/Feroxa.xml" />
+	<monster name="Despair" file="places/Otherworld/Despair.xml" />
+	<monster name="Dawnfire Asura" file="places/Otherworld/Dawnfire Asura.xml" />
+	<monster name="Midnight Asura" file="places/Otherworld/Midnight Asura.xml" />
+	<monster name="Sacred Snake" file="places/Otherworld/Sacred Snake.xml" />
+	<monster name="Destabilized Ferumbras" file="places/Otherworld/Destabilized Ferumbras.xml" />
+	<monster name="Disgusting Ooze" file="places/Otherworld/Disgusting Ooze.xml" />
+	<monster name="Professor Maxxen" file="places/Otherworld/Professor Maxxen.xml" />
+	<monster name="Glooth Slasher" file="places/Otherworld/Glooth Slasher.xml" />
+	<monster name="Glooth Trasher" file="places/Otherworld/Glooth Trasher.xml" />
+	<monster name="Vicious Squire" file="places/Otherworld/Vicious Squire.xml" />
+	<monster name="Renegade Knight" file="places/Otherworld/Renegade Knight.xml" />
+	<monster name="Vile Grandmaster" file="places/Otherworld/Vile Grandmaster.xml" />
+	<monster name="Rage Of Mazoran" file="places/Otherworld/Rage Of Mazoran.xml" />
+	<monster name="Plagirath" file="places/Otherworld/Plagirath.xml" />
+	<monster name="Mazoran" file="places/Otherworld/Mazoran.xml" />
+	<monster name="Ragiaz" file="places/Otherworld/Ragiaz.xml" />
+	<monster name="Zamulosh" file="places/Otherworld/Zamulosh.xml" />
+	<monster name="Zamulosh Summom" file="places/Otherworld/ZamuloshSummom.xml" />
+	<monster name="Guilt" file="places/Otherworld/Guilt.xml" />
+	<monster name="Shulgrax" file="places/Otherworld/Shulgrax.xml" />
+	<monster name="Tarbaz" file="places/Otherworld/Tarbaz.xml" />
+	<monster name="Razzagorn" file="places/Otherworld/Razzagorn.xml" />
+	<monster name="The Flaming Orchid" file="places/Otherworld/The Flaming Orchid.xml" />
+	<monster name="The Shatterer" file="places/Otherworld/The Shatterer.xml" />	   
+	<monster name="Death Dragon" file="places/Otherworld/Death Dragon.xml" />	   
 
 	<!-- Oramond -->
-	<monster name="Abyssal Calamary" file="oramond/abyssal calamary.xml"/>
-	<monster name="Canopic Jar" file="oramond/canopic jar.xml"/>
-	<monster name="Control Tower" file="oramond/control tower.xml"/>
-	<monster name="Death Priest Shargon" file="oramond/death priest shargon.xml"/>
-	<monster name="Depowered Minotaur" file="oramond/depowered minotaur.xml" />
-	<monster name="Empowered Glooth Horror" file="oramond/empowered glooth horror.xml"/>
-	<monster name="Feeble Glooth Horror" file="oramond/feeble glooth horror.xml"/>
-	<monster name="Glooth Bandit" file="oramond/glooth bandit.xml"/>
-	<monster name="Glooth Battery" file="oramond/glooth battery.xml"/>
-	<monster name="Glooth Brigand" file="oramond/glooth brigand.xml"/>
-	<monster name="Glooth Fairy" file="oramond/glooth fairy.xml" />
-	<monster name="Glooth Horror" file="oramond/glooth horror.xml"/>
-	<monster name="Greater Canopic Jar" file="oramond/greater canopic jar.xml"/>
-	<monster name="Greater Death Minion" file="oramond/greater death minion.xml"/>
-	<monster name="High Voltage Elemental" file="oramond/high voltage elemental.xml"/>
-	<monster name="Lesser Death Minion" file="oramond/lesser death minion.xml"/>
-	<monster name="Minotaur Invader" file="oramond/minotaur invader.xml" />
-	<monster name="Minotaur Totem" file="oramond/minotaur totem.xml" />
-	<monster name="Noble Lion" file="oramond/noble lion.xml" />
-	<monster name="Renegade Quara Constrictor" file="oramond/renegade quara constrictor.xml"/>
-	<monster name="Renegade Quara Hydromancer" file="oramond/renegade quara hydromancer.xml"/>
-	<monster name="Renegade Quara Mantassin" file="oramond/renegade quara mantassin.xml"/>
-	<monster name="Renegade Quara Pincher" file="oramond/renegade quara pincher.xml"/>
-	<monster name="Renegade Quara Predator" file="oramond/renegade quara predator.xml"/>
-	<monster name="Roaring Lion" file="oramond/roaring lion.xml" />
-	<monster name="Seacrest Serpent" file="oramond/seacrest serpent.xml"/>
-	<monster name="Strong Glooth Horror" file="oramond/strong glooth horror.xml"/>
-	<monster name="Superior Death Minion" file="oramond/superior death minion.xml"/>
-	<monster name="Tentacle of the Deep Terror" file="oramond/tentacle of the deep terror.xml"/>
-	<monster name="The Ravager" file="oramond/the ravager.xml"/>
-	<monster name="Tremor Worm" file="oramond/tremor worm.xml"/>
-	<monster name="Weakened Glooth Horror" file="oramond/weakened glooth horror.xml"/>
+	<monster name="Abyssal Calamary" file="places/oramond/abyssal calamary.xml"/>
+	<monster name="Canopic Jar" file="places/oramond/canopic jar.xml"/>
+	<monster name="Control Tower" file="places/oramond/control tower.xml"/>
+	<monster name="Death Priest Shargon" file="places/oramond/death priest shargon.xml"/>
+	<monster name="Depowered Minotaur" file="places/oramond/depowered minotaur.xml" />
+	<monster name="Empowered Glooth Horror" file="places/oramond/empowered glooth horror.xml"/>
+	<monster name="Feeble Glooth Horror" file="places/oramond/feeble glooth horror.xml"/>
+	<monster name="Glooth Bandit" file="places/oramond/glooth bandit.xml"/>
+	<monster name="Glooth Battery" file="places/oramond/glooth battery.xml"/>
+	<monster name="Glooth Brigand" file="places/oramond/glooth brigand.xml"/>
+	<monster name="Glooth Fairy" file="places/oramond/glooth fairy.xml" />
+	<monster name="Glooth Horror" file="places/oramond/glooth horror.xml"/>
+	<monster name="Greater Canopic Jar" file="places/oramond/greater canopic jar.xml"/>
+	<monster name="Greater Death Minion" file="places/oramond/greater death minion.xml"/>
+	<monster name="High Voltage Elemental" file="places/oramond/high voltage elemental.xml"/>
+	<monster name="Lesser Death Minion" file="places/oramond/lesser death minion.xml"/>
+	<monster name="Minotaur Invader" file="places/oramond/minotaur invader.xml" />
+	<monster name="Minotaur Totem" file="places/oramond/minotaur totem.xml" />
+	<monster name="Noble Lion" file="places/oramond/noble lion.xml" />
+	<monster name="Renegade Quara Constrictor" file="places/oramond/renegade quara constrictor.xml"/>
+	<monster name="Renegade Quara Hydromancer" file="places/oramond/renegade quara hydromancer.xml"/>
+	<monster name="Renegade Quara Mantassin" file="places/oramond/renegade quara mantassin.xml"/>
+	<monster name="Renegade Quara Pincher" file="places/oramond/renegade quara pincher.xml"/>
+	<monster name="Renegade Quara Predator" file="places/oramond/renegade quara predator.xml"/>
+	<monster name="Roaring Lion" file="places/oramond/roaring lion.xml" />
+	<monster name="Seacrest Serpent" file="places/oramond/seacrest serpent.xml"/>
+	<monster name="Strong Glooth Horror" file="places/oramond/strong glooth horror.xml"/>
+	<monster name="Superior Death Minion" file="places/oramond/superior death minion.xml"/>
+	<monster name="Tentacle of the Deep Terror" file="places/oramond/tentacle of the deep terror.xml"/>
+	<monster name="The Ravager" file="places/oramond/the ravager.xml"/>
+	<monster name="Tremor Worm" file="places/oramond/tremor worm.xml"/>
+	<monster name="Weakened Glooth Horror" file="places/oramond/weakened glooth horror.xml"/>
 
 	<!-- Amazons -->
 	<monster name="Dryad" file="humans/amazons/dryad.xml" />
