@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monsters>
 	<!-- Trainers -->
-    <monster name="Training Monk" file="customs/Training Monk.xml" />
+	<monster name="Training Monk" file="customs/Training Monk.xml" />
 
 	<!-- The First Dragon -->
 	<monster name="Tazhadur" file="places/FirstDragon/Tazhadur.xml" />
@@ -10,30 +10,30 @@
 	<monster name="Gelidrazah" file="places/FirstDragon/Gelidrazah.xml" />
 	
 	<!-- Cults of Tibia bosses -->
-    <monster name="Ancient Spawn of Morgathla" file="places/Cults of tibia/Bosses/Ancient Spawn of Morgathla.xml" />
-    <monster name="Black Vixen" file="places/Cults of tibia/Bosses/Black Vixen.xml" />
-    <monster name="Bloodback" file="places/Cults of tibia/Bosses/Bloodback.xml" />
-    <monster name="Darkfang" file="places/Cults of tibia/Bosses/Darkfang.xml" />
-    <monster name="Last Planegazer" file="places/Cults of tibia/Bosses/Last Planegazer.xml" />
-    <monster name="Reflection Of Mawhawk" file="places/Cults of tibia/Bosses/Reflection Of Mawhawk.xml" />
-    <monster name="Reflection Of Obujos" file="places/Cults of tibia/Bosses/Reflection Of Obujos.xml" />
-    <monster name="Shadowpelt" file="places/Cults of tibia/Bosses/Shadowpelt.xml" />
-    <monster name="Sharpclaw" file="places/Cults of tibia/Bosses/Sharpclaw.xml" />
-    <monster name="The Baron from Below" file="places/Cults of tibia/Bosses/The Baron from Below.xml" />
-    <monster name="The Count Of The Core" file="places/Cults of tibia/Bosses/The Count Of The Core.xml" />
-    <monster name="The Duke Of The Depths" file="places/Cults of tibia/Bosses/The Duke Of The Depths.xml" />
+	<monster name="Ancient Spawn of Morgathla" file="places/Cults of tibia/Bosses/Ancient Spawn of Morgathla.xml" />
+	<monster name="Black Vixen" file="places/Cults of tibia/Bosses/Black Vixen.xml" />
+	<monster name="Bloodback" file="places/Cults of tibia/Bosses/Bloodback.xml" />
+	<monster name="Darkfang" file="places/Cults of tibia/Bosses/Darkfang.xml" />
+	<monster name="Last Planegazer" file="places/Cults of tibia/Bosses/Last Planegazer.xml" />
+	<monster name="Reflection Of Mawhawk" file="places/Cults of tibia/Bosses/Reflection Of Mawhawk.xml" />
+	<monster name="Reflection Of Obujos" file="places/Cults of tibia/Bosses/Reflection Of Obujos.xml" />
+	<monster name="Shadowpelt" file="places/Cults of tibia/Bosses/Shadowpelt.xml" />
+	<monster name="Sharpclaw" file="places/Cults of tibia/Bosses/Sharpclaw.xml" />
+	<monster name="The Baron from Below" file="places/Cults of tibia/Bosses/The Baron from Below.xml" />
+	<monster name="The Count Of The Core" file="places/Cults of tibia/Bosses/The Count Of The Core.xml" />
+	<monster name="The Duke Of The Depths" file="places/Cults of tibia/Bosses/The Duke Of The Depths.xml" />
 	
 	<!-- Cults of Tibia -->
 	<monster name="Agressive Lava" file="places/Cults of tibia/Agressive Lava.xml" />
-    <monster name="Cave Devourer" file="places/Cults of tibia/Cave Devourer.xml" />
-    <monster name="Chasm Spawn" file="places/Cults of tibia/Chasm Spawn.xml" />
-    <monster name="Deepworm" file="places/Cults of tibia/Deepworm.xml" />
-    <monster name="Diremaw" file="places/Cults of tibia/Diremaw.xml" />
-    <monster name="Fox" file="places/Cults of tibia/Fox.xml" />
-    <monster name="Mole" file="places/Cults of tibia/Mole.xml" />
-    <monster name="Stonerefiner" file="places/Cults of tibia/Stonerefiner.xml" />
-    <monster name="Tunnel Tyrant" file="places/Cults of tibia/Tunnel Tyrant.xml" />
-    <monster name="Werefox" file="places/Cults of tibia/Werefox.xml" />
+	<monster name="Cave Devourer" file="places/Cults of tibia/Cave Devourer.xml" />
+	<monster name="Chasm Spawn" file="places/Cults of tibia/Chasm Spawn.xml" />
+	<monster name="Deepworm" file="places/Cults of tibia/Deepworm.xml" />
+	<monster name="Diremaw" file="places/Cults of tibia/Diremaw.xml" />
+	<monster name="Fox" file="places/Cults of tibia/Fox.xml" />
+	<monster name="Mole" file="places/Cults of tibia/Mole.xml" />
+	<monster name="Stonerefiner" file="places/Cults of tibia/Stonerefiner.xml" />
+	<monster name="Tunnel Tyrant" file="places/Cults of tibia/Tunnel Tyrant.xml" />
+	<monster name="Werefox" file="places/Cults of tibia/Werefox.xml" />
 
 	<!-- Nostalgia -->
 	<monster name="BearOld" file="other/nostalgia/old_bear.xml" />
@@ -51,13 +51,13 @@
 	<monster file="places/Dawnport/salamander trainer.xml" name="Salamander Trainer"/>
 	<monster file="places/Dawnport/troll marauder.xml" name="Troll Marauder"/>		
 	<monster file="places/Dawnport/muglex clan assassin.xml" name="Muglex Clan Assassin"/>
-    <monster file="places/Dawnport/muglex clan footman.xml" name="Muglex Clan Footman"/>
-    <monster file="places/Dawnport/muglex clan scavenger.xml" name="Muglex Clan Scavenger"/>		
+	<monster file="places/Dawnport/muglex clan footman.xml" name="Muglex Clan Footman"/>
+	<monster file="places/Dawnport/muglex clan scavenger.xml" name="Muglex Clan Scavenger"/>		
 	<monster file="places/Dawnport/troll-trained salamander.xml" name="Troll-Trained Salamander"/>	    
-    <monster file="places/Dawnport/brittle skeleton.xml" name="Brittle Skeleton"/>
+	<monster file="places/Dawnport/brittle skeleton.xml" name="Brittle Skeleton"/>
 	<monster file="places/Dawnport/dawnfly.xml" name="Dawnfly"/>   
-   	<monster file="places/Dawnport/spidris elitesumom.xml" name="Spidris Elite Sumom"/> 		
-   	<monster file="places/Dawnport/woodling.xml" name="Woodling"/>
+	<monster file="places/Dawnport/spidris elitesumom.xml" name="Spidris Elite Sumom"/> 		
+	<monster file="places/Dawnport/woodling.xml" name="Woodling"/>
 	<monster file="places/Dawnport/dawn scorpion.xml" name="Dawn Scorpion"/>
 	<monster file="places/Dawnport/scar tribe shaman.xml" name="Scar Tribe Shaman"/>
  	<monster file="places/Dawnport/scar tribe warrior.xml" name="Scar Tribe Warrior"/>
@@ -101,7 +101,7 @@
 	<monster name="The Freezing Time Guardian" file="places/Hallsofhope/bosses/The Freezing Time Guardian.xml" />
 	<monster name="The Blazing Time Guardian" file="places/Hallsofhope/bosses/The Blazing Time Guardian.xml" />
    
-    <!-- Halls of Hope -->
+	<!-- Halls of Hope -->
 	<monster name="The Time Guardian" file="places/Hallsofhope/bosses/The Time Guardian.xml" />
 	<monster name="A Shielded Astral Glyph" file="places/Hallsofhope/A Shielded Astral Glyph.xml" />
 	<monster name="An Observer Eye (Imune)" file="places/Hallsofhope/An Observer Eye (Imune).xml" />
@@ -634,7 +634,7 @@
 	<monster name="Shaburak Lord" file="demons/shaburak_lord.xml" />
 	<monster name="Shaburak Prince" file="demons/shaburak_prince.xml" />
 	<monster name="Yielothax" file="demons/yielothax.xml" />
-    <monster name="Rift Invader" file="demons/rift_invader.xml"/>	
+	<monster name="Rift Invader" file="demons/rift_invader.xml"/>	
 
 	<!-- Djinn -->
 	<monster name="Blue Djinn" file="humanoids/djinn/blue_djinn.xml" />
@@ -889,7 +889,7 @@
 
 	
 	<!-- Misc -->
-	<!-- misc Mammals -->
+	<!-- Misc Mammals -->
 	<monster name="Badger" file="misc/misc mammals/badger.xml" />
 	<monster name="Bat" file="misc/misc mammals/bat.xml" />
 	<monster name="Ghoulish Hyaena" file="misc/misc mammals/ghoulish_hyaena.xml" />
@@ -897,7 +897,7 @@
 	<monster name="Skunk" file="misc/misc mammals/skunk.xml" />
 	<monster name="Water Buffalo" file="misc/misc mammals/water_buffalo.xml" />
 
-	<!-- misc mounts -->
+	<!-- Misc Mounts -->
 	<monster name="Donkey" file="misc/misc mounts/donkey.xml" />
 	<monster name="Modified Gnarlhound" file="misc/misc mounts/modified_gnarlhound.xml" />
 
