@@ -12,14 +12,16 @@ function onSay(cid, words, param)
 	local p = Player(cid)
 	local cost = getCost(getPlayerLevel(cid))
 	if(not(isPlayerPzLocked(cid))) then
-		if(p:hasBlessing(1) and p:hasBlessing(2) and p:hasBlessing(3) and p:hasBlessing(4) and p:hasBlessing(5) and p:hasBlessing(6)) then
+		if(p:hasBlessing(2) and p:hasBlessing(3) and p:hasBlessing(4) and p:hasBlessing(5) and p:hasBlessing(6) and p:hasBlessing(7) and p:hasBlessing(8)) then
 			p:sendCancelMessage("You have already been blessed by the gods.")
 			return false
 		end
 		if(p:removeMoneyNpc(cost)) then
-			for b = 1,6 do
-				p:addBlessing(b)
-			end
+              	for i = 2, 8 do
+    		if not p:hasBlessing(i) then
+    			p:addBlessing(i, 1)
+    		end
+    	end
 			p:getPosition():sendMagicEffect(50)
 			p:sendTextMessage(19, "You have been blessed by the gods!")
 		else
