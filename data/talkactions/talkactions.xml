@@ -61,6 +61,8 @@
 	<talkaction words="!online" script="online.lua" />
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 	<talkaction words="!report" separator=" " script="adminreport.lua"/>
+	<talkaction words="!bless" script="bless.lua"/>	
+    	<talkaction words="!pvpbless" script="pvpbless.lua"/>
 	
 	<!-- Anti-Entrosa -->
 	<talkaction words="/war" separator=" " script="warPrivate_talkactions.lua" />
