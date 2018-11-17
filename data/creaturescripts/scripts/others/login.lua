@@ -197,11 +197,6 @@ function onLogin(player)
 		player:setStaminaXpBoost(100)
 	end
 
-	if Boost > 0 then
-		player:setStoreXpBoost(50)
-	else
-		player:setStoreXpBoost(0)
-	end
-
+	player:setStoreXpBoost(Boost > 0 and 50 or 0)
 	return true
 end

@@ -1002,11 +1002,7 @@ function Player:onGainExperience(source, exp, rawExp)
         self:setStaminaXpBoost(100)
 	end
 
-    if Boost > 0 then
-        self:setStoreXpBoost(50)
-    else
-        self:setStoreXpBoost(0)
-    end
+	self:setStoreXpBoost(Boost > 0 and 50 or 0)
 
 	-- Stamina modifier
 	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
