@@ -1,20 +1,15 @@
 local gates = {
-	[9710] = {value = 1, position = Position(32834, 32082, 7)},
-	[9711] = {value = 2, position = Position(32680, 31720, 7)},
-	[9712] = {value = 3, position = Position(32268, 32162, 7)},
-	[9713] = {value = 4, position = Position(32263, 31847, 7)},
+	[9710] = {value = 1, position = Position(32680, 31720, 7)},
+	[9711] = {value = 2, position = Position(33264, 32841, 7)},
+	[9712] = {value = 3, position = Position(32263, 31847, 7)},
+	[9713] = {value = 4, position = Position(33300, 32372, 7)},
 	[9714] = {value = 5, position = Position(33221, 31921, 7)},
-	[9716] = {value = 6, position = Position(32574, 31981, 7)},
-	[9717] = {value = 7, position = Position(32574, 31981, 7)}
-}
-
-local exitPositions = {
-	[1] = Position(32834, 32082, 7),
-	[2] = Position(32680, 31720, 7),
-	[3] = Position(32268, 32162, 7),
-	[4] = Position(32263, 31847, 7),
-	[5] = Position(33221, 31921, 7),
-	[6] = Position(32574, 31981, 7)
+	[9715] = {value = 6, position = Position(32574, 31981, 7)},
+	[9716] = {value = 7, position = Position(32348, 32695, 7)},
+	[9717] = {value = 8, position = Position(32531, 32715, 7)},
+	[9718] = {value = 9, position = Position(32268, 32162, 7)},
+	[9719] = {value = 10, position = Position(32834, 32082, 7)},
+	[9720] = {value = 11, position = Position(32369, 32241, 7)}
 }
 
 function onStepIn(creature, item, position, fromPosition)
@@ -25,7 +20,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if isInArray({9710, 9711, 9712, 9713, 9714, 9716}, item.actionid) then
+	if isInArray({9710, 9711, 9712, 9713, 9714, 9715, 9716, 9717, 9718, 9719}, item.actionid) then
 		local gate = gates[item.actionid]
 		if not gate then
 			return true
@@ -33,7 +28,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 
-		if gates.value == 7 then
+		if gates.value == 11 then
 
 		end
 
@@ -48,7 +43,7 @@ function onStepIn(creature, item, position, fromPosition)
 		end
 
 		
-	elseif isInArray({9717}, item.actionid) then
+	elseif isInArray({9720}, item.actionid) then
 		player:teleportTo(exit)
 		exit:sendMagicEffect(CONST_ME_TELEPORT)
 	end

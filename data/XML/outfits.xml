@@ -69,6 +69,13 @@
 	<outfit type="0" looktype="975" name="Retro Citizen" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1020" name="Herbalist" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1023" name="Sun Priest" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1043" name="Makeshift Warrior" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1050" name="Siege Master" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1057" name="Mercenary" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1070" name="Battle Mage" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1095" name="Discoverer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1103" name="Sinister Archer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1128" name="Pumpkin Mummy" premium="yes" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -139,4 +146,11 @@
 	<outfit type="1" looktype="974" name="Retro Citizen" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1021" name="Herbalist" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1024" name="Sun Priest" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1042" name="Makeshift Warrior" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1051" name="Siege Master" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1056" name="Mercenary" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1069" name="Battle Mage" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1094" name="Discoverer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1102" name="Sinister Archer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1127" name="Pumpkin Mummy" premium="yes" unlocked="no" enabled="yes" />
 </outfits>

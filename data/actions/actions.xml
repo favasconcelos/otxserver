@@ -1123,5 +1123,7 @@
 	<action itemid="13670" script="valuables/randomitems.lua" />
 	<action itemid="15572" script="valuables/randomitems.lua" />
 	<action itemid="18215" script="valuables/randomitems.lua" />
+	
+	<action itemid="21570" script="other/worldBoard.lua"/>
 
 </actions>
