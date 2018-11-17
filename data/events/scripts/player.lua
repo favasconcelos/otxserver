@@ -863,6 +863,7 @@ function Player:onEquipImbuement(item)
 			conditionSkill = Condition(CONDITION_ATTRIBUTES, item:getId() + i)
 			local skillValue = item:getImbuementPercent(slotEnchant)
 			local typeEnchant = item:getImbuementType(i) or ""
+
 			if (typeEnchant == "skillSword") then
 				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
 				conditionSkill:setParameter(CONDITION_PARAM_SKILL_SWORD, skillValue)
@@ -990,22 +991,22 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Exp Boost Modifier
 	useStaminaXp(self)
 
-		-- Exp stats
+	-- Exp stats
 	local staminaMinutes = self:getStamina()
 	local Boost = self:getExpBoostStamina()
-	if staminaMinutes > 2400 and self:isPremium() and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*2) -- 200 = 1.0x, 200 = 2.0x, ... premium account
-	elseif staminaMinutes > 2400 and self:isPremium() and Boost <= 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account		
-	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and self:isPremium() and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		premium account
-	elseif staminaMinutes > 840 and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		free account
-	elseif staminaMinutes <= 840 and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1) -- 50 = 0.5x	all players
+	if staminaMinutes > 2400 and self:isPremium() then
+        self:setStaminaXpBoost(150) -- 200 = 1.0x, 200 = 2.0x, ... premium account
 	elseif staminaMinutes <= 840 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*0.5) -- 50 = 0.5x	all players
+		self:setStaminaXpBoost(50) -- 50 = 0.5x	all players
+    else
+        self:setStaminaXpBoost(100)
 	end
+
+    if Boost > 0 then
+        self:setStoreXpBoost(50)
+    else
+        self:setStoreXpBoost(0)
+    end
 
 	-- Stamina modifier
 	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
