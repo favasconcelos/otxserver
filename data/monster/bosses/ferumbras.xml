@@ -117,4 +117,5 @@
 		<item id="7423" chance="8000" />					<!-- skullcrusher -->
 		<item id="5944" countmax="9" chance="8000" />	<!-- soul orb -->
 	</loot>
+
 </monster>
