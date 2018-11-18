@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Orshabaal" nameDescription="orshabaal" race="fire" experience="10000" speed="380" manacost="0">
-	<health now="70500" max="70500" />
+	<health now="22500" max="22500" />
 	<look type="201" corpse="2916" />
 	<targetchange interval="2000" chance="10" />
 	<flags>
