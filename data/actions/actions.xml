@@ -329,6 +329,7 @@
 	<action itemid="12424" script="other/checkbless.lua" />
 	<action itemid="6561" script="other/checkbless.lua" />
 	<action uniqueid="18081" script="quests/gloothfairylever.lua"/>
+    <action uniqueid="18082" script="quests/lisalever.lua"/>
 	
  	<!-- Taming Items -->
 	<action itemid="5907" script="other/taming.lua" />
