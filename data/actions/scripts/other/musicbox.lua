@@ -1,7 +1,7 @@
 local config = {
 	['dragonling'] = {mountId = 31, tameMessage = 'The wild dragonling will accompany you as a friend from now on.', sound = 'FI?'},
 	['draptor'] = {mountId = 6, tameMessage = 'You have tamed the wild draptor.', sound = 'Screeeeeeeeech'},
-	['engraged white deer'] = {mountId = 18, mountName = 'kingly deer', tameMessage = 'You have tamed the deer.', sound = '*bell*'},
+	['enraged white deer'] = {mountId = 18, mountName = 'kingly deer', tameMessage = 'You have tamed the deer.', sound = '*bell*'},
 	['ironblight'] = {mountId = 29, tameMessage = 'You tamed the ironblight.', sound = 'Plinngggg'},
 	['magma crawler'] = {mountId = 30, tameMessage = 'The magma crawler will accompany you as a friend from now on.', sound = 'ZzzZzzZzzzZz'},
 	['midnight panther'] = {mountId = 5, tameMessage = 'You have tamed the wild panther.', sound = 'Purrrrrrr'},
