@@ -443,7 +443,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 42)
 			npcHandler:say("Excellent! Here, take this tracing paper and use it on the object you will find there to create a copy of the ancient runes.", cid)
 			npcHandler.topic[cid] = 0
-			player:removeItem(4853, 1)
+			player:addItem(4853, 1)
 		elseif npcHandler.topic[cid] == 26 then
 			if player:removeItem(4854, 1) then
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 44)
