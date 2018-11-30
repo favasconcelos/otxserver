@@ -21,7 +21,7 @@ local function addTravelKeyword(keyword, text, cost, destination, condition, act
 		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'You shouldn\'t miss the experience.', reset = true})
 end
 
-addTravelKeyword('eclipse', 'Oh no, so the time has come? Do you really want me to fly you to this unholy place?', 110, Position(32659, 31915, 0), function(player) return player:getStorageValue(Storage.TheInquisition.Questline) ~= 4 or player:getStorageValue(Storage.TheInquisition.Questline) ~= 5 end)
+addTravelKeyword('eclipse', 'Oh no, so the time has come? Do you really want me to fly you to this unholy place?', 110, Position(32659, 31915, 0), function(player) return player:getStorageValue(Storage.TheInquisition.Questline) ~= 4 or player:getStorageValue(Storage.TheInquisition.Mission02) ~= 1 end)
 addTravelKeyword('farmine', 'Do you seek a ride to Farmine for |TRAVELCOST|?', 60, Position(32983, 31539, 1), function(player) return player:getStorageValue(Storage.TheNewFrontier.Mission10) ~= 1 end)
 addTravelKeyword('edron', 'Do you seek a ride to Edron for |TRAVELCOST|?', 60, Position(33193, 31783, 3), nil, function(player) if player:getStorageValue(Storage.postman.Mission01) == 2 then player:setStorageValue(Storage.postman.Mission01, 3) end end)
 addTravelKeyword('darashia', 'Do you seek a ride to Darashia on Darama for |TRAVELCOST|?', 60, Position(33270, 32441, 6))
