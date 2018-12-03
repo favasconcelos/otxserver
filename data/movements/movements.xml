@@ -2473,6 +2473,7 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" showInDescription="0" />
 	</movevent>
+	<movevent event="DeEquip" itemid="8849" slot="hand" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="15644" slot="hand" level="50" function="onEquipItem" > 
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" showInDescription="0" />
