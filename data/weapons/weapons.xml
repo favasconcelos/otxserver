@@ -97,7 +97,7 @@
 	<wand id="18409" level="65" mana="17" min="70" max="100" type="fire"> <!-- Wand of Everblazing -->
 		<vocation name="Sorcerer" />
 	</wand>
-	<wand id="29059" level="41" mana="20" min="80" max="100" type="death" action="removecharge"> <!-- Wand of darkness -->
+	<wand id="29060" level="41" mana="20" min="80" max="100" type="death" action="removecharge"> <!-- Wand of darkness -->
 		<vocation name="Sorcerer" />
 	</wand>
 	<wand id="25991" level="100" mana="18" min="70" max="105" type="energy"> <!-- Wand of Carving -->
