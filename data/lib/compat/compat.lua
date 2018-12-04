@@ -932,7 +932,7 @@ function getConfigInfo(info)
 	if type(info) ~= "string" then
 		return nil
 	end
-	dofile('config.lua')
+	dofile('data/config.lua')
 	return _G[info]
 end
 
