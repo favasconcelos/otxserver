@@ -22,6 +22,9 @@ SET time_zone = "+00:00";
 -- Database: `global`
 --
 
+CREATE DATABASE IF NOT EXISTS `global`;
+USE `global`;
+
 -- --------------------------------------------------------
 
 --
