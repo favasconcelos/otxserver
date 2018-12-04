@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Edward Rook" script="compratudo1.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="104" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="104" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			rusty,9930,100;
 			ham,2671,50" />
-		<parameter key="shop_sellable" value="		
+    <parameter key="shop_sellable" value="		
 				
 		dragon hammer,2434,2000;
 		ice rapier,2396,1000;		
@@ -462,5 +462,5 @@
 			shovel,2554,8;
 			watch,2036,6;
 			hammer,2556,15" />
-	</parameters>
+  </parameters>
 </npc>

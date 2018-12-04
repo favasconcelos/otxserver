@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Alexander" script="Alexander.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="130" head="96" body="71" legs="63" feet="97" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="130" head="96" body="71" legs="63" feet="97" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			animate dead rune,2316,375;
 			blank rune,2260,10;
 			crystal ball,2192,530;
@@ -37,7 +37,7 @@
 			wand of voodoo,8922,22000;
 			wand of vortex,2190,500;
 			wild growth rune,2269,160;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			crystal ball,2192,190;
 			life crystal,2177,85;
 			mind stone,2178,170;
@@ -45,5 +45,5 @@
 			spellbook of lost souls,8903,19000;
 			spellbook of mind control,8902,13000;
 			spellbook of warding,8901,8000;" />
-	</parameters>
+  </parameters>
 </npc>

@@ -6,30 +6,29 @@ local BOSS_GLOBAL_STORAGE_SUMMONkk = 25001 -- dont change
 local TEMPO_RESPkk = 10 * 60 -- em segundos -- respawn time
 
 function onTime()
---function onThink(interval, lastExecution)
+  --function onThink(interval, lastExecution)
 
-local bosskk = 0
-for x = roomkk.fromx, roomkk.tox do
-for y = roomkk.fromy, roomkk.toy do
-for z = roomkk.z, roomkk.z do
+  local bosskk = 0
+  for x = roomkk.fromx, roomkk.tox do
+    for y = roomkk.fromy, roomkk.toy do
+      for z = roomkk.z, roomkk.z do
+        creaturekk = {x = x, y = y, z = z}
+        mobkk = getTopCreature(creaturekk).uid
 
-creaturekk = {x = x, y = y, z = z}
-mobkk = getTopCreature(creaturekk).uid
-
-    if getCreatureName(mobkk) == BOSSkk then
-        bosskk = 1
+        if getCreatureName(mobkk) == BOSSkk then
+          bosskk = 1
+        end
+      end
     end
-end
-end
-end
+  end
 
-if bosskk == 1 then
-end
+  if bosskk == 1 then
+  end
 
-if bosskk == 0 then
-   local monster1 = Game.createMonster("Obujos", Position(33434, 31262, 11))
- monster1:setReward(true)
-end
+  if bosskk == 0 then
+    local monster1 = Game.createMonster("Obujos", Position(33434, 31262, 11))
+    monster1:setReward(true)
+  end
 
-return true
+  return true
 end

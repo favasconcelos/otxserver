@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Beatrice" script="Beatrice.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="136" head="96" body="103" legs="69" feet="95" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="136" head="96" body="103" legs="69" feet="95" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			basket,1989,6;
 			blue backpack,2002,20;
 			blue bag,1995,5;
@@ -26,7 +26,7 @@
 			watch,2036,20;
 			waterball,7956,222;
 			worm,3976,1;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			closed trap,2578,75;
 			crowbar,2416,50;
 			fishing rod,2580,40;
@@ -40,5 +40,5 @@
 			sickle,2405,3;
 			watch,2036,6;
 			wooden hammer,2556,15;" />
-	</parameters>
+  </parameters>
 </npc>

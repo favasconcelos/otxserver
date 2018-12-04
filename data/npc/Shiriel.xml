@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Shiriel" script="Shiriel.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="159" head="1" body="103" legs="0" feet="95" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="159" head="1" body="103" legs="0" feet="95" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			avalanche rune,2274,25;
 			blank rune,2260,10;
 			chameleon rune,2291,210;
@@ -43,11 +43,11 @@
 			wand of decay,2188,5000;
 			wand of dragonbreath,2191,1000;
 			wand of vortex,2190,500;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			empty potion flask,7634,5;
 			empty potion flask,7635,5;
 			empty potion flask,7636,5;
 			spellwand,7735,299;
 			vial,2006,5;" />
-	</parameters>
+  </parameters>
 </npc>

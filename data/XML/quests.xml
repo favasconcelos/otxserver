@@ -394,11 +394,11 @@
 
 
 
-<!--s for level 6 to 49 -->
-		<mission name="Edron City - Elite Hunting: Trolls" storageid="65001" startvalue="0" endvalue="100" description="You already hunted |STATE|/100 Trolls" />
-		<mission name="Edron City - Elite Hunting: Goblins" storageid="65002" startvalue="0" endvalue="150" description="You already hunted |STATE|/150 Goblins." />-->
-		<mission name="Paw and Fur: Necromancers and Priestess" storageid="65050" startvalue="0" endvalue="4000" description="You already hunted |STATE|/4000 Necromancers and Priestess." />
-		<mission name="Paw and Fur: Minotaurs" storageid="65049" startvalue="0" endvalue="5000" description="You already hunted |STATE|/5000 Minotaurs." />
+		<!--s for level 6 to 49 -->
+		<!--<mission name="Edron City - Elite Hunting: Trolls" storageid="1501" startvalue="0" endvalue="4000" description="You already hunted |STATE|/4000 Necromancers and Priestess." />
+		<mission name="Edron City - Elite Hunting: Goblins" storageid="1502" startvalue="0" endvalue="5000" description="You already hunted |STATE|/5000 Minotaurs." />-->
+		<mission name="Paw and Fur: Necromancers and Priestess" storageid="65001" startvalue="0" endvalue="4000" description="You already hunted |STATE|/4000 Necromancers and Priestess." />
+		<mission name="Paw and Fur: Minotaurs" storageid="65002" startvalue="0" endvalue="5000" description="You already hunted |STATE|/5000 Minotaurs." />
 		<mission name="Paw and Fur: Crocodiles" storageid="65003" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 crocodiles." />
 		<mission name="Paw and Fur: Badgers" storageid="65004" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 badgers." />
 		<mission name="Paw and Fur: Tarantulas" storageid="65005" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 tarantulas." />

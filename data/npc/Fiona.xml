@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Fiona" script="Fiona.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="137" head="115" body="100" legs="95" feet="38" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+  <health now="100" max="100" />
+  <look type="137" head="115" body="100" legs="95" feet="38" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_sellable" value="
 			basalt fetish,20136,130;
 			Pair of Hellflayer Horns,25385,1300;
 			Some Grimeleech Wings,25386,1200;
@@ -86,5 +86,5 @@
 			wimp tooth chain,20127,120;
 			wyrm scale,10582,400;
 			wyvern talisman,10561,265;" />
-	</parameters>
+  </parameters>
 </npc>

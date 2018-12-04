@@ -11,5 +11,5 @@ condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, 40)
 combat:setCondition(condition)
 
 function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+  return combat:execute(creature, var)
 end

@@ -1,10 +1,10 @@
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-	local player = Player(cid)
-	if (not player) then
-		return false
-	end
+  local player = Player(cid)
+  if (not player) then
+    return false
+  end
 
-	player:openImbuementWindow(itemEx)
+  player:openImbuementWindow(itemEx)
 
-	return true
+  return true
 end

@@ -1,3 +1,3 @@
 function onLogin(cid)
-doPlayerOpenChannel(cid, Help)
+  doPlayerOpenChannel(cid, Help)
 end

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Morpel" script="Morpel.lua" walkinterval="2000">
-	<health now="100" max="100" />
-	<look type="160" head="58" body="119" legs="57" feet="96" addons="0" />
-	<parameters>
-		<parameter key="message_greet" value="Welcome! I'm in charge of selling weapons and armor. Are you here for a trade?" />
-		<parameter key="message_farewell" value="See you later!" />
-		<parameter key="message_needmoremoney" value="You need more money." />
-		<parameter key="message_decline" value="Fine!" />
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="160" head="58" body="119" legs="57" feet="96" addons="0" />
+  <parameters>
+    <parameter key="message_greet" value="Welcome! I'm in charge of selling weapons and armor. Are you here for a trade?" />
+    <parameter key="message_farewell" value="See you later!" />
+    <parameter key="message_needmoremoney" value="You need more money." />
+    <parameter key="message_decline" value="Fine!" />
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			axe,2386,20;
 			barbarian axe,2429,590;
 			battle axe,2378,235;
@@ -62,7 +62,7 @@
 			viking shield,2531,260;
 			war hammer,2391,10000;
 			wooden shield,2512,15" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe,2386,7;
 			barbarian axe,2429,185;
 			battle axe,2378,80;
@@ -128,5 +128,5 @@
 			viking shield,2531,85;
 			war hammer,2391,470;
 			wooden shield,2512,5" />
-	</parameters>
+  </parameters>
 </npc>

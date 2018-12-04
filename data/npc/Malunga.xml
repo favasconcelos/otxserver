@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Malunga" script="Malunga.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="149" head="95" body="78" legs="19" feet="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+  <health now="100" max="100" />
+  <look type="149" head="95" body="78" legs="19" feet="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_sellable" value="
 			boggy dreads,10584,200;
 			bonecarving knife,20110,140;
 			centipede leg,11218,28;
@@ -78,5 +78,5 @@
 			winged tail,11230,800;
 			yielocks,13942,600;
 			yielowax,13881,600;" />
-	</parameters>
+  </parameters>
 </npc>

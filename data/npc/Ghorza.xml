@@ -7,10 +7,10 @@
     <voice text="Great Hunger is upset." interval2="0" margin="1" yell="no" />
     <voice text="All water drying up and Vuzrog does nothing!" interval2="120" margin="1" yell="no" />
   </voices>
-  
+
   <parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			animate dead rune,2316,375;
 			avalanche rune,2274,25;
 			blank rune,2260,10;
@@ -53,10 +53,10 @@
 			Ultimate Healing Rune,2273,175;
 			Ultimate Health Potion,8473,310;			
 			wild growth rune,2269,160;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			empty potion flask,7634,5;
 			empty potion flask,7635,5;
 			empty potion flask,7636,5;
 			vial,2006,5;" />
-	</parameters>
+  </parameters>
 </npc>

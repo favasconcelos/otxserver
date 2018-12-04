@@ -14,4 +14,3 @@ dofile('data/lib/modalwindow.lua')
 dofile('data/lib/citywars.lua')
 
 dofile('data/lib/lionrock.lua')
-

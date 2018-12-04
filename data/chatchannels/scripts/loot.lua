@@ -1,3 +1,3 @@
 function onSpeak(player, type, message)
-    return false
+  return false
 end

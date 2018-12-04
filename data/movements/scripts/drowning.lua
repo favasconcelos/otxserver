@@ -4,33 +4,33 @@ condition:setParameter(CONDITION_PARAM_TICKS, -1)
 condition:setParameter(CONDITION_PARAM_TICKINTERVAL, 2000)
 
 function onStepIn(creature, item, position, fromPosition)
-	local player = creature:getPlayer()
-	if player == nil then
-		return true
-	end
+  local player = creature:getPlayer()
+  if player == nil then
+    return true
+  end
 
-	if (item:getId() == 1387) then
-		if (player:getCondition(CONDITION_DROWN)) then
-			player:removeCondition(CONDITION_DROWN)
-		end
+  if (item:getId() == 1387) then
+    if (player:getCondition(CONDITION_DROWN)) then
+      player:removeCondition(CONDITION_DROWN)
+    end
 
-		return true
-	end
+    return true
+  end
 
-	if math.random(1, 10) == 1 then
-		position:sendMagicEffect(CONST_ME_BUBBLES)
-	end
+  if math.random(1, 10) == 1 then
+    position:sendMagicEffect(CONST_ME_BUBBLES)
+  end
 
-	player:addCondition(condition)
-	return true
+  player:addCondition(condition)
+  return true
 end
 
 function onStepOut(creature, item, position, fromPosition)
-	local player = creature:getPlayer()
-	if player == nil then
-		return true
-	end
+  local player = creature:getPlayer()
+  if player == nil then
+    return true
+  end
 
-	player:removeCondition(CONDITION_DROWN)
-	return true
+  player:removeCondition(CONDITION_DROWN)
+  return true
 end

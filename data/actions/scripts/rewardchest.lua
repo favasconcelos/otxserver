@@ -1,4 +1,4 @@
 function onUse(player, item)
-    player:updateRewardChest()
-    return false
+  player:updateRewardChest()
+  return false
 end

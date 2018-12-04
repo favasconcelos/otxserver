@@ -9,5 +9,5 @@ condition:setParameter(CONDITION_PARAM_TICKS, (6 * 60 + 10) * 1000)
 combat:setCondition(condition)
 
 function onCastSpell(creature, variant)
-	return combat:execute(creature, variant)
+  return combat:execute(creature, variant)
 end

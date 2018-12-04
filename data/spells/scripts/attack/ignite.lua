@@ -8,5 +8,5 @@ condition:addDamage(25, 3000, -45)
 combat:setCondition(condition)
 
 function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+  return combat:execute(creature, var)
 end

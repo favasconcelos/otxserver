@@ -1,3 +1,3 @@
 function Teleport.isTeleport(self)
-	return true
+  return true
 end

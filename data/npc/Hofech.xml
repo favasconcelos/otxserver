@@ -3,7 +3,7 @@
   <health now="100" max="100" />
   <look type="128" head="95" body="2" legs="2" feet="57" addons="0" />
   <parameters>
-  	<parameter key="shop_buyable" value="
+    <parameter key="shop_buyable" value="
 			amphora,2023,4,0;
 			armor rack kit,6114,90;
 			barrel kit,3919,12;

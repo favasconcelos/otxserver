@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Memech" script="Memech.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="131" head="21" body="21" legs="21" feet="116" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-	<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="131" head="21" body="21" legs="21" feet="116" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			axe,2386,20;
 			battle axe,2378,235;
 			battle hammer,2417,350;
@@ -55,7 +55,7 @@
 			viking shield,2531,260;
 			war hammer,2391,10000;
 			wooden shield,2512,15;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe,2386,7;
 			battle axe,2378,80;
 			battle hammer,2417,120;
@@ -120,5 +120,5 @@
 			viking shield,2531,85;
 			war hammer,2391,470;
 			wooden shield,2512,5;" />
-	</parameters>
+  </parameters>
 </npc>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Nah'Bob" script="Nah'Bob.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="80" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="80" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			bonelord shield, 2518, 7000;
 			noble armor, 2486, 8000;
 			obsidian lance, 2425, 3000;
 			spike sword, 2383, 8000;
 			war hammer, 2391, 10000 " />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			angelic axe, 7436, 5000;
 			blue robe, 2656, 10000;
 			bonelord shield, 2518, 1200;
@@ -46,5 +46,5 @@
 			spike sword, 2383, 1000;
 			thaian sword, 7391, 16000;
 			war hammer, 2391, 1200 " />
-	</parameters>
+  </parameters>
 </npc>

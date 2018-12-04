@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Gorn" script="Gorn.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="129" head="58" body="68" legs="101" feet="95" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+  <health now="100" max="100" />
+  <look type="129" head="58" body="68" legs="101" feet="95" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_sellable" value="
 		green book, 1980, 15;
 		orange book, 1977, 30;
 		blue book, 1978, 20;
@@ -21,7 +21,7 @@
 		shovel, 2554,8;
 		watch, 2036, 6;
 		wooden hammer, 2556, 15" />
-		<parameter key="shop_buyable" value="
+    <parameter key="shop_buyable" value="
 		basket, 1989, 6;
 		brown book, 1971, 15;
 		black book, 1972, 15;
@@ -55,5 +55,5 @@
 		valentine's card, 6538, 30;
 		watch, 2036, 20;
 		worm, 3976, 1 " />
-	</parameters>
+  </parameters>
 </npc>

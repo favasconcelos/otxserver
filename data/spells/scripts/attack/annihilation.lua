@@ -6,13 +6,13 @@ combat:setParameter(COMBAT_PARAM_BLOCKARMOR, 1)
 combat:setParameter(COMBAT_PARAM_USECHARGES, 1)
 
 function onGetFormulaValues(player, skill, attack, factor)
-	local skillTotal = skill * attack
-	local levelTotal = player:getLevel() / 5
-	return -(((skillTotal * 0.17) + 13) + (levelTotal)), -(((skillTotal * 0.20) + 34) + (levelTotal))
+  local skillTotal = skill * attack
+  local levelTotal = player:getLevel() / 5
+  return -(((skillTotal * 0.17) + 13) + (levelTotal)), -(((skillTotal * 0.20) + 34) + (levelTotal))
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 
 function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+  return combat:execute(creature, var)
 end

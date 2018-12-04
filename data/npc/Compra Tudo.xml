@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Edward" script="compratudo.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="104" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="104" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			stone skin amulet,2197,5000,5;
 			rusty,9930,50;
 			brown,2789,6" />
-		<parameter key="shop_sellable" value="		
+    <parameter key="shop_sellable" value="		
 		yellow gem,2154,1000;
 		violet gem,2153,10000;
 		red gem, 2156,1000;
@@ -457,5 +457,5 @@
 			shovel,2554,8;
 			watch,2036,6;
 			hammer,2556,15" />
-	</parameters>
+  </parameters>
 </npc>
