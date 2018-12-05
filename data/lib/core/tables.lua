@@ -15,7 +15,7 @@ end
 
 table.contains = function(txt, str)
   for i, v in pairs(str) do
-    if (txt:find(v) and not txt:find("(%w+)" .. v) and not txt:find(v .. "(%w+)")) then
+    if (txt:find(v) and not txt:find('(%w+)' .. v) and not txt:find(v .. '(%w+)')) then
       return true
     end
   end
@@ -73,27 +73,27 @@ function table.serialize(x, recur)
   recur = recur or {}
 
   if (t == nil) then
-    return "nil"
-  elseif (t == "string") then
-    return string.format("%q", x)
-  elseif (t == "number") then
+    return 'nil'
+  elseif (t == 'string') then
+    return string.format('%q', x)
+  elseif (t == 'number') then
     return tostring(x)
-  elseif (t == "boolean") then
-    return t and "true" or "false"
+  elseif (t == 'boolean') then
+    return t and 'true' or 'false'
   elseif (getmetatable(x)) then
-    error("Can not serialize a table that has a metatable associated with it.")
-  elseif (t == "table") then
+    error('Can not serialize a table that has a metatable associated with it.')
+  elseif (t == 'table') then
     if (table.find(recur, x)) then
-      error("Can not serialize recursive tables.")
+      error('Can not serialize recursive tables.')
     end
     table.append(recur, x)
 
-    local s = "{"
+    local s = '{'
     for k, v in pairs(x) do
-      s = s .. "[" .. table.serialize(k, recur) .. "]"
-      s = s .. " = " .. table.serialize(v, recur) .. ","
+      s = s .. '[' .. table.serialize(k, recur) .. ']'
+      s = s .. ' = ' .. table.serialize(v, recur) .. ','
     end
-    s = s .. "}"
+    s = s .. '}'
     return s
   else
     error("Can not serialize value of type '" .. t .. "'.")
@@ -101,5 +101,5 @@ function table.serialize(x, recur)
 end
 
 function table.unserialize(str)
-  return loadstring("return " .. str)()
+  return loadstring('return ' .. str)()
 end

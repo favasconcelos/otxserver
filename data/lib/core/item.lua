@@ -23,7 +23,7 @@ function Item.isTile(self)
 end
 
 function Item.setDescription(self, description)
-  if description ~= "" then
+  if description ~= '' then
     self:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, description)
   else
     self:removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION)
@@ -31,7 +31,7 @@ function Item.setDescription(self, description)
 end
 
 function Item.setText(self, text)
-  if text ~= "" then
+  if text ~= '' then
     self:setAttribute(ITEM_ATTRIBUTE_TEXT, text)
   else
     self:removeAttribute(ITEM_ATTRIBUTE_TEXT)
@@ -39,7 +39,7 @@ function Item.setText(self, text)
 end
 
 function Item.setUniqueId(self, uniqueId)
-  if type(uniqueId) ~= "number" or uniqueId < 0 or uniqueId > 65535 then
+  if type(uniqueId) ~= 'number' or uniqueId < 0 or uniqueId > 65535 then
     return false
   end
 

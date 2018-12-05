@@ -19,5 +19,5 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
       setPlayerStorageValue(cid, 21026, getPlayerStorageValue(cid, 21026) + 1)
     end
   end
-  return TRUE
+  return true
 end

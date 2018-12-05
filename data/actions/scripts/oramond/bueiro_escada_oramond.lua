@@ -1,9 +1,9 @@
 local upFloorIds = {23668}
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-  if isInArray(upFloorIds, item.itemid) == TRUE then
+  if isInArray(upFloorIds, item.itemid) == true then
     fromPosition.x = fromPosition.x + 1
     fromPosition.z = fromPosition.z - 2
   end
-  doTeleportThing(cid, fromPosition, FALSE)
-  return TRUE
+  doTeleportThing(cid, fromPosition, false)
+  return true
 end

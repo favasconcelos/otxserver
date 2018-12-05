@@ -41,7 +41,7 @@ function creatureSayCallback(cid, type, msg)
       end
     end
     selfSay("You already have access to teleport.", cid)
-    return TRUE
+    return true
   end
 end
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

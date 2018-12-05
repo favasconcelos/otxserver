@@ -7,5 +7,5 @@ function onStepIn(cid, item, position, fromPosition)
     setPlayerStorageValue(cid, 30057, 1)
     setPlayerStorageValue(cid, 30058, 0)
   end
-  return TRUE
+  return true
 end

@@ -19,7 +19,7 @@ local function deGnomevil()
       end
     end
   end
-  return FALSE
+  return false
 end
 
 function onStepIn(cid, item, position, topos, frompos)

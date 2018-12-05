@@ -35,7 +35,7 @@ function removePlayerTanjis()
       end
     end
   end
-  return TRUE
+  return true
 end
 
 -- VOLTA O STORAGE AO NORMAL

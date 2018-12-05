@@ -31,23 +31,20 @@ local TELEPORT_ACTIONID = 19027
 local TELEPORT_ITEMID = 1387
 
 function doStartExf()
-  Game.broadcastMessage("Teleport for Enchanted Forest Event was created in Event Room.", MESSAGE_STATUS_WARNING)
+  Game.broadcastMessage('Teleport for Enchanted Forest Event was created in Event Room.', MESSAGE_STATUS_WARNING)
   local tp = Game.createItem(TELEPORT_ITEMID, 1, TELEPORT_POSITION)
   if not tp then
-    error("Nao foi possivel criar o teleport na posicao especificada.")
+    error('Nao foi possivel criar o teleport na posicao especificada.')
   end
   tp:setActionId(TELEPORT_ACTIONID)
   setGlobalStorageValue(configExf.stats, 0)
-  Game.broadcastMessage(
-    "The Exchanted Forest event will start in " .. configExf.timetostart .. " seconds.",
-    MESSAGE_STATUS_WARNING
-  )
+  Game.broadcastMessage('The Exchanted Forest event will start in ' .. configExf.timetostart .. ' seconds.', MESSAGE_STATUS_WARNING)
   addEvent(doInitExf, configExf.timetostart * 1000)
 end
 
 function doInitExf()
   if getGlobalStorageValue(configExf.stats) == 0 then
-    Game.broadcastMessage("The Exchanted Forest event is starting...", MESSAGE_STATUS_WARNING)
+    Game.broadcastMessage('The Exchanted Forest event is starting...', MESSAGE_STATUS_WARNING)
     setGlobalStorageValue(configExf.stats, 1)
   end
 end
@@ -56,7 +53,7 @@ function doCloseExf()
   setGlobalStorageValue(configExf.stats, -1)
   local tp = Game.removeItem(TELEPORT_ITEMID, 1, TELEPORT_POSITION)
   if not tp then
-    error("Nao foi possivel remover o teleport na posicao especificada.")
+    error('Nao foi possivel remover o teleport na posicao especificada.')
   end
 
   doCleanExfRoom()

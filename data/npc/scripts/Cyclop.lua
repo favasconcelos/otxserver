@@ -112,7 +112,7 @@ function creatureSayCallback(cid, type, msg)
     end
   end
 
-  return TRUE
+  return true
 end
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

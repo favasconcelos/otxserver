@@ -78,7 +78,7 @@ function creatureSayCallback(cid, type, msg)
     npcHandler:say({"You can pass through the fire teleport now, try to find my father to me please."}, cid)
     npcHandler.topic[cid] = 0
   end
-  return TRUE
+  return true
 end
 
 -- Basic

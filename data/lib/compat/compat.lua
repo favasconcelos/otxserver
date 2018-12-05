@@ -1,5 +1,5 @@
-TRUE = true
-FALSE = false
+true = true
+false = false
 
 result.getDataInt = result.getNumber
 result.getDataLong = result.getNumber

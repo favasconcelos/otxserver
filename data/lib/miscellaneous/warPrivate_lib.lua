@@ -6,7 +6,7 @@
 --]]
 --[[ Global Configs ]] --
 warPrivate_duration = 60 -- Time Duration of a War.
- --
+--
 
 --[[ Player Storages ]] warPrivate_storage = 95160 -- City
 warPrivate_UE = 95600 -- NOUE

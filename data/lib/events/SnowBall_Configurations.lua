@@ -57,7 +57,7 @@ SnowBall_Configurations = {
 			[Item_ID] = Item_Ammount,
 		},
 		]]
-   --
+    --
   }
 }
 
@@ -66,20 +66,14 @@ CACHE_GAMEPLAYERS = {}
 CACHE_GAMEAREAPOSITIONS = {}
 
 function loadEvent()
-  print("[SnowBall Event]: Carregando a area da arena.")
-  for newX = SnowBall_Configurations.Area_Configurations.Area_Arena[1].x, SnowBall_Configurations.Area_Configurations.Area_Arena[
-    2
-  ].x do
-    for newY = SnowBall_Configurations.Area_Configurations.Area_Arena[1].y, SnowBall_Configurations.Area_Configurations.Area_Arena[
-      2
-    ].y do
+  print('[SnowBall Event]: Carregando a area da arena.')
+  for newX = SnowBall_Configurations.Area_Configurations.Area_Arena[1].x, SnowBall_Configurations.Area_Configurations.Area_Arena[2].x do
+    for newY = SnowBall_Configurations.Area_Configurations.Area_Arena[1].y, SnowBall_Configurations.Area_Configurations.Area_Arena[2].y do
       local AreaPos = {x = newX, y = newY, z = SnowBall_Configurations.Area_Configurations.Area_Arena[1].z}
       if getTileThingByPos(AreaPos).itemid == 0 then
         print(
-          "[SnowBall Event]: Houve um problema ao carregar a posicao (x = " ..
-            AreaPos.x ..
-              " - y = " ..
-                AreaPos.y .. " - z = " .. AreaPos.z .. ") da arena do evento, por favor verifique as condicoes."
+          '[SnowBall Event]: Houve um problema ao carregar a posicao (x = ' ..
+            AreaPos.x .. ' - y = ' .. AreaPos.y .. ' - z = ' .. AreaPos.z .. ') da arena do evento, por favor verifique as condicoes.'
         )
         return false
       elseif isWalkable(AreaPos) then
@@ -87,30 +81,24 @@ function loadEvent()
       end
     end
   end
-  print("[SnowBall Event]: Carregamento da area da arena concluido com sucesso.")
+  print('[SnowBall Event]: Carregamento da area da arena concluido com sucesso.')
 
   if getTileThingByPos(SnowBall_Configurations.Area_Configurations.Position_WaitRoom).itemid == 0 then
-    print(
-      "[SnowBall Event]: Houve um problema ao verificar a existencia da posicao da sala de espera, por favor verifique as condicoes."
-    )
+    print('[SnowBall Event]: Houve um problema ao verificar a existencia da posicao da sala de espera, por favor verifique as condicoes.')
     return false
   end
 
   if getTileThingByPos(SnowBall_Configurations.Area_Configurations.Position_ExitWaitRoom).itemid == 0 then
-    print(
-      "[SnowBall Event]: Houve um problema ao verificar a existencia da posicao do teleport da sala de espera, por favor verifique as condicoes."
-    )
+    print('[SnowBall Event]: Houve um problema ao verificar a existencia da posicao do teleport da sala de espera, por favor verifique as condicoes.')
     return false
   end
 
   if getTileThingByPos(SnowBall_Configurations.Area_Configurations.Position_EventTeleport).itemid == 0 then
-    print(
-      "[SnowBall Event]: Houve um problema ao verificar a existencia da posicoo para cria�ao do teleport do evento, por favor verifique as condicoes."
-    )
+    print('[SnowBall Event]: Houve um problema ao verificar a existencia da posicoo para cria�ao do teleport do evento, por favor verifique as condicoes.')
     return false
   end
 
-  print("[SnowBall Event]: Carregamento do evento concluido com sucesso.")
+  print('[SnowBall Event]: Carregamento do evento concluido com sucesso.')
   return true
 end
 
@@ -155,10 +143,7 @@ function Event_sendSnowBall(cid, pos, rounds, dir)
 
           if Player(killed:getId()) then
             if iced_Corpses[killed:getSex()] then
-              local killed_corpse =
-                iced_Corpses[killed:getSex()][killed:getDirection()][
-                math.random(1, #iced_Corpses[killed:getSex()][killed:getDirection()])
-              ]
+              local killed_corpse = iced_Corpses[killed:getSex()][killed:getDirection()][math.random(1, #iced_Corpses[killed:getSex()][killed:getDirection()])]
 
               Game.createItem(killed_corpse, 1, killed:getPosition())
               local item = Item(getTileItemById(killed:getPosition(), killed_corpse).uid)
@@ -177,31 +162,22 @@ function Event_sendSnowBall(cid, pos, rounds, dir)
             killed:setStorageValue(10108, SnowBall_Configurations.Ammo_Configurations.Ammo_Restart)
             killed:sendTextMessage(
               29,
-              "Voc� acabou ser acertado pelo jogador " ..
-                player:getName() ..
-                  " e perdeu -" ..
-                    SnowBall_Configurations.Event_LostPoints ..
-                      " ponto(s).\nTotal de: " .. killed:getStorageValue(10109) .. " ponto(s)"
+              'Voc� acabou ser acertado pelo jogador ' ..
+                player:getName() .. ' e perdeu -' .. SnowBall_Configurations.Event_LostPoints .. ' ponto(s).\nTotal de: ' .. killed:getStorageValue(10109) .. ' ponto(s)'
             )
 
             player:setStorageValue(10109, player:getStorageValue(10109) + SnowBall_Configurations.Event_GainPoint)
             player:sendTextMessage(
               29,
-              "Voc� acabou de acertar o jogador " ..
-                killed:getName() ..
-                  " e ganhou +" ..
-                    SnowBall_Configurations.Event_GainPoint ..
-                      " ponto(s).\nTotal de: " .. player:getStorageValue(10109) .. " ponto(s)"
+              'Voc� acabou de acertar o jogador ' ..
+                killed:getName() .. ' e ganhou +' .. SnowBall_Configurations.Event_GainPoint .. ' ponto(s).\nTotal de: ' .. player:getStorageValue(10109) .. ' ponto(s)'
             )
 
-            if
-              (CACHE_GAMEPLAYERS[2] == player:getId()) and
-                player:getStorageValue(10109) >= Player(CACHE_GAMEPLAYERS[1]):getStorageValue(10109)
-             then
+            if (CACHE_GAMEPLAYERS[2] == player:getId()) and player:getStorageValue(10109) >= Player(CACHE_GAMEPLAYERS[1]):getStorageValue(10109) then
               player:getPosition():sendMagicEffect(7)
-              player:sendTextMessage(29, "Voc� agora � o lider do ranking do SnowBall, parab�ns!")
+              player:sendTextMessage(29, 'Voc� agora � o lider do ranking do SnowBall, parab�ns!')
               Player(CACHE_GAMEPLAYERS[1]):getPosition():sendMagicEffect(16)
-              Player(CACHE_GAMEPLAYERS[1]):sendTextMessage(29, "Voc� acaba de perder a primeira coloca��o!")
+              Player(CACHE_GAMEPLAYERS[1]):sendTextMessage(29, 'Voc� acaba de perder a primeira coloca��o!')
             end
 
             table.sort(
@@ -218,14 +194,7 @@ function Event_sendSnowBall(cid, pos, rounds, dir)
 
         pos:sendDistanceEffect(newPos, 13)
         pos = newPos
-        return addEvent(
-          Event_sendSnowBall,
-          SnowBall_Configurations.Ammo_Configurations.Ammo_Speed,
-          player:getId(),
-          pos,
-          rounds - 1,
-          dir
-        )
+        return addEvent(Event_sendSnowBall, SnowBall_Configurations.Ammo_Configurations.Ammo_Speed, player:getId(), pos, rounds - 1, dir)
       end
 
       newPos:sendMagicEffect(3)
@@ -236,7 +205,7 @@ function Event_sendSnowBall(cid, pos, rounds, dir)
 end
 
 function Event_endGame()
-  local str = "       ## -> SnowBall Ranking <- ##\n\n"
+  local str = '       ## -> SnowBall Ranking <- ##\n\n'
 
   for rank, players in ipairs(CACHE_GAMEPLAYERS) do
     if SnowBall_Configurations.Positions_Rewards[rank] then
@@ -245,9 +214,7 @@ function Event_endGame()
       end
     end
 
-    str =
-      str ..
-      rank .. ". " .. Player(players):getName() .. ": " .. Player(players):getStorageValue(10109) .. " ponto(s)\n"
+    str = str .. rank .. '. ' .. Player(players):getName() .. ': ' .. Player(players):getStorageValue(10109) .. ' ponto(s)\n'
     Player(players):teleportTo(Player(players):getTown():getTemplePosition())
   end
 
@@ -255,7 +222,7 @@ function Event_endGame()
     Player(cid):showTextDialog(2111, str)
   end
 
-  Game.broadcastMessage("[Snowball Event]: O evento terminou.")
+  Game.broadcastMessage('[Snowball Event]: O evento terminou.')
   return true
 end
 
@@ -277,14 +244,8 @@ function isInArena(player)
   local pos = player:getPosition()
 
   if pos.z == SnowBall_Configurations.Area_Configurations.Area_Arena[1].z then
-    if
-      pos.x >= SnowBall_Configurations.Area_Configurations.Area_Arena[1].x and
-        pos.y >= SnowBall_Configurations.Area_Configurations.Area_Arena[1].y
-     then
-      if
-        pos.x <= SnowBall_Configurations.Area_Configurations.Area_Arena[2].x and
-          pos.y <= SnowBall_Configurations.Area_Configurations.Area_Arena[2].y
-       then
+    if pos.x >= SnowBall_Configurations.Area_Configurations.Area_Arena[1].x and pos.y >= SnowBall_Configurations.Area_Configurations.Area_Arena[1].y then
+      if pos.x <= SnowBall_Configurations.Area_Configurations.Area_Arena[2].x and pos.y <= SnowBall_Configurations.Area_Configurations.Area_Arena[2].y then
         return true
       end
     end

@@ -4,28 +4,28 @@ _Lib_Battle_Info = {
     items = {true, 21399, 1},
     premium_days = {false, 1}
   },
-  TeamOne = {name = "Black Warriors", storage = 140120, pos = {x = 32382, y = 31451, z = 2}},
-  TeamTwo = {name = "Red Warriors", storage = 140121, pos = {x = 32450, y = 31451, z = 2}},
+  TeamOne = {name = 'Black Warriors', storage = 140120, pos = {x = 32382, y = 31451, z = 2}},
+  TeamTwo = {name = 'Red Warriors', storage = 140121, pos = {x = 32450, y = 31451, z = 2}},
   storage_count = 180400,
   tpPos = {x = 32310, y = 31858, z = 6},
   limit_Time = 10 -- em minutos
 }
 _Lib_Battle_Days = {
-  ["Tuesday"] = {
+  ['Tuesday'] = {
     -- terça
-    ["21:00"] = {players = 50}
+    ['21:00'] = {players = 50}
   },
-  ["Thursday"] = {
+  ['Thursday'] = {
     -- quinta
-    ["21:00"] = {players = 50}
+    ['21:00'] = {players = 50}
   },
-  ["Saturday"] = {
+  ['Saturday'] = {
     -- sabado
-    ["21:00"] = {players = 50}
+    ['21:00'] = {players = 50}
   },
-  ["Sunday"] = {
+  ['Sunday'] = {
     -- domingo
-    ["21:00"] = {players = 50}
+    ['21:00'] = {players = 50}
   }
 }
 
@@ -36,17 +36,14 @@ end
 
 function doBroadCastBattle(type, msg)
   for _, cid in pairs(Game.getPlayers()) do
-    if
-      Player(cid):getStorageValue(_Lib_Battle_Info.TeamOne.storage) == 1 or
-        Player(cid):getStorageValue(_Lib_Battle_Info.TeamTwo.storage) == 1
-     then
+    if Player(cid):getStorageValue(_Lib_Battle_Info.TeamOne.storage) == 1 or Player(cid):getStorageValue(_Lib_Battle_Info.TeamTwo.storage) == 1 then
       Player(cid):sendTextMessage(type, msg)
     end
   end
 end
 
 function getWinnersBattle(storage)
-  local str, c = "[BattleField] ", 0
+  local str, c = '[BattleField] ', 0
   for _, cid in pairs(Game.getPlayers()) do
     local player = Player(cid)
     if player:getStorageValue(storage) >= 1 then
@@ -67,14 +64,11 @@ function getWinnersBattle(storage)
   end
   str =
     str ..
-    "" ..
+    '' ..
       c ..
-        " jogadores" ..
-          (c > 1 and "s" or "") ..
-            " do time " ..
-              (Game.getStorageValue(_Lib_Battle_Info.TeamOne.storage) == 0 and _Lib_Battle_Info.TeamTwo.name or
-                _Lib_Battle_Info.TeamOne.name) ..
-                " ganharam o evento!"
+        ' jogadores' ..
+          (c > 1 and 's' or '') ..
+            ' do time ' .. (Game.getStorageValue(_Lib_Battle_Info.TeamOne.storage) == 0 and _Lib_Battle_Info.TeamTwo.name or _Lib_Battle_Info.TeamOne.name) .. ' ganharam o evento!'
   resetBattle()
   OpenWallBattle()
   return broadcastMessage(str)
@@ -108,24 +102,18 @@ end
 
 function CheckEvent(delay)
   if delay > 0 and Game.getStorageValue(_Lib_Battle_Info.storage_count) > 0 then
-    broadcastMessage(
-      "[BattleField] Faltam " ..
-        Game.getStorageValue(_Lib_Battle_Info.storage_count) .. " jogadores para o evento comecar."
-    )
+    broadcastMessage('[BattleField] Faltam ' .. Game.getStorageValue(_Lib_Battle_Info.storage_count) .. ' jogadores para o evento comecar.')
   elseif delay == 0 and Game.getStorageValue(_Lib_Battle_Info.storage_count) > 0 then
     for _, cid in pairs(Game.getPlayers()) do
       local player = Player(cid)
-      if
-        player:getStorageValue(_Lib_Battle_Info.TeamOne.storage) == 1 or
-          player:getStorageValue(_Lib_Battle_Info.TeamTwo.storage) == 1
-       then
+      if player:getStorageValue(_Lib_Battle_Info.TeamOne.storage) == 1 or player:getStorageValue(_Lib_Battle_Info.TeamTwo.storage) == 1 then
         player:teleportTo(player:getTown():getTemplePosition())
         player:setStorageValue(_Lib_Battle_Info.TeamOne.storage, -1)
         player:setStorageValue(_Lib_Battle_Info.TeamTwo.storage, -1)
         player:removeCondition(CONDITION_OUTFIT)
       end
     end
-    broadcastMessage("[BattleField] O evento nao foi iniciado por nao atingir o numero de jogadores.")
+    broadcastMessage('[BattleField] O evento nao foi iniciado por nao atingir o numero de jogadores.')
     Game.setStorageValue(_Lib_Battle_Info.storage_count, 0)
     resetBattle()
     removeBattleTp()

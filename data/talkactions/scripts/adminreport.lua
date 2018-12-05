@@ -18,5 +18,5 @@ function onSay(cid, words, param, channel)
   else
     doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, 'You have to wait 5 minutes to report again.')
   end
-  return TRUE
+  return true
 end

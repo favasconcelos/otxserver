@@ -19,7 +19,7 @@ local function deAbyssador()
       end
     end
   end
-  return FALSE
+  return false
 end
 
 local function deSummonAbyssador()

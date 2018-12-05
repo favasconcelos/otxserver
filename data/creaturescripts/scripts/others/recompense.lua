@@ -28,5 +28,5 @@ function onAdvance(cid, skill, oldlevel, newlevel)
     setPlayerStorageValue(cid, 99971, 1)
     doPlayerSendTextMessage(cid, 19, "You have been awarded with 1 boots of haste for reaching level 200.")
   end
-  return TRUE
+  return true
 end

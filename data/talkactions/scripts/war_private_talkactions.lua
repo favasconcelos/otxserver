@@ -264,7 +264,7 @@ function onSay(cid, words, param)
     local guildId = guild:getId()
 
     if (getPlayerVocation(cid) ~= 0) then
-      if (getTilePzInfo(getThingPos(cid)) == TRUE) then
+      if (getTilePzInfo(getThingPos(cid)) == true) then
         if guildId == getGlobalStorageValue(lib.war.guild) then
           if (getGlobalStorageValue(lib.war.count1) >= getGlobalStorageValue(lib.war.limite)) then
             player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 'The limit of players its reached.')

@@ -13,5 +13,5 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
   else
     doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "You already take the outfit, ask about mission for Chrak.")
   end
-  return TRUE
+  return true
 end

@@ -48,7 +48,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
       player[i] = getThingfromPos(players_pos[i])
       if player[i].itemid > 0 then
         if string.lower(playersOnly) == "yes" then
-          if isPlayer(player[i].uid) == TRUE then
+          if isPlayer(player[i].uid) == true then
             all_ready = all_ready + 1
           else
             monsters = monsters + 1
@@ -61,7 +61,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
     if all_ready == #players_pos then
       for i = 1, #players_pos do
         player[i] = getThingfromPos(players_pos[i])
-        if isPlayer(player[i].uid) == TRUE then
+        if isPlayer(player[i].uid) == true then
           if getPlayerLevel(player[i].uid) >= questLevel then
             level = level + 1
           end
@@ -81,7 +81,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
           end
           for i = 1, #players_pos do
             doSendMagicEffect(players_pos[i], CONST_ME_POFF)
-            doTeleportThing(player[i].uid, new_player_pos[i], FALSE)
+            doTeleportThing(player[i].uid, new_player_pos[i], false)
             doSendMagicEffect(new_player_pos[i], CONST_ME_ENERGYAREA)
             doTransformItem(item.uid, 1946)
           end
@@ -102,7 +102,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
           local pos = {x = x, y = y, z = z, stackpos = 253}
           local thing = getThingfromPos(pos)
           if thing.itemid > 0 then
-            if isPlayer(thing.uid) == TRUE then
+            if isPlayer(thing.uid) == true then
               player_room = player_room + 1
             end
           end
@@ -126,5 +126,5 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
       doTransformItem(item.uid, 1945)
     end
   end
-  return TRUE
+  return true
 end

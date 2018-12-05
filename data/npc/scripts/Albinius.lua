@@ -154,7 +154,7 @@ local function creatureSayCallback(cid, type, msg)
       selfSay("Sorry, first you need to bring my Heavy Old Tomes.", cid)
     end
   end
-  return TRUE
+  return true
 end
 
 keywordHandler:addKeyword(

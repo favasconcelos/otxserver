@@ -45,7 +45,7 @@ local function creatureSayCallback(cid, type, msg)
   elseif msgcontains(msg, "raymond striker") then
     if player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) == 1 then
       npcHandler:say(
-        "<giggles> I think he has a crush on me. Well, silly man, it is only for his own good. This way he can get accustomed to TRUE beauty. And I won't give him up anymore now that he is mine.",
+        "<giggles> I think he has a crush on me. Well, silly man, it is only for his own good. This way he can get accustomed to true beauty. And I won't give him up anymore now that he is mine.",
         cid
       )
       player:setStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid, 2)

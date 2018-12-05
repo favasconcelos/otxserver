@@ -15,8 +15,8 @@ function onDeath(cid)
   local tp = tps[getCreatureName(cid)]
   if tp then
     doCreateTeleport(tpId, tp.toPos, tp.pos)
-    doCreatureSay(cid, "O teleport ir� sumir em " .. tp.time .. " segundos.", TALKTYPE_ORANGE_1)
+    doCreatureSay(cid, "The teleport will desappear in " .. tp.time .. " seconds.", TALKTYPE_ORANGE_1)
     addEvent(removeTp, tp.time * 1000, tp)
   end
-  return TRUE
+  return true
 end

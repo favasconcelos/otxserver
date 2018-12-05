@@ -3,9 +3,9 @@ if not globalStorageTable then
 end
 
 function getGlobalStorageValueDB(key)
-  local resultId = db.storeQuery("SELECT `value` FROM `global_storage` WHERE `key` = " .. key)
+  local resultId = db.storeQuery('SELECT `value` FROM `global_storage` WHERE `key` = ' .. key)
   if resultId ~= false then
-    local val = result.getString(resultId, "value")
+    local val = result.getString(resultId, 'value')
     result.free(resultId)
     return val
   end
@@ -13,10 +13,7 @@ function getGlobalStorageValueDB(key)
 end
 
 function setGlobalStorageValueDB(key, value)
-  db.query(
-    "INSERT INTO `global_storage` (`key`, `value`) VALUES (" ..
-      key .. ", " .. value .. ") ON DUPLICATE KEY UPDATE `value` = " .. value
-  )
+  db.query('INSERT INTO `global_storage` (`key`, `value`) VALUES (' .. key .. ', ' .. value .. ') ON DUPLICATE KEY UPDATE `value` = ' .. value)
 end
 
 function Game.broadcastMessage(message, messageType)
@@ -33,13 +30,7 @@ end
 function Game.convertIpToString(ip)
   local band = bit.band
   local rshift = bit.rshift
-  return string.format(
-    "%d.%d.%d.%d",
-    band(ip, 0xFF),
-    band(rshift(ip, 8), 0xFF),
-    band(rshift(ip, 16), 0xFF),
-    rshift(ip, 24)
-  )
+  return string.format('%d.%d.%d.%d', band(ip, 0xFF), band(rshift(ip, 8), 0xFF), band(rshift(ip, 16), 0xFF), rshift(ip, 24))
 end
 
 function Game.getHouseByPlayerGUID(playerGUID)

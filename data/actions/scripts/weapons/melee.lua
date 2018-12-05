@@ -150,5 +150,5 @@ function onUse(cid, item, frompos, item2, topos)
   end
 
   doSendMagicEffect(topos, CONST_ME_POFF)
-  return TRUE
+  return true
 end

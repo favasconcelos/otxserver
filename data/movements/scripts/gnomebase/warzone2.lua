@@ -23,7 +23,7 @@ local function deGnomevil()
       end
     end
   end
-  return FALSE
+  return false
 end
 local function deSummonGnomevil()
   if (getGlobalStorageValue(99159) < 1) then

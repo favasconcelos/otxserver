@@ -7,10 +7,10 @@ EVENT_CLOSED = 0
 EVENT_WAIT = 1
 EVENT_STARTED = 2
 
-DAY = "Friday" --day
+DAY = 'Friday' --day
 TIME_EVENT = 60 --mins
 
-MONSTER_NAME = "King Castle"
+MONSTER_NAME = 'King Castle'
 TIME_TO_REVIVE_MONSTER = 1 --mins
 POS_MONSTER_CREATE = {x = 31905, y = 32293, z = 4} --pos
 
@@ -80,7 +80,7 @@ function setGuildCastleOwner(guild)
     return false
   end
   setGlobalStorageValueDB(CASTELO_STOR, guild:getId())
-  Game.broadcastMessage(string.format("A guild %s conquistou o castelo!", guild:getName()))
+  Game.broadcastMessage(string.format('A guild %s conquistou o castelo!', guild:getName()))
   castleOwner = guild:getId()
 end
 
@@ -186,7 +186,7 @@ function createCastleEventMonster(teleportPlayers)
   end
   if (teleportPlayers) then
     teleportCastleEventMembers(true, true)
-    Game.broadcastMessage(string.format("Monster will respawn in %d minutes", TIME_TO_REVIVE_MONSTER))
+    Game.broadcastMessage(string.format('Monster will respawn in %d minutes', TIME_TO_REVIVE_MONSTER))
     addEvent(Game.createMonster, TIME_TO_REVIVE_MONSTER * 60 * 1000, MONSTER_NAME, POS_MONSTER_CREATE)
   else
     Game.createMonster(MONSTER_NAME, POS_MONSTER_CREATE)

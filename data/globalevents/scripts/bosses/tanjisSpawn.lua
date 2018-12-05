@@ -7,5 +7,5 @@ function onThink(interval, lastExecution)
     Game.createMonster(BOSSpp, BOSS_POSpp)
     setGlobalStorageValue(BOSS_GLOBAL_STORAGEpp, 1)
   end
-  return TRUE
+  return true
 end
