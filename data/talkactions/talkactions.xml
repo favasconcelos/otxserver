@@ -27,7 +27,6 @@
   <talkaction words="/addgm" separator=" " script="add_gm.lua" />
   <talkaction words="/attr" separator=" " script="attributes.lua" />
   <talkaction words="/emptyhouses" script="emptyhouses.lua" />
-
   <!-- Gamemasters -->
   <talkaction words="/ban" separator=" " script="ban.lua" />
   <talkaction words="/ipban" separator=" " script="ipban.lua" />
@@ -45,15 +44,12 @@
   <talkaction words="/kick" separator=" " script="kick.lua" />
   <talkaction words="/B" separator=" " script="broadcast.lua" />
   <talkaction words="/looktype" separator=" " script="looktype.lua" />
-  <talkaction words="/mute" script="mute.lua" />
-
   <!-- Senior Tutors -->
   <talkaction words="/addtutor" separator=" " script="add_tutor.lua" />
   <talkaction words="/removetutor" separator=" " script="remove_tutor.lua" />
-
   <!--Tutors -->
+  <talkaction words="/mute-help" separator=" " script="mute_help.lua" />
   <talkaction words="/mute" separator=" " script="mute.lua" />
-
   <!-- player talkactions -->
   <talkaction words="!buyhouse" script="buyhouse.lua" />
   <talkaction words="!leavehouse" script="leavehouse.lua" />
@@ -64,10 +60,8 @@
   <talkaction words="!report" separator=" " script="adminreport.lua"/>
   <talkaction words="!bless" script="bless.lua"/>
   <talkaction words="!pvpbless" script="pvpbless.lua"/>
-
   <!-- Anti-Entrosa -->
-  <talkaction words="/war" separator=" " script="warPrivate_talkactions.lua" />
-
+  <talkaction words="/war" separator=" " script="war_private_talkactions.lua" />
   <!-- Cast System -->
   <talkaction words="!cast" separator=" " script="start_cast.lua" />
   <talkaction words="!stopcast" script="stop_cast.lua" />

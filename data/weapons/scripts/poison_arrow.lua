@@ -12,5 +12,5 @@ condition:addDamage(20, 4000, -1)
 combat:setCondition(condition)
 
 function onUseWeapon(player, variant)
-	return combat:execute(player, variant)
+  return combat:execute(player, variant)
 end

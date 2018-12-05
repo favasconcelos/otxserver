@@ -1,7 +1,9 @@
-function onSay(player, words, param)
+function onSay(cid, words, param)
+  local CHANNEL_HELP = 7
+  local player = Player(cid)
   local storage = 456112
 
-  if words == '/mute' then
+  if words == '/mute-help' then
     local mute = param:split(',')
 
     if mute[1] == nil or mute[1] == ' ' then
@@ -16,7 +18,8 @@ function onSay(player, words, param)
 
     local target = Player(mute[1])
     local time = tonumber(mute[2])
-    local condition = Condition(CONDITION_MUTED)
+    local condition = Condition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT)
+    condition:setParameter(CONDITION_PARAM_SUBID, CHANNEL_HELP)
     condition:setParameter(CONDITION_PARAM_TICKS, time * 60 * 1000)
 
     if player:getAccountType() < ACCOUNT_TYPE_TUTOR then
@@ -34,13 +37,12 @@ function onSay(player, words, param)
     end
 
     target:addCondition(condition)
-    target:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have been muted by ' .. player:getName() .. ' , to ' .. time .. ' minutes.')
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You muted ' .. target:getName() .. ' to ' .. time .. ' minutes.')
+    sendChannelMessage(CHANNEL_HELP, TALKTYPE_CHANNEL_R1, target:getName() .. ' has been muted for using Help Channel inappropriately.')
     target:setStorageValue(storage, 1)
     return false
   end
 
-  if words == '/unmute' then
+  if words == '/unmute-help' then
     local remove = Player(param)
 
     if player:getAccountType() < ACCOUNT_TYPE_TUTOR then
@@ -57,12 +59,11 @@ function onSay(player, words, param)
     end
 
     if remove:getStorageValue(storage) == 1 then
-      remove:removeCondition(CONDITION_MUTED)
+      remove:removeCondition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT, CHANNEL_HELP)
+      sendChannelMessage(CHANNEL_HELP, TALKTYPE_CHANNEL_R1, remove:getName() .. ' has been unmuted by ' .. player:getName() .. '.')
       remove:setStorageValue(storage, -1)
-      player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have unmute' .. remove:getName() .. '.')
-      remove:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have been unmute by ' .. player:getName() .. '.')
     else
-      player:sendCancelMessage('A player ' .. remove:getName() .. 'is not muted.')
+      player:sendCancelMessage('A player ' .. remove:getName() .. 'is not mutated')
     end
   end
 

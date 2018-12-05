@@ -109,7 +109,6 @@
   <wand id="25951" level="100" mana="18" min="70" max="105" type="energy">    <!-- Wand of Remedy -->
     <vocation name="Sorcerer" />
   </wand>
-
   <!-- Swords -->
   <melee id="2396" action="removecharge" />
   <melee id="2413" level="5" unproperly="1" />
@@ -143,7 +142,6 @@
   </melee>
   <melee id="2446" level="45" unproperly="1" />
   <melee id="7402" level="45" unproperly="1" />
-
   <melee id="7383" level="50" unproperly="1" />
   <melee id="7391" level="50" unproperly="1">
     <vocation name="Knight" />
@@ -306,7 +304,6 @@
     <vocation name="Elite Knight" showInDescription="0" />
   </melee>
   <melee id="23548" level="25" unproperly="1" />
-
   <!-- Axes -->
   <melee id="2378" unproperly="1">
     <vocation name="Knight" />
@@ -432,7 +429,6 @@
   </melee>
   <melee id="23547" level="55" unproperly="1" />
   <melee id="23545" level="45" unproperly="1" />
-
   <!--Clubs -->
   <melee id="2423" level="20" unproperly="1" />
   <melee id="7381" level="20" unproperly="1" />
@@ -546,7 +542,6 @@
   <melee id="23544" level="60" unproperly="1" />
   <melee id="23543" level="25" unproperly="1" />
   <melee id="23542" level="55" unproperly="1" />
-
   <!-- Bows and Crossbows -->
   <distance id="5803" level="75" unproperly="1">    <!-- Arbalest -->
     <vocation name="Paladin" />
@@ -678,7 +673,6 @@
     <vocation name="Paladin" />
     <vocation name="Royal Paladin" showInDescription="0" />
   </distance>
-
   <!-- Ammunition -->
   <distance id="1294" breakchance="3" />
   <!-- small stone -->
