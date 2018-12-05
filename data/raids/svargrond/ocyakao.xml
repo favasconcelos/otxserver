@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+  <!--Announcements-->
+  <announce delay="2000" type="event" message="Beware of Ocyakao!" />
+  <!--Single Spawns-->
+  <script delay="1000" script="ocyakao.lua" />
+</raid>
