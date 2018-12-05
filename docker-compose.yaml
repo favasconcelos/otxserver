@@ -22,6 +22,8 @@ services:
   otserv:
     depends_on:
       - database
+    links:
+      - database
     container_name: otxserver
     build: .
     ports:
