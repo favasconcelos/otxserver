@@ -1,6 +1,3 @@
-true = true
-false = false
-
 result.getDataInt = result.getNumber
 result.getDataLong = result.getNumber
 result.getDataString = result.getString
