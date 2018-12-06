@@ -953,8 +953,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				} else if (tmpStrValue == "fire") {
 					mType->info.damageImmunities |= COMBAT_FIREDAMAGE;
 					mType->info.conditionImmunities |= CONDITION_FIRE;
-				} else if (tmpStrValue == "poison" ||
-							tmpStrValue == "earth") {
+				} else if (tmpStrValue == "poison" || tmpStrValue == "earth") {
 					mType->info.damageImmunities |= COMBAT_EARTHDAMAGE;
 					mType->info.conditionImmunities |= CONDITION_POISON;
 				} else if (tmpStrValue == "drown") {
