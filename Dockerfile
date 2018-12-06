@@ -16,12 +16,7 @@ RUN apt-get update -qq -y && apt-get install -qq -y \
   libboost-system-dev \
   libboost-iostreams-dev \
   libpugixml-dev \
-  libcrypto++-dev \
-  unrar
-
-# unpack realmap map
-WORKDIR /app/data/world
-RUN unrar e realmap.rar
+  libcrypto++-dev
 
 # compile it
 WORKDIR /app
