@@ -167,7 +167,6 @@ function onLogin(player)
     player:openChannel(5) -- advertsing main
   end
   player:openChannel(3) -- world chat
-  --player:openChannel(7) -- help channel
 
   -- Rewards
   local rewards = #player:getRewardList()
