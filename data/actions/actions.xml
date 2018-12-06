@@ -1010,7 +1010,6 @@
   <action fromid="5086" toid="5088" script="other/constructionkits.lua" />
   <action itemid="6114" script="other/constructionkits.lua" />
   <action itemid="6115" script="other/constructionkits.lua" />
-  <!--<action itemid="6372" script="other/constructionkits.lua" />-->
   <action itemid="6373" script="other/constructionkits.lua" />
   <action itemid="8692" script="other/constructionkits.lua" />
   <action itemid="9974" script="other/constructionkits.lua" />
@@ -1180,8 +1179,6 @@
   <action itemid="6566" script="other/dolls.lua" />
   <action itemid="8974" script="other/dolls.lua" />
   <action itemid="8977" script="other/dolls.lua" />
-  <!--<action itemid="8981" script="other/dolls.lua" />-->
-  <!--<action itemid="8982" script="other/dolls.lua" />-->
 
   <!-- Valuables -->
   <action itemid="13670" script="valuables/randomitems.lua" />
