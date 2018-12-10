@@ -43,7 +43,7 @@ local grizzlyAdamsConfig = {
 			{id=13026, buy=0, sell=750, name='panther head'},
 			{id=13027, buy=0, sell=300, name='panther paw'},
 			{id=12447, buy=0, sell=500, name='quara bone'},
-			{id=12447, buy=0, sell=350, name='quara eye'},
+			{id=12444, buy=0, sell=350, name='quara eye'},
 			{id=12446, buy=0, sell=410, name='quara pincers'},
 			{id=12443, buy=0, sell=140, name='quara tentacle'},
 			{id=13159, buy=0, sell=50, name='rabbit\'s foot'},
@@ -150,7 +150,7 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains('trade', msg) then
 		local tradeItems = {}
 		if player:getPawAndFurRank() >= 2 then
-			tradeItems = grizzlyAdamsConfig.ranks.huntsMan_rank
+			tradeItems = table.copy(grizzlyAdamsConfig.ranks.huntsMan_rank)
 			if player:getPawAndFurRank() == 4 then
 				tradeItems = joinTables(tradeItems, grizzlyAdamsConfig.ranks.bigGameHunter_rank)
 			elseif player:getPawAndFurRank() == 5 or player:getPawAndFurRank() == 6 then
