@@ -76,7 +76,7 @@
   <monster name="Latrivan" file="demons/archdemons/latrivan.xml" />
   <monster name="Madareth" file="demons/archdemons/madareth.xml" />
   <monster name="Morgaroth" file="demons/archdemons/morgaroth.xml" />
-  <monster name="The Spellstealer" file="demons/archdemons/the_spellstealer.xml" />
+  <!-- TODO: <monster name="The Spellstealer" file="demons/archdemons/the_spellstealer.xml" /> -->
   <monster name="Ushuriel" file="demons/archdemons/ushuriel.xml" />
   <monster name="Verminor" file="demons/archdemons/verminor.xml" />
   <monster name="Zoralurk" file="demons/archdemons/zoralurk.xml" />
@@ -84,74 +84,59 @@
   <!-- ### Archdemons - END -->
 
   <!-- ### Demons - START -->
-  <monster name="Angry Demon" file="demons/demons/angry_demon.xml" />
+  <!-- TODO: <monster name="Angry Demon" file="demons/demons/angry_demon.xml" /> -->
   <monster name="Dawnfire Asura" file="demons/demons/dawnfire_asura.xml" />
   <monster name="Demon" file="demons/demons/demon.xml" />
-  <monster name="Demon Slave" file="demons/demons/demon_slave.xml" />
+  <!-- TODO: <monster name="Demon Slave" file="demons/demons/demon_slave.xml" /> -->
   <monster name="Despair" file="demons/demons/despair.xml" />
   <monster name="Destroyer" file="demons/demons/destroyer.xml" />
-  <monster name="Energuardian of Tales" file="demons/demons/energuardian_of_tales.xml" />
-  <monster name="Enthralled Demon" file="demons/demons/enthralled_demon.xml" />
+  <!-- TODO: <monster name="Energuardian of Tales" file="demons/demons/energuardian_of_tales.xml" /> -->
+  <!-- TODO: <monster name="Enthralled Demon" file="demons/demons/enthralled_demon.xml" /> -->
   <monster name="Fire Devil" file="demons/demons/fire_devil.xml" />
-  <monster name="Floating Savant" file="demons/demons/floating_savant.xml" />
+  <!-- TODO: <monster name="Floating Savant" file="demons/demons/floating_savant.xml" /> -->
   <monster name="Frost Flower Asura" file="demons/demons/frost_flower_asura.xml" />
   <monster name="Fury" file="demons/demons/fury.xml" />
   <monster name="Gozzler" file="demons/demons/gozzler.xml" />
   <monster name="Grimeleech" file="demons/demons/grimeleech.xml" />
-  <monster name="Guardian of Tales" file="demons/demons/guardian_of_tales.xml" />
+  <!-- TODO: <monster name="Guardian of Tales" file="demons/demons/guardian_of_tales.xml" /> -->
   <monster name="Hellflayer" file="demons/demons/hellflayer.xml" />
   <monster name="Hellhound" file="demons/demons/hellhound.xml" />
   <monster name="Hellspawn" file="demons/demons/hellspawn.xml" />
-  <monster name="Invading Demon" file="demons/demons/invading_demon.xml" />
+  <!-- TODO: <monster name="Invading Demon" file="demons/demons/invading_demon.xml" /> -->
   <monster name="Juggernaut" file="demons/demons/juggernaut.xml" />
   <monster name="Lesser Fire Devil" file="demons/demons/lesser_fire_devil.xml" />
-  <monster name="Malicious Minion" file="demons/demons/malicious_minion.xml" />
+  <!-- TODO: <monster name="Malicious Minion" file="demons/demons/malicious_minion.xml" /> -->
   <monster name="Midnight Asura" file="demons/demons/midnight_asura.xml" />
-  <monster name="Pit Battler" file="demons/demons/pit_battler.xml" />
-  <monster name="Pit Berserker" file="demons/demons/pit_berserker.xml" />
-  <monster name="Pit Blackling" file="demons/demons/pit_blackling.xml" />
-  <monster name="Pit Brawler" file="demons/demons/pit_brawler.xml" />
-  <monster name="Pit Condemned" file="demons/demons/pit_condemned.xml" />
-  <monster name="Pit Demon" file="demons/demons/pit_demon.xml" />
-  <monster name="Pit Destroyer" file="demons/demons/pit_destroyer.xml" />
-  <monster name="Pit Fiend" file="demons/demons/pit_fiend.xml" />
-  <monster name="Pit Groveller" file="demons/demons/pit_groveller.xml" />
-  <monster name="Pit Grunt" file="demons/demons/pit_grunt.xml" />
-  <monster name="Pit Lord" file="demons/demons/pit_lord.xml" />
-  <monster name="Pit Maimer" file="demons/demons/pit_maimer.xml" />
-  <monster name="Pit Overlord" file="demons/demons/pit_overlord.xml" />
-  <monster name="Pit Reaver" file="demons/demons/pit_reaver.xml" />
-  <monster name="Pit Scourge" file="demons/demons/pit_scourge.xml" />
   <monster name="Plaguesmith" file="demons/demons/plaguesmith.xml" />
   <monster name="Rage of Mazoran" file="demons/demons/rage_of_mazoran.xml" />
   <monster name="Rift Brood" file="demons/demons/rift_brood.xml" />
-  <monster name="Rift Fragment" file="demons/demons/rift_fragment.xml" />
-  <monster name="Rift Invader" file="demons/demons/rift_invader.xml" />
-  <monster name="Rift Lord" file="demons/demons/rift_lord.xml" />
-  <monster name="Rift Phantom" file="demons/demons/rift_phantom.xml" />
+  <!-- TODO: <monster name="Rift Fragment" file="demons/demons/rift_fragment.xml" /> -->
+  <!-- TODO: <monster name="Rift Invader" file="demons/demons/rift_invader.xml" /> -->
+  <!-- TODO: <monster name="Rift Lord" file="demons/demons/rift_lord.xml" /> -->
+  <!-- TODO: <monster name="Rift Phantom" file="demons/demons/rift_phantom.xml" /> -->
   <monster name="Rift Scythe" file="demons/demons/rift_scythe.xml" />
-  <monster name="Rift Spawn" file="demons/demons/rift_spawn.xml" />
+  <!-- TODO: <monster name="Rift Spawn" file="demons/demons/rift_spawn.xml" /> -->
   <monster name="Rift Worm" file="demons/demons/rift_worm.xml" />
   <monster name="Shadow Fiend" file="demons/demons/shadow_fiend.xml" />
   <monster name="Shadow Tentacle" file="demons/demons/shadow_tentacle.xml" />
   <monster name="Tentacle of the Deep Terror" file="demons/demons/tentacle_of_the_deep_terror.xml" />
-  <monster name="True Dawnfire Asura" file="demons/demons/true_dawnfire_asura.xml" />
-  <monster name="True Frost Flower Asura" file="demons/demons/true_frost_flower_asura.xml" />
-  <monster name="True Midnight Asura" file="demons/demons/true_midnight_asura.xml" />
+  <!-- TODO: <monster name="True Dawnfire Asura" file="demons/demons/true_dawnfire_asura.xml" /> -->
+  <!-- TODO: <monster name="True Frost Flower Asura" file="demons/demons/true_frost_flower_asura.xml" /> -->
+  <!-- TODO: <monster name="True Midnight Asura" file="demons/demons/true_midnight_asura.xml" /> -->
   <monster name="Vexclaw" file="demons/demons/vexclaw.xml" />
-  <monster name="Weakened Demon" file="demons/demons/weakened_demon.xml" />
+  <!-- TODO: <monster name="Weakened Demon" file="demons/demons/weakened_demon.xml" /> -->
   <monster name="Yielothax" file="demons/demons/yielothax.xml" />
-  <monster name="Bretzecutioner" file="demons/demons/bretzecutioner.xml" />
+  <!-- TODO: <monster name="Bretzecutioner" file="demons/demons/bretzecutioner.xml" /> -->
   <monster name="Flameborn" file="demons/demons/flameborn.xml" />
   <monster name="Furyosa" file="demons/demons/furyosa.xml" />
   <monster name="Kerberos" file="demons/demons/kerberos.xml" />
   <monster name="Massacre" file="demons/demons/massacre.xml" />
   <monster name="Monstor" file="demons/demons/monstor.xml" />
   <monster name="Orshabaal" file="demons/demons/orshabaal.xml" />
-  <monster name="The Blazing Rose" file="demons/demons/the_blazing_rose.xml" />
-  <monster name="The Diamond Blossom" file="demons/demons/the_diamond_blossom.xml" />
-  <monster name="The Flaming Orchid" file="demons/demons/the_flaming_orchid.xml" />
-  <monster name="The Lily of Night" file="demons/demons/the_lily_of_night.xml" />
+  <!-- TODO: <monster name="The Blazing Rose" file="demons/demons/the_blazing_rose.xml" /> -->
+  <!-- TODO: <monster name="The Diamond Blossom" file="demons/demons/the_diamond_blossom.xml" /> -->
+  <!-- TODO: <monster name="The Flaming Orchid" file="demons/demons/the_flaming_orchid.xml" /> -->
+  <!-- TODO: <monster name="The Lily of Night" file="demons/demons/the_lily_of_night.xml" /> -->
   <monster name="Ungreez" file="demons/demons/ungreez.xml" />
   <monster name="The Obliverator" file="demons/demons/the_obliverator.xml" />
   <!-- ### Demons - END -->
@@ -165,7 +150,7 @@
   <!-- ### Demon_Lords - END -->
 
   <!-- ### Dreamhaunters - START -->
-  <monster name="Animated Guzzlemaw" file="demons/dreamhaunters/animated_guzzlemaw.xml" />
+  <!-- TODO: <monster name="Animated Guzzlemaw" file="demons/dreamhaunters/animated_guzzlemaw.xml" /> -->
   <monster name="Bad Dream" file="demons/dreamhaunters/bad_dream.xml" />
   <monster name="Choking Fear" file="demons/dreamhaunters/choking_fear.xml" />
   <monster name="Demon Outcast" file="demons/dreamhaunters/demon_outcast.xml" />
@@ -180,16 +165,16 @@
   <monster name="Nightmare of Gaz'haragoth" file="demons/dreamhaunters/nightmare_of_gazharagoth.xml" />
   <monster name="Nightstalker" file="demons/dreamhaunters/nightstalker.xml" />
   <monster name="Phantasm" file="demons/dreamhaunters/phantasm.xml" />
-  <monster name="Phantasm (Weak)" file="demons/dreamhaunters/phantasm_(weak).xml" />
+  <monster name="Phantasm Summon" file="demons/dreamhaunters/phantasm_summon.xml" />
   <monster name="Retching Horror" file="demons/dreamhaunters/retching_horror.xml" />
-  <monster name="Shimmying Butterfly" file="demons/dreamhaunters/shimmying_butterfly.xml" />
+  <!-- TODO: <monster name="Shimmying Butterfly" file="demons/dreamhaunters/shimmying_butterfly.xml" /> -->
   <monster name="Shiversleep" file="demons/dreamhaunters/shiversleep.xml" />
   <monster name="Shock Head" file="demons/dreamhaunters/shock_head.xml" />
   <monster name="Sight of Surrender" file="demons/dreamhaunters/sight_of_surrender.xml" />
   <monster name="Silencer" file="demons/dreamhaunters/silencer.xml" />
-  <monster name="Sin Devourer" file="demons/dreamhaunters/sin_devourer.xml" />
+  <!-- TODO: <monster name="Sin Devourer" file="demons/dreamhaunters/sin_devourer.xml" /> -->
   <monster name="Terrorsleep" file="demons/dreamhaunters/terrorsleep.xml" />
-  <monster name="Thanatursus" file="demons/dreamhaunters/thanatursus.xml" />
+  <!-- TODO: <monster name="Thanatursus" file="demons/dreamhaunters/thanatursus.xml" /> -->
   <monster name="Weakened Frazzlemaw" file="demons/dreamhaunters/weakened_frazzlemaw.xml" />
   <monster name="Countess Sorrow" file="demons/dreamhaunters/countess_sorrow.xml" />
   <monster name="Gaz'haragoth" file="demons/dreamhaunters/gazharagoth.xml" />
@@ -197,7 +182,7 @@
   <monster name="Mawhawk" file="demons/dreamhaunters/mawhawk.xml" />
   <monster name="Omrafir" file="demons/dreamhaunters/omrafir.xml" />
   <monster name="Prince Drazzak" file="demons/dreamhaunters/prince_drazzak.xml" />
-  <monster name="Teneshpar" file="demons/dreamhaunters/teneshpar.xml" />
+  <!-- TODO: <monster name="Teneshpar" file="demons/dreamhaunters/teneshpar.xml" /> -->
   <monster name="Terofar" file="demons/dreamhaunters/terofar.xml" />
   <monster name="Tormentor" file="demons/dreamhaunters/tormentor.xml" />
   <monster name="Zavarash" file="demons/dreamhaunters/zavarash.xml" />
@@ -214,30 +199,30 @@
   <monster name="Dark Torturer" file="demons/imps/dark_torturer.xml" />
   <monster name="Diabolic Imp" file="demons/imps/diabolic_imp.xml" />
   <monster name="Grave Guard" file="demons/imps/grave_guard.xml" />
-  <monster name="Imp Intruder" file="demons/imps/imp_intruder.xml" />
+  <!-- TODO: <monster name="Imp Intruder" file="demons/imps/imp_intruder.xml" /> -->
   <monster name="Mephiles" file="demons/imps/mephiles.xml" />
-  <monster name="Mr. Punish" file="demons/imps/mr._punish.xml" />
+  <monster name="Mr. Punish" file="demons/imps/mr_punish.xml" />
   <monster name="The Imperor" file="demons/imps/the_imperor.xml" />
   <monster name="The Dreadorian" file="demons/imps/the_dreadorian.xml" />
   <monster name="The Masked Marauder" file="demons/imps/the_masked_marauder.xml" />
   <!-- ### Imps - END -->
 
   <!-- ### Pit_Demons - START -->
-  <monster name="Pit Battler" file="demons/pit_demons/pit_battler.xml" />
-  <monster name="Pit Berserker" file="demons/pit_demons/pit_berserker.xml" />
-  <monster name="Pit Blackling" file="demons/pit_demons/pit_blackling.xml" />
-  <monster name="Pit Brawler" file="demons/pit_demons/pit_brawler.xml" />
-  <monster name="Pit Condemned" file="demons/pit_demons/pit_condemned.xml" />
-  <monster name="Pit Demon" file="demons/pit_demons/pit_demon.xml" />
-  <monster name="Pit Destroyer" file="demons/pit_demons/pit_destroyer.xml" />
-  <monster name="Pit Fiend" file="demons/pit_demons/pit_fiend.xml" />
-  <monster name="Pit Groveller" file="demons/pit_demons/pit_groveller.xml" />
-  <monster name="Pit Grunt" file="demons/pit_demons/pit_grunt.xml" />
-  <monster name="Pit Lord" file="demons/pit_demons/pit_lord.xml" />
-  <monster name="Pit Maimer" file="demons/pit_demons/pit_maimer.xml" />
-  <monster name="Pit Overlord" file="demons/pit_demons/pit_overlord.xml" />
-  <monster name="Pit Reaver" file="demons/pit_demons/pit_reaver.xml" />
-  <monster name="Pit Scourge" file="demons/pit_demons/pit_scourge.xml" />
+  <!-- TODO: <monster name="Pit Battler" file="demons/pit_demons/pit_battler.xml" /> -->
+  <!-- TODO: <monster name="Pit Berserker" file="demons/pit_demons/pit_berserker.xml" /> -->
+  <!-- TODO: <monster name="Pit Blackling" file="demons/pit_demons/pit_blackling.xml" /> -->
+  <!-- TODO: <monster name="Pit Brawler" file="demons/pit_demons/pit_brawler.xml" /> -->
+  <!-- TODO: <monster name="Pit Condemned" file="demons/pit_demons/pit_condemned.xml" /> -->
+  <!-- TODO: <monster name="Pit Demon" file="demons/pit_demons/pit_demon.xml" /> -->
+  <!-- TODO: <monster name="Pit Destroyer" file="demons/pit_demons/pit_destroyer.xml" /> -->
+  <!-- TODO: <monster name="Pit Fiend" file="demons/pit_demons/pit_fiend.xml" /> -->
+  <!-- TODO: <monster name="Pit Groveller" file="demons/pit_demons/pit_groveller.xml" /> -->
+  <!-- TODO: <monster name="Pit Grunt" file="demons/pit_demons/pit_grunt.xml" /> -->
+  <!-- TODO: <monster name="Pit Lord" file="demons/pit_demons/pit_lord.xml" /> -->
+  <!-- TODO: <monster name="Pit Maimer" file="demons/pit_demons/pit_maimer.xml" /> -->
+  <!-- TODO: <monster name="Pit Overlord" file="demons/pit_demons/pit_overlord.xml" /> -->
+  <!-- TODO: <monster name="Pit Reaver" file="demons/pit_demons/pit_reaver.xml" /> -->
+  <!-- TODO: <monster name="Pit Scourge" file="demons/pit_demons/pit_scourge.xml" /> -->
   <!-- ### Pit_Demons - END -->
 
   <!-- ### The_Ruthless_Seven - START -->
@@ -1406,8 +1391,6 @@
   <monster name="Ghost of a Planegazer" file="the_undead/ghosts/ghost_of_a_planegazer.xml" />
   <monster name="Ghostly Apparition" file="the_undead/ghosts/ghostly_apparition.xml" />
   <monster name="Liquor Spirit" file="the_undead/ghosts/liquor_spirit.xml" />
-  <monster name="Phantasm" file="the_undead/ghosts/phantasm.xml" />
-  <monster name="Phantasm (Weak)" file="the_undead/ghosts/phantasm_(weak).xml" />
   <monster name="Pirate Ghost" file="the_undead/ghosts/pirate_ghost.xml" />
   <monster name="Redeemed Soul" file="the_undead/ghosts/redeemed_soul.xml" />
   <monster name="Rift Phantom" file="the_undead/ghosts/rift_phantom.xml" />
