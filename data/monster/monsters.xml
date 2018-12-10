@@ -716,8 +716,6 @@
   <!-- ### Amazons - START -->
   <monster name="Amazon" file="humans/amazons/amazon.xml" />
   <monster name="Valkyrie" file="humans/amazons/valkyrie.xml" />
-  <monster name="Witch" file="humans/amazons/witch.xml" />
-  <monster name="Ekatrix" file="humans/amazons/ekatrix.xml" />
   <monster name="Xenia" file="humans/amazons/xenia.xml" />
   <monster name="Yaga the Crone" file="humans/amazons/yaga_the_crone.xml" />
   <!-- ### Amazons - END -->
@@ -727,7 +725,6 @@
   <monster name="Barbarian Brutetamer" file="humans/barbarians/barbarian_brutetamer.xml" />
   <monster name="Barbarian Headsplitter" file="humans/barbarians/barbarian_headsplitter.xml" />
   <monster name="Barbarian Skullhunter" file="humans/barbarians/barbarian_skullhunter.xml" />
-  <monster name="Ice Witch" file="humans/barbarians/ice_witch.xml" />
   <monster name="Barbaria" file="humans/barbarians/barbaria.xml" />
   <monster name="Yakchal" file="humans/barbarians/yakchal.xml" />
   <monster name="Zushuka" file="humans/barbarians/zushuka.xml" />
@@ -757,14 +754,14 @@
   <monster name="Misguided Bully" file="humans/outlaws/misguided_bully.xml" />
   <monster name="Misguided Thief" file="humans/outlaws/misguided_thief.xml" />
   <monster name="Mutated Human" file="humans/outlaws/mutated_human.xml" />
-  <monster name="Nomad (Basic)" file="humans/outlaws/nomad_(basic).xml" />
-  <monster name="Nomad (Blue)" file="humans/outlaws/nomad_(blue).xml" />
-  <monster name="Nomad (Female)" file="humans/outlaws/nomad_(female).xml" />
+  <monster name="Nomad" file="humans/outlaws/nomad_basic.xml" />
+  <monster name="Nomad" file="humans/outlaws/nomad_blue.xml" />
+  <monster name="Nomad" file="humans/outlaws/nomad_female.xml" />
   <monster name="Poacher" file="humans/outlaws/poacher.xml" />
   <monster name="Renegade Knight" file="humans/outlaws/renegade_knight.xml" />
   <monster name="Smuggler" file="humans/outlaws/smuggler.xml" />
   <monster name="Stalker" file="humans/outlaws/stalker.xml" />
-  <monster name="Thief (Creature)" file="humans/outlaws/thief_(creature).xml" />
+  <monster name="Thief" file="humans/outlaws/thief.xml" />
   <monster name="Travelling Merchant" file="humans/outlaws/travelling_merchant.xml" />
   <monster name="Vicious Squire" file="humans/outlaws/vicious_squire.xml" />
   <monster name="Vile Grandmaster" file="humans/outlaws/vile_grandmaster.xml" />
@@ -844,7 +841,7 @@
   <monster name="Mad Scientist" file="humans/sorcerers/mad_scientist.xml" />
   <monster name="Warlock" file="humans/sorcerers/warlock.xml" />
   <monster name="Witch" file="humans/sorcerers/witch.xml" />
-  <monster name="Yalahari (Creature)" file="humans/sorcerers/yalahari_(creature).xml" />
+  <monster name="Yalahari)" file="humans/sorcerers/yalahari.xml" />
   <monster name="Yalahari Despoiler" file="humans/sorcerers/yalahari_despoiler.xml" />
   <monster name="Ascending Ferumbras" file="humans/sorcerers/ascending_ferumbras.xml" />
   <monster name="Azerus" file="humans/sorcerers/azerus.xml" />
