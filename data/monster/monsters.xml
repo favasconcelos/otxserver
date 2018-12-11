@@ -510,13 +510,13 @@
   <monster name="Efreet" file="humanoids/djinn/efreet.xml" />
   <monster name="Green Djinn" file="humanoids/djinn/green_djinn.xml" />
   <monster name="Marid" file="humanoids/djinn/marid.xml" />
-  <monster name="Fahim the Wise" file="humanoids/djinn/fahim_the_wise.xml" />
-  <monster name="Merikh the Slaughterer" file="humanoids/djinn/merikh_the_slaughterer.xml" />
+  <!-- TODO: <monster name="Fahim the Wise" file="humanoids/djinn/fahim_the_wise.xml" /> -->
+  <!-- TODO: <monster name="Merikh the Slaughterer" file="humanoids/djinn/merikh_the_slaughterer.xml" /> -->
   <monster name="Kreebosh the Exile" file="humanoids/djinn/kreebosh_the_exile.xml" />
   <!-- ### Djinn - END -->
 
   <!-- ### Dwarves - START -->
-  <monster name="Captured Dwarf" file="humanoids/dwarves/captured_dwarf.xml" />
+  <!-- TODO: <monster name="Captured Dwarf" file="humanoids/dwarves/captured_dwarf.xml" /> -->
   <monster name="Crazed Dwarf" file="humanoids/dwarves/crazed_dwarf.xml" />
   <monster name="Dwarf" file="humanoids/dwarves/dwarf.xml" />
   <monster name="Dwarf Geomancer" file="humanoids/dwarves/dwarf_geomancer.xml" />
@@ -524,14 +524,14 @@
   <monster name="Dwarf Henchman" file="humanoids/dwarves/dwarf_henchman.xml" />
   <monster name="Dwarf Miner" file="humanoids/dwarves/dwarf_miner.xml" />
   <monster name="Dwarf Soldier" file="humanoids/dwarves/dwarf_soldier.xml" />
-  <monster name="Grodrik (Creature)" file="humanoids/dwarves/grodrik_(creature).xml" />
+  <!-- TODO: <monster name="Grodrik (Creature)" file="humanoids/dwarves/grodrik_(creature).xml" /> -->
   <monster name="Enslaved Dwarf" file="humanoids/dwarves/enslaved_dwarf.xml" />
   <monster name="Lost Basher" file="humanoids/dwarves/lost_basher.xml" />
   <monster name="Lost Berserker" file="humanoids/dwarves/lost_berserker.xml" />
-  <monster name="Lost Exile" file="humanoids/dwarves/lost_exile.xml" />
+  <!-- TODO: <monster name="Lost Exile" file="humanoids/dwarves/lost_exile.xml" /> -->
   <monster name="Lost Husher" file="humanoids/dwarves/lost_husher.xml" />
   <monster name="Lost Thrower" file="humanoids/dwarves/lost_thrower.xml" />
-  <monster name="Elvira Hammerthrust" file="humanoids/dwarves/elvira_hammerthrust.xml" />
+  <!-- TODO: <monster name="Elvira Hammerthrust" file="humanoids/dwarves/elvira_hammerthrust.xml" /> -->
   <monster name="Foreman Kneebiter" file="humanoids/dwarves/foreman_kneebiter.xml" />
   <monster name="Mad Technomancer" file="humanoids/dwarves/mad_technomancer.xml" />
   <monster name="Axeitus Headbanger" file="humanoids/dwarves/axeitus_headbanger.xml" />
@@ -541,35 +541,35 @@
   <monster name="Dworc Fleshhunter" file="humanoids/dworcs/dworc_fleshhunter.xml" />
   <monster name="Dworc Venomsniper" file="humanoids/dworcs/dworc_venomsniper.xml" />
   <monster name="Dworc Voodoomaster" file="humanoids/dworcs/dworc_voodoomaster.xml" />
-  <monster name="Oodok Witchmaster" file="humanoids/dworcs/oodok_witchmaster.xml" />
+  <!-- TODO: <monster name="Oodok Witchmaster" file="humanoids/dworcs/oodok_witchmaster.xml" /> -->
   <!-- ### Dworcs - END -->
 
   <!-- ### Elves - START -->
-  <monster name="Amarie (Creature)" file="humanoids/elves/amarie_(creature).xml" />
-  <monster name="Barkless Devotee" file="humanoids/elves/barkless_devotee.xml" />
-  <monster name="Barkless Fanatic" file="humanoids/elves/barkless_fanatic.xml" />
-  <monster name="Elder Forest Fury" file="humanoids/elves/elder_forest_fury.xml" />
+  <!-- TODO: <monster name="Amarie (Creature)" file="humanoids/elves/amarie_(creature).xml" /> -->
+  <!-- TODO: <monster name="Barkless Devotee" file="humanoids/elves/barkless_devotee.xml" /> -->
+  <!-- TODO: <monster name="Barkless Fanatic" file="humanoids/elves/barkless_fanatic.xml" /> -->
+  <!-- TODO: <monster name="Elder Forest Fury" file="humanoids/elves/elder_forest_fury.xml" /> -->
   <monster name="Elf" file="humanoids/elves/elf.xml" />
   <monster name="Elf Arcanist" file="humanoids/elves/elf_arcanist.xml" />
   <monster name="Elf Overseer" file="humanoids/elves/elf_overseer.xml" />
   <monster name="Elf Scout" file="humanoids/elves/elf_scout.xml" />
   <monster name="Firestarter" file="humanoids/elves/firestarter.xml" />
   <monster name="Forest Fury" file="humanoids/elves/forest_fury.xml" />
-  <monster name="Crazed Summer Rearguard" file="humanoids/elves/crazed_summer_rearguard.xml" />
-  <monster name="Crazed Summer Vanguard" file="humanoids/elves/crazed_summer_vanguard.xml" />
-  <monster name="Crazed Winter Rearguard" file="humanoids/elves/crazed_winter_rearguard.xml" />
-  <monster name="Crazed Winter Vanguard" file="humanoids/elves/crazed_winter_vanguard.xml" />
-  <monster name="Insane Siren" file="humanoids/elves/insane_siren.xml" />
-  <monster name="Soul-Broken Harbinger" file="humanoids/elves/soul-broken_harbinger.xml" />
-  <monster name="Dharalion" file="humanoids/elves/dharalion.xml" />
-  <monster name="Izcandar Champion of Summer" file="humanoids/elves/izcandar_champion_of_summer.xml" />
-  <monster name="Izcandar Champion of Winter" file="humanoids/elves/izcandar_champion_of_winter.xml" />
-  <monster name="Izcandar the Banished" file="humanoids/elves/izcandar_the_banished.xml" />
-  <monster name="Mornenion" file="humanoids/elves/mornenion.xml" />
+  <!-- TODO: <monster name="Crazed Summer Rearguard" file="humanoids/elves/crazed_summer_rearguard.xml" /> -->
+  <!-- TODO: <monster name="Crazed Summer Vanguard" file="humanoids/elves/crazed_summer_vanguard.xml" /> -->
+  <!-- TODO: <monster name="Crazed Winter Rearguard" file="humanoids/elves/crazed_winter_rearguard.xml" /> -->
+  <!-- TODO: <monster name="Crazed Winter Vanguard" file="humanoids/elves/crazed_winter_vanguard.xml" /> -->
+  <!-- TODO: <monster name="Insane Siren" file="humanoids/elves/insane_siren.xml" /> -->
+  <!-- TODO: <monster name="Soul-Broken Harbinger" file="humanoids/elves/soul-broken_harbinger.xml" /> -->
+  <!-- TODO: <monster name="Dharalion" file="humanoids/elves/dharalion.xml" /> -->
+  <!-- TODO: <monster name="Izcandar Champion of Summer" file="humanoids/elves/izcandar_champion_of_summer.xml" /> -->
+  <!-- TODO: <monster name="Izcandar Champion of Winter" file="humanoids/elves/izcandar_champion_of_winter.xml" /> -->
+  <!-- TODO: <monster name="Izcandar the Banished" file="humanoids/elves/izcandar_the_banished.xml" /> -->
+  <!-- TODO: <monster name="Mornenion" file="humanoids/elves/mornenion.xml" /> -->
   <!-- ### Elves - END -->
 
   <!-- ### Fae - START -->
-  <monster name="Arctic Faun" file="humanoids/fae/arctic_faun.xml" />
+  <!-- TODO: <monster name="Arctic Faun" file="humanoids/fae/arctic_faun.xml" /> -->
   <monster name="Boogy" file="humanoids/fae/boogy.xml" />
   <monster name="Dark Faun" file="humanoids/fae/dark_faun.xml" />
   <monster name="Faun" file="humanoids/fae/faun.xml" />
@@ -578,7 +578,7 @@
   <monster name="Pooka" file="humanoids/fae/pooka.xml" />
   <monster name="Swan Maiden" file="humanoids/fae/swan_maiden.xml" />
   <monster name="Twisted Pooka" file="humanoids/fae/twisted_pooka.xml" />
-  <monster name="Raxias" file="humanoids/fae/raxias.xml" />
+  <!-- TODO: <monster name="Raxias" file="humanoids/fae/raxias.xml" /> -->
   <!-- ### Fae - END -->
 
   <!-- ### Fungi - START -->
@@ -588,10 +588,10 @@
   <!-- ### Fungi - END -->
 
   <!-- ### Giants - START -->
-  <monster name="Animated Cyclops" file="humanoids/giants/animated_cyclops.xml" />
-  <monster name="Animated Ogre Brute" file="humanoids/giants/animated_ogre_brute.xml" />
-  <monster name="Animated Ogre Savage" file="humanoids/giants/animated_ogre_savage.xml" />
-  <monster name="Animated Ogre Shaman" file="humanoids/giants/animated_ogre_shaman.xml" />
+  <!-- TODO: <monster name="Animated Cyclops" file="humanoids/giants/animated_cyclops.xml" /> -->
+  <!-- TODO: <monster name="Animated Ogre Brute" file="humanoids/giants/animated_ogre_brute.xml" /> -->
+  <!-- TODO: <monster name="Animated Ogre Savage" file="humanoids/giants/animated_ogre_savage.xml" /> -->
+  <!-- TODO: <monster name="Animated Ogre Shaman" file="humanoids/giants/animated_ogre_shaman.xml" /> -->
   <monster name="Behemoth" file="humanoids/giants/behemoth.xml" />
   <monster name="Cyclops" file="humanoids/giants/cyclops.xml" />
   <monster name="Cyclops Drone" file="humanoids/giants/cyclops_drone.xml" />
@@ -605,13 +605,13 @@
   <monster name="Thundergiant" file="humanoids/giants/thundergiant.xml" />
   <monster name="Yeti" file="humanoids/giants/yeti.xml" />
   <monster name="Stonecracker" file="humanoids/giants/stonecracker.xml" />
-  <monster name="The Old Whopper" file="humanoids/giants/the_old_whopper.xml" />
+  <!-- TODO: <monster name="The Old Whopper" file="humanoids/giants/the_old_whopper.xml" /> -->
   <monster name="Norgle Glacierbeard" file="humanoids/giants/norgle_glacierbeard.xml" />
   <monster name="The Pit Lord" file="humanoids/giants/the_pit_lord.xml" />
   <!-- ### Giants - END -->
 
   <!-- ### Gnomes - START -->
-  <monster name="Lost Gnome" file="humanoids/gnomes/lost_gnome.xml" />
+  <!-- TODO: <monster name="Lost Gnome" file="humanoids/gnomes/lost_gnome.xml" /> -->
   <monster name="Gnomevil" file="humanoids/gnomes/gnomevil.xml" />
   <!-- ### Gnomes - END -->
 
@@ -643,9 +643,9 @@
   <monster name="Mooh'Tah Warrior" file="humanoids/minotaurs/moohtah_warrior.xml" />
   <monster name="Moohtant" file="humanoids/minotaurs/moohtant.xml" />
   <monster name="Worm Priestess" file="humanoids/minotaurs/worm_priestess.xml" />
-  <monster name="Minotaur Cult Follower" file="humanoids/minotaurs/minotaur_cult_follower.xml" />
-  <monster name="Minotaur Cult Prophet" file="humanoids/minotaurs/minotaur_cult_prophet.xml" />
-  <monster name="Minotaur Cult Zealot" file="humanoids/minotaurs/minotaur_cult_zealot.xml" />
+  <!-- TODO: <monster name="Minotaur Cult Follower" file="humanoids/minotaurs/minotaur_cult_follower.xml" /> -->
+  <!-- TODO: <monster name="Minotaur Cult Prophet" file="humanoids/minotaurs/minotaur_cult_prophet.xml" /> -->
+  <!-- TODO: <monster name="Minotaur Cult Zealot" file="humanoids/minotaurs/minotaur_cult_zealot.xml" /> -->
   <monster name="Apprentice Sheng" file="humanoids/minotaurs/apprentice_sheng.xml" />
   <monster name="Bullwark" file="humanoids/minotaurs/bullwark.xml" />
   <monster name="General Murius" file="humanoids/minotaurs/general_murius.xml" />
@@ -665,11 +665,11 @@
   <monster name="Furious Orc Berserker" file="humanoids/orcs/furious_orc_berserker.xml" />
   <monster name="Orc" file="humanoids/orcs/orc.xml" />
   <monster name="Orc Berserker" file="humanoids/orcs/orc_berserker.xml" />
-  <monster name="Orc Cult Fanatic" file="humanoids/orcs/orc_cult_fanatic.xml" />
-  <monster name="Orc Cult Inquisitor" file="humanoids/orcs/orc_cult_inquisitor.xml" />
-  <monster name="Orc Cult Minion" file="humanoids/orcs/orc_cult_minion.xml" />
-  <monster name="Orc Cult Priest" file="humanoids/orcs/orc_cult_priest.xml" />
-  <monster name="Orc Cultist" file="humanoids/orcs/orc_cultist.xml" />
+  <!-- TODO: <monster name="Orc Cult Fanatic" file="humanoids/orcs/orc_cult_fanatic.xml" /> -->
+  <!-- TODO: <monster name="Orc Cult Inquisitor" file="humanoids/orcs/orc_cult_inquisitor.xml" /> -->
+  <!-- TODO: <monster name="Orc Cult Minion" file="humanoids/orcs/orc_cult_minion.xml" /> -->
+  <!-- TODO: <monster name="Orc Cult Priest" file="humanoids/orcs/orc_cult_priest.xml" /> -->
+  <!-- TODO: <monster name="Orc Cultist" file="humanoids/orcs/orc_cultist.xml" /> -->
   <monster name="Orc Leader" file="humanoids/orcs/orc_leader.xml" />
   <monster name="Orc Marauder" file="humanoids/orcs/orc_marauder.xml" />
   <monster name="Orc Rider" file="humanoids/orcs/orc_rider.xml" />
@@ -682,7 +682,7 @@
   <monster name="Scar Tribe Shaman" file="humanoids/orcs/scar_tribe_shaman.xml" />
   <monster name="Scar Tribe Warrior" file="humanoids/orcs/scar_tribe_warrior.xml" />
   <monster name="Bibby Bloodbath" file="humanoids/orcs/bibby_bloodbath.xml" />
-  <monster name="Cublarc the Plunderer" file="humanoids/orcs/cublarc_the_plunderer.xml" />
+  <!-- TODO: <monster name="Cublarc the Plunderer" file="humanoids/orcs/cublarc_the_plunderer.xml" /> -->
   <monster name="Kraknaknork" file="humanoids/orcs/kraknaknork.xml" />
   <monster name="Renegade Orc" file="humanoids/orcs/renegade_orc.xml" />
   <monster name="Warlord Ruzad" file="humanoids/orcs/warlord_ruzad.xml" />
@@ -747,12 +747,12 @@
   <monster name="Gladiator" file="humans/outlaws/gladiator.xml" />
   <monster name="Glooth Bandit" file="humans/outlaws/glooth_bandit.xml" />
   <monster name="Glooth Brigand" file="humans/outlaws/glooth_brigand.xml" />
-  <monster name="Goldhanded Cultist" file="humans/outlaws/goldhanded_cultist.xml" />
+  <!-- TODO: <monster name="Goldhanded Cultist" file="humans/outlaws/goldhanded_cultist.xml" /> -->
   <monster name="Grave Robber" file="humans/outlaws/grave_robber.xml" />
   <monster name="Hero" file="humans/outlaws/hero.xml" />
   <monster name="Hunter" file="humans/outlaws/hunter.xml" />
-  <monster name="Misguided Bully" file="humans/outlaws/misguided_bully.xml" />
-  <monster name="Misguided Thief" file="humans/outlaws/misguided_thief.xml" />
+  <!-- TODO: <monster name="Misguided Bully" file="humans/outlaws/misguided_bully.xml" /> -->
+  <!-- TODO: <monster name="Misguided Thief" file="humans/outlaws/misguided_thief.xml" /> -->
   <monster name="Mutated Human" file="humans/outlaws/mutated_human.xml" />
   <monster name="Nomad" file="humans/outlaws/nomad_basic.xml" />
   <monster name="Nomad" file="humans/outlaws/nomad_blue.xml" />
@@ -766,15 +766,15 @@
   <monster name="Vicious Squire" file="humans/outlaws/vicious_squire.xml" />
   <monster name="Vile Grandmaster" file="humans/outlaws/vile_grandmaster.xml" />
   <monster name="Wild Warrior" file="humans/outlaws/wild_warrior.xml" />
-  <monster name="Arthom the Hunter" file="humans/outlaws/arthom_the_hunter.xml" />
+  <!-- TODO: <monster name="Arthom the Hunter" file="humans/outlaws/arthom_the_hunter.xml" /> -->
   <monster name="Jesse the Wicked" file="humans/outlaws/jesse_the_wicked.xml" />
   <monster name="Man in the Cave" file="humans/outlaws/man_in_the_cave.xml" />
   <monster name="Morik the Gladiator" file="humans/outlaws/morik_the_gladiator.xml" />
   <monster name="Robby the Reckless" file="humans/outlaws/robby_the_reckless.xml" />
   <monster name="Rukor Zad" file="humans/outlaws/rukor_zad.xml" />
   <monster name="Smuggler Baron Silvertoe" file="humans/outlaws/smuggler_baron_silvertoe.xml" />
-  <monster name="The Sinister Hermit (Blue)" file="humans/outlaws/the_sinister_hermit_(blue).xml" />
-  <monster name="The Sinister Hermit (Yellow)" file="humans/outlaws/the_sinister_hermit_(yellow).xml" />
+  <!-- TODO: <monster name="The Sinister Hermit (Blue)" file="humans/outlaws/the_sinister_hermit_(blue).xml" /> -->
+  <!-- TODO: <monster name="The Sinister Hermit (Yellow)" file="humans/outlaws/the_sinister_hermit_(yellow).xml" /> -->
   <monster name="Achad" file="humans/outlaws/achad.xml" />
   <monster name="Gnorre Chyllson" file="humans/outlaws/gnorre_chyllson.xml" />
   <!-- ### Outlaws - END -->
@@ -788,12 +788,12 @@
   <monster name="Black Vixen" file="humans/lycanthropes/black_vixen.xml" />
   <monster name="Bloodback" file="humans/lycanthropes/bloodback.xml" />
   <monster name="Darkfang" file="humans/lycanthropes/darkfang.xml" />
-  <monster name="Feroxa" file="humans/lycanthropes/feroxa.xml" />
-  <monster name="Feroxa (Gloom Wolf)" file="humans/lycanthropes/feroxa_(gloom_wolf).xml" />
-  <monster name="Feroxa (Killable Werewolf)" file="humans/lycanthropes/feroxa_(killable_werewolf).xml" />
-  <monster name="Feroxa (Werewolf)" file="humans/lycanthropes/feroxa_(werewolf).xml" />
+  <monster name="Feroxa" file="humans/lycanthropes/feroxa.xml" /> 
+  <!-- TODO: <monster name="Feroxa (Gloom Wolf)" file="humans/lycanthropes/feroxa_(gloom_wolf).xml" /> -->
+  <!-- TODO: <monster name="Feroxa (Killable Werewolf)" file="humans/lycanthropes/feroxa_(killable_werewolf).xml" /> -->
+  <!-- TODO: <monster name="Feroxa (Werewolf)" file="humans/lycanthropes/feroxa_(werewolf).xml" /> -->
   <monster name="Hemming" file="humans/lycanthropes/hemming.xml" />
-  <monster name="Owin (Creature)" file="humans/lycanthropes/owin_(creature).xml" />
+  <!-- TODO: <monster name="Owin (Creature)" file="humans/lycanthropes/owin_(creature).xml" /> -->
   <monster name="Shadowpelt" file="humans/lycanthropes/shadowpelt.xml" />
   <monster name="Sharpclaw" file="humans/lycanthropes/sharpclaw.xml" />
   <monster name="Doomhowl" file="humans/lycanthropes/doomhowl.xml" />
@@ -842,13 +842,13 @@
   <monster name="Warlock" file="humans/sorcerers/warlock.xml" />
   <monster name="Witch" file="humans/sorcerers/witch.xml" />
   <monster name="Yalahari)" file="humans/sorcerers/yalahari.xml" />
-  <monster name="Yalahari Despoiler" file="humans/sorcerers/yalahari_despoiler.xml" />
+  <!-- TODO: <monster name="Yalahari Despoiler" file="humans/sorcerers/yalahari_despoiler.xml" /> -->
   <monster name="Ascending Ferumbras" file="humans/sorcerers/ascending_ferumbras.xml" />
   <monster name="Azerus" file="humans/sorcerers/azerus.xml" />
   <monster name="Death Priest Shargon" file="humans/sorcerers/death_priest_shargon.xml" />
   <monster name="Destabilized Ferumbras" file="humans/sorcerers/destabilized_ferumbras.xml" />
   <monster name="Doctor Perhaps" file="humans/sorcerers/doctor_perhaps.xml" />
-  <monster name="Ekatrix" file="humans/sorcerers/ekatrix.xml" />
+  <!-- TODO: <monster name="Ekatrix" file="humans/sorcerers/ekatrix.xml" /> -->
   <monster name="Energized Raging Mage" file="humans/sorcerers/energized_raging_mage.xml" />
   <monster name="Ferumbras" file="humans/sorcerers/ferumbras.xml" />
   <monster name="Ferumbras Essence" file="humans/sorcerers/ferumbras_essence.xml" />
@@ -859,7 +859,7 @@
   <monster name="Yaga the Crone" file="humans/sorcerers/yaga_the_crone.xml" />
   <monster name="Yakchal" file="humans/sorcerers/yakchal.xml" />
   <monster name="Zarabustor" file="humans/sorcerers/zarabustor.xml" />
-  <monster name="Zarcorix of Yalahar" file="humans/sorcerers/zarcorix_of_yalahar.xml" />
+  <!-- TODO: <monster name="Zarcorix of Yalahar" file="humans/sorcerers/zarcorix_of_yalahar.xml" /> -->
   <monster name="Zushuka" file="humans/sorcerers/zushuka.xml" />
   <!-- ### Sorcerers - END -->
 
@@ -869,7 +869,7 @@
   <monster name="Enlightened of the Cult" file="humans/voodoo_cultists/enlightened_of_the_cult.xml" />
   <monster name="Novice of the Cult" file="humans/voodoo_cultists/novice_of_the_cult.xml" />
   <monster name="Grandfather Tridian" file="humans/voodoo_cultists/grandfather_tridian.xml" />
-  <monster name="Tzumrah the Dazzler" file="humans/voodoo_cultists/tzumrah_the_dazzler.xml" />
+  <!-- TODO: <monster name="Tzumrah the Dazzler" file="humans/voodoo_cultists/tzumrah_the_dazzler.xml" /> -->
   <!-- ### Voodoo_Cultists - END -->
 
   <!-- # Humans - END -->
