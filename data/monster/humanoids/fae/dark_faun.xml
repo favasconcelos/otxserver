@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dark Faun" nameDescription="a dark faun" race="blood" experience="850" speed="190" manacost="450">
 	<look type="980" head="94" body="114" legs="57" feet="94" corpse="29101" />
 	<health now="1000" max="1000" />

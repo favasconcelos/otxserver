@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Nymph" nameDescription="a nymph" race="blood" experience="850" speed="190" manacost="450">
 	<health now="900" max="900" />
 	<look type="989" corpse="29093" />
