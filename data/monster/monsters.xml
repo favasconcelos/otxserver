@@ -1379,22 +1379,22 @@
 
   <!-- # The Undead - START -->
   <!-- ### Ghosts - START -->
-  <monster name="Burster Spectre" file="the_undead/ghosts/burster_spectre.xml" />
+  <!-- TODO: <monster name="Burster Spectre" file="the_undead/ghosts/burster_spectre.xml" /> -->
   <monster name="Corrupted Soul" file="the_undead/ghosts/corrupted_soul.xml" />
-  <monster name="Enraged Soul" file="the_undead/ghosts/enraged_soul.xml" />
-  <monster name="Gazer Spectre" file="the_undead/ghosts/gazer_spectre.xml" />
+  <!-- TODO: <monster name="Enraged Soul" file="the_undead/ghosts/enraged_soul.xml" /> -->
+  <!-- TODO: <monster name="Gazer Spectre" file="the_undead/ghosts/gazer_spectre.xml" /> -->
   <monster name="Ghost" file="the_undead/ghosts/ghost.xml" />
-  <monster name="Ghost Wolf" file="the_undead/ghosts/ghost_wolf.xml" />
-  <monster name="Ghost of a Planegazer" file="the_undead/ghosts/ghost_of_a_planegazer.xml" />
-  <monster name="Ghostly Apparition" file="the_undead/ghosts/ghostly_apparition.xml" />
-  <monster name="Liquor Spirit" file="the_undead/ghosts/liquor_spirit.xml" />
+  <!-- TODO: <monster name="Ghost Wolf" file="the_undead/ghosts/ghost_wolf.xml" /> -->
+  <!-- TODO: <monster name="Ghost of a Planegazer" file="the_undead/ghosts/ghost_of_a_planegazer.xml" /> -->
+  <!-- TODO: <monster name="Ghostly Apparition" file="the_undead/ghosts/ghostly_apparition.xml" /> -->
+  <!-- TODO: <monster name="Liquor Spirit" file="the_undead/ghosts/liquor_spirit.xml" /> -->
   <monster name="Pirate Ghost" file="the_undead/ghosts/pirate_ghost.xml" />
-  <monster name="Redeemed Soul" file="the_undead/ghosts/redeemed_soul.xml" />
+  <!-- TODO: <monster name="Redeemed Soul" file="the_undead/ghosts/redeemed_soul.xml" /> -->
   <monster name="Rift Phantom" file="the_undead/ghosts/rift_phantom.xml" />
-  <monster name="Ripper Spectre" file="the_undead/ghosts/ripper_spectre.xml" />
+  <!-- TODO: <monster name="Ripper Spectre" file="the_undead/ghosts/ripper_spectre.xml" /> -->
   <monster name="Souleater" file="the_undead/ghosts/souleater.xml" />
   <monster name="Spectre" file="the_undead/ghosts/spectre.xml" />
-  <monster name="Tainted Soul" file="the_undead/ghosts/tainted_soul.xml" />
+  <!-- TODO: <monster name="Tainted Soul" file="the_undead/ghosts/tainted_soul.xml" /> -->
   <monster name="Tarnished Spirit" file="the_undead/ghosts/tarnished_spirit.xml" />
   <monster name="Time Keeper" file="the_undead/ghosts/time_keeper.xml" />
   <monster name="Tormented Ghost" file="the_undead/ghosts/tormented_ghost.xml" />
@@ -1402,8 +1402,8 @@
   <monster name="Wisp" file="the_undead/ghosts/wisp.xml" />
   <monster name="Captain Jones" file="the_undead/ghosts/captain_jones.xml" />
   <monster name="Countess Sorrow" file="the_undead/ghosts/countess_sorrow.xml" />
-  <monster name="Faceless Bane" file="the_undead/ghosts/faceless_bane.xml" />
-  <monster name="Teneshpar" file="the_undead/ghosts/teneshpar.xml" />
+  <!-- TODO: <monster name="Faceless Bane" file="the_undead/ghosts/faceless_bane.xml" /> -->
+  <!-- TODO: <monster name="Teneshpar" file="the_undead/ghosts/teneshpar.xml" /> -->
   <!-- ### Ghosts - END -->
 
   <!-- ### Pharaohs - START -->
@@ -1421,7 +1421,7 @@
 
   <!-- ### Skeletons - START -->
   <monster name="Betrayed Wraith" file="the_undead/skeletons/betrayed_wraith.xml" />
-  <monster name="Bone Jaw" file="the_undead/skeletons/bone_jaw.xml" />
+  <!-- TODO: <monster name="Bone Jaw" file="the_undead/skeletons/bone_jaw.xml" /> -->
   <monster name="Bonebeast" file="the_undead/skeletons/bonebeast.xml" />
   <monster name="Brittle Skeleton" file="the_undead/skeletons/brittle_skeleton.xml" />
   <monster name="Death Dragon" file="the_undead/skeletons/death_dragon.xml" />
@@ -1431,17 +1431,17 @@
   <monster name="Lesser Death Minion" file="the_undead/skeletons/lesser_death_minion.xml" />
   <monster name="Lost Soul" file="the_undead/skeletons/lost_soul.xml" />
   <monster name="Party Skeleton" file="the_undead/skeletons/party_skeleton.xml" />
-  <monster name="Pirate Skeleton" file="the_undead/skeletons/pirate_skeleton.xml" />
+  <!-- TODO: <monster name="Pirate Skeleton" file="the_undead/skeletons/pirate_skeleton.xml" /> -->
   <monster name="Skeleton" file="the_undead/skeletons/skeleton.xml" />
-  <monster name="Skeleton Elite Warrior" file="the_undead/skeletons/skeleton_elite_warrior.xml" />
+  <!-- TODO: <monster name="Skeleton Elite Warrior" file="the_undead/skeletons/skeleton_elite_warrior.xml" /> -->
   <monster name="Skeleton Warrior" file="the_undead/skeletons/skeleton_warrior.xml" />
   <monster name="Undead Cavebear" file="the_undead/skeletons/undead_cavebear.xml" />
   <monster name="Undead Dragon" file="the_undead/skeletons/undead_dragon.xml" />
-  <monster name="Undead Elite Gladiator" file="the_undead/skeletons/undead_elite_gladiator.xml" />
+  <!-- TODO: <monster name="Undead Elite Gladiator" file="the_undead/skeletons/undead_elite_gladiator.xml" /> -->
   <monster name="Undead Gladiator" file="the_undead/skeletons/undead_gladiator.xml" />
   <monster name="Undead Mine Worker" file="the_undead/skeletons/undead_mine_worker.xml" />
   <monster name="Dracola" file="the_undead/skeletons/dracola.xml" />
-  <monster name="Pythius the Rotten (Creature)" file="the_undead/skeletons/pythius_the_rotten_(creature).xml" />
+  <monster name="Pythius the Rotten" file="the_undead/skeletons/pythius_the_rotten_creature.xml" />
   <monster name="Ribstride" file="the_undead/skeletons/ribstride.xml" />
   <monster name="Teleskor" file="the_undead/skeletons/teleskor.xml" />
   <monster name="Zanakeph" file="the_undead/skeletons/zanakeph.xml" />
@@ -1450,7 +1450,7 @@
   <!-- ### Skeletons - END -->
 
   <!-- ### Undead_Humanoids - START -->
-  <monster name="Animated Mummy" file="the_undead/undead_humanoids/animated_mummy.xml" />
+  <!-- TODO: <monster name="Animated Mummy" file="the_undead/undead_humanoids/animated_mummy.xml" /> -->
   <monster name="Banshee" file="the_undead/undead_humanoids/banshee.xml" />
   <monster name="Blightwalker" file="the_undead/undead_humanoids/blightwalker.xml" />
   <monster name="Crypt Shambler" file="the_undead/undead_humanoids/crypt_shambler.xml" />
@@ -1461,8 +1461,8 @@
   <monster name="Grim Reaper" file="the_undead/undead_humanoids/grim_reaper.xml" />
   <monster name="Lich" file="the_undead/undead_humanoids/lich.xml" />
   <monster name="Mummy" file="the_undead/undead_humanoids/mummy.xml" />
-  <monster name="Necromantic Energy" file="the_undead/undead_humanoids/necromantic_energy.xml" />
-  <monster name="Putrid Mummy" file="the_undead/undead_humanoids/putrid_mummy.xml" />
+  <!-- TODO: <monster name="Necromantic Energy" file="the_undead/undead_humanoids/necromantic_energy.xml" /> -->
+  <!-- TODO: <monster name="Putrid Mummy" file="the_undead/undead_humanoids/putrid_mummy.xml" /> -->
   <monster name="Rift Scythe" file="the_undead/undead_humanoids/rift_scythe.xml" />
   <monster name="Skullfrost" file="the_undead/undead_humanoids/skullfrost.xml" />
   <monster name="Superior Death Minion" file="the_undead/undead_humanoids/superior_death_minion.xml" />
@@ -1476,7 +1476,7 @@
   <monster name="Boogey" file="the_undead/undead_humanoids/boogey.xml" />
   <monster name="Gravelord Oshuran" file="the_undead/undead_humanoids/gravelord_oshuran.xml" />
   <monster name="Koshei the Deathless" file="the_undead/undead_humanoids/koshei_the_deathless.xml" />
-  <monster name="Mahatheb" file="the_undead/undead_humanoids/mahatheb.xml" />
+  <!-- TODO: <monster name="Mahatheb" file="the_undead/undead_humanoids/mahatheb.xml" /> -->
   <monster name="Cursed Gladiator" file="the_undead/undead_humanoids/cursed_gladiator.xml" />
   <!-- ### Undead_Humanoids - END -->
 
@@ -1485,15 +1485,15 @@
   <monster name="Vampire Bride" file="the_undead/vampires/vampire_bride.xml" />
   <monster name="Vampire Viscount" file="the_undead/vampires/vampire_viscount.xml" />
   <monster name="Arachir the Ancient One" file="the_undead/vampires/arachir_the_ancient_one.xml" />
-  <monster name="Armenius (Creature)" file="the_undead/vampires/armenius_(creature).xml" />
-  <monster name="Arthei" file="the_undead/vampires/arthei.xml" />
-  <monster name="Boreth" file="the_undead/vampires/boreth.xml" />
+  <monster name="Armenius" file="the_undead/vampires/armenius.xml" />
+  <!-- TODO: <monster name="Arthei" file="the_undead/vampires/arthei.xml" /> -->
+  <!-- TODO: <monster name="Boreth" file="the_undead/vampires/boreth.xml" /> -->
   <monster name="Diblis the Fair" file="the_undead/vampires/diblis_the_fair.xml" />
-  <monster name="Lersatio" file="the_undead/vampires/lersatio.xml" />
-  <monster name="Marziel" file="the_undead/vampires/marziel.xml" />
-  <monster name="Shadow of Boreth" file="the_undead/vampires/shadow_of_boreth.xml" />
-  <monster name="Shadow of Lersatio" file="the_undead/vampires/shadow_of_lersatio.xml" />
-  <monster name="Shadow of Marziel" file="the_undead/vampires/shadow_of_marziel.xml" />
+  <!-- TODO: <monster name="Lersatio" file="the_undead/vampires/lersatio.xml" /> -->
+  <!-- TODO: <monster name="Marziel" file="the_undead/vampires/marziel.xml" /> -->
+  <!-- TODO: <monster name="Shadow of Boreth" file="the_undead/vampires/shadow_of_boreth.xml" /> -->
+  <!-- TODO: <monster name="Shadow of Lersatio" file="the_undead/vampires/shadow_of_lersatio.xml" /> -->
+  <!-- TODO: <monster name="Shadow of Marziel" file="the_undead/vampires/shadow_of_marziel.xml" /> -->
   <monster name="Sir Valorcrest" file="the_undead/vampires/sir_valorcrest.xml" />
   <monster name="The Count" file="the_undead/vampires/the_count.xml" />
   <monster name="The Pale Count" file="the_undead/vampires/the_pale_count.xml" />
