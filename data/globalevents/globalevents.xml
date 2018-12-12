@@ -16,24 +16,18 @@
   <globalevent name="Jaul1" time="15:59:00" script="bosses/Jaul.lua"/>
   <globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>
   <globalevent name="npcs" type="startup" script="others/npcspawn.lua"/>
-
   <!-- Ferumbras Ascendant Quest -->
   <globalevent name="Effect" interval="3000" script="FerumbrasAscedantQuest/effect.lua"/>
   <globalevent name="Effcts" interval="4000" script="FerumbrasAscedantQuest/effects.lua"/>
-
   <!-- Blooming Griffinclaw -->
   <globalevent name="GriffinclawFlower" type="startup" script="others/griffinclawFlower.lua" />
-
   <!-- Demon Oak Quest -->
   <globalevent name="DemonOakVoices" interval="15000" script="demon oak quest/voices.lua" />
-
   <!-- Rent Horses -->
   <globalevent name="RentedMounts" interval="15000" script="others/checkMount.lua" />
-
   <!-- World Changes -->
   <globalevent name="FuryGates" type="startup" script="worldchanges/furygates.lua" />
   <globalevent name="TheirMastersVoice" type="startup" script="worldchanges/theirmastersvoice.lua" />
-
   <!-- Others -->
   <globalevent type="startup" name="ServerStartup" script="startup.lua" />
   <globalevent type="record" name="PlayerRecord" script="record.lua" />
@@ -42,7 +36,6 @@
   <globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
   <!-- raid -->
   <globalevent name="SpawnRaid" interval="60000" script="spawn/raids.lua"/>
-
   <!-- raid -->
   <globalevent name="text" interval="4550" script="textotp.lua"/>
   <globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" />

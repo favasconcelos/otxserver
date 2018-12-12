@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Addoner" script="Addon.lua" walkinterval="0" floorchange="0">
   <health now="100" max="100"/>
@@ -6,5 +5,4 @@
   <parameters>
     <parameter key="module_shop" value="1" />
   </parameters>
-
 </npc> 

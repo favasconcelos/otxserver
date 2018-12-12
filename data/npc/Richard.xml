@@ -2,7 +2,6 @@
 <npc name="Richard" script="Richard.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="472" head="97" body="38" legs="41" feet="0" addons="0" />
-
   <parameters>
     <parameter key="module_shop" value="1" />
     <parameter key="shop_buyable" value="
@@ -24,7 +23,6 @@
 			flaming arrow,2554,10;
 			flaming arrow,3976,1;
 			flaming arrow,2050,2" />
-
     <parameter key="shop_sellable" value="
 		
 		    flaskpequeno,2696,2;

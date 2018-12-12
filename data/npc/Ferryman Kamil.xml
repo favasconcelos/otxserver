@@ -11,5 +11,4 @@
     <parameter key="message_walkaway" value="May the Goddess of Love watch over you." />
     <parameter key="message_greet" value="Hello |PLAYERNAME|. If you're a newly wed I'll transport you and your spouse to Honeymoon Island {Meluna} free of charge." />
   </parameters>
-
 </npc>

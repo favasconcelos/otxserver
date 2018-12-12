@@ -99,13 +99,11 @@
       <missionstate id="6" description="You got all the ghost scraps."/>
     </mission>
   </quest>
-
   <quest name="Spike Task" startstorageid="6874100" startstoragevalue="1">
     <mission name="First Task" storageid="6874101" startvalue="0" endvalue="100" description="You have |STATE| points of task. You need 100 points to take Cave Explorer outfit." />
     <mission name="Second Task" storageid="6874102" startvalue="0" endvalue="100" description="You have |STATE| points of task. You need 100 points to take first addon." />
     <mission name="Third Task" storageid="6874107" startvalue="0" endvalue="100" description="You have |STATE| points of task. You need 100 points to take second addon." />
   </quest>
-
   <quest name="A Father's Burden" startstorageid="50203" startstoragevalue="1">
     <mission name="The Birthday Presents" storageid="50205" startvalue="1" endvalue="2">
       <missionstate id="1" description="Gather the material Tereban listed. Talk to him about your mission when you have given him everything he was looking for." />
@@ -344,14 +342,12 @@
     </mission>
   </quest>
   <quest name="Killing in the Name of..." startstorageid="100157" startstoragevalue="1">
-
     <!-- killing in the name of rank -->
     <mission name="Paw and Fur: Member" storageid="2500" startvalue="0" endvalue="10" description="You are member of the Paw and Fur hunting elite. You currently have |STATE| Paw &amp; Fur points." />
     <mission name="Paw and Fur: Ranger" storageid="2500" startvalue="11" endvalue="20" description="You are Ranger of the Paw and Fur hunting elite. You currently have |STATE| Paw &amp; Fur points." />
     <mission name="Paw and Fur: Big Game Hunter" storageid="2500" startvalue="40" endvalue="69" description="You are Big Game Hunter in the Paw and Fur hunting elite. You currently have |STATE| Paw &amp; Fur points." />
     <mission name="Paw and Fur: Trophy Hunter" storageid="2500" startvalue="70" endvalue="99" description="You are Trophy Hunter in the Paw and Fur hunting elite. You currently have |STATE| Paw &amp; Fur points. Ask Grizzly Adams for 'special task' he might have something for you." />
     <mission name="Paw and Fur: Elite Hunter" storageid="2500" startvalue="100" endvalue="9999" description="You have obtained the highest possible rank in the Paw and Fur hunting elite, you are Elite Hunter. You currently have |STATE| Paw &amp; Fur points. Ask Grizzly Adams for 'special task' he might have something for you." />
-
     <!-- special tasks for killing in the name of -->
     <mission name="Paw and Fur: Tiquandas Revenge" storageid="22555" startvalue="1" endvalue="2">
       <missionstate id="1" description="Grizzly Adams told you that there is Tiquandas Revenge hiding somewhere in the jungle of Port Hope. Go find its hideout and kill it." />
@@ -361,7 +357,6 @@
       <missionstate id="1" description="Grizzly Adams wanted you to go look for Demodras'  hideout. He also mentioned that it might be somewhere under the Plains of Havoc." />
       <missionstate id="2" description="You have slained the Demodras." />
     </mission>
-
     <!-- Short questlog for bosses, when they have the correct storage. (atm disspears from questlog after jumping into tp)-->
     <mission name="Paw and Fur: The Snapper" storageid="35000" startvalue="1" endvalue="2" description="Grizzly told you about the Snapper, a crocodile that already killed many citizens of Port Hope. Try find its hideout and kill it." />
     <mission name="Paw and Fur: Hide" storageid="35001" startvalue="1" endvalue="2" description="Try find its hideout and kill it." />
@@ -391,9 +386,6 @@
     <mission name="Paw and Fur: Paiz the Pauperizer" storageid="35025" startvalue="1" endvalue="2" description="Try find its hideout and kill it." />
     <mission name="Paw and Fur: Bretzecutioner" storageid="35026" startvalue="1" endvalue="2" description="Try find its hideout and kill it." />
     <mission name="Paw and Fur: Zanakeph" storageid="35027" startvalue="1" endvalue="2" description="Try find its hideout and kill it." />
-
-
-
     <!--s for level 6 to 49 -->
     <!--<mission name="Edron City - Elite Hunting: Trolls" storageid="1501" startvalue="0" endvalue="4000" description="You already hunted |STATE|/4000 Necromancers and Priestess." />
 		<mission name="Edron City - Elite Hunting: Goblins" storageid="1502" startvalue="0" endvalue="5000" description="You already hunted |STATE|/5000 Minotaurs." />-->
@@ -410,7 +402,6 @@
     <mission name="Paw and Fur: Apes" storageid="65011" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 apes." />
     <mission name="Paw and Fur: Thornback Tortoises" storageid="65012" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 thornback tortoises." />
     <mission name="Paw and Fur: Gargoyles" storageid="65013" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 gargoyles." />
-
     <!--Tasks for level 50 to 79 -->
     <mission name="Paw and Fur: Ice Golems" storageid="65014" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 ice golems." />
     <mission name="Paw and Fur: Quara Scouts" storageid="65015" startvalue="0" endvalue="400" description="You already hunted |STATE|/400 quara scouts." />
@@ -423,7 +414,6 @@
     <mission name="Paw and Fur: Bonebeasts" storageid="65022" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 bonebeasts." />
     <mission name="Paw and Fur: Crystal Spiders" storageid="65023" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 crystal spiders." />
     <mission name="Paw and Fur: Mutated Tigers" storageid="65024" startvalue="0" endvalue="300" description="You already hunted |STATE|/300 mutated tigers." />
-
     <!--s for level 80 to 129 -->
     <mission name="Paw and Fur: Underwater Quara" storageid="65025" startvalue="0" endvalue="600" description="You already hunted |STATE|/600 underwater quara." />
     <mission name="Paw and Fur: Giant Spiders" storageid="65026" startvalue="0" endvalue="500" description="You already hunted |STATE|/500 giant spiders." />
@@ -434,7 +424,6 @@
     <mission name="Paw and Fur: Stampors" storageid="65031" startvalue="0" endvalue="600" description="You already hunted |STATE|/600 stampors." />
     <mission name="Paw and Fur: Brimstone Bugs" storageid="65032" startvalue="0" endvalue="500" description="You already hunted |STATE|/500 brimstone bugs." />
     <mission name="Paw and Fur: Mutated Bats" storageid="65033" startvalue="0" endvalue="400" description="You already hunted |STATE|/400 mutated bats." />
-
     <!--s for level 130+ -->
     <mission name="Paw and Fur: Hydras" storageid="65034" startvalue="0" endvalue="650" description="You already hunted |STATE|/650 hydras." />
     <mission name="Paw and Fur: Serpent Spawns" storageid="65035" startvalue="0" endvalue="800" description="You already hunted |STATE|/800 serpent spawns." />
@@ -446,7 +435,6 @@
     <mission name="Paw and Fur: Drakens" storageid="65041" startvalue="0" endvalue="900" description="You already hunted |STATE|/900 drakens." />
     <mission name="Paw and Fur: Destroyers" storageid="65042" startvalue="0" endvalue="650" description="You already hunted |STATE|/650 destroyers." />
     <mission name="Paw and Fur: Undead Dragons" storageid="65043" startvalue="0" endvalue="400" description="You already hunted |STATE|/400 undead dragons." />
-
     <!-- Specials -->
     <mission name="Paw and Fur: Demons" storageid="65044" startvalue="0" endvalue="6666" description="You already hunted |STATE|/6666 demons." />
     <mission name="Paw and Fur: Green Djinns or Efreets" storageid="65045" startvalue="0" endvalue="500" description="You already hunted |STATE|/500 green djinns or efreets." />

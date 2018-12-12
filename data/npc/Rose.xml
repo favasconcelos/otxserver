@@ -2,7 +2,6 @@
 <npc name="Rose" script="Rose.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="136" head="79" body="77" legs="112" feet="116" addons="0" />
-
   <voices>
     <voice text="Have a look at my beautiful flowers!" interval2="100" margin="1" yell="no" />
   </voices>

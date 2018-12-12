@@ -25,7 +25,6 @@
 			strong health potion,7588,100;
 			strong mana potion,7589,80;
 			ultimate health potion,8473,310" />
-
     <parameter key="shop_sellable" value="
 		Cowbell,23575,210;
 		empty potion flask,7634,5;
