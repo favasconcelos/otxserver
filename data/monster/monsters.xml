@@ -1080,7 +1080,7 @@
 
   <!-- ### Bats - START -->
   <monster name="Bat" file="mammals/bats/bat.xml" />
-  <monster name="Dawn Bat" file="mammals/bats/dawn_bat.xml" />
+  <!-- TODO: <monster name="Dawn Bat" file="mammals/bats/dawn_bat.xml" /> -->
   <monster name="Mutated Bat" file="mammals/bats/mutated_bat.xml" />
   <monster name="Nightfiend" file="mammals/bats/nightfiend.xml" />
   <monster name="Vicious Manbat" file="mammals/bats/vicious_manbat.xml" />
@@ -1090,7 +1090,7 @@
 
   <!-- ### Bears - START -->
   <monster name="Bear" file="mammals/bears/bear.xml" />
-  <monster name="Bone Jaw" file="mammals/bears/bone_jaw.xml" />
+  <!-- TODO: <monster name="Bone Jaw" file="mammals/bears/bone_jaw.xml" /> -->
   <monster name="Panda" file="mammals/bears/panda.xml" />
   <monster name="Polar Bear" file="mammals/bears/polar_bear.xml" />
   <monster name="Undead Cavebear" file="mammals/bears/undead_cavebear.xml" />
@@ -1102,7 +1102,7 @@
   <monster name="Crystal Wolf" file="mammals/canines/crystal_wolf.xml" />
   <monster name="Dog" file="mammals/canines/dog.xml" />
   <monster name="Fox" file="mammals/canines/fox.xml" />
-  <monster name="Ghost Wolf" file="mammals/canines/ghost_wolf.xml" />
+  <!-- TODO:<monster name="Ghost Wolf" file="mammals/canines/ghost_wolf.xml" /> -->
   <monster name="Gloom Wolf" file="mammals/canines/gloom_wolf.xml" />
   <monster name="Hellhound" file="mammals/canines/hellhound.xml" />
   <monster name="Hot Dog" file="mammals/canines/hot_dog.xml" />
@@ -1117,12 +1117,12 @@
   <monster name="Winter Wolf" file="mammals/canines/winter_wolf.xml" />
   <monster name="Wolf" file="mammals/canines/wolf.xml" />
   <monster name="Feroxa" file="mammals/canines/feroxa.xml" />
-  <monster name="Feroxa (Gloom Wolf)" file="mammals/canines/feroxa_(gloom_wolf).xml" />
-  <monster name="Feroxa (Killable Werewolf)" file="mammals/canines/feroxa_(killable_werewolf).xml" />
-  <monster name="Feroxa (Werewolf)" file="mammals/canines/feroxa_(werewolf).xml" />
+  <!-- TODO: <monster name="Feroxa" file="mammals/canines/feroxa_gloom_wolf.xml" /> -->
+  <!-- TODO: <monster name="Feroxa" file="mammals/canines/feroxa_killable_werewolf.xml" /> -->
+  <!-- TODO: <monster name="Feroxa" file="mammals/canines/feroxa_werewolf.xml" /> -->
   <monster name="Hemming" file="mammals/canines/hemming.xml" />
   <monster name="Kerberos" file="mammals/canines/kerberos.xml" />
-  <monster name="The Big Bad One" file="mammals/canines/the_big_bad_one.xml" />
+  <!-- TODO: <monster name="The Big Bad One" file="mammals/canines/the_big_bad_one.xml" /> -->
   <monster name="Doomhowl" file="mammals/canines/doomhowl.xml" />
   <monster name="Frostfur" file="mammals/canines/frostfur.xml" />
   <!-- ### Canines - END -->
@@ -1160,7 +1160,7 @@
   <monster name="Gnarlhound" file="mammals/hyaenids/gnarlhound.xml" />
   <monster name="Hyaena" file="mammals/hyaenids/hyaena.xml" />
   <monster name="Modified Gnarlhound" file="mammals/hyaenids/modified_gnarlhound.xml" />
-  <monster name="Fleabringer" file="mammals/hyaenids/fleabringer.xml" />
+  <!-- TODO: <monster name="Fleabringer" file="mammals/hyaenids/fleabringer.xml" /> -->
   <!-- ### Hyaenids - END -->
 
   <!-- ### Mustelids - START -->
@@ -1180,7 +1180,7 @@
   <!-- ### Mutated_Mammals - END -->
 
   <!-- ### Ungulates - START -->
-  <monster name="Animated Clomp" file="mammals/ungulates/animated_clomp.xml" />
+  <!-- TODO: <monster name="Animated Clomp" file="mammals/ungulates/animated_clomp.xml" /> -->
   <monster name="Black Sheep" file="mammals/ungulates/black_sheep.xml" />
   <monster name="Boar" file="mammals/ungulates/boar.xml" />
   <monster name="Bonebeast" file="mammals/ungulates/bonebeast.xml" />
@@ -1190,20 +1190,20 @@
   <monster name="Doom Deer" file="mammals/ungulates/doom_deer.xml" />
   <monster name="Dreadbeast" file="mammals/ungulates/dreadbeast.xml" />
   <monster name="Dromedary" file="mammals/ungulates/dromedary.xml" />
-  <monster name="Elder Forest Fury" file="mammals/ungulates/elder_forest_fury.xml" />
+  <!-- TODO: <monster name="Elder Forest Fury" file="mammals/ungulates/elder_forest_fury.xml" /> -->
   <monster name="Elephant" file="mammals/ungulates/elephant.xml" />
-  <monster name="Ember Beast" file="mammals/ungulates/ember_beast.xml" />
+  <!-- TODO: <monster name="Ember Beast" file="mammals/ungulates/ember_beast.xml" /> -->
   <monster name="Enraged White Deer" file="mammals/ungulates/enraged_white_deer.xml" />
   <monster name="Evil Sheep" file="mammals/ungulates/evil_sheep.xml" />
   <monster name="Evil Sheep Lord" file="mammals/ungulates/evil_sheep_lord.xml" />
   <monster name="Forest Fury" file="mammals/ungulates/forest_fury.xml" />
-  <monster name="Horse (Brown)" file="mammals/ungulates/horse_(brown).xml" />
+  <monster name="Horse" file="mammals/ungulates/horse_brown.xml" />
   <monster name="Horse (Gray)" file="mammals/ungulates/horse_(gray).xml" />
-  <monster name="Horse (Taupe)" file="mammals/ungulates/horse_(taupe).xml" />
+  <!-- TODO: <monster name="Horse" file="mammals/ungulates/horse_taupe.xml" /> -->
   <monster name="Ironblight" file="mammals/ungulates/ironblight.xml" />
-  <monster name="Mad Sheep" file="mammals/ungulates/mad_sheep.xml" />
+  <!-- TODO: <monster name="Mad Sheep" file="mammals/ungulates/mad_sheep.xml" /> -->
   <monster name="Mammoth" file="mammals/ungulates/mammoth.xml" />
-  <monster name="Museum Stone Rhino" file="mammals/ungulates/museum_stone_rhino.xml" />
+  <!-- TODO: <monster name="Museum Stone Rhino" file="mammals/ungulates/museum_stone_rhino.xml" /> -->
   <monster name="Mushroom Sniffer" file="mammals/ungulates/mushroom_sniffer.xml" />
   <monster name="Nightmare" file="mammals/ungulates/nightmare.xml" />
   <monster name="Nightmare Scion" file="mammals/ungulates/nightmare_scion.xml" />
@@ -1220,7 +1220,7 @@
   <monster name="Black Vixen" file="mammals/ungulates/black_vixen.xml" />
   <monster name="Bloodback" file="mammals/ungulates/bloodback.xml" />
   <monster name="Darkfang" file="mammals/ungulates/darkfang.xml" />
-  <monster name="Owin (Creature)" file="mammals/ungulates/owin_(creature).xml" />
+  <!-- TODO: <monster name="Owin (Creature)" file="mammals/ungulates/owin_(creature).xml" /> -->
   <monster name="Ribstride" file="mammals/ungulates/ribstride.xml" />
   <monster name="Shadowpelt" file="mammals/ungulates/shadowpelt.xml" />
   <monster name="Sharpclaw" file="mammals/ungulates/sharpclaw.xml" />
