@@ -878,11 +878,11 @@
 
   <!-- # Invertebrates - START -->
   <!-- ### Annelids - START -->
-  <monster name="Animated Rotworm" file="invertebrates/annelids/animated_rotworm.xml" />
+  <!-- TODO: <monster name="Animated Rotworm" file="invertebrates/annelids/animated_rotworm.xml" /> -->
   <monster name="Carrion Worm" file="invertebrates/annelids/carrion_worm.xml" />
   <monster name="Deepworm" file="invertebrates/annelids/deepworm.xml" />
   <monster name="Drillworm" file="invertebrates/annelids/drillworm.xml" />
-  <monster name="Enraged Bookworm" file="invertebrates/annelids/enraged_bookworm.xml" />
+  <!-- TODO: <monster name="Enraged Bookworm" file="invertebrates/annelids/enraged_bookworm.xml" /> -->
   <monster name="Rift Worm" file="invertebrates/annelids/rift_worm.xml" />
   <monster name="Rotworm" file="invertebrates/annelids/rotworm.xml" />
   <monster name="Tremor Worm" file="invertebrates/annelids/tremor_worm.xml" />
@@ -893,13 +893,13 @@
   <!-- ### Annelids - END -->
 
   <!-- ### Arachnids - START -->
-  <monster name="Arachnophobica" file="invertebrates/arachnids/arachnophobica.xml" />
+  <!-- TODO: <monster name="Arachnophobica" file="invertebrates/arachnids/arachnophobica.xml" /> -->
   <monster name="Crystal Spider" file="invertebrates/arachnids/crystal_spider.xml" />
   <monster name="Dawn Scorpion" file="invertebrates/arachnids/dawn_scorpion.xml" />
-  <monster name="Frost Spider" file="invertebrates/arachnids/frost_spider.xml" />
-  <monster name="Furious Scorpion" file="invertebrates/arachnids/furious_scorpion.xml" />
+  <!-- TODO: <monster name="Frost Spider" file="invertebrates/arachnids/frost_spider.xml" /> -->
+  <!-- TODO: <monster name="Furious Scorpion" file="invertebrates/arachnids/furious_scorpion.xml" /> -->
   <monster name="Giant Spider" file="invertebrates/arachnids/giant_spider.xml" />
-  <monster name="Giant Spider (Wyda)" file="invertebrates/arachnids/giant_spider_(wyda).xml" />
+  <monster name="Giant Spider" file="invertebrates/arachnids/giant_spider_wyda.xml" />
   <monster name="Instable Sparkion" file="invertebrates/arachnids/instable_sparkion.xml" />
   <monster name="Poison Spider" file="invertebrates/arachnids/poison_spider.xml" />
   <monster name="Sacred Spider" file="invertebrates/arachnids/sacred_spider.xml" />
@@ -915,9 +915,9 @@
   <monster name="Cave Spider" file="invertebrates/arachnids/cave_spider.xml" />
   <monster name="Fleshslicer" file="invertebrates/arachnids/fleshslicer.xml" />
   <monster name="Hide" file="invertebrates/arachnids/hide.xml" />
-  <monster name="Mamma Longlegs" file="invertebrates/arachnids/mamma_longlegs.xml" />
+  <!-- TODO: <monster name="Mamma Longlegs" file="invertebrates/arachnids/mamma_longlegs.xml" /> -->
   <monster name="The Bloodweb" file="invertebrates/arachnids/the_bloodweb.xml" />
-  <monster name="The Manhunter" file="invertebrates/arachnids/the_manhunter.xml" />
+  <!-- TODO: <monster name="The Manhunter" file="invertebrates/arachnids/the_manhunter.xml" /> -->
   <monster name="The Old Widow" file="invertebrates/arachnids/the_old_widow.xml" />
   <monster name="Webster" file="invertebrates/arachnids/webster.xml" />
   <!-- ### Arachnids - END -->
@@ -935,32 +935,32 @@
   <!-- ### Cnidarians - START -->
   <monster name="Breach Brood" file="invertebrates/cnidarians/breach_brood.xml" />
   <monster name="Charger" file="invertebrates/cnidarians/charger.xml" />
-  <monster name="Crackler" file="invertebrates/cnidarians/crackler.xml" />
-  <monster name="Disruption" file="invertebrates/cnidarians/disruption.xml" />
+  <!-- TODO: <monster name="Crackler" file="invertebrates/cnidarians/crackler.xml" /> -->
+  <!-- TODO: <monster name="Disruption" file="invertebrates/cnidarians/disruption.xml" /> -->
   <monster name="Instable Breach Brood" file="invertebrates/cnidarians/instable_breach_brood.xml" />
   <monster name="Jellyfish" file="invertebrates/cnidarians/jellyfish.xml" />
-  <monster name="Overcharge" file="invertebrates/cnidarians/overcharge.xml" />
-  <monster name="Aftershock" file="invertebrates/cnidarians/aftershock.xml" />
-  <monster name="Anomaly" file="invertebrates/cnidarians/anomaly.xml" />
-  <monster name="Burster" file="invertebrates/cnidarians/burster.xml" />
-  <monster name="Charged Anomaly" file="invertebrates/cnidarians/charged_anomaly.xml" />
-  <monster name="Charged Disruption" file="invertebrates/cnidarians/charged_disruption.xml" />
-  <monster name="Charging Outburst" file="invertebrates/cnidarians/charging_outburst.xml" />
-  <monster name="Damage Resonance" file="invertebrates/cnidarians/damage_resonance.xml" />
+  <!-- TODO: <monster name="Overcharge" file="invertebrates/cnidarians/overcharge.xml" /> -->
+  <!-- TODO: <monster name="Aftershock" file="invertebrates/cnidarians/aftershock.xml" /> -->
+  <!-- TODO: <monster name="Anomaly" file="invertebrates/cnidarians/anomaly.xml" /> -->
+  <!-- TODO: <monster name="Burster" file="invertebrates/cnidarians/burster.xml" /> -->
+  <!-- TODO: <monster name="Charged Anomaly" file="invertebrates/cnidarians/charged_anomaly.xml" /> -->
+  <!-- TODO: <monster name="Charged Disruption" file="invertebrates/cnidarians/charged_disruption.xml" /> -->
+  <!-- TODO: <monster name="Charging Outburst" file="invertebrates/cnidarians/charging_outburst.xml" /> -->
+  <!-- TODO: <monster name="Damage Resonance" file="invertebrates/cnidarians/damage_resonance.xml" /> -->
   <monster name="Eradicator" file="invertebrates/cnidarians/eradicator.xml" />
-  <monster name="Foreshock" file="invertebrates/cnidarians/foreshock.xml" />
+  <!-- TODO: <monster name="Foreshock" file="invertebrates/cnidarians/foreshock.xml" /> -->
   <monster name="Frenzy" file="invertebrates/cnidarians/frenzy.xml" />
   <monster name="Greed" file="invertebrates/cnidarians/greed.xml" />
   <monster name="Outburst" file="invertebrates/cnidarians/outburst.xml" />
-  <monster name="Overcharged Disruption" file="invertebrates/cnidarians/overcharged_disruption.xml" />
-  <monster name="Realityquake" file="invertebrates/cnidarians/realityquake.xml" />
+  <!-- TODO: <monster name="Overcharged Disruption" file="invertebrates/cnidarians/overcharged_disruption.xml" /> -->
+  <!-- TODO: <monster name="Realityquake" file="invertebrates/cnidarians/realityquake.xml" /> -->
   <monster name="Rupture" file="invertebrates/cnidarians/rupture.xml" />
-  <monster name="The Destruction" file="invertebrates/cnidarians/the_destruction.xml" />
+  <!-- TODO: <monster name="The Destruction" file="invertebrates/cnidarians/the_destruction.xml" /> -->
   <monster name="The Hunger" file="invertebrates/cnidarians/the_hunger.xml" />
   <monster name="The Rage" file="invertebrates/cnidarians/the_rage.xml" />
-  <monster name="The Scion of Havoc" file="invertebrates/cnidarians/the_scion_of_havoc.xml" />
-  <monster name="The Scourge of Oblivion" file="invertebrates/cnidarians/the_scourge_of_oblivion.xml" />
-  <monster name="The Souldespoiler" file="invertebrates/cnidarians/the_souldespoiler.xml" />
+  <!-- TODO: <monster name="The Scion of Havoc" file="invertebrates/cnidarians/the_scion_of_havoc.xml" /> -->
+  <!-- TODO: <monster name="The Scourge of Oblivion" file="invertebrates/cnidarians/the_scourge_of_oblivion.xml" /> -->
+  <!-- TODO: <monster name="The Souldespoiler" file="invertebrates/cnidarians/the_souldespoiler.xml" /> -->
   <monster name="World Devourer" file="invertebrates/cnidarians/world_devourer.xml" />
   <!-- ### Cnidarians - END -->
 
@@ -968,7 +968,7 @@
   <monster name="Blood Crab" file="invertebrates/crustaceans/blood_crab.xml" />
   <monster name="Crab" file="invertebrates/crustaceans/crab.xml" />
   <monster name="Crustacea Gigantica" file="invertebrates/crustaceans/crustacea_gigantica.xml" />
-  <monster name="Deepsea Blood Crab" file="invertebrates/crustaceans/deepsea_blood_crab.xml" />
+  <!-- TODO: <monster name="Deepsea Blood Crab" file="invertebrates/crustaceans/deepsea_blood_crab.xml" /> -->
   <monster name="Yielothax" file="invertebrates/crustaceans/yielothax.xml" />
   <!-- ### Crustaceans - END -->
 
@@ -988,69 +988,69 @@
   <monster name="Swarmer" file="invertebrates/hive_born/swarmer.xml" />
   <monster name="Swarmer Hatchling" file="invertebrates/hive_born/swarmer_hatchling.xml" />
   <monster name="Waspoid" file="invertebrates/hive_born/waspoid.xml" />
-  <monster name="Chopper" file="invertebrates/hive_born/chopper.xml" />
+  <!-- TODO: <monster name="Chopper" file="invertebrates/hive_born/chopper.xml" /> -->
   <monster name="Fleshslicer" file="invertebrates/hive_born/fleshslicer.xml" />
-  <monster name="Maw" file="invertebrates/hive_born/maw.xml" />
-  <monster name="Mindmasher" file="invertebrates/hive_born/mindmasher.xml" />
-  <monster name="Rotspit" file="invertebrates/hive_born/rotspit.xml" />
-  <monster name="Shadowstalker" file="invertebrates/hive_born/shadowstalker.xml" />
-  <monster name="The Manhunter" file="invertebrates/hive_born/the_manhunter.xml" />
-  <monster name="The Mean Masher" file="invertebrates/hive_born/the_mean_masher.xml" />
+  <!-- TODO: <monster name="Maw" file="invertebrates/hive_born/maw.xml" /> -->
+  <!-- TODO: <monster name="Mindmasher" file="invertebrates/hive_born/mindmasher.xml" /> -->
+  <!-- TODO: <monster name="Rotspit" file="invertebrates/hive_born/rotspit.xml" /> -->
+  <!-- TODO: <monster name="Shadowstalker" file="invertebrates/hive_born/shadowstalker.xml" /> -->
+  <!-- TODO: <<monster name="The Manhunter" file="invertebrates/hive_born/the_manhunter.xml" /> -->
+  <!-- TODO: <<monster name="The Mean Masher" file="invertebrates/hive_born/the_mean_masher.xml" /> -->
   <!-- ### Hive_Born - END -->
 
   <!-- ### Insects - START -->
   <monster name="Ancient Scarab" file="invertebrates/insects/ancient_scarab.xml" />
   <monster name="Brimstone Bug" file="invertebrates/insects/brimstone_bug.xml" />
   <monster name="Bug" file="invertebrates/insects/bug.xml" />
-  <monster name="Burrowing Beetle" file="invertebrates/insects/burrowing_beetle.xml" />
-  <monster name="Butterfly (Blue)" file="invertebrates/insects/butterfly_(blue).xml" />
-  <monster name="Butterfly (Purple)" file="invertebrates/insects/butterfly_(purple).xml" />
-  <monster name="Butterfly (Red)" file="invertebrates/insects/butterfly_(red).xml" />
-  <monster name="Butterfly (Yellow)" file="invertebrates/insects/butterfly_(yellow).xml" />
+  <!-- TODO: <monster name="Burrowing Beetle" file="invertebrates/insects/burrowing_beetle.xml" /> -->
+  <monster name="Butterfly" file="invertebrates/insects/butterfly_blue.xml" />
+  <monster name="Butterfly" file="invertebrates/insects/butterfly_purple.xml" />
+  <monster name="Butterfly" file="invertebrates/insects/butterfly_red.xml" />
+  <monster name="Butterfly" file="invertebrates/insects/butterfly_yellow.xml" />
   <monster name="Chasm Spawn" file="invertebrates/insects/chasm_spawn.xml" />
   <monster name="Dawnfly" file="invertebrates/insects/dawnfly.xml" />
   <monster name="Diremaw" file="invertebrates/insects/diremaw.xml" />
   <monster name="Emerald Damselfly" file="invertebrates/insects/emerald_damselfly.xml" />
-  <monster name="Enraged Sand Brood" file="invertebrates/insects/enraged_sand_brood.xml" />
-  <monster name="Hibernal Moth" file="invertebrates/insects/hibernal_moth.xml" />
+  <!-- TODO: <monster name="Enraged Sand Brood" file="invertebrates/insects/enraged_sand_brood.xml" /> -->
+  <!-- TODO: <monster name="Hibernal Moth" file="invertebrates/insects/hibernal_moth.xml" /> -->
   <monster name="Hive Overseer" file="invertebrates/insects/hive_overseer.xml" />
   <monster name="Insect Swarm" file="invertebrates/insects/insect_swarm.xml" />
   <monster name="Insectoid Scout" file="invertebrates/insects/insectoid_scout.xml" />
   <monster name="Insectoid Worker" file="invertebrates/insects/insectoid_worker.xml" />
   <monster name="Kollos" file="invertebrates/insects/kollos.xml" />
-  <monster name="Lacewing Moth" file="invertebrates/insects/lacewing_moth.xml" />
+  <!-- TODO: <monster name="Lacewing Moth" file="invertebrates/insects/lacewing_moth.xml" /> -->
   <monster name="Ladybug" file="invertebrates/insects/ladybug.xml" />
   <monster name="Lancer Beetle" file="invertebrates/insects/lancer_beetle.xml" />
   <monster name="Larva" file="invertebrates/insects/larva.xml" />
   <monster name="Lesser Swarmer" file="invertebrates/insects/lesser_swarmer.xml" />
   <monster name="Parasite" file="invertebrates/insects/parasite.xml" />
-  <monster name="Sand Brood" file="invertebrates/insects/sand_brood.xml" />
+  <!-- TODO: <monster name="Sand Brood" file="invertebrates/insects/sand_brood.xml" /> -->
   <monster name="Sandcrawler" file="invertebrates/insects/sandcrawler.xml" />
   <monster name="Scarab" file="invertebrates/insects/scarab.xml" />
-  <monster name="Shimmying Butterfly" file="invertebrates/insects/shimmying_butterfly.xml" />
+  <!-- TODO: <monster name="Shimmying Butterfly" file="invertebrates/insects/shimmying_butterfly.xml" /> -->
   <monster name="Swarmer" file="invertebrates/insects/swarmer.xml" />
   <monster name="Swarmer Hatchling" file="invertebrates/insects/swarmer_hatchling.xml" />
   <monster name="Terramite" file="invertebrates/insects/terramite.xml" />
   <monster name="Tunnel Tyrant" file="invertebrates/insects/tunnel_tyrant.xml" />
   <monster name="Wasp" file="invertebrates/insects/wasp.xml" />
   <monster name="Waspoid" file="invertebrates/insects/waspoid.xml" />
-  <monster name="Chopper" file="invertebrates/insects/chopper.xml" />
+  <!-- TODO: <monster name="Chopper" file="invertebrates/insects/chopper.xml" /> -->
   <monster name="Fleshcrawler" file="invertebrates/insects/fleshcrawler.xml" />
-  <monster name="Maw" file="invertebrates/insects/maw.xml" />
-  <monster name="Mindmasher" file="invertebrates/insects/mindmasher.xml" />
+  <!-- TODO: <monster name="Maw" file="invertebrates/insects/maw.xml" /> -->
+  <!-- TODO: <monster name="Mindmasher" file="invertebrates/insects/mindmasher.xml" /> -->
   <monster name="Sulphur Scuttler" file="invertebrates/insects/sulphur_scuttler.xml" />
   <monster name="The Blightfather" file="invertebrates/insects/the_blightfather.xml" />
-  <monster name="The Mean Masher" file="invertebrates/insects/the_mean_masher.xml" />
+  <!-- TODO: <monster name="The Mean Masher" file="invertebrates/insects/the_mean_masher.xml" /> -->
   <monster name="Willi Wasp" file="invertebrates/insects/willi_wasp.xml" />
   <!-- ### Insects - END -->
 
   <!-- ### Mollusks - START -->
   <monster name="Abyssal Calamary" file="invertebrates/mollusks/abyssal_calamary.xml" />
-  <monster name="Brain Squid" file="invertebrates/mollusks/brain_squid.xml" />
+  <!-- TODO: <monster name="Brain Squid" file="invertebrates/mollusks/brain_squid.xml" /> -->
   <monster name="Calamary" file="invertebrates/mollusks/calamary.xml" />
-  <monster name="Rage Squid" file="invertebrates/mollusks/rage_squid.xml" />
+  <!-- TODO: <monster name="Rage Squid" file="invertebrates/mollusks/rage_squid.xml" /> -->
   <monster name="Slug" file="invertebrates/mollusks/slug.xml" />
-  <monster name="Squid Warden" file="invertebrates/mollusks/squid_warden.xml" />
+  <!-- TODO: <monster name="Squid Warden" file="invertebrates/mollusks/squid_warden.xml" /> -->
   <!-- ### Mollusks - END -->
 
   <!-- ### Myriapods - START -->
@@ -1059,8 +1059,8 @@
   <monster name="Spitter" file="invertebrates/myriapods/spitter.xml" />
   <monster name="Wiggler" file="invertebrates/myriapods/wiggler.xml" />
   <monster name="Abyssador" file="invertebrates/myriapods/abyssador.xml" />
-  <monster name="Rotspit" file="invertebrates/myriapods/rotspit.xml" />
-  <monster name="Shadowstalker" file="invertebrates/myriapods/shadowstalker.xml" />
+  <!-- TODO: <monster name="Rotspit" file="invertebrates/myriapods/rotspit.xml" /> -->
+  <!-- TODO: <monster name="Shadowstalker" file="invertebrates/myriapods/shadowstalker.xml" /> -->
   <!-- ### Myriapods - END -->
 
   <!-- # Invertebrates - END -->
