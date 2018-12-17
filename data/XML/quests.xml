@@ -87,16 +87,16 @@
   </quest>
   <quest name="Spirithunters Quest" startstorageid="165163" startstoragevalue="1">
     <mission name="Method" storageid="165163" startvalue="1" endvalue="2">
-      <missionstate id="1" description="Use the item on the tombstones."/>
-      <missionstate id="2" description="You have used these item in the tombstones."/>
+      <missionstate id="1" description="Use the item on the tombstones." />
+      <missionstate id="2" description="You have used these item in the tombstones." />
     </mission>
     <mission name="First Mission" storageid="165163" startvalue="2" endvalue="4">
-      <missionstate id="3" description="Talk to Sinclair and take the ghost residue."/>
-      <missionstate id="4" description="You got the ghost waste."/>
+      <missionstate id="3" description="Talk to Sinclair and take the ghost residue." />
+      <missionstate id="4" description="You got the ghost waste." />
     </mission>
     <mission name="Second Mission" storageid="165163" startvalue="4" endvalue="6">
-      <missionstate id="5" description="You need to get more samples of ghosts."/>
-      <missionstate id="6" description="You got all the ghost scraps."/>
+      <missionstate id="5" description="You need to get more samples of ghosts." />
+      <missionstate id="6" description="You got all the ghost scraps." />
     </mission>
   </quest>
   <quest name="Spike Task" startstorageid="6874100" startstoragevalue="1">
