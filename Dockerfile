@@ -1,11 +1,5 @@
 FROM ubuntu:16.04
 
-# create a new user
-RUN useradd -ms /bin/bash otuser
-
-# add data to app path
-ADD . /app
-
 # install build dependencies
 RUN apt-get update -qq -y && apt-get install -qq -y \
   cmake \
@@ -16,12 +10,13 @@ RUN apt-get update -qq -y && apt-get install -qq -y \
   libboost-system-dev \
   libboost-iostreams-dev \
   libpugixml-dev \
-  libcrypto++-dev \
-  unrar
+  libcrypto++-dev
 
-# unpack realmap map
-WORKDIR /app/data/world
-RUN unrar e realmap.rar
+# create a new user
+RUN useradd -ms /bin/bash otuser
+
+# add data to app path
+ADD . /app
 
 # compile it
 WORKDIR /app
