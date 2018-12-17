@@ -597,7 +597,6 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 		}
 	}
 
-
 	if (creature == attackedCreature || (creature == this && attackedCreature)) {
 		if (newPos.z != oldPos.z || !canSee(attackedCreature->getPosition())) {
 			onCreatureDisappear(attackedCreature, false);
