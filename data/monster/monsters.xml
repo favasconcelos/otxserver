@@ -550,9 +550,8 @@
   <monster name="Horadron" file="monsters/horadron.xml" />
   <monster name="Horestis" file="monsters/horestis.xml" />
   <monster name="Horse" file="monsters/horse.xml" />
-  <monster name="Horse1" file="monsters/horse_brown.xml" />
-  <monster name="Horse3" file="monsters/horse_gray.xml" />
-  <!-- <monster name="Horse" file="monsters/horse_taupe.xml" /> -->
+  <monster name="Taupe Horse" file="monsters/horse_taupe.xml" />
+  <monster name="Gray Horse" file="monsters/horse_gray.xml" />
   <monster name="Hot Dog" file="monsters/hot_dog.xml" />
   <monster name="Humongous Fungus" file="monsters/humongous_fungus.xml" />
   <monster name="Humorless Fungus" file="monsters/humorless_fungus.xml" />
@@ -975,7 +974,7 @@
   <monster name="Sharpclaw" file="monsters/sharpclaw.xml" />
   <monster name="Sharptooth" file="monsters/sharptooth.xml" />
   <monster name="Sheep" file="monsters/sheep.xml" />
-  <!-- <monster name="Shimmying Butterfly" file="monsters/shimmying_butterfly.xml" /> -->
+  <monster name="Shimmying Butterfly" file="monsters/shimmying_butterfly.xml" />
   <monster name="Ship Core" file="monsters/ship_core.xml" />
   <monster name="Shiversleep" file="monsters/shiversleep.xml" />
   <monster name="Shlorg" file="monsters/shlorg.xml" />
