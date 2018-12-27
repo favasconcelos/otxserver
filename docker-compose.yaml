@@ -36,22 +36,21 @@ services:
       network:
         ipv4_address: 172.27.1.2
 
-  # website:
-  #   depends_on:
-  #     - database
-  #   links:
-  #     - database
-  #   container_name: website
-  #   build: ../website
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - ./data:/var/www/public/config/data
-  #     - ../website/www:/var/www/public
-  #   networks:
-  #     network:
-  #       ipv4_address: 172.27.1.3
+  website:
+    depends_on:
+      - database
+    links:
+      - database
+    container_name: website-backend
+    build: ../backend
+    ports:
+      - "3001:80"
+      - "443:443"
+    volumes:
+      - ../backend/src/app:/usr/app
+    networks:
+      network:
+        ipv4_address: 172.27.1.3
 
 volumes:
   otx-mysql: {}
