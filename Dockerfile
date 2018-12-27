@@ -1,11 +1,5 @@
 FROM ubuntu:16.04
 
-# create a new user
-RUN useradd -ms /bin/bash otuser
-
-# add data to app path
-ADD . /app
-
 # install build dependencies
 RUN apt-get update -qq -y && apt-get install -qq -y \
   cmake \
@@ -17,6 +11,12 @@ RUN apt-get update -qq -y && apt-get install -qq -y \
   libboost-iostreams-dev \
   libpugixml-dev \
   libcrypto++-dev
+
+# create a new user
+RUN useradd -ms /bin/bash otuser
+
+# add data to app path
+ADD . /app
 
 # compile it
 WORKDIR /app

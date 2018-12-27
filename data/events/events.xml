@@ -4,13 +4,11 @@
   <event class="Creature" method="onChangeOutfit" enabled="1" />
   <event class="Creature" method="onAreaCombat" enabled="0" />
   <event class="Creature" method="onTargetCombat" enabled="1" />
-
   <!-- Party methods -->
   <event class="Party" method="onJoin" enabled="0" />
   <event class="Party" method="onLeave" enabled="0" />
   <event class="Party" method="onDisband" enabled="0" />
   <event class="Party" method="onShareExperience" enabled="1" />
-
   <!-- Player methods -->
   <event class="Player" method="onBrowseField" enabled="0" />
   <event class="Player" method="onLook" enabled="1" />
@@ -27,13 +25,11 @@
   <event class="Player" method="onGainExperience" enabled="1" />
   <event class="Player" method="onLoseExperience" enabled="0" />
   <event class="Player" method="onGainSkillTries" enabled="1" />
-
   <!-- Imbuement System -->
   <event class="Creature" method="onDrainHealth" enabled="1" />
   <event class="Player" method="onMove" enabled="1" />
   <event class="Player" method="onEquipImbuement" enabled="1" />
   <event class="Player" method="onDeEquipImbuement" enabled="1" />
-
   <!-- Custom methods -->
   <!-- OTX Systems -->
   <!-- Modified Scripts from TFS
