@@ -41,11 +41,10 @@ services:
       - database
     links:
       - database
-    container_name: website-backend
+    container_name: otxserver-backend
     build: ../backend
     ports:
       - "3001:80"
-      - "443:443"
     volumes:
       - ../backend/src/app:/usr/app
     networks:
