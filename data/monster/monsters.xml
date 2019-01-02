@@ -3,12 +3,12 @@
 	<!-- Falcons -->
 	<monster name="Falcon Knight" file="Falcons/Falcon Knight.xml" />
 	<monster name="Falcon Paladin" file="Falcons/Falcon Paladin.xml" />
-    <monster name="Grand Commander Soeren" file="Falcons/Grand Commander Soeren.xml" />
+    	<monster name="Grand Commander Soeren" file="Falcons/Grand Commander Soeren.xml" />
 	<monster name="Grand Chaplain Gaunder" file="Falcons/Grand Chaplain Gaunder.xml" />
 	<monster name="Preceptor Lazare" file="Falcons/Preceptor Lazare.xml" />
 	
-		<!-- New Asuras -->
-    <monster name="Frost Flower Asura" file="NewAsuras/Frost Flower Asura.xml" />
+	<!-- New Asuras -->
+   	<monster name="Frost Flower Asura" file="NewAsuras/Frost Flower Asura.xml" />
 	<monster name="True Dawnfire Asura" file="NewAsuras/True Dawnfire Asura.xml" />
 	<monster name="True Midnight Asura" file="NewAsuras/True Midnight Asura.xml" />	
 	<monster name="True Frost Flower Asura" file="NewAsuras/True Frost Flower Asura.xml" />	
@@ -58,7 +58,7 @@
 	<monster name="WaspOld" file="other/nostalgia/old_wasp.xml" />
 	<monster name="WolfOld" file="other/nostalgia/old_wolf.xml" />
 
-    <!-- Dawnport -->		
+   	 <!-- Dawnport -->		
 	<monster file="places/Dawnport/weakened shlorg.xml" name="Weakened Shlorg"/>
 	<monster file="places/Dawnport/mountain troll.xml" name="Mountain Troll"/>
 	<monster file="places/Dawnport/salamander trainer.xml" name="Salamander Trainer"/>
@@ -903,16 +903,16 @@
 	
 	<!-- Misc -->
 	<!-- Misc Mammals -->
-	<monster name="Badger" file="misc/misc mammals/badger.xml" />
-	<monster name="Bat" file="misc/misc mammals/bat.xml" />
-	<monster name="Ghoulish Hyaena" file="misc/misc mammals/ghoulish_hyaena.xml" />
-	<monster name="Hyaena" file="misc/misc mammals/hyaena.xml" />
-	<monster name="Skunk" file="misc/misc mammals/skunk.xml" />
-	<monster name="Water Buffalo" file="misc/misc mammals/water_buffalo.xml" />
+	<monster name="Badger" file="misc/Misc Mammals/badger.xml" />
+	<monster name="Bat" file="misc/Misc Mammals/bat.xml" />
+	<monster name="Ghoulish Hyaena" file="misc/Misc Mammals/ghoulish_hyaena.xml" />
+	<monster name="Hyaena" file="misc/Misc Mammals/hyaena.xml" />
+	<monster name="Skunk" file="misc/Misc Mammals/skunk.xml" />
+	<monster name="Water Buffalo" file="misc/Misc Mammals/water_buffalo.xml" />
 
 	<!-- Misc Mounts -->
-	<monster name="Donkey" file="misc/misc mounts/donkey.xml" />
-	<monster name="Modified Gnarlhound" file="misc/misc mounts/modified_gnarlhound.xml" />
+	<monster name="Donkey" file="misc/Misc Mounts/donkey.xml" />
+	<monster name="Modified Gnarlhound" file="misc/Misc Mounts/modified_gnarlhound.xml" />
 
 	<!-- Misc Reptiles -->
 	<monster name="Crocodile" file="misc/misc reptiles/crocodile.xml" />
