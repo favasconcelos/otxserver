@@ -4,7 +4,7 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLCLOUDS)
 combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_DEATH)
 
 local condition = Condition(CONDITION_CURSED)
-condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+condition:setParameter(CONDITION_PARAM_DELAYED, true)
 
 condition:addDamage(1, 3000, -45)
 condition:addDamage(1, 3000, -40)
@@ -26,5 +26,5 @@ condition:addDamage(10, 3000, -5)
 combat:setCondition(condition)
 
 function onCastSpell(creature, var)
-	return combat:execute(creature, var)
+  return combat:execute(creature, var)
 end
