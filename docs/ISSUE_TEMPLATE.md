@@ -1,3 +1,7 @@
+<!-- 
+  To open an issue in the project you must follow the guideline below.
+  More information about how to format you text: https://guides.github.com/features/mastering-markdown/
+-->
 ### Subject of the issue
 Describe your issue here.
 
@@ -7,10 +11,10 @@ Describe your issue here.
 - [ ] Other
 
 ### Steps to reproduce
-Tell us how to reproduce this issue.
+How to reproduce this issue.
 
 ### Expected behaviour
-Tell us what should happen.
+What should happen.
 
 ### Actual behaviour
-Tell us what happens instead.
+What happens instead.
