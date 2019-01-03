@@ -31,8 +31,8 @@ Below you will find a set of extensions for **Visual Studio Code**:
 - [XML Tools](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml)
 
 <!-- LINKS -->
-[coc]: ./.github/CODE_OF_CONDUCT.md
-[issue-template]: ./.github/ISSUE_TEMPLATE.md
-[pr-template]: ./.github/PULL_REQUEST_TEMPLATE.md
+[coc]: ./CODE_OF_CONDUCT.md
+[issue-template]: ./ISSUE_TEMPLATE.md
+[pr-template]: ./PULL_REQUEST_TEMPLATE.md
 [github]: https://github.com/malucooo/otxserver-new
 [discord]: https://discord.gg/7dnCeau
