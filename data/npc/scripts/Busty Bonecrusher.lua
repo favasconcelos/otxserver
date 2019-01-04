@@ -19,7 +19,7 @@ local voices = {{text = "Behave yourself as long as you are in Carlin, commoner!
 npcHandler:addModule(VoiceModule:new(voices))
 
 local condition = Condition(CONDITION_FIRE)
-condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+condition:setParameter(CONDITION_PARAM_DELAYED, true)
 condition:addDamage(10, 1000, -10)
 
 local function creatureSayCallback(cid, type, msg)

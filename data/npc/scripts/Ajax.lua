@@ -118,7 +118,11 @@ local function creatureSayCallback(cid, type, msg)
     if npcHandler.topic[cid] == 5 then
       npcHandler:say("Oh. Easy. Okay. Please is good. Now don't say anything. Head aches. ", cid)
       local condition = Condition(CONDITION_FIRE)
+<<<<<<< HEAD
       condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+=======
+      condition:setParameter(CONDITION_PARAM_DELAYED, true)
+>>>>>>> github/feature/code-formatting-set-parameter
       condition:addDamage(10, 2000, -10)
       player:addCondition(condition)
       player:setStorageValue(Storage.OutfitQuest.BarbarianAddon, 2)

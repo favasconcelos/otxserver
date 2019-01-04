@@ -16,7 +16,7 @@ function onThink()
 end
 
 local condition = Condition(CONDITION_FIRE)
-condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+condition:setParameter(CONDITION_PARAM_DELAYED, true)
 condition:addDamage(60, 2000, -10)
 
 local function creatureSayCallback(cid, type, msg)

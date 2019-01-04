@@ -1,10 +1,13 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_FIREDAMAGE)
-combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_FIRE)
+combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_FIREATTACK)
 
 local condition = Condition(CONDITION_FIRE)
 condition:setParameter(CONDITION_PARAM_DELAYED, true)
-condition:addDamage(25, 3000, -45)
+condition:addDamage(20, 9000, -10)
+
+local area = createCombatArea(AREA_CROSS6X6)
+combat:setArea(area)
 combat:setCondition(condition)
 
 function onCastSpell(creature, var)
