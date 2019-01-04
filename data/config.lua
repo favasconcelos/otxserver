@@ -28,10 +28,10 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-motd = "Welcome to Arcadia!"
-onePlayerOnlinePerAccount = false
-allowClones = true
-serverName = "Arcadia"
+motd = "Welcome to The OTXServer Global!"
+onePlayerOnlinePerAccount = true
+allowClones = false
+serverName = "OTXServer-Global"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
@@ -50,7 +50,7 @@ depotBoxes = 17
 gamestoreByModules = true
 
 -- Casting System 
-enableLiveCasting = false
+enableLiveCasting = true
 liveCastPort = 7173
 
 -- Expert Pvp Config
@@ -93,7 +93,7 @@ passwordType = "sha1"
 
 -- Misc.
 allowChangeOutfit = true
-freePremium = false
+freePremium = true
 kickIdlePlayerAfterMinutes = 15
 idleWarningTime = 10 * 60 * 1000
 idleKickTime = 15 * 60 * 1000

@@ -6,9 +6,9 @@ function onSay(player, words, param)
   end
 
   local name = param
-  local reason = ''
+  local reason = ""
 
-  local separatorPos = param:find(',')
+  local separatorPos = param:find(",")
   if separatorPos ~= nil then
     name = param:sub(0, separatorPos - 1)
     reason = string.trim(param:sub(separatorPos + 1))
@@ -19,23 +19,27 @@ function onSay(player, words, param)
     return false
   end
 
-  local resultId = db.storeQuery('SELECT 1 FROM `account_bans` WHERE `account_id` = ' .. accountId)
+  local resultId = db.storeQuery("SELECT 1 FROM `account_bans` WHERE `account_id` = " .. accountId)
   if resultId ~= false then
     result.free(resultId)
     return false
   end
 
-  local timeNow = os.time()
+  local timeNow = os.date("%Y-%m-%d %H:%M:%S")
   db.query(
-    'INSERT INTO `account_bans` (`account_id`, `reason`, `banned_at`, `expires_at`, `banned_by`) VALUES (' ..
-      accountId .. ', ' .. db.escapeString(reason) .. ', ' .. timeNow .. ', ' .. timeNow + (banDays * 86400) .. ', ' .. player:getGuid() .. ')'
+    "INSERT INTO `account_bans` (`account_id`, `reason`, `banned_at`, `expires_at`, `banned_by`) VALUES (" ..
+      accountId ..
+        ", " ..
+          db.escapeString(reason) ..
+            ", '" ..
+              timeNow .. "', DATE_ADD('" .. timeNow .. "',INTERVAL " .. banDays .. " DAY), " .. player:getGuid() .. ")"
   )
 
   local target = Player(name)
   if target ~= nil then
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, target:getName() .. ' has been banned.')
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, target:getName() .. " has been banned.")
     target:remove()
   else
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, name .. ' has been banned.')
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, name .. " has been banned.")
   end
 end
