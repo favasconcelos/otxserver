@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Malunga" script="Malunga.lua" walkinterval="2000" floorchange="0">
+<npc name="Malunga" script="malunga.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="149" head="95" body="78" legs="19" feet="0" />
   <parameters>

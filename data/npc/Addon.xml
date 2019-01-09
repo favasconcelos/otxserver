@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Addoner" script="Addon.lua" walkinterval="0" floorchange="0">
+<npc name="Addoner" script="addon.lua" walkinterval="0" floorchange="0">
   <health now="100" max="100"/>
   <look type="540"/>
   <parameters>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Maritima" script="Maritima.lua" walkinterval="0">
+<npc name="Maritima" script="maritima.lua" walkinterval="0">
   <health now="100" max="100" />
   <look typeex="5811" />
   <parameters>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Buddel" script="Buddel.lua" walkinterval="2000" floorchange="0">
+<npc name="Buddel" script="buddel.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="143" head="19" body="57" legs="22" feet="20" addons="0" />
   <voices>

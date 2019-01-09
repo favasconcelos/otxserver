@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Perod" script="Perod.lua" walkinterval="2000" floorchange="0">
+<npc name="Perod" script="perod.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="128" head="39" body="125" legs="29" feet="114" addons="0" />
   <parameters>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Imbul" script="Imbul.lua" walkinterval="2000" floorchange="0">
+<npc name="Imbul" script="imbul.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="128" head="95" body="2" legs="63" feet="115" addons="0" />
   <parameters>

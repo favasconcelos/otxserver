@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<npc name="Taegen" script="Taegen.lua" walkinterval="2000" floorchange="0">
+<npc name="Taegen" script="taegen.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="980" head="100" body="41" legs="94" feet="41" addons="0" />
   <parameters>

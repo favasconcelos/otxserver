@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Brasith" script="Brasith.lua" walkinterval="2000" floorchange="0">
+<npc name="Brasith" script="brasith.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="159" head="41" body="94" legs="97" feet="76" />
   <parameters>

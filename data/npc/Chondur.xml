@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Chondur" script="Chondur.lua" walkinterval="2000" floorchange="0">
+<npc name="Chondur" script="chondur.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="154" head="38" body="113" legs="119" feet="116" addons="3" />
   <parameters>

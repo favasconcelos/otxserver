@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Sarina" script="Sarina.lua" walkinterval="2000" floorchange="0">
+<npc name="Sarina" script="sarina.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="136" head="41" body="72" legs="95" feet="96" addons="0" />
   <parameters>

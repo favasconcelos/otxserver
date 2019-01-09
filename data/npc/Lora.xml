@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<npc name="Lora" script="Lora.lua" walkinterval="2000" floorchange="0">
+<npc name="Lora" script="lora.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="140" head="114" body="70" legs="0" feet="19" addons="1" />
   <voices>

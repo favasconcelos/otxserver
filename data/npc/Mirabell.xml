@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Mirabell" script="Mirabell.lua" walkinterval="2000" floorchange="0">
+<npc name="Mirabell" script="mirabell.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="136" head="96" body="12" legs="87" feet="77" addons="0" />
   <parameters>

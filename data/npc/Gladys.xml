@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Gladys" script="Gladys.lua" walkinterval="0" floorchange="0">
+<npc name="Gladys" script="gladys.lua" walkinterval="0" floorchange="0">
   <health now="100" max="100" />
   <look type="148" head="57" body="94" legs="78" feet="114" addons="1"/>
   <parameters>

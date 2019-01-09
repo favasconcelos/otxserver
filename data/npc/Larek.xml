@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<npc name="Larek" script="Larek.lua" walkinterval="2000" floorchange="0">
+<npc name="Larek" script="larek.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="472" head="19" body="50" legs="10" feet="3" addons="0" />
   <voices>
