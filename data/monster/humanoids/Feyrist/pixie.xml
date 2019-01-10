@@ -62,6 +62,6 @@
 		<item name="wild flowers" chance="5155" />
 		<item name="great health potion" chance="591" />
 		<item name="dandelion seeds" chance="5800" />
-		<item name="fresh fruits" chance="3400" />
+		<item name="fresh fruit" chance="3400" />
 	</loot>
 </monster>
