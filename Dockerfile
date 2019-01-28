@@ -10,18 +10,13 @@ RUN apt-get update -qq -y && apt-get install -qq -y \
   libboost-system-dev \
   libboost-iostreams-dev \
   libpugixml-dev \
-  libcrypto++-dev \
-  unzip
+  libcrypto++-dev
 
 # create a new user
 RUN useradd -ms /bin/bash otuser
 
 # add data to app path
 ADD . /app
-
-# unzip map
-WORKDIR /app/data/world
-run unzip realmap.otbm.zip
 
 # compile it
 WORKDIR /app
