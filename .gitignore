@@ -1,2 +1,4 @@
+# build files
 /build
+# vscode config files
 /.vscode
