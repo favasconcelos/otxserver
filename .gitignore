@@ -2,3 +2,5 @@
 /build
 # vscode config files
 /.vscode
+# map files
+/data/world/*.otbm
