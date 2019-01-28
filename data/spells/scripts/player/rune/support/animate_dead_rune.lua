@@ -7,21 +7,21 @@ local function doTargetCorpse(cid, pos)
     local creature = doSummonCreature(cid, "Skeleton", pos)
     doConvinceCreature(cid, creature)
     doSendMagicEffect(pos, CONST_ME_MAGIC_BLUE)
-    return LUA_NO_ERROR
+    return true
   end
 
   doSendMagicEffect(getPlayerPosition(cid), CONST_ME_POFF)
-  doPlayerSendDefaultCancel(cid, RETURNVALUE_NOTPOSSIBLE)
-  return LUA_ERROR
+  doPlayerSendCancel(cid, RETURNVALUE_NOTPOSSIBLE)
+  return false
 end
 
 function onCastSpell(cid, var)
-  local pos = variantToPosition(var)
+  local pos = Variant.getPosition(var)
   if (pos.x ~= 0 and pos.y ~= 0 and pos.z ~= 0) then
     return doTargetCorpse(cid, pos)
   end
 
   doSendMagicEffect(getPlayerPosition(cid), CONST_ME_POFF)
-  doPlayerSendDefaultCancel(cid, RETURNVALUE_NOTPOSSIBLE)
-  return LUA_ERROR
+  doPlayerSendCancel(cid, RETURNVALUE_NOTPOSSIBLE)
+  return false
 end

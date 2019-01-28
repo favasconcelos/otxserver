@@ -57,7 +57,11 @@ lionrock = {
     {id = 7633} -- Giant shimmering pearl
   },
   checkPlayerCanEnterMysticFlame = function(player)
-    if player:getStorageValue(lionrock.storages.usedFlower) < 1 or player:getStorageValue(lionrock.storages.usedHolyWater) < 1 or player:getStorageValue(lionrock.storages.usedTongue) < 1 then
+    if
+      player:getStorageValue(lionrock.storages.usedFlower) < 1 or
+        player:getStorageValue(lionrock.storages.usedHolyWater) < 1 or
+        player:getStorageValue(lionrock.storages.usedTongue) < 1
+     then
       return false
     end
 
@@ -69,7 +73,9 @@ lionrock = {
     end
 
     if
-      player:getStorageValue(lionrock.storages.translation1) < 1 or player:getStorageValue(lionrock.storages.translation2) < 1 or player:getStorageValue(lionrock.storages.translation3) < 1 or
+      player:getStorageValue(lionrock.storages.translation1) < 1 or
+        player:getStorageValue(lionrock.storages.translation2) < 1 or
+        player:getStorageValue(lionrock.storages.translation3) < 1 or
         player:getStorageValue(lionrock.storages.translation4) < 1
      then
       return false

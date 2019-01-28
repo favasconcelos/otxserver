@@ -1,62 +1,62 @@
 function insertIndex(i, buffer)
-  table.insert(buffer, '[')
-  if type(i) == 'string' then
+  table.insert(buffer, "[")
+  if type(i) == "string" then
     table.insert(buffer, '"')
     table.insert(buffer, i)
     table.insert(buffer, '"')
-  elseif type(i) == 'number' then
+  elseif type(i) == "number" then
     table.insert(buffer, tostring(i))
   end
-  table.insert(buffer, '] = ')
+  table.insert(buffer, "] = ")
 end
 
 function indexToStr(i, v, buffer)
   local tp = type(v)
   local itp = type(i)
-  if itp ~= 'number' and itp ~= 'string' then
-    print('Invalid index to serialize: ' .. type(i))
+  if itp ~= "number" and itp ~= "string" then
+    print("Invalid index to serialize: " .. type(i))
   else
-    if tp == 'table' then
+    if tp == "table" then
       insertIndex(i, buffer)
       serializeTable(v, buffer)
-      table.insert(buffer, ',')
-    elseif tp == 'number' then
+      table.insert(buffer, ",")
+    elseif tp == "number" then
       insertIndex(i, buffer)
       table.insert(buffer, tostring(v))
-      table.insert(buffer, ',')
-    elseif tp == 'string' then
+      table.insert(buffer, ",")
+    elseif tp == "string" then
       insertIndex(i, buffer)
       table.insert(buffer, '"')
       table.insert(buffer, v)
       table.insert(buffer, '",')
-    elseif tp == 'boolean' then
+    elseif tp == "boolean" then
       insertIndex(i, buffer)
-      table.insert(buffer, v == true and 'true' or 'false')
-      table.insert(buffer, ',')
+      table.insert(buffer, v == true and "true" or "false")
+      table.insert(buffer, ",")
     else
-      print('Invalid type to serialize: ' .. tp .. ', index: ' .. i)
+      print("Invalid type to serialize: " .. tp .. ", index: " .. i)
     end
   end
 end
 
 function serializeTable(t, buffer)
   local buffer = buffer or {}
-  table.insert(buffer, '{')
+  table.insert(buffer, "{")
   for i, x in pairs(t) do
     indexToStr(i, x, buffer)
   end
-  table.insert(buffer, '}')
+  table.insert(buffer, "}")
   return table.concat(buffer)
 end
 
 function table.copy(t, out)
   out = out or {}
-  if type(t) ~= 'table' then
+  if type(t) ~= "table" then
     return false
   end
 
   for i, x in pairs(t) do
-    if type(x) == 'table' then
+    if type(x) == "table" then
       out[i] = {}
       table.copy(t[i], out[i])
     else
@@ -67,11 +67,11 @@ function table.copy(t, out)
 end
 
 function unserializeTable(str, out)
-  local tmp = loadstring('return ' .. str)
+  local tmp = loadstring("return " .. str)
   if tmp then
     tmp = tmp()
   else
-    print('Unserialization error: ' .. str)
+    print("Unserialization error: " .. str)
     return false
   end
   return table.copy(tmp, out)
@@ -100,7 +100,7 @@ function unpack2(tab, i)
 end
 
 function pack(t, ...)
-  for i = 1, select('#', ...) do
+  for i = 1, select("#", ...) do
     local tmp = select(i, ...)
     t[i] = tmp
   end
@@ -112,7 +112,7 @@ function Item:setSpecialAttribute(...)
   if self:hasAttribute(ITEM_ATTRIBUTE_SPECIAL) then
     tmp = self:getAttribute(ITEM_ATTRIBUTE_SPECIAL)
   else
-    tmp = '{}'
+    tmp = "{}"
   end
 
   local tab = unserializeTable(tmp)
@@ -129,7 +129,7 @@ function Item:getSpecialAttribute(...)
   if self:hasAttribute(ITEM_ATTRIBUTE_SPECIAL) then
     tmp = self:getAttribute(ITEM_ATTRIBUTE_SPECIAL)
   else
-    tmp = '{}'
+    tmp = "{}"
   end
 
   local tab = unserializeTable(tmp)
@@ -164,9 +164,9 @@ function Player:loadSpecialStorage()
   end
 
   PLAYER_STORAGE[self:getGuid()] = {}
-  local resultId = db.storeQuery('SELECT * FROM `player_misc` WHERE `player_id` = ' .. self:getGuid())
+  local resultId = db.storeQuery("SELECT * FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
   if resultId then
-    local info = result.getStream(resultId, 'info') or '{}'
+    local info = result.getStream(resultId, "info") or "{}"
     unserializeTable(info, PLAYER_STORAGE[self:getGuid()])
   end
 end
@@ -174,7 +174,13 @@ end
 function Player:saveSpecialStorage()
   if PLAYER_STORAGE and PLAYER_STORAGE[self:getGuid()] then
     local tmp = serializeTable(PLAYER_STORAGE[self:getGuid()])
-    db.query('DELETE FROM `player_misc` WHERE `player_id` = ' .. self:getGuid())
-    db.query(string.format('INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)', self:getGuid(), db.escapeBlob(tmp, #tmp)))
+    db.query("DELETE FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
+    db.query(
+      string.format(
+        "INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)",
+        self:getGuid(),
+        db.escapeBlob(tmp, #tmp)
+      )
+    )
   end
 end

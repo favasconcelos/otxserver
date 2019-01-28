@@ -43,9 +43,9 @@ function onTargetTile(cid, pos)
         local min = 4000
         local max = 8000
         if isPlayer(creatureTable[r]) == true and table.contains(voc, getPlayerVocation(creatureTable[r])) == true then
-          doTargetCombatHealth(cid, creatureTable[r], COMBAT_POISONDAMAGE, -min, -max, CONST_ME_NONE)
+          doTargetCombatHealth(cid, creatureTable[r], COMBAT_EARTHDAMAGE, -min, -max, CONST_ME_NONE)
         elseif isMonster(creatureTable[r]) == true then
-          doTargetCombatHealth(cid, creatureTable[r], COMBAT_POISONDAMAGE, -min, -max, CONST_ME_NONE)
+          doTargetCombatHealth(cid, creatureTable[r], COMBAT_EARTHDAMAGE, -min, -max, CONST_ME_NONE)
         end
       end
     end
@@ -58,7 +58,7 @@ setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local function delayedCastSpell(cid, var)
   if isCreature(cid) == true then
-    doCombat(cid, combat, positionToVariant(getCreaturePosition(cid)))
+    doCombat(cid, combat, Variant(getCreaturePosition(cid)))
     doCreatureSay(cid, "DIE!", TALKTYPE_ORANGE_1)
   end
 end

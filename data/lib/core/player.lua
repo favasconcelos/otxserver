@@ -10,25 +10,25 @@ function Player.checkGnomeRank(self)
       self:setStorageValue(Storage.BigfootBurden.QuestLine, 15)
       self:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
     end
-    self:addAchievement('Gnome Little Helper')
+    self:addAchievement("Gnome Little Helper")
   elseif points >= 120 and points < 480 then
     if questProgress == 15 then
       self:setStorageValue(Storage.BigfootBurden.QuestLine, 16)
       self:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
     end
-    self:addAchievement('Gnome Friend')
+    self:addAchievement("Gnome Friend")
   elseif points >= 480 and points < 1440 then
     if questProgress == 16 then
       self:setStorageValue(Storage.BigfootBurden.QuestLine, 17)
       self:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
     end
-    self:addAchievement('Gnomelike')
+    self:addAchievement("Gnomelike")
   elseif points >= 1440 then
     if questProgress == 17 then
       self:setStorageValue(Storage.BigfootBurden.QuestLine, 18)
       self:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
     end
-    self:addAchievement('Honorary Gnome')
+    self:addAchievement("Honorary Gnome")
   end
   return true
 end
@@ -49,7 +49,7 @@ function Player.addFamePoint(self)
   local points = self:getStorageValue(SPIKE_FAME_POINTS)
   local current = math.max(0, points)
   self:setStorageValue(SPIKE_FAME_POINTS, current + 1)
-  self:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, 'You have received a fame point.')
+  self:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have received a fame point.")
 end
 
 function Player.getFamePoints(self)
@@ -158,7 +158,9 @@ end
 
 function Player.hasRookgaardShield(self)
   -- Wooden Shield, Studded Shield, Brass Shield, Plate Shield, Copper Shield
-  return self:getItemCount(2512) > 0 or self:getItemCount(2526) > 0 or self:getItemCount(2511) > 0 or self:getItemCount(2510) > 0 or self:getItemCount(2530) > 0
+  return self:getItemCount(2512) > 0 or self:getItemCount(2526) > 0 or self:getItemCount(2511) > 0 or
+    self:getItemCount(2510) > 0 or
+    self:getItemCount(2530) > 0
 end
 
 function Player.isDruid(self)
@@ -198,7 +200,7 @@ function Player.isUsingOtClient(self)
 end
 
 function Player.sendCancelMessage(self, message)
-  if type(message) == 'number' then
+  if type(message) == "number" then
     message = Game.getReturnMessage(message)
   end
   return self:sendTextMessage(MESSAGE_STATUS_SMALL, message)
@@ -231,7 +233,9 @@ function Player.transferMoneyTo(self, target, amount)
     if not playerExists(target) then
       return false
     end
-    db.query("UPDATE `players` SET `balance` = `balance` + '" .. amount .. "' WHERE `name` = " .. db.escapeString(target))
+    db.query(
+      "UPDATE `players` SET `balance` = `balance` + '" .. amount .. "' WHERE `name` = " .. db.escapeString(target)
+    )
   end
 
   self:setBankBalance(self:getBankBalance() - amount)

@@ -114,72 +114,72 @@ PITS = {
 
 ARENA = {
   [1] = {
-    name = 'Greenhorn',
+    name = "Greenhorn",
     price = 1000,
     questLog = Storage.SvargrondArena.QuestLogGreenhorn,
-    achievement = 'Greenhorn',
+    achievement = "Greenhorn",
     creatures = {
-      [1] = 'frostfur',
-      [2] = 'bloodpaw',
-      [3] = 'bovinus',
-      [4] = 'achad',
-      [5] = 'colerian the barbarian',
-      [6] = 'the hairy one',
-      [7] = 'axeitus headbanger',
-      [8] = 'rocky',
-      [9] = 'cursed gladiator',
-      [10] = 'orcus the cruel'
+      [1] = "frostfur",
+      [2] = "bloodpaw",
+      [3] = "bovinus",
+      [4] = "achad",
+      [5] = "colerian the barbarian",
+      [6] = "the hairy one",
+      [7] = "axeitus headbanger",
+      [8] = "rocky",
+      [9] = "cursed gladiator",
+      [10] = "orcus the cruel"
     },
     reward = {
       trophy = 5807,
       trophyStorage = Storage.SvargrondArena.TrophyGreenhorn,
-      desc = 'It is given to the courageous victor of the barbarian arena in greenhorn difficulty. Awarded to %s'
+      desc = "It is given to the courageous victor of the barbarian arena in greenhorn difficulty. Awarded to %s"
     }
   },
   [2] = {
-    name = 'Scrapper',
+    name = "Scrapper",
     price = 5000,
     questLog = Storage.SvargrondArena.QuestLogScrapper,
-    achievement = 'Scrapper',
+    achievement = "Scrapper",
     creatures = {
-      [1] = 'avalanche',
-      [2] = 'kreebosh the exile',
-      [3] = 'the dark dancer',
-      [4] = 'the hag',
-      [5] = 'slim',
-      [6] = 'grimgor guteater',
-      [7] = 'drasilla',
-      [8] = 'spirit of earth',
-      [9] = 'spirit of water',
-      [10] = 'spirit of fire'
+      [1] = "avalanche",
+      [2] = "kreebosh the exile",
+      [3] = "the dark dancer",
+      [4] = "the hag",
+      [5] = "slim",
+      [6] = "grimgor guteater",
+      [7] = "drasilla",
+      [8] = "spirit of earth",
+      [9] = "spirit of water",
+      [10] = "spirit of fire"
     },
     reward = {
       trophy = 5806,
       trophyStorage = Storage.SvargrondArena.TrophyScrapper,
-      desc = 'It is given to the courageous victor of the barbarian arena in scrapper difficulty. Awarded to %s.'
+      desc = "It is given to the courageous victor of the barbarian arena in scrapper difficulty. Awarded to %s."
     }
   },
   [3] = {
-    name = 'Warlord',
+    name = "Warlord",
     price = 10000,
     questLog = Storage.SvargrondArena.QuestLogWarlord,
-    achievement = 'Warlord of Svargrond',
+    achievement = "Warlord of Svargrond",
     creatures = {
-      [1] = 'webster',
-      [2] = 'darakan the executioner',
-      [3] = 'norgle glacierbeard',
-      [4] = 'the pit lord',
-      [5] = 'svoren the mad',
-      [6] = 'the masked marauder',
-      [7] = 'gnorre chyllson',
+      [1] = "webster",
+      [2] = "darakan the executioner",
+      [3] = "norgle glacierbeard",
+      [4] = "the pit lord",
+      [5] = "svoren the mad",
+      [6] = "the masked marauder",
+      [7] = "gnorre chyllson",
       [8] = "fallen mooh'tah master ghar",
-      [9] = 'deathbringer',
-      [10] = 'the obliverator'
+      [9] = "deathbringer",
+      [10] = "the obliverator"
     },
     reward = {
       trophy = 5805,
       trophyStorage = Storage.SvargrondArena.TrophyWarlord,
-      desc = 'It is given to the courageous victor of the barbarian arena in warlord difficulty. Awarded to %s.'
+      desc = "It is given to the courageous victor of the barbarian arena in warlord difficulty. Awarded to %s."
     }
   }
 }
@@ -262,7 +262,7 @@ function SvargrondArena.kickPlayer(cid, hideMessage)
     SvargrondArena.kickPosition:sendMagicEffect(CONST_ME_TELEPORT)
     player:setStorageValue(Storage.SvargrondArena.Pit, 0)
     if not hideMessage then
-      player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your time ran out!')
+      player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your time ran out!")
     end
   end
 end
