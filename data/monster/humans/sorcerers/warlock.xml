@@ -80,7 +80,7 @@
 		<item name="poison dagger" chance="7600" />
 		<item name="skull staff" chance="6370" />
 		<item name="golden armor" chance="240" />
-		<item name="inkwell" chance="1000" />
+		<item id="2600" chance="1000" /><!-- inkwell -->
 		<item name="blue robe" chance="1410" />
 		<item name="cherry" countmax="4" chance="19000" />
 		<item name="bread" chance="9000" />
