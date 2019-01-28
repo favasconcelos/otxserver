@@ -42,7 +42,7 @@ setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local function delayedCastSpell(cid, var)
   if isCreature(cid) == true then
-    doCombat(cid, combat, positionToVariant(getCreaturePosition(cid)))
+    doCombat(cid, combat, Variant(getCreaturePosition(cid)))
     doCreatureSay(cid, "DIE!", TALKTYPE_ORANGE_1)
   end
 end

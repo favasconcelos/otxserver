@@ -3,9 +3,6 @@ result.getDataLong = result.getNumber
 result.getDataString = result.getString
 result.getDataStream = result.getStream
 
-LUA_ERROR = false
-LUA_NO_ERROR = true
-
 STACKPOS_GROUND = 0
 STACKPOS_FIRST_ITEM_ABOVE_GROUNDTILE = 1
 STACKPOS_SECOND_ITEM_ABOVE_GROUNDTILE = 2
@@ -20,8 +17,6 @@ THING_TYPE_PLAYER = CREATURETYPE_PLAYER + 1
 THING_TYPE_MONSTER = CREATURETYPE_MONSTER + 1
 THING_TYPE_NPC = CREATURETYPE_NPC + 1
 
-COMBAT_POISONDAMAGE = COMBAT_EARTHDAMAGE
-CONDITION_EXHAUST = CONDITION_EXHAUST_WEAPON
 TALKTYPE_ORANGE_1 = TALKTYPE_MONSTER_SAY
 TALKTYPE_ORANGE_2 = TALKTYPE_MONSTER_YELL
 
@@ -125,21 +120,27 @@ end
 function isCreature(cid)
   return Creature(cid) ~= nil
 end
+
 function isPlayer(cid)
   return Player(cid) ~= nil
 end
+
 function isMonster(cid)
   return Monster(cid) ~= nil
 end
+
 function isSummon(cid)
   return Creature(cid):getMaster() ~= nil
 end
+
 function isNpc(cid)
   return Npc(cid) ~= nil
 end
+
 function isItem(uid)
   return Item(uid) ~= nil
 end
+
 function isContainer(uid)
   return Container(uid) ~= nil
 end
@@ -148,26 +149,32 @@ function getCreatureName(cid)
   local c = Creature(cid)
   return c ~= nil and c:getName() or false
 end
+
 function getCreatureHealth(cid)
   local c = Creature(cid)
   return c ~= nil and c:getHealth() or false
 end
+
 function getCreatureMaxHealth(cid)
   local c = Creature(cid)
   return c ~= nil and c:getMaxHealth() or false
 end
+
 function getCreaturePosition(cid)
   local c = Creature(cid)
   return c ~= nil and c:getPosition() or false
 end
+
 function getCreatureOutfit(cid)
   local c = Creature(cid)
   return c ~= nil and c:getOutfit() or false
 end
+
 function getCreatureSpeed(cid)
   local c = Creature(cid)
   return c ~= nil and c:getSpeed() or false
 end
+
 function getCreatureBaseSpeed(cid)
   local c = Creature(cid)
   return c ~= nil and c:getBaseSpeed() or false
@@ -204,40 +211,46 @@ function getCreatureSummons(cid)
   return result
 end
 
-getCreaturePos = getCreaturePosition
-
 function doCreatureAddHealth(cid, health)
   local c = Creature(cid)
   return c ~= nil and c:addHealth(health) or false
 end
+
 function doRemoveCreature(cid)
   local c = Creature(cid)
   return c ~= nil and c:remove() or false
 end
+
 function doCreatureSetLookDir(cid, direction)
   local c = Creature(cid)
   return c ~= nil and c:setDirection(direction) or false
 end
+
 function doCreatureSay(cid, text, type, ...)
   local c = Creature(cid)
   return c ~= nil and c:say(text, type, ...) or false
 end
+
 function doCreatureChangeOutfit(cid, outfit)
   local c = Creature(cid)
   return c ~= nil and c:setOutfit(outfit) or false
 end
+
 function doSetCreatureDropLoot(cid, doDrop)
   local c = Creature(cid)
   return c ~= nil and c:setDropLoot(doDrop) or false
 end
+
 function doChangeSpeed(cid, delta)
   local c = Creature(cid)
   return c ~= nil and c:changeSpeed(delta) or false
 end
+
 function doAddCondition(cid, conditionId)
   local c = Creature(cid)
   return c ~= nil and c:addCondition(conditionId) or false
 end
+
 function doRemoveCondition(cid, conditionType, subId)
   local c = Creature(cid)
   return c ~= nil and
@@ -246,12 +259,11 @@ function doRemoveCondition(cid, conditionType, subId)
       true)
 end
 
-doSetCreatureDirection = doCreatureSetLookDir
-
 function registerCreatureEvent(cid, name)
   local c = Creature(cid)
   return c ~= nil and c:registerEvent(name) or false
 end
+
 function unregisterCreatureEvent(cid, name)
   local c = Creature(cid)
   return c ~= nil and c:unregisterEvent(name) or false
@@ -261,42 +273,52 @@ function getPlayerByName(name)
   local p = Player(name)
   return p ~= nil and p:getId() or false
 end
+
 function getIPByPlayerName(name)
   local p = Player(name)
   return p ~= nil and p:getIp() or false
 end
+
 function getPlayerGUID(cid)
   local p = Player(cid)
   return p ~= nil and p:getGuid() or false
 end
+
 function getPlayerIp(cid)
   local p = Player(cid)
   return p ~= nil and p:getIp() or false
 end
+
 function getPlayerAccountType(cid)
   local p = Player(cid)
   return p ~= nil and p:getAccountType() or false
 end
+
 function getPlayerLastLoginSaved(cid)
   local p = Player(cid)
   return p ~= nil and p:getLastLoginSaved() or false
 end
+
 function getPlayerName(cid)
   local p = Player(cid)
   return p ~= nil and p:getName() or false
 end
+
 function getPlayerFreeCap(cid)
   local p = Player(cid)
   return p ~= nil and (p:getFreeCapacity() / 100) or false
 end
+
 function getPlayerPosition(cid)
   local p = Player(cid)
   return p ~= nil and p:getPosition() or false
 end
+
 function getPlayerMagLevel(cid)
   local p = Player(cid)
   return p ~= nil and p:getMagicLevel() or false
 end
+
 function getPlayerAccess(cid)
   local player = Player(cid)
   if player == nil then
@@ -304,46 +326,57 @@ function getPlayerAccess(cid)
   end
   return player:getGroup():getAccess() and 1 or 0
 end
+
 function getPlayerSkill(cid, skillId)
   local p = Player(cid)
   return p ~= nil and p:getSkillLevel(skillId) or false
 end
+
 function getPlayerMana(cid)
   local p = Player(cid)
   return p ~= nil and p:getMana() or false
 end
+
 function getPlayerMaxMana(cid)
   local p = Player(cid)
   return p ~= nil and p:getMaxMana() or false
 end
+
 function getPlayerLevel(cid)
   local p = Player(cid)
   return p ~= nil and p:getLevel() or false
 end
+
 function getPlayerTown(cid)
   local p = Player(cid)
   return p ~= nil and p:getTown():getId() or false
 end
+
 function getPlayerVocation(cid)
   local p = Player(cid)
   return p ~= nil and p:getVocation():getId() or false
 end
+
 function getPlayerSoul(cid)
   local p = Player(cid)
   return p ~= nil and p:getSoul() or false
 end
+
 function getPlayerSex(cid)
   local p = Player(cid)
   return p ~= nil and p:getSex() or false
 end
+
 function getPlayerStorageValue(cid, key)
   local p = Player(cid)
   return p ~= nil and p:getStorageValue(key) or false
 end
+
 function getPlayerBalance(cid)
   local p = Player(cid)
   return p ~= nil and p:getBankBalance() or false
 end
+
 function getPlayerMoney(cid)
   local p = Player(cid)
   return p ~= nil and p:getMoney() or false
@@ -352,104 +385,116 @@ function getPlayerGroupId(cid)
   local p = Player(cid)
   return p ~= nil and p:getGroup():getId() or false
 end
+
 function getPlayerLookDir(cid)
   local p = Player(cid)
   return p ~= nil and p:getDirection() or false
 end
+
 function getPlayerLight(cid)
   local p = Player(cid)
   return p ~= nil and p:getLight() or false
 end
+
 function getPlayerDepotItems(cid, depotId)
   local p = Player(cid)
   return p ~= nil and p:getDepotItems(depotId) or false
 end
+
 function getPlayerSkullType(cid)
   local p = Player(cid)
   return p ~= nil and p:getSkull() or false
 end
+
 function getPlayerLossPercent(cid)
   local p = Player(cid)
   return p ~= nil and p:getDeathPenalty() or false
 end
+
 function getPlayerMount(cid, mountId)
   local p = Player(cid)
   return p ~= nil and p:hasMount(mountId) or false
 end
+
 function getPlayerPremiumDays(cid)
   local p = Player(cid)
   return p ~= nil and p:getPremiumDays() or false
 end
+
 function getPlayerBlessing(cid, blessing)
   local p = Player(cid)
   return p ~= nil and p:hasBlessing(blessing) or false
 end
+
 function getPlayerParty(cid)
   local player = Player(cid)
   if player == nil then
     return false
   end
-
   local party = player:getParty()
   if party == nil then
     return nil
   end
   return party:getLeader():getId()
 end
+
 function getPlayerGuildId(cid)
   local player = Player(cid)
   if player == nil then
     return false
   end
-
   local guild = player:getGuild()
   if guild == nil then
     return false
   end
   return guild:getId()
 end
+
 function getPlayerGuildLevel(cid)
   local p = Player(cid)
   return p ~= nil and p:getGuildLevel() or false
 end
+
 function getPlayerGuildName(cid)
   local player = Player(cid)
   if player == nil then
     return false
   end
-
   local guild = player:getGuild()
   if guild == nil then
     return false
   end
   return guild:getName()
 end
+
 function getPlayerGuildRank(cid)
   local player = Player(cid)
   if player == nil then
     return false
   end
-
   local guild = player:getGuild()
   if guild == nil then
     return false
   end
-
   local rank = guild:getRankByLevel(player:getGuildLevel())
   return rank ~= nil and rank.name or false
 end
+
 function getPlayerGuildNick(cid)
   local p = Player(cid)
   return p ~= nil and p:getGuildNick() or false
 end
+
 function getPlayerMasterPos(cid)
   local p = Player(cid)
   return p ~= nil and p:getTown():getTemplePosition() or false
 end
+
 function getPlayerItemCount(cid, itemId, ...)
   local p = Player(cid)
   return p ~= nil and p:getItemCount(itemId, ...) or false
 end
+
 function getPlayerSlotItem(cid, slot)
   local player = Player(cid)
   if player == nil then
@@ -457,6 +502,7 @@ function getPlayerSlotItem(cid, slot)
   end
   return pushThing(player:getSlotItem(slot))
 end
+
 function getPlayerItemById(cid, deepSearch, itemId, ...)
   local player = Player(cid)
   if player == nil then
@@ -464,6 +510,7 @@ function getPlayerItemById(cid, deepSearch, itemId, ...)
   end
   return pushThing(player:getItemById(itemId, deepSearch, ...))
 end
+
 function getPlayerFood(cid)
   local player = Player(cid)
   if player == nil then
@@ -472,26 +519,32 @@ function getPlayerFood(cid)
   local c = player:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
   return c ~= nil and math.floor(c:getTicks() / 1000) or 0
 end
+
 function canPlayerLearnInstantSpell(cid, name)
   local p = Player(cid)
   return p ~= nil and p:canLearnSpell(name) or false
 end
+
 function getPlayerLearnedInstantSpell(cid, name)
   local p = Player(cid)
   return p ~= nil and p:hasLearnedSpell(name) or false
 end
+
 function isPlayerGhost(cid)
   local p = Player(cid)
   return p ~= nil and p:isInGhostMode() or false
 end
+
 function isPlayerPzLocked(cid)
   local p = Player(cid)
   return p ~= nil and p:isPzLocked() or false
 end
+
 function isPremium(cid)
   local p = Player(cid)
   return p ~= nil and p:isPremium() or false
 end
+
 function getPlayersByIPAddress(ip, mask)
   if mask == nil then
     mask = 0xFFFFFFFF
@@ -505,6 +558,7 @@ function getPlayersByIPAddress(ip, mask)
   end
   return result
 end
+
 function getOnlinePlayers()
   local result = {}
   for _, player in ipairs(Game.getPlayers()) do
@@ -512,6 +566,7 @@ function getOnlinePlayers()
   end
   return result
 end
+
 function getPlayersByAccountNumber(accountNumber)
   local result = {}
   for _, player in ipairs(Game.getPlayers()) do
@@ -521,12 +576,12 @@ function getPlayersByAccountNumber(accountNumber)
   end
   return result
 end
+
 function getPlayerGUIDByName(name)
   local player = Player(name)
   if player ~= nil then
     return player:getGuid()
   end
-
   local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name))
   if resultId ~= false then
     local guid = result.getDataInt(resultId, "id")
@@ -535,12 +590,12 @@ function getPlayerGUIDByName(name)
   end
   return 0
 end
+
 function getAccountNumberByPlayerName(name)
   local player = Player(name)
   if player ~= nil then
     return player:getAccountId()
   end
-
   local resultId = db.storeQuery("SELECT `account_id` FROM `players` WHERE `name` = " .. db.escapeString(name))
   if resultId ~= false then
     local accountId = result.getDataInt(resultId, "account_id")
@@ -550,85 +605,101 @@ function getAccountNumberByPlayerName(name)
   return 0
 end
 
-getPlayerAccountBalance = getPlayerBalance
-getIpByName = getIPByPlayerName
-
 function setPlayerStorageValue(cid, key, value)
   local p = Player(cid)
   return p ~= nil and p:setStorageValue(key, value) or false
 end
+
 function doPlayerSetBalance(cid, balance)
   local p = Player(cid)
   return p ~= nil and p:setBankBalance(balance) or false
 end
+
 function doPlayerAddMoney(cid, money)
   local p = Player(cid)
   return p ~= nil and p:addMoney(money) or false
 end
+
 function doPlayerRemoveMoney(cid, money)
   local p = Player(cid)
   return p ~= nil and p:removeMoney(money) or false
 end
+
 function doPlayerAddSoul(cid, soul)
   local p = Player(cid)
   return p ~= nil and p:addSoul(soul) or false
 end
+
 function doPlayerSetVocation(cid, vocation)
   local p = Player(cid)
   return p ~= nil and p:setVocation(Vocation(vocation)) or false
 end
+
 function doPlayerSetTown(cid, town)
   local p = Player(cid)
   return p ~= nil and p:setTown(Town(town)) or false
 end
+
 function setPlayerGroupId(cid, groupId)
   local p = Player(cid)
   return p ~= nil and p:setGroup(Group(groupId)) or false
 end
+
 function doPlayerSetSex(cid, sex)
   local p = Player(cid)
   return p ~= nil and p:setSex(sex) or false
 end
+
 function doPlayerSetGuildLevel(cid, level)
   local p = Player(cid)
   return p ~= nil and p:setGuildLevel(level) or false
 end
+
 function doPlayerSetGuildNick(cid, nick)
   local p = Player(cid)
   return p ~= nil and p:setGuildNick(nick) or false
 end
+
 function doPlayerSetOfflineTrainingSkill(cid, skillId)
   local p = Player(cid)
   return p ~= nil and p:setOfflineTrainingSkill(skillId) or false
 end
+
 function doShowTextDialog(cid, itemId, text)
   local p = Player(cid)
   return p ~= nil and p:showTextDialog(itemId, text) or false
 end
+
 function doPlayerAddItemEx(cid, uid, ...)
   local p = Player(cid)
   return p ~= nil and p:addItemEx(Item(uid), ...) or false
 end
+
 function doPlayerRemoveItem(cid, itemid, count, ...)
   local p = Player(cid)
   return p ~= nil and p:removeItem(itemid, count, ...) or false
 end
+
 function doPlayerAddPremiumDays(cid, days)
   local p = Player(cid)
   return p ~= nil and p:addPremiumDays(days) or false
 end
+
 function doPlayerRemovePremiumDays(cid, days)
   local p = Player(cid)
   return p ~= nil and p:removePremiumDays(days) or false
 end
+
 function doPlayerAddBlessing(cid, blessing)
   local p = Player(cid)
   return p ~= nil and p:addBlessing(blessing) or false
 end
+
 function doPlayerAddOutfit(cid, lookType, addons)
   local p = Player(cid)
   return p ~= nil and p:addOutfitAddon(lookType, addons) or false
 end
+
 function doPlayerRemOutfit(cid, lookType, addons)
   local player = Player(cid)
   if player == nil then
@@ -640,73 +711,83 @@ function doPlayerRemOutfit(cid, lookType, addons)
     return player:removeOutfitAddon(lookType, addons)
   end
 end
+
 function canPlayerWearOutfit(cid, lookType, addons)
   local p = Player(cid)
   return p ~= nil and p:hasOutfit(lookType, addons) or false
 end
+
 function doPlayerAddMount(cid, mountId)
   local p = Player(cid)
   return p ~= nil and p:addMount(mountId) or false
 end
+
 function doPlayerRemoveMount(cid, mountId)
   local p = Player(cid)
   return p ~= nil and p:removeMount(mountId) or false
 end
+
 function doPlayerSendCancel(cid, text)
   local p = Player(cid)
   return p ~= nil and p:sendCancelMessage(text) or false
 end
+
 function doPlayerFeed(cid, food)
   local p = Player(cid)
   return p ~= nil and p:feed(food) or false
 end
+
 function playerLearnInstantSpell(cid, name)
   local p = Player(cid)
   return p ~= nil and p:learnSpell(name) or false
 end
+
 function doPlayerPopupFYI(cid, message)
   local p = Player(cid)
   return p ~= nil and p:popupFYI(message) or false
 end
+
 function doSendTutorial(cid, tutorialId)
   local p = Player(cid)
   return p ~= nil and p:sendTutorial(tutorialId) or false
 end
+
 function doAddMapMark(cid, pos, type, description)
   local p = Player(cid)
   return p ~= nil and p:addMapMark(pos, type, description or "") or false
 end
+
 function doPlayerSendTextMessage(cid, type, text, ...)
   local p = Player(cid)
   return p ~= nil and p:sendTextMessage(type, text, ...) or false
 end
-function doSendAnimatedText()
-  debugPrint("Deprecated function.")
-  return true
-end
+
 function doPlayerAddExp(cid, exp, useMult, ...)
   local player = Player(cid)
   if player == nil then
     return false
   end
-
   if useMult then
     exp = exp * Game.getExperienceStage(player:getLevel())
   end
   return player:addExperience(exp, ...)
 end
+
 function doPlayerAddManaSpent(cid, mana)
   local p = Player(cid)
   return p ~= nil and p:addManaSpent(mana * configManager.getNumber(configKeys.RATE_MAGIC)) or false
 end
+
 function doPlayerAddSkillTry(cid, skillid, n)
   local p = Player(cid)
   return p ~= nil and p:addSkillTries(skillid, n * configManager.getNumber(configKeys.RATE_SKILL)) or false
 end
+
 function doPlayerAddMana(cid, mana, ...)
   local p = Player(cid)
   return p ~= nil and p:addMana(mana, ...) or false
 end
+
 function doPlayerJoinParty(cid, leaderId)
   local player = Player(cid)
   if player == nil then
@@ -737,6 +818,7 @@ function doPlayerJoinParty(cid, leaderId)
   party:addMember(player)
   return true
 end
+
 function getPartyMembers(cid)
   local player = Player(cid)
   if player == nil then
@@ -754,8 +836,6 @@ function getPartyMembers(cid)
   end
   return result
 end
-
-doPlayerSendDefaultCancel = doPlayerSendCancel
 
 function getMonsterTargetList(cid)
   local monster = Monster(cid)
@@ -1333,8 +1413,6 @@ function getWorldCreatures(type)
   return Game.getPlayerCount() + Game.getMonsterCount() + Game.getNpcCount()
 end
 
-saveData = saveServer
-
 function getGlobalStorageValue(key)
   return Game.getStorageValue(key) or -1
 end
@@ -1344,21 +1422,11 @@ function setGlobalStorageValue(key, value)
   return true
 end
 
-getWorldType = Game.getWorldType
-
-numberToVariant = Variant
-stringToVariant = Variant
-positionToVariant = Variant
-
 function targetPositionToVariant(position)
   local variant = Variant(position)
   variant.type = VARIANT_TARGETPOSITION
   return variant
 end
-
-variantToNumber = Variant.getNumber
-variantToString = Variant.getString
-variantToPosition = Variant.getPosition
 
 function doCreateTeleport(itemId, destination, position)
   local item = Game.createItem(itemId, 1, position)
@@ -1375,7 +1443,6 @@ function getSpectators(centerPos, rangex, rangey, multifloor, onlyPlayers)
   if #result == 0 then
     return nil
   end
-
   for index, spectator in ipairs(result) do
     result[index] = spectator:getId()
   end
@@ -1399,17 +1466,16 @@ function getPlayerInstantSpellCount(cid)
   local p = Player(cid)
   return p and #p:getInstantSpells()
 end
+
 function getPlayerInstantSpellInfo(cid, spellId)
   local player = Player(cid)
   if not player then
     return false
   end
-
   local spell = Spell(spellId)
   if not spell or not player:canCast(spell) then
     return false
   end
-
   return spell
 end
 
@@ -1417,10 +1483,12 @@ function doSetItemOutfit(cid, item, time)
   local c = Creature(cid)
   return c and c:setItemOutfit(item, time)
 end
+
 function doSetMonsterOutfit(cid, name, time)
   local c = Creature(cid)
   return c and c:setMonsterOutfit(name, time)
 end
+
 function doSetCreatureOutfit(cid, outfit, time)
   local creature = Creature(cid)
   if not creature then
@@ -1444,12 +1512,10 @@ function doTileAddItemEx(pos, uid, flags)
   if not tile then
     return false
   end
-
   local item = Item(uid)
   if item then
     return tile:addItemEx(item, flags)
   end
-
   return false
 end
 
@@ -1482,8 +1548,6 @@ function doMoveCreature(cid, direction)
   local c = Creature(cid)
   return c ~= nil and c:move(direction)
 end
-
--- CASAMENTO MARRY
 
 function getPlayerNameById(id)
   local resultName = db.storeQuery("SELECT `name` FROM `players` WHERE `id` = " .. db.escapeString(id))

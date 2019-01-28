@@ -11,7 +11,7 @@ MT.__index = MT
 
 function ModalWindow(...)
   local args = {...}
-  if type(args[1]) == 'table' then
+  if type(args[1]) == "table" then
     local self = setmetatable(args[1], MT)
     local id = modalWindows.nextFreeId
     self.id = id
@@ -19,12 +19,10 @@ function ModalWindow(...)
     self.choices = {}
     self.players = {}
     self.created = false
-
     modalWindows.nextFreeId = id + 1
     table.insert(modalWindows.windows, self)
     return self
   end
-
   return modalWindows.modalWindowConstructor(...)
 end
 
@@ -81,7 +79,6 @@ local buttonOrder = {
 function MT:create()
   local modalWindow = modalWindows.modalWindowConstructor(self.id, self.title, self.message)
   local order = buttonOrder[math.min(#self.buttons, 4)]
-
   if order then
     for _, i in ipairs(order) do
       local button = self.buttons[i]
@@ -95,12 +92,10 @@ function MT:create()
       end
     end
   end
-
   for _, choice in ipairs(self.choices) do
     modalWindow:addChoice(_, choice.text)
     choice.id = _
   end
-
   self.modalWindow = modalWindow
 end
 
@@ -108,8 +103,7 @@ function MT:sendToPlayer(player)
   if not self.modalWindow then
     self:create()
   end
-
-  player:registerEvent('ModalWindowHelper')
+  player:registerEvent("ModalWindowHelper")
   self.players[player:getId()] = true
   return self.modalWindow:sendToPlayer(player)
 end

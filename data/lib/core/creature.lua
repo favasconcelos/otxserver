@@ -19,7 +19,10 @@ function Creature.getClosestFreePosition(self, position, maxRadius, mustBeReacha
       end
 
       local tile = Tile(checkPosition)
-      if tile:getCreatureCount() == 0 and not tile:hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID) and (not mustBeReachable or self:getPathTo(checkPosition)) then
+      if
+        tile:getCreatureCount() == 0 and not tile:hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID) and
+          (not mustBeReachable or self:getPathTo(checkPosition))
+       then
         return checkPosition
       end
     end

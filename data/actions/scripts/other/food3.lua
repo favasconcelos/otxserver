@@ -15,7 +15,7 @@ local config = {
   exhaust = 60 --Exhaust is in seconds 600 equals 10min
 }
 
-local exhaust = createConditionObject(CONDITION_EXHAUST)
+local exhaust = createConditionObject(CONDITION_EXHAUST_WEAPON)
 setConditionParam(exhaust, CONDITION_PARAM_TICKS, (getConfigInfo("timeBetweenExActions") - 100))
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)

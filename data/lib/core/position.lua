@@ -27,7 +27,9 @@ function Position:compare(position)
 end
 
 function Position:isInRange(fromPosition, toPosition)
-  return (self.x >= fromPosition.x and self.y >= fromPosition.y and self.z >= fromPosition.z and self.x <= toPosition.x and self.y <= toPosition.y and self.z <= toPosition.z)
+  return (self.x >= fromPosition.x and self.y >= fromPosition.y and self.z >= fromPosition.z and self.x <= toPosition.x and
+    self.y <= toPosition.y and
+    self.z <= toPosition.z)
 end
 
 function Position:isWalkable()
@@ -45,7 +47,10 @@ function Position:isWalkable()
   for i = 1, tile:getItemCount() do
     local item = items[i]
     local itemType = item:getType()
-    if itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and item:hasProperty(CONST_PROP_BLOCKSOLID) then
+    if
+      itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and
+        item:hasProperty(CONST_PROP_BLOCKSOLID)
+     then
       return false
     end
   end
@@ -75,7 +80,7 @@ function getFreeSand()
     if tries >= 50 then
       return result
     end
-  until result:isWalkable() and Tile(result):getGround():getName() == 'grey sand'
+  until result:isWalkable() and Tile(result):getGround():getName() == "grey sand"
   return result
 end
 
@@ -95,7 +100,10 @@ function Position:moveUpstairs()
     for i = 1, tile:getItemCount() do
       local item = items[i]
       local itemType = item:getType()
-      if itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and item:hasProperty(CONST_PROP_BLOCKSOLID) then
+      if
+        itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and
+          item:hasProperty(CONST_PROP_BLOCKSOLID)
+       then
         return false
       end
     end

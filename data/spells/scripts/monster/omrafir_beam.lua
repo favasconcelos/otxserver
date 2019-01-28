@@ -126,13 +126,13 @@ local function delayedCastSpell(cid, var)
   local creature = Creature(cid)
   if isCreature(cid) == true then
     if creature:getDirection() == 0 then
-      doCombat(cid, combat, positionToVariant(getCreaturePosition(cid)))
+      doCombat(cid, combat, Variant(getCreaturePosition(cid)))
     elseif creature:getDirection() == 1 then
-      doCombat(cid, combat2, positionToVariant(getCreaturePosition(cid)))
+      doCombat(cid, combat2, Variant(getCreaturePosition(cid)))
     elseif creature:getDirection() == 2 then
-      doCombat(cid, combat3, positionToVariant(getCreaturePosition(cid)))
+      doCombat(cid, combat3, Variant(getCreaturePosition(cid)))
     elseif creature:getDirection() == 3 then
-      doCombat(cid, combat4, positionToVariant(getCreaturePosition(cid)))
+      doCombat(cid, combat4, Variant(getCreaturePosition(cid)))
     end
     doCreatureSay(cid, "OMRAFIR BREATHES INFERNAL FIRE", TALKTYPE_ORANGE_2)
   end
