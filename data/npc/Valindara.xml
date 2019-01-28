@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Valindara" script="Valindara.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="138" head="0" body="0" legs="114" feet="97" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Valindara" script="valindara.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="138" head="0" body="0" legs="114" feet="97" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			animate dead rune,2316,375;
 			avalanche rune,2274,25;
 			black pearl,2144,560;
@@ -61,7 +61,7 @@
 			wedding ring,2121,990;
 			white pearl,2143,320;
 			wild growth rune,2269,160" />
-		<parameter key="shop_sellable" value=" Ancient Coin, 27058, 350;
+    <parameter key="shop_sellable" value=" Ancient Coin, 27058, 350;
 		black pearl,2144,280;
 		blue crystal shard,18413,1500;
 		blue crystal splinter,18418,400;
@@ -122,5 +122,5 @@
 		wood cape,2664,5000;
 		wooden spellbook,29003,12000
 	"/>
-	</parameters>
+  </parameters>
 </npc>

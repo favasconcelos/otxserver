@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Flint" script="Flint.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="134" head="95" body="57" legs="76" feet="39" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Flint" script="flint.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="134" head="95" body="57" legs="76" feet="39" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			brown,2789,6" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 		
 		   
 		   Alloy Legs,23539,11000;
@@ -46,5 +46,5 @@
 			shovel,2554,8;
 			watch,2036,6;
 			wooden hammer,2556,15;" />
-	</parameters>
+  </parameters>
 </npc>

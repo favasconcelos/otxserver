@@ -14,14 +14,14 @@ secondCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 secondCombat:setCondition(condition)
 
 function onUseWeapon(player, variant)
-	local boolean = combat:execute(player, variant)
-	if not boolean then
-		return false
-	end
+  local boolean = combat:execute(player, variant)
+  if not boolean then
+    return false
+  end
 
-	local target = variant:getNumber()
-	if target ~= 0 then
-		boolean = secondCombat:execute(player, variant)
-	end
-	return boolean
+  local target = variant:getNumber()
+  if target ~= 0 then
+    boolean = secondCombat:execute(player, variant)
+  end
+  return boolean
 end

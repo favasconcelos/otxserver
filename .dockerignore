@@ -1,0 +1,10 @@
+.gitignore
+DATABASE.sql
+README.md
+login.php
+docker.sh
+docker-compose.yaml
+Dockerfile
+.git/
+.vscode/
+build/

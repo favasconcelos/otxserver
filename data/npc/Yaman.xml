@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Yaman" script="Yaman.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="103" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Yaman" script="yaman.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="103" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			dragon necklace, 2201, 1000,200;
 			dwarven ring, 2213, 2000;
 			energy ring, 2167, 2000;
@@ -15,7 +15,7 @@
 			silver amulet, 2170, 100,200;
 			strange talisman, 2161, 100,200;
 			time ring, 2169, 2000" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			dragon necklace, 2201, 100;
 			dwarven ring, 2213, 100;
 			energy ring, 2167, 100;
@@ -38,5 +38,5 @@
 			springsprout rod, 8912, 3600;
 			terra rod, 2181, 2000;
 			underworld rod, 8910, 4400" />
-	</parameters>
+  </parameters>
 </npc>

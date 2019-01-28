@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Asima" script="Asima.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="138" head="59" body="70" legs="93" feet="76" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Asima" script="asima.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="138" head="59" body="70" legs="93" feet="76" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 		
 			ultimate mp,26029,350;
 			Supreme Health Potion,26031,500;
@@ -55,11 +55,11 @@
 			wand of starstorm,8920,18000;
 			wand of voodoo,8922,22000;
 			wand of vortex,2190,500;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			empty potion flask,7634,5;
 			empty potion flask,7635,5;
 			empty potion flask,7636,5;
 			spellwand,7735,299;
 			vial,2006,5;" />
-	</parameters>
+  </parameters>
 </npc>

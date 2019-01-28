@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<npc name="Maun" script="Maun.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="289" head="38" body="19" legs="21" feet="20" addons="0" />
-	<parameters>
-	<parameter key="module_shop" value="1" />
-	<parameter key="shop_buyable" value="
+<npc name="Maun" script="maun.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="289" head="38" body="19" legs="21" feet="20" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 		animate dead rune,2316,375;
 		arrow,2544,3;
 		basket,1989,6;
@@ -66,7 +66,7 @@
 		watch,2036,20;
 		Wild Growth Rune,2269,160;
 		worm,3976,1" />
-	<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 		bow,2456,100;
 		closed trap,2578,75;
 		crossbow,2455,120;
@@ -84,5 +84,5 @@
 		vial,2006,5;
 		watch,2036,6;
 		wooden hammer,2556,15" />
-	</parameters>
+  </parameters>
 </npc>

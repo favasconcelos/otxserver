@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Shanar" script="Shanar.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="159" head="0" body="94" legs="105" feet="76" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Shanar" script="shanar.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="159" head="0" body="94" legs="105" feet="76" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			axe,2386,20;
 			battle axe,2378,235;
 			battle hammer,2417,350;
@@ -30,7 +30,7 @@
 			staff,2401,40;
 			spear,2389,10;
 			throwing knife,2410,25;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe,2386,7;
 			battle axe,2378,80;
 			battle hammer,2417,120;
@@ -69,5 +69,5 @@
 			short sword,2406,10;
 			mace,2398,23;
 			spear,2389,3;" />
-	</parameters>
+  </parameters>
 </npc>

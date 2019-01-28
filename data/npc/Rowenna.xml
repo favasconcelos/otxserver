@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Rowenna" script="Rowenna.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="139" head="115" body="38" legs="76" feet="38" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Rowenna" script="rowenna.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="139" head="115" body="38" legs="76" feet="38" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			axe,2386,20;
 			battle axe,2378,235;
 			battle hammer,2417,350;
@@ -26,7 +26,7 @@
 			throwing knife,2410,25;
 			two handed sword,2377,950;
 			war hammer,2391,10000;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe,2386,7;
 			battle axe,2378,80;
 			battle hammer,2417,120;
@@ -58,5 +58,5 @@
 			throwing knife,2410,2;
 			two handed sword,2377,450;
 			war hammer,2391,470;" />
-	</parameters>
+  </parameters>
 </npc>

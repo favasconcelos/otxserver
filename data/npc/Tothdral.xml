@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Tothdral" script="Tothdral.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="65" />
-	<parameters>
-		<parameter key="message_greet" value="Welcome |PLAYERNAME|!" />
-		<parameter key="message_farewell" value="Good bye, |PLAYERNAME|." />
-		<parameter key="message_walkaway" value="Good bye, |PLAYERNAME|." />
-		<parameter key="message_sendtrade" value="I'm currently interested in these materials." />
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+<npc name="Tothdral" script="tothdral.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="65" />
+  <parameters>
+    <parameter key="message_greet" value="Welcome |PLAYERNAME|!" />
+    <parameter key="message_farewell" value="Good bye, |PLAYERNAME|." />
+    <parameter key="message_walkaway" value="Good bye, |PLAYERNAME|." />
+    <parameter key="message_sendtrade" value="I'm currently interested in these materials." />
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_sellable" value="
 			black hood,10562,190;
 			book of necromantic rituals,11237,180;
 			book of prayers,10563,120;
@@ -23,5 +23,5 @@
 			strange symbol,2174,200;
 			unholy bone,11233,480;
 			witch broom,10569,60;" />
-	</parameters>
+  </parameters>
 </npc>

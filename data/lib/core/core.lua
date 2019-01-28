@@ -11,4 +11,3 @@ dofile('data/lib/core/tables.lua')
 dofile('data/lib/core/teleport.lua')
 dofile('data/lib/core/tile.lua')
 dofile('data/lib/core/vocation.lua')
-

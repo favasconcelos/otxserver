@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Mugruu" script="mugruu.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="858" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+  <health now="100" max="100" />
+  <look type="858" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			stone skin amulet,2197,5000,5;
 			rusty,9930,50;
 			brown,2789,6" />
-		<parameter key="shop_sellable" value="		
+    <parameter key="shop_sellable" value="		
 		
 		Ogre Choppa,24828,1500;
 		Ogre Ear Stud,24844,180;
@@ -20,5 +20,5 @@
 		
 			Shamanic Talisman,24840,200;
 			Skull Fetish,24847,250" />
-	</parameters>
+  </parameters>
 </npc>

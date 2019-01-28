@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Azil" script="Azil.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="146" head="95" body="9" legs="12" feet="123" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Azil" script="azil.lua" walkinterval="0" floorchange="0">
+  <health now="100" max="100" />
+  <look type="146" head="95" body="9" legs="12" feet="123" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			brass armor,2465,450;
 			brass helmet,2460,120;
 			brass legs,2478,195;
@@ -34,7 +34,7 @@
 			viking helmet,2473,265;
 			viking shield,2531,260;
 			wooden shield,2512,15;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			battle shield,2513,95;
 			brass armor,2465,150;
 			brass helmet,2460,30;
@@ -69,5 +69,5 @@
 			viking helmet,2473,66;
 			viking shield,2531,85;
 			wooden shield,2512,5;" />
-	</parameters>
+  </parameters>
 </npc>

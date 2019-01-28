@@ -1,10 +1,10 @@
-<npc name="Yasir" script="Yasir.lua" walkinterval="2000" floorchange="0">
-  	<health now="150" max="150" />
-	<look type="146" head="85" body="7" legs="12" feet="19" addons="2" />
-	<parameters>
-		<parameter key="message_greet" value="Yasu me halaka. greets you friendly" />
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+<npc name="Yasir" script="yasir.lua" walkinterval="2000" floorchange="0">
+  <health now="150" max="150" />
+  <look type="146" head="85" body="7" legs="12" feet="19" addons="2" />
+  <parameters>
+    <parameter key="message_greet" value="Yasu me halaka. greets you friendly" />
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_sellable" value="
             acorn, 11213, 10; 
 			ancient belt buckle, 27052, 260;
 			antlers, 11214, 50; 
@@ -403,5 +403,5 @@
 			
 			zaogun flag, 11330, 600; 
 			zaogun shoulderplates, 11331, 150 " />
-	</parameters>
+  </parameters>
 </npc>

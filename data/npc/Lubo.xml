@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Lubo" script="Lubo.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="128" head="115" body="39" legs="96" feet="118" addons="3" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Lubo" script="lubo.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="128" head="115" body="39" legs="96" feet="118" addons="3" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			backpack,1988,25;
 			basket,1989,6;
 			bottle,2007,3,0;
@@ -24,7 +24,7 @@
 			watch,2036,20;
 			waterskin,2031,10,1;
 			worm,3976,1;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			closed trap,2578,75;
 			crowbar,2416,50;
 			fishing rod,2580,40;
@@ -35,5 +35,5 @@
 			shovel,2554,8;
 			watch,2036,6;
 			wooden hammer,2556,15;" />
-	</parameters>
+  </parameters>
 </npc>

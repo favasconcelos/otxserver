@@ -521,7 +521,7 @@ function MageFirst(cid, message, keywords, parameters, node)
     if isPremium(cid) then 
     addon = getPlayerStorageValue(cid,mage) 
     if addon < 2 then 
-        if getPlayerSex(cid) == 0 then -- PLAYERSEX == 0 é female
+        if getPlayerSex(cid) == 0 then -- PLAYERSEX == 0 ï¿½ female
         if getPlayerItemCount(cid,5958) >= 1 then 
         if doPlayerRemoveItem(cid,5958,1) then 
             selfSay(newaddon, cid) 
@@ -534,7 +534,7 @@ function MageFirst(cid, message, keywords, parameters, node)
         else 
             selfSay(noitems, cid) 
         end 
-        elseif getPlayerSex(cid) == 1 then -- PLAYERSEX == 1 é male
+        elseif getPlayerSex(cid) == 1 then -- PLAYERSEX == 1 ï¿½ male
         if getPlayerItemCount(cid,2181) >= 1 and getPlayerItemCount(cid,2182) >= 1 and getPlayerItemCount(cid,2183) >= 1 and getPlayerItemCount(cid,2185) >= 1 and getPlayerItemCount(cid,2186) >= 1 and getPlayerItemCount(cid,2187) >= 1 and getPlayerItemCount(cid,2188) >= 1 and getPlayerItemCount(cid,2189) >= 1 and getPlayerItemCount(cid,2190) >= 1 and getPlayerItemCount(cid,2191) >= 1 and getPlayerItemCount(cid,5904) >= 10 and getPlayerItemCount(cid,2193) >= 20 and getPlayerItemCount(cid,5809) >= 1 then 
         if doPlayerRemoveItem(cid,2181,1) and doPlayerRemoveItem(cid,2182,1) and doPlayerRemoveItem(cid,2183,1) and doPlayerRemoveItem(cid,2185,1) and doPlayerRemoveItem(cid,2186,1) and doPlayerRemoveItem(cid,2187,1) and doPlayerRemoveItem(cid,2188,1) and doPlayerRemoveItem(cid,2189,1) and doPlayerRemoveItem(cid,2190,1) and doPlayerRemoveItem(cid,2191,1) and doPlayerRemoveItem(cid,5904,10) and doPlayerRemoveItem(cid,2193,20) and doPlayerRemoveItem(cid,5809,1) then 
             selfSay(newaddon, cid) 
@@ -564,7 +564,7 @@ function MageSecond(cid, message, keywords, parameters, node)
     if isPremium(cid) then 
     addon = getPlayerStorageValue(cid,mage+1)  
     if addon < 2 then 
-        if getPlayerSex(cid) == 0 then -- PLAYERSEX == 0 é female
+        if getPlayerSex(cid) == 0 then -- PLAYERSEX == 0 ï¿½ female
         if getPlayerItemCount(cid,5894) >= 70 and getPlayerItemCount(cid,5911) >= 20 and getPlayerItemCount(cid,5883) >= 40 and getPlayerItemCount(cid,5922) >= 35 and getPlayerItemCount(cid,5886) >= 10 and getPlayerItemCount(cid,5881) >= 60 and getPlayerItemCount(cid,5882) >= 40 and getPlayerItemCount(cid,5904) >= 15 and getPlayerItemCount(cid,5905) >= 30 then 
         if doPlayerRemoveItem(cid,5894,70) and doPlayerRemoveItem(cid,5911,20) and doPlayerRemoveItem(cid,5883,40) and doPlayerRemoveItem(cid,5922,35) and doPlayerRemoveItem(cid,5886,10) and doPlayerRemoveItem(cid,5881,60) and doPlayerRemoveItem(cid,5882,40) and doPlayerRemoveItem(cid,5904,15) and doPlayerRemoveItem(cid,5905,30) then 
             selfSay(newaddon, cid) 
@@ -577,7 +577,7 @@ function MageSecond(cid, message, keywords, parameters, node)
         else 
             selfSay(noitems, cid) 
         end 
-        elseif getPlayerSex(cid) == 1 then -- PLAYERSEX == 1 é male
+        elseif getPlayerSex(cid) == 1 then -- PLAYERSEX == 1 ï¿½ male
         if getPlayerItemCount(cid,5903) >= 1 then 
         if doPlayerRemoveItem(cid,5903,1) then 
             selfSay(newaddon, cid) 
@@ -778,7 +778,7 @@ function SummonerSecond(cid, message, keywords, parameters, node)
     if isPremium(cid) then 
     addon = getPlayerStorageValue(cid,summoner+2) 
     if addon == -1 then 
-        if getPlayerSex(cid) == 1 then -- PLAYERSEX == 1 é male
+        if getPlayerSex(cid) == 1 then -- PLAYERSEX == 1 ï¿½ male
         if getPlayerItemCount(cid,5894) >= 70 and getPlayerItemCount(cid,5911) >= 20 and getPlayerItemCount(cid,5883) >= 40 and getPlayerItemCount(cid,5922) >= 35 and getPlayerItemCount(cid,5886) >= 10 and getPlayerItemCount(cid,5881) >= 60 and getPlayerItemCount(cid,5882) >= 40 and getPlayerItemCount(cid,5904) >= 15 and getPlayerItemCount(cid,5905) >= 30 then 
         if doPlayerRemoveItem(cid,5894,70) and doPlayerRemoveItem(cid,5911,20) and doPlayerRemoveItem(cid,5883,40) and doPlayerRemoveItem(cid,5922,35) and doPlayerRemoveItem(cid,5886,10) and doPlayerRemoveItem(cid,5881,60) and doPlayerRemoveItem(cid,5882,40) and doPlayerRemoveItem(cid,5904,15) and doPlayerRemoveItem(cid,5905,30) then 
             selfSay(newaddon, cid) 
@@ -791,7 +791,7 @@ function SummonerSecond(cid, message, keywords, parameters, node)
         else 
             selfSay(noitems, cid) 
         end 
-        elseif getPlayerSex(cid) == 0 then -- PLAYERSEX == 0 é female
+        elseif getPlayerSex(cid) == 0 then -- PLAYERSEX == 0 ï¿½ female
         if getPlayerItemCount(cid,5903) >= 1 then 
         if doPlayerRemoveItem(cid,5903,1) then 
             selfSay(newaddon, cid) 
@@ -1633,7 +1633,7 @@ end
 
 
 keywordHandler:addKeyword({'addons'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = "I can offer you first & second addons of the following outfits: Citizen, Hunter, Mage, Knight, Nobleman, Summoner, Warrior, Barbarian, Druid, Wizard, Oriental, Pirate, Assassin, Beggar, Shaman, Norseman, Elementalist, Nightmare, Jester and Brotherhood."}) 
-keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = "What you do is that you type 'first hunter addon' or 'second hunter addon' where you replace 'hunter' with whatever outfit you'd like to achieve the addons for. Assuming that you already collected all the required pieces, say 'yes' and voíla - you got yourself an addon!"}) 
+keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = "What you do is that you type 'first hunter addon' or 'second hunter addon' where you replace 'hunter' with whatever outfit you'd like to achieve the addons for. Assuming that you already collected all the required pieces, say 'yes' and voï¿½la - you got yourself an addon!"}) 
 
  node1 = keywordHandler:addKeyword({'first citizen addon'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'To achieve the first citizen addon you need to give me 100 minotaur leathers. Do you have them with you?'}) 
     node1:addChildKeyword({'yes'}, CitizenFirst, {}) 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Haroun" script="Haroun.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="80" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Haroun" script="haroun.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="80" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			axe ring, 2208, 500;
 			club ring, 2209, 500;
 			power ring, 2166, 100;
@@ -15,7 +15,7 @@
 			elven amulet, 2198, 500,50;
 			stone skin amulet, 2197,5000,5;
 			magic light wand, 2162, 120 " />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe ring, 2208, 100;
 			club ring, 2209, 100;
 			power ring, 2166, 50;
@@ -39,5 +39,5 @@
 			life crystal, 4851, 50;
 			mind stone, 2178, 100;
 			orb, 2176, 750 " />
-	</parameters>
+  </parameters>
 </npc>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Bashira" script="Bashira.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="159" head="78" body="63" legs="97" feet="76" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Bashira" script="bashira.lua" walkinterval="0" floorchange="0">
+  <health now="100" max="100" />
+  <look type="159" head="78" body="63" legs="97" feet="76" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			basket,1989,6;
 			bottle,2007,3,0;
 			bucket,2005,4,0;
@@ -31,7 +31,7 @@
 			watch,2036,20;
 			waterskin,2031,10,1;
 			worm,3976,1;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			closed trap,2578,75;
 			crowbar,2416,50;
 			fishing rod,2580,40;
@@ -43,5 +43,5 @@
 			vial,2006,5;
 			watch,2036,6;
 			wooden hammer,2556,15;" />
-	</parameters>
+  </parameters>
 </npc>

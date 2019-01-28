@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Nienna" script="Nienna.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="159" head="78" body="85" legs="58" feet="76" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Nienna" script="nienna.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="159" head="78" body="85" legs="58" feet="76" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			black pearl,2144,560;
 			candelabrum,2041,8;
 			candlestick,2047,2;
@@ -26,7 +26,6 @@
 			small emerald,2149,500;
 			small ruby,2147,500;
 			small sapphire,2146,500;
-			white pearl,2143,320;"
-		/>
-	</parameters>
+			white pearl,2143,320;" />
+  </parameters>
 </npc>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Anomaly" nameDescription="a anomaly" race="energy" experience="120000" speed="380" manacost="0">
+  <health now="290000" max="290000" />
+  <look type="876" corpse="8721" />
+  <targetchange interval="4000" chance="15" />
+  <flags>
+    <flag boss="1" />
+    <flag rewardboss="1" />
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="1" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag staticattack="85" />
+    <flag lightlevel="0" />
+    <flag lightcolor="0" />
+    <flag targetdistance="1" />
+    <flag runonhealth="0" />
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" skill="60" attack="1300" />
+    <attack name="energy" interval="2000" chance="10" range="7" radius="2" target="1" min="-170" max="-415">
+      <attribute key="shootEffect" value="energy" />
+      <attribute key="areaEffect" value="energy" />
+    </attack>
+    <attack name="energy strike" interval="2000" chance="30" range="1" min="-210" max="-300">
+    </attack>
+    <attack name="energy" interval="2000" chance="15" range="7" target="1" min="-175" max="-205">
+      <attribute key="shootEffect" value="energyball" />
+      <attribute key="areaEffect" value="energy" />
+    </attack>
+    <attack name="massive energy elemental electrify" interval="2000" chance="20">
+      <attribute key="areaEffect" value="yellowspark" />
+    </attack>
+  </attacks>
+  <defenses armor="20" defense="20">
+    <defense name="healing" interval="2000" chance="5" min="190" max="250">
+      <attribute key="areaEffect" value="blueshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element holyPercent="-5" />
+    <element deathPercent="1" />
+    <element earthPercent="-20" />
+  </elements>
+  <immunities>
+    <immunity energy="1" />
+    <immunity invisible="1" />
+    <immunity paralyze="1" />
+  </immunities>
+  <loot>
+    <item name="small diamond" countmax="10" chance="20000" />
+    <item name="blue crystal shard" countmax="3" chance="33333" />
+    <item name="energy drink" countmax="5" chance="25000" />
+    <item name="small amethyst" countmax="10" chance="20000" />
+    <item name="platinum coin" countmax="30" chance="100000" />
+    <item name="gold coin" countmax="200" chance="100000" />
+    <item name="green crystal shard" countmax="3" chance="100000" />
+    <item name="small topaz" countmax="10" chance="100000" />
+    <item name="violet crystal shard" countmax="3" chance="100000" />
+    <item name="blue gem" countmax="3" chance="100000" />
+    <item name="collar of blue plasma" chance="3000" />
+    <item name="curious matter" chance="3000" />
+    <item name="crystalline sword" chance="2000" />
+    <item name="frozen lightning" chance="2000" />
+    <item name="green gem" countmax="3" chance="100000" />
+    <item name="lightning headband" chance="2000" />
+    <item name="lightning robe" chance="2000" />
+    <item name="lightning legs" chance="2000" />
+    <item name="ring of blue plasma" chance="2000" />
+    <item name="ring of green plasma" chance="2000" />
+    <item name="ruthless axe" chance="2000" />
+    <item name="shadow sceptre" chance="2000" />
+    <item name="spellbook of warding" chance="2000" />
+    <item name="tiara of power" chance="2000" />
+    <item name="chaos mace" chance="2000" />
+    <item name="void boots" chance="2000" />
+    <item name="yellow gem" countmax="3" chance="2000" />
+    <item name="gold token" countmax="4" chance="100000" />
+    <item name="mysterious remains" chance="100000" />
+    <item name="odd organ" chance="100000" />
+    <item name="great mana potion" chance="33333" />
+    <item name="great spirit potion" chance="12500" />
+    <item name="ultimate health potion" chance="33333" />
+  </loot>
+</monster>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Ukea" script="Ukea.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="159" head="78" body="39" legs="101" feet="58" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Ukea" script="ukea.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="159" head="78" body="39" legs="101" feet="58" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			amphora,2023,4,0;
 			armor rack kit,6114,90;
 			barrel kit,3919,12;
@@ -90,5 +90,5 @@
 			yellow bed kit,7905,80;
 			yellow pillow,1689,25;
 			yellow tapestry,1863,25;" />
-	</parameters>
+  </parameters>
 </npc>

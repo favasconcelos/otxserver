@@ -1,5 +1,5 @@
 function Monster:onSpawn(position)
-	return true
+  return true
 end
 
 -- Example

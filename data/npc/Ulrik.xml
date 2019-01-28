@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Ulrik" script="Ulrik.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="131" head="41" body="70" legs="97" feet="95" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Ulrik" script="ulrik.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="131" head="41" body="70" legs="97" feet="95" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			chain helmet,2458,52;
 			leather helmet,2461,12;
 			chain legs,2648,80;
@@ -18,7 +18,7 @@
 			rapier,2384,15;
 			sabre,2385,35;
 			mace,2398,90;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			steel helmet,2457,190;
 			chain helmet,2458,17;
 			iron helmet,2459,150;
@@ -41,5 +41,5 @@
 			morning star,2394,90;
 			mace,2398,30;
 			battle hammer,2417,120;" />
-	</parameters>
+  </parameters>
 </npc>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Willard" script="Willard.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="131" head="58" body="104" legs="0" feet="116" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Willard" script="willard.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="131" head="58" body="104" legs="0" feet="116" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			arrow,2544,3;
 			axe,2386,20;
 			barbarian axe,2429,590;
@@ -53,7 +53,6 @@
 			power bolt,2547,7;
 			prismatic bolt,18435,20;
 			rapier,2384,15;
-			royal spear,7378,15;
 			sabre,2385,35;
 			scale armor,2483,260;
 			shiver arrow,7839,5;
@@ -79,7 +78,7 @@
 			vortex bolt,15649,6;
 			war hammer,2391,10000;
 			wooden shield,2512,15;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe,2386,7;
 			barbarian axe,2429,185;
 			battle axe,2378,80;
@@ -148,5 +147,5 @@
 			viking shield,2531,85;
 			war hammer,2391,470;
 			wooden shield,2512,5;" />
-	</parameters>
+  </parameters>
 </npc>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Habdel" script="Habdel.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="146" head="95" body="1" legs="0" feet="58" addons="1" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Habdel" script="habdel.lua" walkinterval="0" floorchange="0">
+  <health now="100" max="100" />
+  <look type="146" head="95" body="1" legs="0" feet="58" addons="1" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			axe,2386,20;
 			battle axe,2378,235;
 			battle hammer,2417,350;
@@ -28,7 +28,7 @@
 			throwing star,2399,42;
 			two handed sword,2377,950;
 			war hammer,2391,10000;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			axe,2386,7;
 			battle axe,2378,80;
 			battle hammer,2417,120;
@@ -62,5 +62,5 @@
 			throwing knife,2410,2;
 			two handed sword,2377,450;
 			war hammer,2391,470;" />
-	</parameters>
+  </parameters>
 </npc>

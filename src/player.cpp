@@ -4788,9 +4788,7 @@ void Player::doCriticalDamage(CombatDamage& damage) const
 	}
 }
 
-//Custom: Anti bug do market
 bool Player::isMarketExhausted() const {
 	uint32_t exhaust_time = 1000; //half second 500
-
 	return (OTSYS_TIME() - lastMarketInteraction < exhaust_time);
 }

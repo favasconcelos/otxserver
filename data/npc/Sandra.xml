@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Sandra" script="Sandra.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="140" head="115" body="95" legs="125" feet="57" addons="1" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Sandra" script="sandra.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="140" head="115" body="95" legs="125" feet="57" addons="1" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 		
 		    potvazio,7636,20;
 			potvazio,7635,30;		
@@ -24,10 +24,10 @@
 			ultimate health potion,8473,310;
 			vial of urine,2006,10,13;
 			vial of water,2006,8,1;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			empty potion flask,7634,5;
 			empty potion flask,7635,5;
 			empty potion flask,7636,5;
 			vial,2006,5;" />
-	</parameters>
+  </parameters>
 </npc>

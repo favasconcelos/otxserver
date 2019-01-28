@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Silas" script="Silas.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="129" head="97" body="118" legs="117" feet="97" addons="1" />
-	
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_sellable" value="
+<npc name="Silas" script="silas.lua" walkinterval="0" floorchange="0">
+  <health now="100" max="100" />
+  <look type="129" head="97" body="118" legs="117" feet="97" addons="1" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_sellable" value="
 			arrow,2544,3;
 			bolt,2543,4;			
 			bow,2456,400;
@@ -26,10 +25,10 @@
 			throwing star,2399,42;			
 			vortex bolt,15649,6
 			" />
-		<parameter key="shop_buyable" value="
+    <parameter key="shop_buyable" value="
 			
 			bow,2456,100;
 			crossbow,2455,120;
 			spear,2389,3;" />
-	</parameters>
+  </parameters>
 </npc>

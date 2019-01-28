@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Xodet" script="Xodet.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="130" head="19" body="86" legs="87" feet="95" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Xodet" script="xodet.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="130" head="19" body="86" legs="87" feet="95" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 		
 			ultimate mp,26029,350;
 			Supreme Health Potion,26031,500;
@@ -58,11 +58,11 @@
 			wand of decay,2188,5000;
 			wand of dragonbreath,2191,1000;
 			wand of vortex,2190,500;" />
-		<parameter key="shop_sellable" value="
+    <parameter key="shop_sellable" value="
 			empty potion flask,7634,5;
 			empty potion flask,7635,5;
 			empty potion flask,7636,5;
 			spellwand,7735,299;
 			vial,2006,5;" />
-	</parameters>
+  </parameters>
 </npc>

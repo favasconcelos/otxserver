@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+  <!--Single Spawns-->
+  <script delay="2000" script="weakened_shlorg.lua" />
+</raid>

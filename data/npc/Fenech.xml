@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Fenech" script="Fenech.lua" walkinterval="2000" floorchange="0">
-	<health now="100" max="100" />
-	<look type="132" head="76" body="40" legs="49" feet="117" addons="0" />
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Fenech" script="fenech.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="132" head="76" body="40" legs="49" feet="117" addons="0" />
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			avalanche rune,2274,25;
 			blank rune,2260,10;
 			chameleon rune,2291,210;
@@ -43,6 +43,6 @@
 			wand of starstorm,8920,18000;
 			wand of voodoo,8922,22000;
 			wand of vortex,2190,500;" />
-		<parameter key="shop_sellable" value="spellwand,7735,299;" />
-	</parameters>
+    <parameter key="shop_sellable" value="spellwand,7735,299;" />
+  </parameters>
 </npc>

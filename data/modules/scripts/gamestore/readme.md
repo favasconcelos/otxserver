@@ -1,4 +1,5 @@
 ## Module : Premium Shop - Game Store
+
 ---
 
 > Notify! Please put the images in folder called "64".
@@ -6,6 +7,7 @@
 ### Faq
 
 ##### 1. How to make a category?
+
 ```lua
 --- Method 1 ---
 GameStore.Categories = {
@@ -32,12 +34,13 @@ GameStore.Categories = {
 ```
 
 ##### 2. How to add offers to category
+
 ```lua
 --- Method 1 ---
 GameStore.Categories = {
 	mounts = {
 		offers = {
-			
+
 		}
 	}
 }
@@ -56,15 +59,17 @@ GameStore.Categories = {
 ```
 
 ### Category Options
+
 | Method      | Type                  | Usage                        | Default                     |
-|-------------|-----------------------|------------------------------|-----------------------------|
-| name*       | string                | the category name            | nil                         |
+| ----------- | --------------------- | ---------------------------- | --------------------------- |
+| name\*      | string                | the category name            | nil                         |
 | description | string                | the category description     | ""                          |
 | state       | GameStore.States(int) | the category highlight state | GameStore.States.STATE_NONE |
-| icons*      | table[string(s)]      | the icons for the category   | nil                         |
-| offers(*)   | table[offer(s)]       | the category offers          | nil                         |
+| icons\*     | table[string(s)]      | the icons for the category   | nil                         |
+| offers(\*)  | table[offer(s)]       | the category offers          | nil                         |
 
 #### Example :
+
 ```lua
 mounts = {
 	name = "Mounts",
@@ -76,19 +81,21 @@ mounts = {
 ```
 
 ### Offer Options
-| Method         | Type                      | Usage                                                                  | Default                              |
-|----------------|---------------------------|------------------------------------------------------------------------|--------------------------------------|
-| name*          | string                    | the offer name                                                         | nil                                  |
-| description    | string                    | the offer descrioption                                                 | ""                                   |
-| thingId*       | int                       | the id of the choosed type ( itemId or mountId or outfitLookType, ....)| nil                                  |
-| type*          | GameStore.OfferTypes(int) | the type of the offer, item or mount or outfit or ...                  | GameStore.OfferTypes.OFFER_TYPE_NONE |
-| price*         | int                       | the offer price                                                        | nil                                  |
-| state          | GameStore.States(int)     | the offer highlight state                                              | GameStore.States.STATE_NONE          |
-| icons*         | table[string(s)]          | the icons for the category                                             | nil                                  |
-| disabled       | bool                      | dynamically disable the offer                                          | false                                |
-| disabledReason | string                    | reason for being disabled ( use when disabled is true )                | nil                                  |
+
+| Method         | Type                      | Usage                                                                   | Default                              |
+| -------------- | ------------------------- | ----------------------------------------------------------------------- | ------------------------------------ |
+| name\*         | string                    | the offer name                                                          | nil                                  |
+| description    | string                    | the offer descrioption                                                  | ""                                   |
+| thingId\*      | int                       | the id of the choosed type ( itemId or mountId or outfitLookType, ....) | nil                                  |
+| type\*         | GameStore.OfferTypes(int) | the type of the offer, item or mount or outfit or ...                   | GameStore.OfferTypes.OFFER_TYPE_NONE |
+| price\*        | int                       | the offer price                                                         | nil                                  |
+| state          | GameStore.States(int)     | the offer highlight state                                               | GameStore.States.STATE_NONE          |
+| icons\*        | table[string(s)]          | the icons for the category                                              | nil                                  |
+| disabled       | bool                      | dynamically disable the offer                                           | false                                |
+| disabledReason | string                    | reason for being disabled ( use when disabled is true )                 | nil                                  |
 
 #### Example :
+
 ```lua
 mounts.offers = {
 	{	name = "Titanica",
@@ -108,8 +115,8 @@ mounts.offers = {
 
 ### Offer types and States.
 
-| OfferTypes              | States      |
-|-------------------------|-------------|
+| OfferTypes                | States        |
+| ------------------------- | ------------- |
 | `OFFER_TYPE_ITEM`         | `STATE_NEW`   |
 | `OFFER_TYPE_OUTFIT`       | `STATE_SALE`  |
 | `OFFER_TYPE_OUTFIT_ADDON` | `STATE_TIMED` |

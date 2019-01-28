@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Gladys" script="Gladys.lua" walkinterval="0" floorchange="0">
-	<health now="100" max="100" />
-	<look type="148" head="57" body="94" legs="78" feet="114" addons="1"/>
-	<parameters>
-		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+<npc name="Gladys" script="gladys.lua" walkinterval="0" floorchange="0">
+  <health now="100" max="100" />
+  <look type="148" head="57" body="94" legs="78" feet="114" addons="1"/>
+  <parameters>
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="
 			Basket,1989,6;
 			Bottle,2007,3,0;			
 			Candelabrum,2041,8;
@@ -21,7 +21,7 @@
 			Torch,2050,2;
 			Watch,2036,20;
 			Worm,3976,1" />
-		<parameter key="shop_sellable" value="		
+    <parameter key="shop_sellable" value="		
 		
 		Badger Boots,24742,7500;
 		
@@ -45,5 +45,5 @@
 		Werewolf Fang,24708,180;
 		Werewolf Fur,11234,380;
 		Wooden Hammer,2556,15" />
-	</parameters>
+  </parameters>
 </npc>

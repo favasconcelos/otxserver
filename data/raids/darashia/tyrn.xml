@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+  <!--Announcements-->
+  <announce delay="1000" type="event" message="Beware of Tyrn!" />
+  <!--Single Spawns-->
+  <script delay="1000" script="tyrn.lua" />
+</raid>
